@@ -1,5 +1,11 @@
 # SEEM5910 期末项目
 
+## 当前文档
+
+- [课程研究报告 v97](Robot_Traffic_Course_Report_v97.docx)是给老师阅读和后续修订的版本。
+- [英文讲稿 v97（附中文对照）](SEEM5910_English_Speech_v97.docx)单独存放，图号对应课程报告。
+- [v96 完整存档](Robot_Traffic_Presentation_Report_v96_相关工作与实验前置条件.docx)保留拆分前的内容。
+
 ## 最终研究报告分工
 
 **先只做完整研究报告，演讲和答辩等报告定稿后再提炼。** 当前四个会话应按最终报告目录分工：
