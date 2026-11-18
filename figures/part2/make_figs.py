@@ -107,7 +107,74 @@ def batch_figure():
     plt.close(fig)
 
 
+def door_rule_figure():
+    """门口通行规则三步图（中文重绘 v97 图 06 / en_06_door_rule.png）。"""
+    C_R, C_L, C_G = "#2f6fb5", "#e08a2e", "#b3bac4"
+    panels = [
+        ("① 先服务左边",
+         "左边要过门的车一台接一台通过；\n右边要过门的车退出门口区，\n给别的车让路。",
+         dict(g=[(2, 1), (8, 2)], r=[(4, 3), (5, 3), (3, 4)], l=[(12, 1), (12, 3), (11, 5)],
+              door=("r", "→"), extra=[((11, 5), "↓", C_L)])),
+        ("② 左边走空：收尾",
+         "左边 8 格内已没有要过门的车，\n右边有车在等；左边门口区不再放新车，\n等门格和门口区清空。",
+         dict(g=[(2, 1), (8, 2)], r=[(0, 5)], l=[(11, 1), (12, 1), (12, 3), (11, 5)],
+              door=("r", "→"), extra=[])),
+        ("③ 换向：服务右边",
+         "右边的车接连通过，左边改为等待；\n要等右边也走空才换回来，\n所以规则里不需要定时器。",
+         dict(g=[(2, 1), (10, 1)], r=[(0, 3), (1, 5)], l=[(7, 3), (8, 3), (9, 4)],
+              door=("l", "←"), extra=[])),
+    ]
+    fig, axes = plt.subplots(1, 3, figsize=(13.5, 5.2), dpi=200)
+    for ax, (title, cap, d) in zip(axes, panels):
+        ax.set_xlim(0, 13)
+        ax.set_ylim(-3.6, 7.6)
+        ax.set_aspect("equal")
+        ax.axis("off")
+        for c in range(13):
+            for r in range(7):
+                y = 6 - r
+                if c == 6:
+                    fc = "#3a4450"
+                elif abs(c - 6) + abs(r - 3) <= 4:
+                    fc = "#fbefd2"
+                else:
+                    fc = "white"
+                ax.add_patch(Rectangle((c, y), 1, 1, fc=fc, ec="#d5dbe3", lw=0.6))
+        ax.add_patch(Rectangle((6, 3), 1, 1, fc="white", ec="#1f2933", lw=2.2))
+
+        def dot(c, r, col):
+            ax.add_patch(Circle((c + 0.5, 6 - r + 0.5), 0.38, fc=col, ec="white", lw=0.8))
+        for c, r in d["g"]:
+            dot(c, r, C_G)
+        for c, r in d["r"]:
+            dot(c, r, C_R)
+        for c, r in d["l"]:
+            dot(c, r, C_L)
+        side, arrow = d["door"]
+        col = C_R if side == "r" else C_L
+        dot(6, 3, col)
+        dx = 1.6 if side == "r" else -1.6
+        ax.annotate("", xy=(6.5 + dx, 3.5), xytext=(6.5, 3.5),
+                    arrowprops=dict(arrowstyle="-|>", color=col, lw=2))
+        for (c, r), _, ccol in d["extra"]:
+            ax.annotate("", xy=(c + 0.5, 6 - r - 0.4), xytext=(c + 0.5, 6 - r + 0.5),
+                        arrowprops=dict(arrowstyle="-|>", color=ccol, lw=1.6))
+        ax.text(6.5, 7.35, title, ha="center", va="center", fontsize=13, color=INK, weight="bold")
+        ax.text(6.5, -1.7, cap, ha="center", va="center", fontsize=10, color=MUTED, linespacing=1.5)
+    handles = [plt.Line2D([], [], marker="o", ls="", color=C_R, ms=9, label="要往右过门"),
+               plt.Line2D([], [], marker="o", ls="", color=C_L, ms=9, label="要往左过门"),
+               plt.Line2D([], [], marker="o", ls="", color=C_G, ms=9, label="不过这道门（不受管）"),
+               Rectangle((0, 0), 1, 1, fc="#fbefd2", ec="#d5dbe3", label="门口区：离门 4 格以内"),
+               Rectangle((0, 0), 1, 1, fc="#3a4450", label="墙")]
+    fig.legend(handles=handles, loc="upper center", ncol=5, frameon=False, fontsize=10.5,
+               bbox_to_anchor=(0.5, 1.02))
+    fig.tight_layout(rect=(0, 0, 1, 0.93))
+    fig.savefig(OUT / "p2_04_door_rule.png", bbox_inches="tight")
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     analogy_figure()
     batch_figure()
+    door_rule_figure()
     print("done")
