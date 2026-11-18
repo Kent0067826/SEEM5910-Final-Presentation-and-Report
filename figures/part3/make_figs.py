@@ -20,6 +20,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
+from matplotlib.patches import Patch
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "figures", "part3")
@@ -49,6 +50,9 @@ OK = "#008300"       # 确认通过 / 保留进正式方法
 FAIL = RED           # 失败 / 负结果
 PEND = YELLOW        # 过开发、没确认或暂缓
 INFO = BLUE          # 发现、修评测、诊断
+
+
+OFFICIAL = ("room200", "room250", "room300")   # 官方 4×4 房间图（64×64，16 个房间）的三种车数
 
 
 def style(ax, ygrid=True, xgrid=False):
@@ -83,17 +87,17 @@ def fig_roadmap():
     # 横轴按事件顺序等距排列（不按真实轮次比例），轮次写在每个点下面
     ev = [
         ("第1–10轮", "①评测有bug：种子写死、\n变量没初始化", INFO),
-        ("第11–16轮", "TCP式窗口翻案\n+4.11%（1200拍）", OK),
+        ("第11–16轮", "TCP式窗口翻案\n房间图 +16%（1200拍）", OK),
         ("第25轮", "冠军派单一来，\n前面收益大半被覆盖", INFO),
-        ("第27–29轮", "②跑满5000拍发现崩溃\n名额+门口规则 +53.8%", OK),
-        ("第36–37轮", "③门卡在22台\n修执行器 +16.7%", OK),
-        ("第41–47轮", "三条定律取代手调\n+0.71%（不差于）", OK),
-        ("第52轮", "正式评测640局\n比官方程序 +113.6%", OK),
+        ("第27–29轮", "②跑满5000拍发现崩溃\n名额+门口规则 +55.2%", OK),
+        ("第36–37轮", "③门卡在22台\n修执行器后 26/45台", OK),
+        ("第41–47轮", "三条定律取代手调\n不比手调差", OK),
+        ("第52轮", "正式评测（4×4房间图）\n比官方程序 +140.5%", OK),
         ("第53–62轮", "④门格加价 -5.2%\n分段路由 -39%~-55%", FAIL),
-        ("P35–36", "⑤看门狗：唯一\n新图确认 +1.73%", OK),
+        ("P35–36", "⑤看门狗：唯一通过\n新图确认的协议机制", OK),
         ("P53–55", "④HN-SPF -25.9%\nCSPF -21.0%", FAIL),
         ("P60–69", "⑥名额微调三项\n开发过、确认≈0", PEND),
-        ("P74–75", "⑥四项组合\n+3.15% → +0.05%", PEND),
+        ("P74–75", "⑥四项组合 开发+3.15%\n新房间图 +1.65%，没确认", PEND),
         ("P78", "门口按去向排队\n开发+1.07%，暂缓", PEND),
         ("后续41轮", "离线建模与\n数字核对", INFO),
     ]
@@ -158,32 +162,28 @@ def fig_collapse():
 # 图 3  第①步：先校准尺子（数字抄自通读笔记 / 数字核对表）
 # ---------------------------------------------------------------------------
 def fig_ruler():
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 3.6), gridspec_kw={"width_ratios": [1, 1.25]})
-    # 左：规划器种子写死时，同一配置只因种子不同就差这么多（第1–75轮通读笔记 wait-v9 条）
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 3.4), gridspec_kw={"width_ratios": [1.2, 1]})
+    # 左：规划器种子写死时，同一配置只因种子不同就差这么多（第1–75轮通读笔记 wait-v9 条，官方房间图 200 台）
     seeds = ["种子0\n（写死的）", "种子1", "种子2", "种子3", "种子4"]
     vals = [195.8, 187.1, 189.4, 182.9, 180.8]
     a1.bar(seeds, vals, color=[ORANGE] + [GRAY] * 4, width=0.6)
     for i, v in enumerate(vals):
         a1.text(i, v + 0.4, f"{v}", ha="center", fontsize=9, color=INK)
     a1.set_ylim(175, 199)
-    a1.set_ylabel("完成数（room200，同一程序）", fontsize=9, color=INK2)
+    a1.set_ylabel("完成数（房间图 200 台，同一程序）", fontsize=9, color=INK2)
     a1.set_title("评测把规划器种子写死成 0：\n换个种子成绩最多差 8%（纵轴从 175 起）", fontsize=10, color=INK)
     style(a1)
-    # 右：修好评测后窗口重测（数字核对表 489 行 +4.11%；通读笔记 wait-v10 条；第109轮补记 maze60 -9.8%）
-    labs = ["room200", "room300", "迷宫60台", "全部平均"]
-    v2 = [16.2, 16.0, -9.8, 4.11]
-    c2 = [BLUE, BLUE, FAIL, ORANGE]
-    a2.barh(labs[::-1], v2[::-1], color=c2[::-1], height=0.55)
-    for i, v in enumerate(v2[::-1]):
-        a2.text(v + (0.5 if v >= 0 else -0.5), i, f"{v:+.2f}%" if i == 0 else f"{v:+.1f}%",
-                va="center", ha="left" if v >= 0 else "right", fontsize=9, color=INK)
-    a2.axvline(0, color=MUTED, lw=1)
-    a2.set_xlim(-15, 21)
-    a2.set_xlabel("TCP 式窗口 W=2 比当时基线（1200 拍，第16轮）", fontsize=9, color=INK2)
-    a2.set_title("修好评测再测：窗口在有窄门的房间图上\n明显有用（全部平均 95% 区间 +3.00% 到 +5.21%）", fontsize=10, color=INK)
-    style(a2, ygrid=False, xgrid=True)
+    # 右：修好评测后窗口重测，官方 4×4 房间图（通读笔记 wait-v10 条；数字核对表第 109 轮节）
+    labs = ["房间图 200 台", "房间图 300 台"]
+    v2 = [16.2, 16.0]
+    a2.bar(labs, v2, color=BLUE, width=0.5)
+    for i, v in enumerate(v2):
+        a2.text(i, v + 0.4, f"{v:+.1f}%", ha="center", fontsize=9.5, color=INK)
+    a2.set_ylim(0, 20)
+    a2.set_ylabel("TCP 式窗口 W=2 比当时基线", fontsize=9, color=INK2)
+    a2.set_title("修好评测再测（1200 拍，第16轮）：\n窗口在 4×4 房间图上 +16% 左右", fontsize=10, color=INK)
+    style(a2)
     save(fig, "fig3_3_fix_the_ruler.png")
-
 
 # ---------------------------------------------------------------------------
 # 图 4  第③步：执行器修复（左：门通过量，通读笔记 wait-v27；右：r52b 原始记录逐实例）
@@ -194,13 +194,12 @@ def fig_executor():
     by = {}
     for r in rows:
         by[(r["map"], r["method"], r["seed"], r["pseed"])] = r["completed"]
-    maps = ["room200", "room250", "room300", "maze40", "maze60", "random200", "random300", "warehouse100"]
     gains = []
-    for m in maps:
+    for m in OFFICIAL:
         ds = [by[(mm, "N2F", s, p)] / by[(mm, "N2", s, p)] - 1
               for (mm, meth, s, p) in by if mm == m and meth == "N2"]
         gains.append(100 * sum(ds) / len(ds))
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.5, 3.7), gridspec_kw={"width_ratios": [1, 1.6]})
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.5, 3.6))
     labs = ["修之前", "修之后\n（有故障）", "修之后\n（关掉故障）"]
     v = [22, 26, 45]
     a1.bar(labs, v, color=[GRAY, BLUE, AQUA], width=0.55)
@@ -210,17 +209,16 @@ def fig_executor():
     a1.set_title("门的过车数一直卡在 22 台\n修执行器后才松动（第36–37轮）", fontsize=10, color=INK)
     a1.set_ylim(0, 52)
     style(a1)
-    short = ["房间200", "房间250", "房间300", "迷宫40", "迷宫60", "随机200", "随机300", "仓库100"]
-    a2.bar(short, gains, color=BLUE, width=0.6)
+    short = ["房间图 200 台", "房间图 250 台", "房间图 300 台"]
+    a2.bar(short, gains, color=BLUE, width=0.5)
     for i, g in enumerate(gains):
-        a2.text(i, g + 1.5, f"{g:+.1f}%", ha="center", fontsize=8.5, color=INK)
+        a2.text(i, g + 0.3, f"{g:+.1f}%", ha="center", fontsize=9.5, color=INK)
     a2.set_ylabel("修好执行器 比 只换冠军派单", fontsize=9, color=INK2)
-    a2.set_title(f"正式评测：只修执行器，8 个实例都不变差，平均 +{sum(gains)/len(gains):.1f}%\n（640 局原始记录 rows.jsonl，同种子配对）",
+    a2.set_title(f"正式评测：只修执行器，三种车数平均 +{sum(gains)/len(gains):.1f}%\n（rows.jsonl 原始记录，每种 20 局同种子配对）",
                  fontsize=10, color=INK)
-    a2.set_ylim(0, max(gains) + 14)
+    a2.set_ylim(0, 15)
     style(a2)
     save(fig, "fig3_4_executor_fix.png")
-
 
 # ---------------------------------------------------------------------------
 # 图 5  第④步：换路 / 流量工程全部失败（开发或探索对比；数字见通读笔记、数字核对表）
@@ -299,90 +297,140 @@ def fig_funnel():
 # ---------------------------------------------------------------------------
 # 图 7  开发成绩 vs 新地图确认（哑铃图）
 # ---------------------------------------------------------------------------
+def room_mean(rel):
+    """只取房间图实例（名字以 room 开头），按实例等权平均，单位 %。"""
+    xs = [r["mean"] for r in load(rel)["per_inst"] if r["inst"].startswith("room")]
+    return 100 * sum(xs) / len(xs)
+
+
 def fig_dev_vs_confirm():
-    def m(rel):
-        return 100 * load(rel)["mean"]
+    # 开发：17 个开发实例本来全是房间图；确认：只取 15 个房间图实例（去掉迷宫、随机、仓库），事后重算
     items = [
-        # (名称, 开发, 确认, 来源)
-        ("防死锁看门狗（P35–36）", m("p36/dev_compare_d300.json"), m("p36/confirm_compare.json"), "json"),
-        ("四项组合（P74–75）", m("p74/dev_compare_c4.json"), m("p75/confirm_compare.json"), "json"),
-        ("2格门分两道（P74 单开 → P76 只用真门）", m("p74/dev_compare_pick.json"), m("p76/confirm_compare.json"), "json"),
-        ("三项组合（P74–75）", m("p74/dev_compare_c3.json"), m("p75/confirm_compare_c3.json"), "json"),
-        ("给门留一成余量（P60–61）", 1.69, -0.75, "核对表"),           # 数字核对表 744 行
-        ("路由抖动时才开阻尼（P56–57）", 0.88, 0.20, "核对表"),        # 精简版表；数字核对表 535 行
-        ("按开局实测收名额（P62–63）", 0.67, -0.05, "核对表"),         # 数字核对表 745 行
-        ("门要空转时多派一台（P17–18）", 0.64, 0.25, "核对表"),        # 精简版表；数字核对表 806 行
-        ("Duato 逃生通道（P37）", 0.55, 0.02, "核对表"),              # 协议方向通读笔记 p37；数字核对表 626 行
-        ("按实测自动调割名额（P68–69）", m("p68/dev_compare_B2.json"), m("p69/confirm_compare.json"), "json"),
+        ("防死锁看门狗（P35–36）", "p36/dev_compare_d300.json", "p36/confirm_compare.json"),
+        ("四项组合（P74–75）", "p74/dev_compare_c4.json", "p75/confirm_compare.json"),
+        ("2格门分两道（P74 单开 → P76 只用真门）", "p74/dev_compare_pick.json", "p76/confirm_compare.json"),
+        ("三项组合（P74–75）", "p74/dev_compare_c3.json", "p75/confirm_compare_c3.json"),
+        ("按实测自动调割名额（P68–69）", "p68/dev_compare_B2.json", "p69/confirm_compare.json"),
     ]
+    items = [(n, room_mean(d), room_mean(c)) for n, d, c in items]
     items.sort(key=lambda t: -t[1])
-    fig, ax = plt.subplots(figsize=(10, 5.2))
-    for i, (n, d, c, src) in enumerate(items):
-        good = c > 1.0
-        ax.plot([d, c], [i, i], color=OK if good else GRAY, lw=2, zorder=1)
+    fig, ax = plt.subplots(figsize=(10, 3.4))
+    for i, (n, d, c) in enumerate(items):
+        up = c > d
+        ax.plot([d, c], [i, i], color=OK if up else GRAY, lw=2, zorder=1)
         ax.scatter([d], [i], s=60, color=BLUE, zorder=2)
-        ax.scatter([c], [i], s=70, color=OK if good else ORANGE, zorder=3, marker="D")
-        ax.text(max(d, c) + 0.15, i, f"{d:+.2f}% → {c:+.2f}%" + ("  确认通过" if good else ""),
-                va="center", fontsize=8.5, color=INK, fontweight="bold" if good else "normal")
+        ax.scatter([c], [i], s=70, color=OK if up else ORANGE, zorder=3, marker="D")
+        ax.text(max(d, c) + 0.12, i, f"{d:+.2f}% → {c:+.2f}%" + ("  正式确认通过" if up else ""),
+                va="center", fontsize=8.8, color=INK)
     ax.set_yticks(range(len(items)))
     ax.set_yticklabels([t[0] for t in items], fontsize=9)
     ax.invert_yaxis()
     ax.axvline(0, color=MUTED, lw=1)
-    ax.set_xlim(-1.5, 5.6)
-    ax.scatter([], [], s=60, color=BLUE, label="开发对比（17 个开发实例）")
-    ax.scatter([], [], s=60, color=ORANGE, marker="D", label="新地图确认（官方 8 + 新画 12 个实例，每实例 20 局）")
+    ax.set_xlim(-0.6, 4.8)
+    ax.scatter([], [], s=60, color=BLUE, label="开发对比（17 个房间图开发实例）")
+    ax.scatter([], [], s=70, color=ORANGE, marker="D", label="新种子确认（15 个房间图实例，每实例 20 局）")
     ax.legend(fontsize=8.5, frameon=False, loc="lower right")
     ax.set_xlabel("完成数变化（%，和当时的基线比）", fontsize=9, color=INK2)
-    ax.set_title("开发成绩换到没见过的地图就缩水：10 项里只有看门狗反而更高", fontsize=11, color=INK)
+    ax.set_title("开发成绩换一批房间图就缩水：只有看门狗反而更高", fontsize=11, color=INK)
     style(ax, ygrid=False, xgrid=True)
     save(fig, "fig3_7_dev_vs_confirm.png")
-
 
 # ---------------------------------------------------------------------------
 # 图 8  四项组合：开发 vs 确认 的逐实例（p74 / p75 原始比较文件）
 # ---------------------------------------------------------------------------
 def fig_combo():
     dev = load("p74/dev_compare_c4.json")["per_inst"]
-    con = load("p75/confirm_compare.json")["per_inst"]
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 4.0), sharey=True,
-                                 gridspec_kw={"width_ratios": [17, 20]})
-    for ax, data, title in [(a1, dev, "开发对比（17 个开发实例，平均 +3.15%）"),
-                            (a2, con, "新地图确认（20 个实例，平均 +0.05%）")]:
+    con = [r for r in load("p75/confirm_compare.json")["per_inst"] if r["inst"].startswith("room")]
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12, 3.9), sharey=True,
+                                 gridspec_kw={"width_ratios": [17, 15]})
+    for ax, data, title in [(a1, dev, f"开发对比（17 个房间图，平均 {room_mean('p74/dev_compare_c4.json'):+.2f}%）"),
+                            (a2, con, f"新种子确认（15 个房间图，平均 {room_mean('p75/confirm_compare.json'):+.2f}%）")]:
         data = sorted(data, key=lambda r: -r["mean"])
         vals = [100 * r["mean"] for r in data]
-        cols = [BLUE if v >= 0 else ORANGE for v in vals]
+        cols = [(ORANGE if r["inst"] in OFFICIAL else BLUE) for r in data]
         ax.bar(range(len(vals)), vals, color=cols, width=0.7)
         ax.set_xticks(range(len(vals)))
         ax.set_xticklabels([r["inst"] for r in data], rotation=70, fontsize=7)
         ax.axhline(0, color=MUTED, lw=1)
-        for i, (r, v) in enumerate(zip(data, vals)):
-            if 12 < abs(v) < 20:
-                ax.text(i, v + (0.8 if v > 0 else -0.8), f"{v:+.1f}%", ha="center",
-                        va="bottom" if v > 0 else "top", fontsize=8, color=INK)
+        for i, v in enumerate(vals):
+            if i == 0:
+                ax.text(i, v + 0.5, f"{v:+.1f}%", ha="center", va="bottom", fontsize=8, color=INK)
         ax.set_title(title, fontsize=10, color=INK)
         style(ax)
     a1.set_ylabel("完成数变化（%）", fontsize=9, color=INK2)
-    a2.annotate("迷宫 60 台：分道规则把普通走廊\n当成门，-22.18%", xy=(19, -22.18), xytext=(9.5, -18),
-                fontsize=8.5, color=INK, arrowprops=dict(arrowstyle="->", color=INK2))
-    a1.set_ylim(-27, 24)
-    fig.suptitle("四项机制一起开：好处只来自少数几张图，换一批图就被一个“坏图”抵消", fontsize=11, color=INK, y=1.02)
+    a1.set_ylim(-3, 19)
+    a1.legend(handles=[Patch(color=ORANGE, label="官方 4×4 房间图（200/250/300 台）"),
+                       Patch(color=BLUE, label="其他房间图")], fontsize=8.5, frameon=False, loc="upper right")
+    fig.suptitle("四项机制一起开：好处只来自少数几张特别堵的图，官方 4×4 房间图上几乎不动", fontsize=11, color=INK, y=1.02)
     save(fig, "fig3_8_combo_per_instance.png")
 
 
+# ---------------------------------------------------------------------------
+# 图 0  正式评测：官方 4×4 房间图的三级台阶（r52b 原始记录）
+# ---------------------------------------------------------------------------
+def fig_ladder():
+    rows = [json.loads(l) for l in open(os.path.join(EM, "archive", "workspace", "batches",
+                                                     "r52b-baseline", "rows.jsonl"), encoding="utf-8")]
+    acc = defaultdict(list)
+    for r in rows:
+        acc[(r["map"], r["method"])].append(r["completed"])
+    meths = ["DEF", "N2", "N2F", "LCAP"]
+    names = ["官方入门程序", "+冠军派单", "+修好执行器", "+名额与门口规则（本文）"]
+    cols = [GRAY, "#8fb6e8", BLUE, ORANGE]
+    fig, ax = plt.subplots(figsize=(9.5, 3.8))
+    w = 0.2
+    for j, (m, nm, c) in enumerate(zip(meths, names, cols)):
+        ys = [sum(acc[(mp, m)]) / len(acc[(mp, m)]) for mp in OFFICIAL]
+        xs = [i + (j - 1.5) * w for i in range(3)]
+        ax.bar(xs, ys, width=w * 0.92, color=c, label=nm)
+        for x, y in zip(xs, ys):
+            ax.text(x, y + 12, f"{y:.0f}", ha="center", fontsize=8, color=INK)
+    ax.set_xticks(range(3))
+    ax.set_xticklabels(["200 台车", "250 台车", "300 台车"], fontsize=9.5)
+    ax.set_ylabel("一局（5000 拍）平均完成单数", fontsize=9, color=INK2)
+    ax.set_ylim(0, 1320)
+    ax.legend(fontsize=8.5, frameon=False, ncol=4, loc="upper center", bbox_to_anchor=(0.5, 1.13))
+    style(ax)
+    save(fig, "fig3_0_formal_ladder.png")
+
+
+# ---------------------------------------------------------------------------
+# 图 6b  看门狗确认：只看房间图实例（p36 confirm_compare.json）
+# ---------------------------------------------------------------------------
+def fig_watchdog():
+    data = [r for r in load("p36/confirm_compare.json")["per_inst"] if r["inst"].startswith("room")]
+    data.sort(key=lambda r: -r["mean"])
+    vals = [100 * r["mean"] for r in data]
+    fig, ax = plt.subplots(figsize=(10, 3.3))
+    cols = [(ORANGE if r["inst"] in OFFICIAL else BLUE) for r in data]
+    ax.bar(range(len(vals)), vals, color=cols, width=0.7)
+    for i, v in enumerate(vals):
+        ax.text(i, v + (0.25 if v >= 0 else -0.25), f"{v:+.1f}", ha="center",
+                va="bottom" if v >= 0 else "top", fontsize=7.5, color=INK)
+    ax.set_xticks(range(len(vals)))
+    ax.set_xticklabels([r["inst"] for r in data], rotation=60, fontsize=7.5)
+    ax.axhline(0, color=MUTED, lw=1)
+    ax.set_ylabel("完成数变化（%）", fontsize=9, color=INK2)
+    ax.set_ylim(-1.5, 12.5)
+    ax.legend(handles=[Patch(color=ORANGE, label="官方 4×4 房间图"),
+                       Patch(color=BLUE, label="新画的房间图（留出，开发时没见过）")], fontsize=8.5, frameon=False)
+    ax.set_title("看门狗确认：好处集中在几张容易锁死的新房间图，官方 4×4 房间图上几乎不动", fontsize=10.5, color=INK)
+    style(ax)
+    save(fig, "fig3_6b_watchdog_confirm.png")
+
 def copy_existing():
     src = {
-        "fig3_0_formal_ladder.png": os.path.join(EM, "archive", "rounds", "wait-v42", "fig_r52b_baseline.png"),
         "fig3_2b_replay_tick3000.png": os.path.join(EM, "网络协议方向", "报告源", "图", "演讲_回放_第3000拍.png"),
-        "fig3_6b_watchdog_confirm.png": os.path.join(EM, "网络协议方向", "报告源", "图", "精简_看门狗确认.png"),
     }
     for dst, s in src.items():
         shutil.copyfile(s, os.path.join(OUT, dst))
         print("copied", dst)
 
-
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     copy_existing()
+    fig_ladder()
+    fig_watchdog()
     fig_roadmap()
     fig_collapse()
     fig_ruler()
