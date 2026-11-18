@@ -1,0 +1,4 @@
+87e67211280dd9795cb3d01f0e02125bb045ed5f0af952806e9b2430b8d91339 *bin/lifelong-p68b.exe
+5a72046f18bdcaabc990c40af9ebf79e565eeb21580f2eb904e707e6fc1ef931 *bin/lifelong-p37a.exe
+b48a9919de60857ec7c53fadf7922ab6c5e17f7ea1a9b9f45b0113106ca11a73 *harness/lcap_env_p69confirm_wd.json
+5a1d91f0c90fb6869f8a5040f2d976e22536ac7ebb02f491499e7e201755782f *harness/data/maps_p69/gen_p69.py

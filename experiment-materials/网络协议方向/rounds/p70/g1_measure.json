@@ -1,0 +1,201 @@
+{
+ "mean_17": {
+  "busiest": 0.01134606387485233,
+  "busiest_empty": 0.003647115805114053,
+  "other": 0.06187507335927943,
+  "other_empty": 0.03796705475871861,
+  "busiest_cross_frac": 0.07036262762197323
+ },
+ "step1_pass": true,
+ "step2_pass": true,
+ "skip": false,
+ "per_inst": [
+  {
+   "busiest": 0.003462,
+   "busiest_empty": 0.002341,
+   "other": 0.048003,
+   "other_empty": 0.030339,
+   "inst": "room200",
+   "completed": 991,
+   "doors": 31,
+   "doors_used": 31,
+   "busiest_cross_frac": 0.07876275510204081
+  },
+  {
+   "busiest": 0.0032232,
+   "busiest_empty": 0.0022536,
+   "other": 0.0417816,
+   "other_empty": 0.026344,
+   "inst": "room250",
+   "completed": 1138,
+   "doors": 31,
+   "doors_used": 31,
+   "busiest_cross_frac": 0.07458013094221463
+  },
+  {
+   "busiest": 0.0027246666666666665,
+   "busiest_empty": 0.0018206666666666666,
+   "other": 0.034743333333333334,
+   "other_empty": 0.02328,
+   "inst": "room300",
+   "completed": 1240,
+   "doors": 31,
+   "doors_used": 31,
+   "busiest_cross_frac": 0.07022776572668113
+  },
+  {
+   "busiest": 0.010750753768844221,
+   "busiest_empty": 0.0070361809045226134,
+   "other": 0.03618492462311558,
+   "other_empty": 0.025088442211055276,
+   "inst": "roomAA_199",
+   "completed": 1121,
+   "doors": 22,
+   "doors_used": 22,
+   "busiest_cross_frac": 0.07862110674327184
+  },
+  {
+   "busiest": 0.006226455026455026,
+   "busiest_empty": 0.0038095238095238095,
+   "other": 0.021253968253968254,
+   "other_empty": 0.01676931216931217,
+   "inst": "roomAD_189",
+   "completed": 760,
+   "doors": 58,
+   "doors_used": 58,
+   "busiest_cross_frac": 0.08528584817244611
+  },
+  {
+   "busiest": 0.0037333333333333333,
+   "busiest_empty": 0.0021475,
+   "other": 0.038933333333333334,
+   "other_empty": 0.0255775,
+   "inst": "roomBF_240",
+   "completed": 897,
+   "doors": 57,
+   "doors_used": 57,
+   "busiest_cross_frac": 0.05471399502600045
+  },
+  {
+   "busiest": 0.012982474226804123,
+   "busiest_empty": 0.0036453608247422682,
+   "other": 0.0776360824742268,
+   "other_empty": 0.05288247422680412,
+   "inst": "roomFD_194",
+   "completed": 1232,
+   "doors": 38,
+   "doors_used": 38,
+   "busiest_cross_frac": 0.070452528837622
+  },
+  {
+   "busiest": 0.00721058201058201,
+   "busiest_empty": 0.003385185185185185,
+   "other": 0.08874391534391535,
+   "other_empty": 0.029493121693121693,
+   "inst": "roomFE_189",
+   "completed": 926,
+   "doors": 60,
+   "doors_used": 60,
+   "busiest_cross_frac": 0.07919520547945205
+  },
+  {
+   "busiest": 0.004612765957446809,
+   "busiest_empty": 0.002364893617021277,
+   "other": 0.09115744680851064,
+   "other_empty": 0.0620968085106383,
+   "inst": "roomFF_188",
+   "completed": 1104,
+   "doors": 57,
+   "doors_used": 57,
+   "busiest_cross_frac": 0.04130105900151286
+  },
+  {
+   "busiest": 0.028638144329896906,
+   "busiest_empty": 0.00556701030927835,
+   "other": 0.03354329896907216,
+   "other_empty": 0.025017525773195878,
+   "inst": "roomGB_194",
+   "completed": 1008,
+   "doors": 41,
+   "doors_used": 41,
+   "busiest_cross_frac": 0.10285303284584033
+  },
+  {
+   "busiest": 0.008748,
+   "busiest_empty": 0.005178,
+   "other": 0.106705,
+   "other_empty": 0.0672,
+   "inst": "roomHA_200",
+   "completed": 1756,
+   "doors": 32,
+   "doors_used": 32,
+   "busiest_cross_frac": 0.04754910960161557
+  },
+  {
+   "busiest": 0.008967195767195768,
+   "busiest_empty": 0.0031576719576719577,
+   "other": 0.11145925925925926,
+   "other_empty": 0.07934285714285715,
+   "inst": "roomHE_189",
+   "completed": 1428,
+   "doors": 65,
+   "doors_used": 65,
+   "busiest_cross_frac": 0.042101147028154325
+  },
+  {
+   "busiest": 0.010948,
+   "busiest_empty": 0.003008,
+   "other": 0.071995,
+   "other_empty": 0.042056,
+   "inst": "roomQ_200",
+   "completed": 1435,
+   "doors": 26,
+   "doors_used": 26,
+   "busiest_cross_frac": 0.07951273532668882
+  },
+  {
+   "busiest": 0.01805275590551181,
+   "busiest_empty": 0.0018188976377952757,
+   "other": 0.07590787401574803,
+   "other_empty": 0.03813700787401575,
+   "inst": "roomQ_254",
+   "completed": 1355,
+   "doors": 26,
+   "doors_used": 26,
+   "busiest_cross_frac": 0.07962472937214338
+  },
+  {
+   "busiest": 0.004306882591093118,
+   "busiest_empty": 0.002930364372469636,
+   "other": 0.044779757085020244,
+   "other_empty": 0.030066396761133603,
+   "inst": "roomS_247",
+   "completed": 939,
+   "doors": 41,
+   "doors_used": 41,
+   "busiest_cross_frac": 0.05648171186862404
+  },
+  {
+   "busiest": 0.01478041237113402,
+   "busiest_empty": 0.009459793814432989,
+   "other": 0.09429381443298969,
+   "other_empty": 0.05782783505154639,
+   "inst": "roomW_194",
+   "completed": 890,
+   "doors": 39,
+   "doors_used": 39,
+   "busiest_cross_frac": 0.06676978602732662
+  },
+  {
+   "busiest": 0.043515463917525775,
+   "busiest_empty": 0.002077319587628866,
+   "other": 0.03475463917525773,
+   "other_empty": 0.013921649484536083,
+   "inst": "roomZ3_194",
+   "completed": 712,
+   "doors": 39,
+   "doors_used": 39,
+   "busiest_cross_frac": 0.08813202247191011
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{"map": "roomPE_240", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.3, "completed": 1102, "plannerErrors": 0, "errors": 0, "scheduleErrors": 48, "stderr_tail": ""}
+{"map": "roomPF_240", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.3, "completed": 796, "plannerErrors": 0, "errors": 0, "scheduleErrors": 26, "stderr_tail": ""}
+{"map": "roomPB_247", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.5, "completed": 1427, "plannerErrors": 0, "errors": 0, "scheduleErrors": 95, "stderr_tail": ""}
+{"map": "roomPD_247", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.7, "completed": 1212, "plannerErrors": 0, "errors": 0, "scheduleErrors": 46, "stderr_tail": ""}
+{"map": "roomPA_254", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.0, "completed": 1223, "plannerErrors": 0, "errors": 0, "scheduleErrors": 82, "stderr_tail": ""}
+{"map": "roomPC_247", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.0, "completed": 1191, "plannerErrors": 0, "errors": 0, "scheduleErrors": 81, "stderr_tail": ""}
+{"map": "roomPF_189", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 5.7, "completed": 722, "plannerErrors": 0, "errors": 0, "scheduleErrors": 18, "stderr_tail": ""}
+{"map": "roomPD_194", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.2, "completed": 1169, "plannerErrors": 0, "errors": 0, "scheduleErrors": 52, "stderr_tail": ""}
+{"map": "roomPB_194", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.7, "completed": 1289, "plannerErrors": 0, "errors": 0, "scheduleErrors": 69, "stderr_tail": ""}
+{"map": "roomPE_189", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.1, "completed": 1035, "plannerErrors": 0, "errors": 0, "scheduleErrors": 52, "stderr_tail": ""}
+{"map": "roomPA_199", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.7, "completed": 1152, "plannerErrors": 0, "errors": 0, "scheduleErrors": 83, "stderr_tail": ""}
+{"map": "roomPC_194", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.6, "completed": 1130, "plannerErrors": 0, "errors": 0, "scheduleErrors": 91, "stderr_tail": ""}

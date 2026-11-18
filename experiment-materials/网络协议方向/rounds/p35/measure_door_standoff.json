@@ -1,0 +1,468 @@
+[
+ {
+  "inst": "room200",
+  "completed": 1025,
+  "standoffs": 5,
+  "door_standoffs": 2,
+  "frac_time": 0.0994,
+  "longest": 354,
+  "door_dead_ticks": 263,
+  "list": [
+   [
+    [
+     15,
+     112
+    ],
+    368,
+    354,
+    1,
+    [
+     "room",
+     "apron"
+    ]
+   ],
+   [
+    [
+     112,
+     167
+    ],
+    2469,
+    143,
+    26,
+    [
+     "room",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "room250",
+  "completed": 1130,
+  "standoffs": 19,
+  "door_standoffs": 3,
+  "frac_time": 0.2386,
+  "longest": 578,
+  "door_dead_ticks": 347,
+  "list": [
+   [
+    [
+     67,
+     127
+    ],
+    549,
+    578,
+    3,
+    [
+     "apron",
+     "apron"
+    ]
+   ],
+   [
+    [
+     127,
+     167
+    ],
+    1162,
+    477,
+    3,
+    [
+     "apron",
+     "room"
+    ]
+   ],
+   [
+    [
+     71,
+     225
+    ],
+    3833,
+    138,
+    15,
+    [
+     "apron",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "room300",
+  "completed": 1194,
+  "standoffs": 27,
+  "door_standoffs": 4,
+  "frac_time": 0.1326,
+  "longest": 249,
+  "door_dead_ticks": 318,
+  "list": [
+   [
+    [
+     264,
+     291
+    ],
+    68,
+    159,
+    8,
+    [
+     "apron",
+     "room"
+    ]
+   ],
+   [
+    [
+     78,
+     128
+    ],
+    2254,
+    133,
+    15,
+    [
+     "room",
+     "apron"
+    ]
+   ],
+   [
+    [
+     42,
+     58
+    ],
+    3285,
+    122,
+    26,
+    [
+     "apron",
+     "room"
+    ]
+   ],
+   [
+    [
+     29,
+     233
+    ],
+    4193,
+    249,
+    23,
+    [
+     "apron",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomAA_199",
+  "completed": 1141,
+  "standoffs": 9,
+  "door_standoffs": 2,
+  "frac_time": 0.0722,
+  "longest": 184,
+  "door_dead_ticks": 106,
+  "list": [
+   [
+    [
+     130,
+     183
+    ],
+    1363,
+    184,
+    21,
+    [
+     "apron",
+     "apron"
+    ]
+   ],
+   [
+    [
+     45,
+     60
+    ],
+    4250,
+    177,
+    14,
+    [
+     "apron",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomAD_189",
+  "completed": 770,
+  "standoffs": 7,
+  "door_standoffs": 1,
+  "frac_time": 0.025,
+  "longest": 125,
+  "door_dead_ticks": 75,
+  "list": [
+   [
+    [
+     93,
+     115
+    ],
+    672,
+    125,
+    44,
+    [
+     "room",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomBF_240",
+  "completed": 912,
+  "standoffs": 7,
+  "door_standoffs": 2,
+  "frac_time": 0.193,
+  "longest": 965,
+  "door_dead_ticks": 1077,
+  "list": [
+   [
+    [
+     38,
+     90
+    ],
+    4035,
+    965,
+    26,
+    [
+     "apron",
+     "apron"
+    ]
+   ],
+   [
+    [
+     10,
+     55
+    ],
+    4278,
+    722,
+    4,
+    [
+     "apron",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomFD_194",
+  "completed": 1118,
+  "standoffs": 3,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomFE_189",
+  "completed": 1017,
+  "standoffs": 8,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomFF_188",
+  "completed": 1107,
+  "standoffs": 4,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomGB_194",
+  "completed": 915,
+  "standoffs": 8,
+  "door_standoffs": 2,
+  "frac_time": 0.1396,
+  "longest": 363,
+  "door_dead_ticks": 340,
+  "list": [
+   [
+    [
+     30,
+     77
+    ],
+    1304,
+    363,
+    18,
+    [
+     "apron",
+     "apron"
+    ]
+   ],
+   [
+    [
+     127,
+     183
+    ],
+    2777,
+    335,
+    20,
+    [
+     "room",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomHA_200",
+  "completed": 1739,
+  "standoffs": 0,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomHE_189",
+  "completed": 1458,
+  "standoffs": 0,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomQ_200",
+  "completed": 1375,
+  "standoffs": 5,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomQ_254",
+  "completed": 1440,
+  "standoffs": 7,
+  "door_standoffs": 0,
+  "frac_time": 0.0,
+  "longest": 0,
+  "door_dead_ticks": 0,
+  "list": []
+ },
+ {
+  "inst": "roomS_247",
+  "completed": 946,
+  "standoffs": 7,
+  "door_standoffs": 3,
+  "frac_time": 0.1248,
+  "longest": 351,
+  "door_dead_ticks": 347,
+  "list": [
+   [
+    [
+     6,
+     215
+    ],
+    1796,
+    351,
+    1,
+    [
+     "apron",
+     "apron"
+    ]
+   ],
+   [
+    [
+     67,
+     138
+    ],
+    1892,
+    255,
+    38,
+    [
+     "apron",
+     "apron"
+    ]
+   ],
+   [
+    [
+     143,
+     163
+    ],
+    3899,
+    273,
+    40,
+    [
+     "room",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomW_194",
+  "completed": 863,
+  "standoffs": 2,
+  "door_standoffs": 2,
+  "frac_time": 0.4798,
+  "longest": 2189,
+  "door_dead_ticks": 2372,
+  "list": [
+   [
+    [
+     0,
+     189
+    ],
+    993,
+    2189,
+    14,
+    [
+     "apron",
+     "door"
+    ]
+   ],
+   [
+    [
+     47,
+     150
+    ],
+    2932,
+    460,
+    26,
+    [
+     "apron",
+     "apron"
+    ]
+   ]
+  ]
+ },
+ {
+  "inst": "roomZ3_194",
+  "completed": 696,
+  "standoffs": 5,
+  "door_standoffs": 1,
+  "frac_time": 0.03,
+  "longest": 150,
+  "door_dead_ticks": 92,
+  "list": [
+   [
+    [
+     93,
+     172
+    ],
+    1052,
+    150,
+    8,
+    [
+     "apron",
+     "apron"
+    ]
+   ]
+  ]
+ }
+]

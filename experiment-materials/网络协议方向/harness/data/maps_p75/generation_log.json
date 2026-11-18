@@ -1,0 +1,90 @@
+[
+ {
+  "seed": 95001,
+  "S": 16,
+  "result": "kept",
+  "door": 16,
+  "parts": [
+   3150,
+   450
+  ],
+  "rooms": 16,
+  "doors": 21,
+  "name": "roomNA"
+ },
+ {
+  "seed": 95002,
+  "S": 15,
+  "result": "kept",
+  "door": 21,
+  "parts": [
+   2240,
+   1241
+  ],
+  "rooms": 25,
+  "doors": 40,
+  "name": "roomNB"
+ },
+ {
+  "seed": 95003,
+  "S": 14,
+  "result": "kept",
+  "door": 14,
+  "parts": [
+   338,
+   3143
+  ],
+  "rooms": 25,
+  "doors": 45,
+  "name": "roomNC"
+ },
+ {
+  "seed": 95004,
+  "S": 13,
+  "result": "kept",
+  "door": 20,
+  "parts": [
+   2797,
+   684
+  ],
+  "rooms": 25,
+  "doors": 35,
+  "name": "roomND"
+ },
+ {
+  "seed": 95005,
+  "S": 12,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 95006,
+  "S": 12,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 95007,
+  "S": 12,
+  "result": "kept",
+  "door": 11,
+  "parts": [
+   2880,
+   484
+  ],
+  "rooms": 36,
+  "doors": 60,
+  "name": "roomNE"
+ },
+ {
+  "seed": 95008,
+  "S": 11,
+  "result": "kept",
+  "door": 23,
+  "parts": [
+   3124,
+   240
+  ],
+  "rooms": 36,
+  "doors": 61,
+  "name": "roomNF"
+ }
+]

@@ -1,0 +1,2 @@
+{"map": "roomPA_199", "method": "C3x", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.4, "completed": 1171, "plannerErrors": 0, "errors": 0, "scheduleErrors": 89, "stderr_tail": ""}
+{"map": "room250", "method": "C3x", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.2, "completed": 1141, "plannerErrors": 0, "errors": 0, "scheduleErrors": 67, "stderr_tail": ""}

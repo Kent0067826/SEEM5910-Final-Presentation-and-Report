@@ -1,0 +1,116 @@
+{
+ "round": 46,
+ "written": "2026-10-21, after the dev batch, before any confirmation run",
+ "binary": "bin/lifelong-v32a",
+ "binary_sha256": "55018c9a6dc5df70727926a5c39f725af0fb14066445d25ef9ebe9a38ad7fd37",
+ "source": "dev_src_v32",
+ "X": [
+  "EXH"
+ ],
+ "methods": {
+  "N2F": {
+   "ROBOT_SCHED": "nms",
+   "ROBOT_NMS_W": "2",
+   "ROBOT_EXEC_SYNCFIX": "1"
+  },
+  "NETcap": {
+   "ROBOT_SCHED": "nms",
+   "ROBOT_NMS_W": "2",
+   "ROBOT_BRIDGE_CREDIT": "16",
+   "ROBOT_BMAC": "1",
+   "ROBOT_BMAC_EVAC": "1",
+   "ROBOT_BMAC_DEMOTE": "1",
+   "ROBOT_LMAC": "1",
+   "ROBOT_ACTIVE_CAP": "0.6",
+   "ROBOT_ACTIVE_CAP_GATE": "2",
+   "ROBOT_BMAC_APRON": "4",
+   "ROBOT_BMAC_HOLD": "80",
+   "ROBOT_EXEC_SYNCFIX": "1",
+   "ROBOT_BMAC_IDLECHAIN": "1",
+   "ROBOT_CUT2_CREDIT": "24",
+   "ROBOT_BMAC_CHAINFREE": "1",
+   "ROBOT_NET": "1"
+  },
+  "EXH": {
+   "ROBOT_SCHED": "nms",
+   "ROBOT_NMS_W": "2",
+   "ROBOT_BRIDGE_CREDIT": "16",
+   "ROBOT_BMAC": "1",
+   "ROBOT_BMAC_EVAC": "1",
+   "ROBOT_BMAC_DEMOTE": "1",
+   "ROBOT_LMAC": "1",
+   "ROBOT_ACTIVE_CAP": "0.6",
+   "ROBOT_ACTIVE_CAP_GATE": "2",
+   "ROBOT_BMAC_APRON": "4",
+   "ROBOT_BMAC_HOLD": "100000",
+   "ROBOT_EXEC_SYNCFIX": "1",
+   "ROBOT_BMAC_IDLECHAIN": "1",
+   "ROBOT_CUT2_CREDIT": "24",
+   "ROBOT_BMAC_CHAINFREE": "1",
+   "ROBOT_NET": "1"
+  }
+ },
+ "seeds": [
+  11300,
+  11301,
+  11302,
+  11303,
+  11304,
+  11305,
+  11306,
+  11307,
+  11308,
+  11309
+ ],
+ "planner_seeds": [
+  137,
+  138
+ ],
+ "official_instances": [
+  "room200",
+  "room250",
+  "room300",
+  "maze40",
+  "maze60",
+  "random200",
+  "random300",
+  "warehouse100"
+ ],
+ "heldout_r45": [
+  "roomHA_200",
+  "roomHA_254",
+  "roomHB_194",
+  "roomHB_247",
+  "roomHC_194",
+  "roomHC_247",
+  "roomHD_194",
+  "roomHD_247",
+  "roomHE_189",
+  "roomHE_241",
+  "roomHF_189",
+  "roomHF_240"
+ ],
+ "instances": [
+  "room200",
+  "room250",
+  "room300",
+  "maze40",
+  "maze60",
+  "random200",
+  "random300",
+  "warehouse100",
+  "roomHA_200",
+  "roomHA_254",
+  "roomHB_194",
+  "roomHB_247",
+  "roomHC_194",
+  "roomHC_247",
+  "roomHD_194",
+  "roomHD_247",
+  "roomHE_189",
+  "roomHE_241",
+  "roomHF_189",
+  "roomHF_240"
+ ],
+ "maps_r45_sha256_ok": true
+}

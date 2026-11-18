@@ -1,0 +1,38 @@
+{
+ "roomZ1": {
+  "seed": 31001,
+  "S": 16,
+  "bridge_cells": 6
+ },
+ "roomZ2": {
+  "seed": 31002,
+  "S": 16,
+  "bridge_cells": 3
+ },
+ "roomZ3": {
+  "seed": 31003,
+  "S": 13,
+  "bridge_cells": 4
+ },
+ "roomZ4": {
+  "seed": 31004,
+  "S": 11,
+  "bridge_cells": 0
+ },
+ "randF": {
+  "seed": 31011,
+  "p": 0.2
+ },
+ "randG": {
+  "seed": 31012,
+  "p": 0.1
+ },
+ "mazeI": {
+  "seed": 31021,
+  "w": 2
+ },
+ "mazeJ": {
+  "seed": 31022,
+  "w": 3
+ }
+}

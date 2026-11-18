@@ -1,0 +1,181 @@
+{
+ "K": 300,
+ "mean_17": {
+  "door_share": 0.00020217743766464205,
+  "apron_share": 0.011809131853246165,
+  "else_share": 0.09800711809232004
+ },
+ "skip": false,
+ "per_inst": [
+  {
+   "inst": "room200",
+   "completed": 991,
+   "door_share": 0.0,
+   "apron_share": 0.007419,
+   "else_share": 0.149813,
+   "door_eps": 0,
+   "apron_eps": 14,
+   "else_eps": 181
+  },
+  {
+   "inst": "room250",
+   "completed": 1138,
+   "door_share": 0.0003328,
+   "apron_share": 0.0083248,
+   "else_share": 0.117844,
+   "door_eps": 1,
+   "apron_eps": 16,
+   "else_eps": 202
+  },
+  {
+   "inst": "room300",
+   "completed": 1240,
+   "door_share": 0.0,
+   "apron_share": 0.005291333333333334,
+   "else_share": 0.11583466666666667,
+   "door_eps": 0,
+   "apron_eps": 13,
+   "else_eps": 241
+  },
+  {
+   "inst": "roomAA_199",
+   "completed": 1121,
+   "door_share": 0.0,
+   "apron_share": 0.004397989949748744,
+   "else_share": 0.1067286432160804,
+   "door_eps": 0,
+   "apron_eps": 9,
+   "else_eps": 170
+  },
+  {
+   "inst": "roomAD_189",
+   "completed": 760,
+   "door_share": 0.0,
+   "apron_share": 0.050241269841269844,
+   "else_share": 0.18159259259259258,
+   "door_eps": 0,
+   "apron_eps": 59,
+   "else_eps": 191
+  },
+  {
+   "inst": "roomBF_240",
+   "completed": 897,
+   "door_share": 0.0,
+   "apron_share": 0.024400833333333333,
+   "else_share": 0.17099916666666667,
+   "door_eps": 0,
+   "apron_eps": 39,
+   "else_eps": 210
+  },
+  {
+   "inst": "roomFD_194",
+   "completed": 1232,
+   "door_share": 0.0,
+   "apron_share": 0.0012309278350515463,
+   "else_share": 0.03765979381443299,
+   "door_eps": 0,
+   "apron_eps": 3,
+   "else_eps": 45
+  },
+  {
+   "inst": "roomFE_189",
+   "completed": 926,
+   "door_share": 0.0008835978835978836,
+   "apron_share": 0.016245502645502646,
+   "else_share": 0.09542328042328042,
+   "door_eps": 2,
+   "apron_eps": 24,
+   "else_eps": 113
+  },
+  {
+   "inst": "roomFF_188",
+   "completed": 1104,
+   "door_share": 0.0,
+   "apron_share": 0.007027659574468085,
+   "else_share": 0.07507446808510639,
+   "door_eps": 0,
+   "apron_eps": 13,
+   "else_eps": 119
+  },
+  {
+   "inst": "roomGB_194",
+   "completed": 1008,
+   "door_share": 0.0,
+   "apron_share": 0.011811340206185567,
+   "else_share": 0.1204,
+   "door_eps": 0,
+   "apron_eps": 16,
+   "else_eps": 150
+  },
+  {
+   "inst": "roomHA_200",
+   "completed": 1756,
+   "door_share": 0.0,
+   "apron_share": 0.0,
+   "else_share": 0.00096,
+   "door_eps": 0,
+   "apron_eps": 0,
+   "else_eps": 3
+  },
+  {
+   "inst": "roomHE_189",
+   "completed": 1428,
+   "door_share": 0.0,
+   "apron_share": 0.0018063492063492064,
+   "else_share": 0.0006634920634920635,
+   "door_eps": 0,
+   "apron_eps": 5,
+   "else_eps": 2
+  },
+  {
+   "inst": "roomQ_200",
+   "completed": 1435,
+   "door_share": 0.0,
+   "apron_share": 0.001955,
+   "else_share": 0.078197,
+   "door_eps": 0,
+   "apron_eps": 4,
+   "else_eps": 127
+  },
+  {
+   "inst": "roomQ_254",
+   "completed": 1355,
+   "door_share": 0.0,
+   "apron_share": 0.001747244094488189,
+   "else_share": 0.08502204724409448,
+   "door_eps": 0,
+   "apron_eps": 5,
+   "else_eps": 171
+  },
+  {
+   "inst": "roomS_247",
+   "completed": 939,
+   "door_share": 0.0,
+   "apron_share": 0.019327125506072875,
+   "else_share": 0.15534493927125506,
+   "door_eps": 0,
+   "apron_eps": 37,
+   "else_eps": 225
+  },
+  {
+   "inst": "roomW_194",
+   "completed": 890,
+   "door_share": 0.002220618556701031,
+   "apron_share": 0.016295876288659795,
+   "else_share": 0.029408247422680413,
+   "door_eps": 4,
+   "apron_eps": 27,
+   "else_eps": 43
+  },
+  {
+   "inst": "roomZ3_194",
+   "completed": 712,
+   "door_share": 0.0,
+   "apron_share": 0.02323298969072165,
+   "else_share": 0.14515567010309277,
+   "door_eps": 0,
+   "apron_eps": 35,
+   "else_eps": 166
+  }
+ ]
+}

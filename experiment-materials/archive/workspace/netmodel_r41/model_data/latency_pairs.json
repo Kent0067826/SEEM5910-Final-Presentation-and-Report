@@ -1,0 +1,6534 @@
+[
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 557.3432958018176
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 409.57497714984083
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 2688.617261904762
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 1226.0090507487103
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 431.60150272471134
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 160.4290587847543
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 799.8649412538455
+ },
+ {
+  "inst": "room200",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 482.3931602112676
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 362.37786430129376
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 399.298975020963
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 664.8156574402053
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 754.066314218903
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 318.2334420514076
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 439.88450022426775
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 630.0318054314107
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 702.3462007103727
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 562.1306332084874
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 172.94354676944297
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 891.8191622103387
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 260.9726733586014
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 384.9561972538827
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 255.11581368138053
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 794.2846119850379
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 550.0996044416341
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 351.36315381964636
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 106.29426847662143
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 552.3649274863068
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 121.10943935542473
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 470.9491252955083
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 146.4675816061761
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 320.41483957219253
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 188.15938562091503
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 369.34924812030073
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 95.58355900621117
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 275.5387912087912
+ },
+ {
+  "inst": "room200",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 122.18213489409142
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 583.213000050302
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 415.02012395708493
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 2309.8813311688314
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 1380.7199134565485
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 485.5893127785052
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 175.02051203609284
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 1515.169676021352
+ },
+ {
+  "inst": "room250",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 1599.713288711362
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 418.9346192504973
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 424.8960728273217
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 848.3759018866427
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 846.1886483407536
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 366.31792758582833
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 445.13571130264285
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 801.2807685391032
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 728.6248214401903
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 571.3497396747397
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 172.99459075496227
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 458.5758076563959
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 322.63291782782255
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 433.24484646723454
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 334.43900342017236
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 1037.4846659365012
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 794.6594785719161
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 401.4324538911381
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 119.28242046596884
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 714.1354882154882
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 133.1988474810214
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 478.09374378851123
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 146.00642953682754
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 318.8382259570495
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 226.2026716424184
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 379.31140127987953
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 103.50493408587782
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 285.91319974143505
+ },
+ {
+  "inst": "room250",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 131.1867962775082
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 585.8395243496848
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 447.3348270114449
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 1823.06
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 1703.7093531413987
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 582.6118431539824
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 177.52504026455
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 1694.8727396596962
+ },
+ {
+  "inst": "room300",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 1771.4445463930829
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 447.07931874213483
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 395.8226584349634
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 1079.0915889506407
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 888.5821514058765
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 458.1799621257723
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 477.5159484489042
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 1155.9895362207383
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 814.617339670655
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 535.5286910605384
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 177.55543408572822
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 474.73326477444124
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 366.34123128553506
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 542.6246496618082
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 436.2414246576876
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 1193.4668811467614
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 1008.6754709778636
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 488.41472104098176
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 120.19274992188647
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 780.3943798932669
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 133.70681229247435
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 487.77210500367977
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 151.27238095238096
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 311.6797720906544
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 265.27417359478494
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 432.14237300704485
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 103.45413660413661
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 285.4476097105509
+ },
+ {
+  "inst": "room300",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 147.50117069853525
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.28367831693248,
+  "T_meas": 487.22107932903134
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.2850812407681,
+  "T_meas": 306.39904746552605
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.28367831693248,
+  "T_meas": 1780.778675889328
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.2850812407681,
+  "T_meas": 476.6081735616333
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   8
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 249.02048534509927,
+  "T_meas": 479.4074180639013
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   8
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 98.58314855875831,
+  "T_meas": 189.79078437932222
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   8
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 249.02048534509927,
+  "T_meas": 1476.77328320802
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   8
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 98.58314855875831,
+  "T_meas": 414.00462016729614
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   13
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 298.5834068843778,
+  "T_meas": 500.61954022988505
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   13
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 68,
+  "T_meas": 110.30175203721359
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   13
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 298.5834068843778,
+  "T_meas": 844.634761904762
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   13
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 68,
+  "T_meas": 202.91212140473542
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   19
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 220.76434245366283,
+  "T_meas": 491.62402768875137
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   19
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 63.8,
+  "T_meas": 128.90392232644305
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   19
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 220.76434245366283,
+  "T_meas": 843.4235847888021
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "单门割",
+  "doors": [
+   19
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 63.8,
+  "T_meas": 125.77205842205842
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   7
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 175.02095588235295,
+  "T_meas": 344.0879984219594
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   7
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 129.8407079646018,
+  "T_meas": 439.9792884087289
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   7
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 175.02095588235295,
+  "T_meas": 1685.5359975243487
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   7
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 129.8407079646018,
+  "T_meas": 1361.8872779596918
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   12
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 152.66599839615077,
+  "T_meas": 324.36887149753386
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   12
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 144.55398230088497,
+  "T_meas": 453.77457171218566
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   12
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 152.66599839615077,
+  "T_meas": 870.750099469496
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   12
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 144.55398230088497,
+  "T_meas": 1198.4508391500096
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 132.97745358090185,
+  "T_meas": 460.8076954386944
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 109.59691629955947,
+  "T_meas": 449.62977075405945
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 132.97745358090185,
+  "T_meas": 1584.404557828777
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   0,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 109.59691629955947,
+  "T_meas": 1617.7256113725316
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   9
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 201.74389166911982,
+  "T_meas": 366.79573861975996
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   9
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 50.70484581497797,
+  "T_meas": 221.72186608520514
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   9
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 201.74389166911982,
+  "T_meas": 687.9793847770623
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   9
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 50.70484581497797,
+  "T_meas": 291.0393836738174
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   14
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 181.44654683065278,
+  "T_meas": 448.5946183473502
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   14
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 63.51655629139073,
+  "T_meas": 191.96509831232927
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   14
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 181.44654683065278,
+  "T_meas": 1028.1210559695576
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   4,
+   14
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 63.51655629139073,
+  "T_meas": 204.2778796254832
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   12
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 167.17422012948794,
+  "T_meas": 374.61815452604344
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   12
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 53.84513274336283,
+  "T_meas": 397.58029177147193
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   12
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 167.17422012948794,
+  "T_meas": 830.231749296379
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   12
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 53.84513274336283,
+  "T_meas": 1637.8468231757877
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 134.3331862312445,
+  "T_meas": 490.352066006491
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 100.96980854197349,
+  "T_meas": 414.28112266477103
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 134.3331862312445,
+  "T_meas": 1745.0064073511262
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   7,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 100.96980854197349,
+  "T_meas": 2298.4045442115544
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   9,
+   14
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 197.31018246027074,
+  "T_meas": 373.87789885676034
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   9,
+   14
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 52.3716814159292,
+  "T_meas": 251.60595248613927
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   9,
+   14
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 197.31018246027074,
+  "T_meas": 684.6875616835994
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   9,
+   14
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 52.3716814159292,
+  "T_meas": 281.2049079504725
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   12,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.21629213483146,
+  "T_meas": 509.67188338047436
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   12,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 100.28621908127208,
+  "T_meas": 402.4986826653766
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   12,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.21629213483146,
+  "T_meas": 1563.7227424432028
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   12,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 100.28621908127208,
+  "T_meas": 941.8819852017311
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   20,
+   22
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 235.4495142773035,
+  "T_meas": 519.0519055680377
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   20,
+   22
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.70044052863436,
+  "T_meas": 117.35941710463449
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   20,
+   22
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 235.4495142773035,
+  "T_meas": 1130.306267806268
+ },
+ {
+  "inst": "roomT_199",
+  "kind": "门对",
+  "doors": [
+   20,
+   22
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.70044052863436,
+  "T_meas": 138.07637049941928
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   1
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 187.79038266169997,
+  "T_meas": 440.5059613543813
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   1
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 121.74668630338734,
+  "T_meas": 238.11757387787443
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   1
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 187.79038266169997,
+  "T_meas": 906.6654725111999
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   1
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 121.74668630338734,
+  "T_meas": 439.26250244379276
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 228.2636523781562,
+  "T_meas": 456.77050151349465
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 67.80973451327434,
+  "T_meas": 160.10758059070477
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 228.2636523781562,
+  "T_meas": 700.5455346537854
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 67.80973451327434,
+  "T_meas": 157.78574753676747
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 277.2007631347226,
+  "T_meas": 367.2918825185379
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 69.8,
+  "T_meas": 109.69372602839994
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 277.2007631347226,
+  "T_meas": 677.9876570048309
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 69.8,
+  "T_meas": 134.01787871140542
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   2
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 231.54905660377358,
+  "T_meas": 430.32540631064336
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   2
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 94.76327433628319,
+  "T_meas": 154.76816366287224
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   2
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 231.54905660377358,
+  "T_meas": 853.1855326675113
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   2
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 94.76327433628319,
+  "T_meas": 203.93321489253623
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 169.33700440528634,
+  "T_meas": 422.16856125700804
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 126.20704845814979,
+  "T_meas": 343.59592663680246
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 169.33700440528634,
+  "T_meas": 857.4638582200652
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 126.20704845814979,
+  "T_meas": 447.92467968696786
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   14
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 159.44493392070484,
+  "T_meas": 419.0422368714653
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   14
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 95.11453744493392,
+  "T_meas": 270.90414630142806
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   14
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 159.44493392070484,
+  "T_meas": 856.7790313878807
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   14
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 95.11453744493392,
+  "T_meas": 233.71558365841454
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   13
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 144.4713656387665,
+  "T_meas": 359.3245605520216
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   13
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.6431718061674,
+  "T_meas": 254.58446390172938
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   13
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 144.4713656387665,
+  "T_meas": 703.0617068218743
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   13
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.6431718061674,
+  "T_meas": 494.24783845362793
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   16,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 180.43083700440528,
+  "T_meas": 347.9756532516769
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   16,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.97797356828194,
+  "T_meas": 172.21521558492162
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   16,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 180.43083700440528,
+  "T_meas": 852.3287555041741
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   16,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.97797356828194,
+  "T_meas": 328.57567365745945
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   17,
+   22
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 165.91789871028627,
+  "T_meas": 405.0885057286433
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   17,
+   22
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 72.95364238410596,
+  "T_meas": 216.1744711029512
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   17,
+   22
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 165.91789871028627,
+  "T_meas": 1032.8059519342446
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   17,
+   22
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 72.95364238410596,
+  "T_meas": 908.2825599900144
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   21,
+   24
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 182.68810572687224,
+  "T_meas": 437.0066511033633
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   21,
+   24
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 57.709251101321584,
+  "T_meas": 135.13579116917356
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   21,
+   24
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 182.68810572687224,
+  "T_meas": 959.4454548789159
+ },
+ {
+  "inst": "roomQ_254",
+  "kind": "门对",
+  "doors": [
+   21,
+   24
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 57.709251101321584,
+  "T_meas": 324.63822703420055
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   25
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 149.90894220283533,
+  "T_meas": 540.3916367883136
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   25
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 152.1151439299124,
+  "T_meas": 539.3934963494211
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   25
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 149.90894220283533,
+  "T_meas": 2238.2173917386963
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   25
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 152.1151439299124,
+  "T_meas": 2130.4919113756614
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 182.55978260869566,
+  "T_meas": 391.0756923959898
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 128.18303571428572,
+  "T_meas": 244.15923932410576
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 182.55978260869566,
+  "T_meas": 754.9260994516922
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 128.18303571428572,
+  "T_meas": 622.7333841606073
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 225.17973629424012,
+  "T_meas": 466.50877100159244
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 96.26363636363637,
+  "T_meas": 190.07339686619204
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 225.17973629424012,
+  "T_meas": 1001.1852266361091
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 96.26363636363637,
+  "T_meas": 640.4186343269043
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   6,
+   13
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 170.7289268473821,
+  "T_meas": 463.36042309187843
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   6,
+   13
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 84.15561569688768,
+  "T_meas": 154.44073074350757
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   6,
+   13
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 170.7289268473821,
+  "T_meas": 694.4738523246998
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   6,
+   13
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 84.15561569688768,
+  "T_meas": 286.38741877337435
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   9,
+   10
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 244.94167450611477,
+  "T_meas": 385.89924012658287
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   9,
+   10
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 72.67901234567901,
+  "T_meas": 149.5039393939394
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   9,
+   10
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 244.94167450611477,
+  "T_meas": 398.3408473389356
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   9,
+   10
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 72.67901234567901,
+  "T_meas": 136.90169230769231
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 208.06951697127937,
+  "T_meas": 412.0056341364277
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 94.61141304347827,
+  "T_meas": 158.6647440332065
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 208.06951697127937,
+  "T_meas": 549.8949275362319
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 94.61141304347827,
+  "T_meas": 167.23508130081302
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 189.3893985728848,
+  "T_meas": 398.4687092740747
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 105.20858895705521,
+  "T_meas": 188.44047037654053
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 189.3893985728848,
+  "T_meas": 460.1380009827571
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 105.20858895705521,
+  "T_meas": 227.88772842392365
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   26,
+   27
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 233.85998107852413,
+  "T_meas": 362.9648617814562
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   26,
+   27
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 76.08045977011494,
+  "T_meas": 136.81489181361275
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   26,
+   27
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 233.85998107852413,
+  "T_meas": 702.4191417278373
+ },
+ {
+  "inst": "roomAD_189",
+  "kind": "门对",
+  "doors": [
+   26,
+   27
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 76.08045977011494,
+  "T_meas": 136.57040998217468
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   0
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 244.90052972336667,
+  "T_meas": 528.2261481355373
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   0
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 63.030973451327434,
+  "T_meas": 122.16725214676035
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   0
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 244.90052972336667,
+  "T_meas": 1650.4843253968254
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   0
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 63.030973451327434,
+  "T_meas": 304.74462168935855
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 191.8376418663304,
+  "T_meas": 532.8438120732302
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 99.51548672566372,
+  "T_meas": 242.48366800410028
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 191.8376418663304,
+  "T_meas": 1956.8766218831447
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 99.51548672566372,
+  "T_meas": 1829.7194645294644
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   4
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 219.38287227781046,
+  "T_meas": 470.7408460208953
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   4
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 63.6283185840708,
+  "T_meas": 130.995728314895
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   4
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 219.38287227781046,
+  "T_meas": 1211.9535695451548
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   4
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 63.6283185840708,
+  "T_meas": 186.25714870236146
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 213.8884336589978,
+  "T_meas": 601.3020588078758
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 84.46119733924613,
+  "T_meas": 221.67878197777011
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 213.8884336589978,
+  "T_meas": 2095.768772931977
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 84.46119733924613,
+  "T_meas": 1166.1558679598218
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   22
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 243.06531332744925,
+  "T_meas": 492.55565353037764
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   22
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 63.2,
+  "T_meas": 130.96611911016527
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   22
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 243.06531332744925,
+  "T_meas": 1499.9021998243302
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "单门割",
+  "doors": [
+   22
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 63.2,
+  "T_meas": 152.88471366032343
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   1,
+   2
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 212.52075360612304,
+  "T_meas": 531.1731063146415
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   1,
+   2
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 59.88986784140969,
+  "T_meas": 114.048740995797
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   1,
+   2
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 212.52075360612304,
+  "T_meas": 1522.8817101029601
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   1,
+   2
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 59.88986784140969,
+  "T_meas": 209.59401426920985
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   8
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 175.9832807570978,
+  "T_meas": 526.5336894420826
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   8
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 75.69603524229075,
+  "T_meas": 409.0782623820486
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   8
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 175.9832807570978,
+  "T_meas": 1544.8428307012568
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   8
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 75.69603524229075,
+  "T_meas": 1201.3007581139618
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   12
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 175.94020866773675,
+  "T_meas": 621.5004192706352
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   12
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 105.62102473498233,
+  "T_meas": 446.57794744644156
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   12
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 175.94020866773675,
+  "T_meas": 1998.067648670046
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   12
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 105.62102473498233,
+  "T_meas": 1475.9196422146526
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 136.72606924643583,
+  "T_meas": 366.61677099629395
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 114.20796460176992,
+  "T_meas": 425.84821497200187
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 136.72606924643583,
+  "T_meas": 925.7864789639744
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 114.20796460176992,
+  "T_meas": 1226.09527172226
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 137.5457097032879,
+  "T_meas": 428.2442911516422
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.52212389380531,
+  "T_meas": 369.12608715347716
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 137.5457097032879,
+  "T_meas": 1079.9428143193077
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   6,
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.52212389380531,
+  "T_meas": 1241.1860039330775
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 157.80107187894072,
+  "T_meas": 433.291632583856
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 98.91150442477876,
+  "T_meas": 275.84698566540237
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 157.80107187894072,
+  "T_meas": 1614.014494296856
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 98.91150442477876,
+  "T_meas": 1346.1310154590406
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   12
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 164.79735234215886,
+  "T_meas": 541.208242836147
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   12
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 108.64159292035399,
+  "T_meas": 464.0267469379212
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   12
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 164.79735234215886,
+  "T_meas": 1472.409105462764
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   8,
+   12
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 108.64159292035399,
+  "T_meas": 1240.4215317139
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 180.69640605296343,
+  "T_meas": 500.2249649682748
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 74.40044247787611,
+  "T_meas": 181.2984267791508
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 180.69640605296343,
+  "T_meas": 1049.1907960888825
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 74.40044247787611,
+  "T_meas": 211.95744577750727
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 205.94439541041484,
+  "T_meas": 521.1144672956289
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 63.4,
+  "T_meas": 116.46108872050048
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 205.94439541041484,
+  "T_meas": 955.6212563837951
+ },
+ {
+  "inst": "roomP_254",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 63.4,
+  "T_meas": 157.7491776567449
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   12
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.3469387755102,
+  "T_meas": 568.9164024463231
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   12
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 75.51546391752578,
+  "T_meas": 192.63929185321112
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   12
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.3469387755102,
+  "T_meas": 2002.6881349206349
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   12
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 75.51546391752578,
+  "T_meas": 182.96022536287242
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   21
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 185.65134529147983,
+  "T_meas": 636.5646714612183
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   21
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 127.45229681978799,
+  "T_meas": 460.1047757940101
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   21
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 185.65134529147983,
+  "T_meas": 2692.1135279503105
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   21
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 127.45229681978799,
+  "T_meas": 1580.8577486672768
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   24
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 231.58271763572117,
+  "T_meas": 532.2649437171095
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   24
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 99.00242718446601,
+  "T_meas": 173.31754286632108
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   24
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 231.58271763572117,
+  "T_meas": 1161.6126406926408
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   24
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 99.00242718446601,
+  "T_meas": 449.9422556670383
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   37
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 212.84989299908284,
+  "T_meas": 399.7126305794868
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   37
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 71.77165354330708,
+  "T_meas": 146.07856284669626
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   37
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 212.84989299908284,
+  "T_meas": 498.86849158411434
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "单门割",
+  "doors": [
+   37
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 71.77165354330708,
+  "T_meas": 151.6468116308947
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 238.53015156401162,
+  "T_meas": 598.4213868599007
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 101.52830188679245,
+  "T_meas": 175.58447111082475
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 238.53015156401162,
+  "T_meas": 1327.4289281109677
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 101.52830188679245,
+  "T_meas": 199.09075401088182
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 278.9125346473668,
+  "T_meas": 631.1574603174603
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 72.32014388489208,
+  "T_meas": 124.48918357248887
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 278.9125346473668,
+  "T_meas": 1310.612826420891
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 72.32014388489208,
+  "T_meas": 143.69657069029162
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.4744327802235,
+  "T_meas": 615.8232338829572
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 119.94055944055944,
+  "T_meas": 220.15287868162693
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.4744327802235,
+  "T_meas": 1625.3579380022961
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   6,
+   7
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 119.94055944055944,
+  "T_meas": 247.260788679108
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   9,
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 227.1525007671065,
+  "T_meas": 404.39943094026756
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   9,
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 65.74812030075188,
+  "T_meas": 126.20944195108375
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   9,
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 227.1525007671065,
+  "T_meas": 560.3132696502034
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   9,
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 65.74812030075188,
+  "T_meas": 144.39496424692973
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 158.34235838973993,
+  "T_meas": 556.2228567239795
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 148.50974930362116,
+  "T_meas": 340.61199094727135
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 158.34235838973993,
+  "T_meas": 1757.946691578416
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 148.50974930362116,
+  "T_meas": 1014.2020831711195
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 140.41390728476821,
+  "T_meas": 480.7181084632491
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.8353765323993,
+  "T_meas": 529.1982858597489
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 140.41390728476821,
+  "T_meas": 1579.7827313863374
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.8353765323993,
+  "T_meas": 1199.2527195878704
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   25,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.92741935483872,
+  "T_meas": 498.34732409381667
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   25,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 67.93882352941176,
+  "T_meas": 332.469972990218
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   25,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.92741935483872,
+  "T_meas": 600.7153339951526
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   25,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 67.93882352941176,
+  "T_meas": 641.4790270451589
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   33,
+   34
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 260.7738570113532,
+  "T_meas": 519.0608996200417
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   33,
+   34
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.95488721804512,
+  "T_meas": 118.20874754630988
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   33,
+   34
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 260.7738570113532,
+  "T_meas": 936.0670551670552
+ },
+ {
+  "inst": "roomS_247",
+  "kind": "门对",
+  "doors": [
+   33,
+   34
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.95488721804512,
+  "T_meas": 136.68045177045178
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 302.0548869973584,
+  "T_meas": 490.0824154589372
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 67.4,
+  "T_meas": 122.69944224196855
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 302.0548869973584,
+  "T_meas": 1135.6262119672647
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   0,
+   1
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 67.4,
+  "T_meas": 139.37766433566435
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 240.2824,
+  "T_meas": 483.62308906480035
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 117.91519434628975,
+  "T_meas": 291.8136113620097
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 240.2824,
+  "T_meas": 907.1485117069872
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   2,
+   4
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 117.91519434628975,
+  "T_meas": 817.3432438300916
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   7
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 260.81958195819584,
+  "T_meas": 504.0392661395873
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   7
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 89.61767955801105,
+  "T_meas": 198.13072887823844
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   7
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 260.81958195819584,
+  "T_meas": 1443.28234716974
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   7
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 89.61767955801105,
+  "T_meas": 973.8159701956513
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   8
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 259.64076753696133,
+  "T_meas": 449.8034698768977
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   8
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 87.16556291390728,
+  "T_meas": 230.15884705882354
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   8
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 259.64076753696133,
+  "T_meas": 1178.3580540180747
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   3,
+   8
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 87.16556291390728,
+  "T_meas": 741.1357958942266
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 230.9128137384412,
+  "T_meas": 443.18861235767446
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 138.49742836149892,
+  "T_meas": 336.52379032403127
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 230.9128137384412,
+  "T_meas": 930.6409014275347
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   5,
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 138.49742836149892,
+  "T_meas": 713.1247627831972
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   8
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 238.03867924528302,
+  "T_meas": 403.45402262548157
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   8
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 64.53097345132744,
+  "T_meas": 189.55860830181632
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   8
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 238.03867924528302,
+  "T_meas": 968.5599147916389
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   7,
+   8
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 64.53097345132744,
+  "T_meas": 863.5563398518774
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   11,
+   12
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 200.66878669275928,
+  "T_meas": 407.28117767749717
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   11,
+   12
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 169.31926952141058,
+  "T_meas": 428.40610179299915
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   11,
+   12
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 200.66878669275928,
+  "T_meas": 1135.8581072136915
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   11,
+   12
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 169.31926952141058,
+  "T_meas": 932.0144771224499
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 316.7859030837004,
+  "T_meas": 441.3022354222354
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 57.31277533039648,
+  "T_meas": 112.37218283545302
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 316.7859030837004,
+  "T_meas": 791.6617632367632
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   13,
+   14
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 57.31277533039648,
+  "T_meas": 112.84498682889243
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 242.93311974369243,
+  "T_meas": 461.1500531197072
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 131.28458149779738,
+  "T_meas": 294.10483520524764
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 242.93311974369243,
+  "T_meas": 1155.2562873306913
+ },
+ {
+  "inst": "roomBA_254",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 131.28458149779738,
+  "T_meas": 761.2222760562096
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 189.3429175475687,
+  "T_meas": 600.3108321657353
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 129.0187969924812,
+  "T_meas": 575.8326127483288
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 189.3429175475687,
+  "T_meas": 1860.7857832988268
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 129.0187969924812,
+  "T_meas": 1900.3133519011767
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 204.62377531025473,
+  "T_meas": 637.5228863374069
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 87.51771117166213,
+  "T_meas": 243.37921213096982
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 204.62377531025473,
+  "T_meas": 1764.5103076923076
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   31
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 87.51771117166213,
+  "T_meas": 1306.094975591784
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   33
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 212.51155249290636,
+  "T_meas": 724.2647968369423
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   33
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 105.61642411642411,
+  "T_meas": 302.1101044463762
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   33
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 212.51155249290636,
+  "T_meas": 1567.1455555555556
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   33
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 105.61642411642411,
+  "T_meas": 1238.9125318282813
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   52
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 247.79356652092443,
+  "T_meas": 435.8961887306242
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   52
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 69.40528634361233,
+  "T_meas": 114.65476637183954
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   52
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 247.79356652092443,
+  "T_meas": 725.8480952380952
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "单门割",
+  "doors": [
+   52
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 69.40528634361233,
+  "T_meas": 133.49246716697937
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   2,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 237.8004311672313,
+  "T_meas": 508.0742216117216
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   2,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 67.79120879120879,
+  "T_meas": 119.51044664966034
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   2,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 237.8004311672313,
+  "T_meas": 874.3554706163402
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   2,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 67.79120879120879,
+  "T_meas": 120.01672169907464
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   18
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 178.14350797266516,
+  "T_meas": 482.795064712096
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   18
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.31320754716981,
+  "T_meas": 282.3825172650297
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   18
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 178.14350797266516,
+  "T_meas": 926.1273910702682
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   18
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.31320754716981,
+  "T_meas": 620.6003812718429
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   19
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 160.2660465116279,
+  "T_meas": 401.1915812787489
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   19
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 71.02941176470588,
+  "T_meas": 386.32088926039523
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   19
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 160.2660465116279,
+  "T_meas": 664.7921455525607
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   19
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 71.02941176470588,
+  "T_meas": 849.225887147192
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   28
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 160,
+  "T_meas": 452.0182591643653
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   28
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 101.29431438127091,
+  "T_meas": 281.264723659069
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   28
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 160,
+  "T_meas": 645.5726286634099
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   28
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 101.29431438127091,
+  "T_meas": 541.9156815904743
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   29
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 112.83980582524272,
+  "T_meas": 233.3875336118107
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   29
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 179.92761904761906,
+  "T_meas": 496.23825441134306
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   29
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 112.83980582524272,
+  "T_meas": 364.98822854575025
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   14,
+   29
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 179.92761904761906,
+  "T_meas": 978.8883397932817
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 161.220987654321,
+  "T_meas": 472.40083688794135
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 110.50450450450451,
+  "T_meas": 291.06651442622257
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 161.220987654321,
+  "T_meas": 951.0942546900891
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 110.50450450450451,
+  "T_meas": 807.1706175628418
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   29
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 181.10632911392406,
+  "T_meas": 413.40365868253264
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   29
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 107.28611898016997,
+  "T_meas": 293.5327399448108
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   29
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 181.10632911392406,
+  "T_meas": 897.7792480996916
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   18,
+   29
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 107.28611898016997,
+  "T_meas": 484.8161671331454
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   28
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 143.9471649484536,
+  "T_meas": 447.0437847335486
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   28
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 119.05722070844686,
+  "T_meas": 289.469467121766
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   28
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 143.9471649484536,
+  "T_meas": 700.9243116658624
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   28
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 119.05722070844686,
+  "T_meas": 713.3759323635982
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   29
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 121.85714285714286,
+  "T_meas": 246.65719773908756
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   29
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 157.24070021881838,
+  "T_meas": 486.68964514309977
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   29
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 121.85714285714286,
+  "T_meas": 486.27449474273595
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   19,
+   29
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 157.24070021881838,
+  "T_meas": 996.0726802275739
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 239.1482280431433,
+  "T_meas": 584.0500178649678
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 55.97826086956522,
+  "T_meas": 99.33693693693694
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 239.1482280431433,
+  "T_meas": 965.4262362637362
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   20,
+   21
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 55.97826086956522,
+  "T_meas": 113.32911273911274
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   23,
+   26
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 167.55035335689047,
+  "T_meas": 380.07854999398296
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   23,
+   26
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 135.85064377682403,
+  "T_meas": 538.8167362707535
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   23,
+   26
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 167.55035335689047,
+  "T_meas": 1141.2795462050647
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   23,
+   26
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 135.85064377682403,
+  "T_meas": 1783.7245581261657
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 184.13106796116506,
+  "T_meas": 403.29404417334536
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 107.50156739811912,
+  "T_meas": 279.9689882597226
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 184.13106796116506,
+  "T_meas": 784.8099940002679
+ },
+ {
+  "inst": "roomBF_240",
+  "kind": "门对",
+  "doors": [
+   28,
+   29
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 107.50156739811912,
+  "T_meas": 368.15527361824013
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 218.40252540806898,
+  "T_meas": 320.33335966184126
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 84.60553633217992,
+  "T_meas": 130.8418249589609
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 218.40252540806898,
+  "T_meas": 504.5445419071729
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   18,
+   19
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 84.60553633217992,
+  "T_meas": 163.56413493413444
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   49,
+   51
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 191.38525091799266,
+  "T_meas": 325.61578476411876
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   49,
+   51
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 83.6007462686567,
+  "T_meas": 148.31700682984518
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   49,
+   51
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 191.38525091799266,
+  "T_meas": 438.4792542512918
+ },
+ {
+  "inst": "roomCD_194",
+  "kind": "门对",
+  "doors": [
+   49,
+   51
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 83.6007462686567,
+  "T_meas": 185.0398740190291
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 353.1181681603896
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 255.12846084534732
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 2272.11094224924
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 999.5716216216216
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 299.4684210526316
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 103.30483870967743
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 433.72206038135596
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 152.34684684684686
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 244.49537704918032
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 270.81140801644403
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 371.8925939644417
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 601.3430303030303
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 205.61000254194204
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 294.309853279339
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 338.73645441440175
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 517.2411527866072
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 371.4018481130611
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 140.39306358381504
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 1458.5544072948328
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 162.91406926406927
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 262.2092430207588
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 157.92907621660305
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 451.7420634920635
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 307.06539327423667
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 253.5396416573348
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 82.56513157894737
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 354.4938311688312
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 92.14513165952235
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 366.2977941176471
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 118.35185358547088
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 555.3913043478261
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 136.26244973708629
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 329.39583333333337
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 74.94934333958724
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 453.81617647058823
+ },
+ {
+  "inst": "room200_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 94.48965517241379
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 345.7605316149819
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 261.9980809589533
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 2521.997596153846
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 1495.691496163683
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 314.1320512820513
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 116.13428571428571
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 832.1349311440678
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 213.09756097560975
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 255.1752276082677
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 263.99684730946524
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 731.8220829315333
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 840.973562249842
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 215.86721238483406
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 287.9772653759068
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 725.3846718543532
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 641.5817952755906
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 362.2084685269306
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 146.2601123011334
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 768.6547826086957
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 189.81307692307692
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 257.38999767927595
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 178.1121741397289
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 1243.1338951790563
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 1319.4640323216397
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 254.9198679471789
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 82.75280437756498
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 839.3498673740053
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 88.89532520325203
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 330.0562851782364
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 124.05815423514538
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 228.3571428571429
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 156.05172413793105
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 310.03742203742206
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 78.22407862407863
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 295.17857142857144
+ },
+ {
+  "inst": "room250_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 88.03225806451613
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 348.02761022547753
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 255.57536091359623
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 250.2370153621068,
+  "T_meas": 2260.218253968254
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   6
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 162.87828947368422,
+  "T_meas": 1583.0556490384615
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 326.20448850637325
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 115.4211590296496
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 202.68245614035087,
+  "T_meas": 1261.7024647887324
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "单门割",
+  "doors": [
+   11
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 66.01769911504425,
+  "T_meas": 1078.8949561403508
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 259.55110072026025
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 255.669019451712
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 203.19568690095846,
+  "T_meas": 686.4280196288018
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   2,
+   3
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 192.67162872154117,
+  "T_meas": 1071.0175613934894
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 237.08956975228162
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 286.71400219113434
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 162.14285714285714,
+  "T_meas": 535.0958128078818
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   4,
+   5
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 211.63676148796498,
+  "T_meas": 732.2361426822871
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 363.51593108877876
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 145.77722323049002
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 301.98008774890314,
+  "T_meas": 715.1875
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   14,
+   15
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 120.17423133235725,
+  "T_meas": 202.86912915851272
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 302.41751802545036
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 224.2783605916466
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 224.24970131421745,
+  "T_meas": 715.0904876580373
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   16,
+   17
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 113.15506607929515,
+  "T_meas": 482.4403324584427
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 285.86006493506494
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 83.31556701030928
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 234.53846153846155,
+  "T_meas": 494.85669642857147
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   19,
+   20
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 58.30396475770925,
+  "T_meas": 97.07927286356822
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 317.25558413428996
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 117.91121495327103
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 337.83458646616543,
+  "T_meas": 538.06
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   22,
+   23
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 92.30176211453744,
+  "T_meas": 156.82126348228041
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 290.71829268292686
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "C24CF",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 74.96000000000001
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "in",
+  "T_free": 375.380882782812,
+  "T_meas": 201.84736842105264
+ },
+ {
+  "inst": "room300_nd",
+  "kind": "门对",
+  "doors": [
+   28,
+   30
+  ],
+  "method": "N2F",
+  "side": "out",
+  "T_free": 60.6,
+  "T_meas": 98.15625
+ }
+]

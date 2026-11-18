@@ -1,0 +1,3872 @@
+[
+{
+"k": "roomAA_199",
+"rooms": 16,
+"lam": 104.0000000000001,
+"cut": [
+6,
+9
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 34,
+"cls": "一格门对太远",
+"prog": 4,
+"r48_prog": 4,
+"in_missed": true,
+"nmiss": 9,
+"prog_best": 110.93333333333332,
+"rho_prog": 0.937500000000001,
+"unk": 0,
+"rg_min": 104.0,
+"rg_min_cuts": [
+[
+6,
+9
+]
+],
+"rho_rg": 1.0000000000000009
+},
+{
+"k": "room200",
+"rooms": 16,
+"lam": 69.20584744408674,
+"cut": [
+6
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 0,
+"prog_best": 69.20584744408686,
+"rho_prog": 0.9999999999999983,
+"unk": 0,
+"rg_min": 69.20584744408686,
+"rg_min_cuts": [
+[
+6
+]
+],
+"rho_rg": 0.9999999999999983
+},
+{
+"k": "roomAB_194",
+"rooms": 25,
+"lam": 217.431719286913,
+"cut": [
+8,
+9,
+35,
+43
+],
+"widths": [
+1,
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 0,
+"r48_prog": 0,
+"in_missed": false,
+"nmiss": 1,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 524.7200883384575,
+"rg_min_cuts": [
+[
+22,
+37
+]
+],
+"rho_rg": 0.4143765869063967
+},
+{
+"k": "roomAC_194",
+"rooms": 25,
+"lam": 149.4055038649413,
+"cut": [
+19,
+37
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 69,
+"cls": "一格门对太远",
+"prog": 0,
+"r48_prog": 0,
+"in_missed": true,
+"nmiss": 8,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 149.40550386494047,
+"rg_min_cuts": [
+[
+19,
+37
+]
+],
+"rho_rg": 1.0000000000000056
+},
+{
+"k": "roomAD_189",
+"rooms": 36,
+"lam": 52.21929666698982,
+"cut": [
+25
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": 52.21929666698966,
+"rho_prog": 1.0000000000000029,
+"unk": 0,
+"rg_min": 52.21929666698966,
+"rg_min_cuts": [
+[
+25
+]
+],
+"rho_rg": 1.0000000000000029
+},
+{
+"k": "roomAE_189",
+"rooms": 36,
+"lam": 136.0357005474185,
+"cut": [
+63
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": 136.03570054741826,
+"rho_prog": 1.0000000000000018,
+"unk": 0,
+"rg_min": 136.03570054741826,
+"rg_min_cuts": [
+[
+63
+]
+],
+"rho_rg": 1.0000000000000018
+},
+{
+"k": "roomA_200",
+"rooms": 16,
+"lam": 260.0012754398125,
+"cut": [
+1,
+4,
+15,
+22,
+31
+],
+"widths": [
+1,
+1,
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 1,
+"r48_prog": 1,
+"in_missed": false,
+"nmiss": 0,
+"prog_best": 445.11385887215823,
+"rho_prog": 0.5841230738099481,
+"unk": 0,
+"rg_min": 445.11385887215823,
+"rg_min_cuts": [
+[
+29,
+32
+]
+],
+"rho_rg": 0.5841230738099481
+},
+{
+"k": "roomBA_200",
+"rooms": 16,
+"lam": 105.65079365079362,
+"cut": [
+11,
+12
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 4,
+"cls": "管到",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": false,
+"nmiss": 3,
+"prog_best": 105.65079365079364,
+"rho_prog": 0.9999999999999998,
+"unk": 0,
+"rg_min": 105.65079365079364,
+"rg_min_cuts": [
+[
+11,
+12
+]
+],
+"rho_rg": 0.9999999999999998
+},
+{
+"k": "roomAF_184",
+"rooms": 49,
+"lam": 174.02907036467099,
+"cut": [
+2,
+70
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 62,
+"cls": "一格门对太远",
+"prog": 1,
+"r48_prog": 1,
+"in_missed": true,
+"nmiss": 8,
+"prog_best": 521.4444444444442,
+"rho_prog": 0.33374422187982944,
+"unk": 0,
+"rg_min": 174.02907036466357,
+"rg_min_cuts": [
+[
+2,
+70
+]
+],
+"rho_rg": 1.0000000000000426
+},
+{
+"k": "roomBB_194",
+"rooms": 25,
+"lam": 152.93014222610483,
+"cut": [
+8,
+24
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 32,
+"cls": "一格门对太远",
+"prog": 4,
+"r48_prog": 4,
+"in_missed": true,
+"nmiss": 13,
+"prog_best": 244.65829994098098,
+"rho_prog": 0.6250764525993855,
+"unk": 0,
+"rg_min": 152.93014222610552,
+"rg_min_cuts": [
+[
+8,
+24
+]
+],
+"rho_rg": 0.9999999999999956
+},
+{
+"k": "roomBC_194",
+"rooms": 25,
+"lam": 52.29853342310611,
+"cut": [
+21
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 52.298533423106136,
+"rho_prog": 0.9999999999999994,
+"unk": 0,
+"rg_min": 52.298533423106136,
+"rg_min_cuts": [
+[
+21
+]
+],
+"rho_rg": 0.9999999999999994
+},
+{
+"k": "roomBD_194",
+"rooms": 25,
+"lam": 147.8015344457454,
+"cut": [
+10,
+45
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 59,
+"cls": "一格门对太远",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": true,
+"nmiss": 2,
+"prog_best": 160.47163120567376,
+"rho_prog": 0.9210446315979096,
+"unk": 0,
+"rg_min": 147.80153444574552,
+"rg_min_cuts": [
+[
+10,
+45
+]
+],
+"rho_rg": 0.9999999999999992
+},
+{
+"k": "roomBE_188",
+"rooms": 36,
+"lam": 88.13496805346384,
+"cut": [
+3
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 5,
+"r48_prog": 5,
+"in_missed": false,
+"nmiss": 9,
+"prog_best": 88.13496805346288,
+"rho_prog": 1.0000000000000109,
+"unk": 0,
+"rg_min": 88.13496805346288,
+"rg_min_cuts": [
+[
+3
+]
+],
+"rho_rg": 1.0000000000000109
+},
+{
+"k": "roomBF_189",
+"rooms": 36,
+"lam": 60.73888888888961,
+"cut": [
+30
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 5,
+"r48_prog": 5,
+"in_missed": false,
+"nmiss": 10,
+"prog_best": 60.73888888888889,
+"rho_prog": 1.000000000000012,
+"unk": 0,
+"rg_min": 60.73888888888889,
+"rg_min_cuts": [
+[
+30
+]
+],
+"rho_rg": 1.000000000000012
+},
+{
+"k": "roomCA_200",
+"rooms": 16,
+"lam": 52.825396825396844,
+"cut": [
+20
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": false,
+"nmiss": 3,
+"prog_best": 52.82539682539682,
+"rho_prog": 1.0000000000000004,
+"unk": 0,
+"rg_min": 52.82539682539682,
+"rg_min_cuts": [
+[
+20
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "roomCB_194",
+"rooms": 25,
+"lam": 112.58027129206793,
+"cut": [
+1,
+32
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 62,
+"cls": "一格门对太远",
+"prog": 1,
+"r48_prog": 1,
+"in_missed": true,
+"nmiss": 6,
+"prog_best": 204.09271034963479,
+"rho_prog": 0.5516133873630504,
+"unk": 0,
+"rg_min": 112.58027129206778,
+"rg_min_cuts": [
+[
+1,
+32
+]
+],
+"rho_rg": 1.0000000000000013
+},
+{
+"k": "roomCC_194",
+"rooms": 25,
+"lam": 147.5171145870061,
+"cut": [
+11,
+32
+],
+"widths": [
+2,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 44,
+"cls": "含两格门",
+"prog": 5,
+"r48_prog": 5,
+"in_missed": true,
+"nmiss": 4,
+"prog_best": 183.47128473010824,
+"rho_prog": 0.8040338018235834,
+"unk": 0,
+"rg_min": 147.51711458700652,
+"rg_min_cuts": [
+[
+11,
+32
+]
+],
+"rho_rg": 0.9999999999999971
+},
+{
+"k": "roomCD_194",
+"rooms": 25,
+"lam": 243.80253358509347,
+"cut": [
+2,
+24,
+25
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 2,
+"r48_prog": 2,
+"in_missed": false,
+"nmiss": 0,
+"prog_best": 342.6020744162578,
+"rho_prog": 0.7116201324831327,
+"unk": 0,
+"rg_min": 342.6020744162578,
+"rg_min_cuts": [
+[
+18,
+19
+]
+],
+"rho_rg": 0.7116201324831327
+},
+{
+"k": "roomCE_188",
+"rooms": 36,
+"lam": 86.90762585304202,
+"cut": [
+25
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": false,
+"nmiss": 10,
+"prog_best": 86.90762585304068,
+"rho_prog": 1.0000000000000153,
+"unk": 0,
+"rg_min": 86.90762585304068,
+"rg_min_cuts": [
+[
+25
+]
+],
+"rho_rg": 1.0000000000000153
+},
+{
+"k": "roomCF_189",
+"rooms": 36,
+"lam": 156.18571428571624,
+"cut": [
+33,
+34,
+35
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 0,
+"r48_prog": 0,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 243.88999999999996,
+"rg_min_cuts": [
+[
+16,
+39
+]
+],
+"rho_rg": 0.6403940886699588
+},
+{
+"k": "roomDA_199",
+"rooms": 16,
+"lam": 69.33333333333339,
+"cut": [
+12
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 69.33333333333333,
+"rho_prog": 1.0000000000000009,
+"unk": 0,
+"rg_min": 69.33333333333333,
+"rg_min_cuts": [
+[
+12
+]
+],
+"rho_rg": 1.0000000000000009
+},
+{
+"k": "roomDB_194",
+"rooms": 25,
+"lam": 105.27441934755207,
+"cut": [
+12,
+13
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 10,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 105.2744193475521,
+"rho_prog": 0.9999999999999998,
+"unk": 0,
+"rg_min": 105.2744193475521,
+"rg_min_cuts": [
+[
+12,
+13
+]
+],
+"rho_rg": 0.9999999999999998
+},
+{
+"k": "roomDC_194",
+"rooms": 25,
+"lam": 104.47261738485689,
+"cut": [
+13
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": false,
+"nmiss": 6,
+"prog_best": 104.47261738485679,
+"rho_prog": 1.0000000000000009,
+"unk": 0,
+"rg_min": 104.47261738485679,
+"rg_min_cuts": [
+[
+13
+]
+],
+"rho_rg": 1.0000000000000009
+},
+{
+"k": "roomDD_194",
+"rooms": 25,
+"lam": 55.84140260649952,
+"cut": [
+15
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 10,
+"r48_prog": 10,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 55.841402606499656,
+"rho_prog": 0.9999999999999976,
+"unk": 0,
+"rg_min": 55.841402606499656,
+"rg_min_cuts": [
+[
+15
+]
+],
+"rho_rg": 0.9999999999999976
+},
+{
+"k": "roomDE_188",
+"rooms": 36,
+"lam": 52.99084223751435,
+"cut": [
+38
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 8,
+"r48_prog": 8,
+"in_missed": false,
+"nmiss": 5,
+"prog_best": 52.99084223751397,
+"rho_prog": 1.0000000000000073,
+"unk": 0,
+"rg_min": 52.99084223751397,
+"rg_min_cuts": [
+[
+38
+]
+],
+"rho_rg": 1.0000000000000073
+},
+{
+"k": "roomEA_200",
+"rooms": 16,
+"lam": 69.33333333333333,
+"cut": [
+5
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": false,
+"nmiss": 1,
+"prog_best": 69.33333333333333,
+"rho_prog": 1.0,
+"unk": 0,
+"rg_min": 69.33333333333333,
+"rg_min_cuts": [
+[
+5
+]
+],
+"rho_rg": 1.0
+},
+{
+"k": "roomDF_189",
+"rooms": 36,
+"lam": 156.3361992745463,
+"cut": [
+31,
+32,
+33
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 1,
+"r48_prog": 1,
+"in_missed": false,
+"nmiss": 5,
+"prog_best": 392.43077251387103,
+"rho_prog": 0.39837905236909105,
+"unk": 0,
+"rg_min": 211.08018824609732,
+"rg_min_cuts": [
+[
+46,
+61
+]
+],
+"rho_rg": 0.7406483790523946
+},
+{
+"k": "roomEB_194",
+"rooms": 25,
+"lam": 92.60312424312966,
+"cut": [
+5
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": false,
+"nmiss": 11,
+"prog_best": 92.60312424312968,
+"rho_prog": 0.9999999999999997,
+"unk": 0,
+"rg_min": 92.60312424312968,
+"rg_min_cuts": [
+[
+5
+]
+],
+"rho_rg": 0.9999999999999997
+},
+{
+"k": "roomEC_194",
+"rooms": 25,
+"lam": 104.09835657156665,
+"cut": [
+10,
+24
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 56,
+"cls": "一格门对太远",
+"prog": 1,
+"r48_prog": 1,
+"in_missed": true,
+"nmiss": 20,
+"prog_best": 148.282642747008,
+"rho_prog": 0.7020265800709646,
+"unk": 0,
+"rg_min": 104.09835657156601,
+"rg_min_cuts": [
+[
+10,
+24
+]
+],
+"rho_rg": 1.0000000000000062
+},
+{
+"k": "roomED_194",
+"rooms": 25,
+"lam": 119.59423019690729,
+"cut": [
+4
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 119.59423019690729,
+"rho_prog": 1.0,
+"unk": 0,
+"rg_min": 119.59423019690729,
+"rg_min_cuts": [
+[
+4
+]
+],
+"rho_rg": 1.0
+},
+{
+"k": "roomEE_189",
+"rooms": 36,
+"lam": 76.81462498720842,
+"cut": [
+9
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 5,
+"r48_prog": 5,
+"in_missed": false,
+"nmiss": 9,
+"prog_best": 76.81462498720751,
+"rho_prog": 1.0000000000000118,
+"unk": 0,
+"rg_min": 76.81462498720751,
+"rg_min_cuts": [
+[
+9
+]
+],
+"rho_rg": 1.0000000000000118
+},
+{
+"k": "roomFA_199",
+"rooms": 16,
+"lam": 52.82539682539682,
+"cut": [
+4
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 10,
+"r48_prog": 10,
+"in_missed": false,
+"nmiss": 3,
+"prog_best": 52.82539682539682,
+"rho_prog": 1.0,
+"unk": 0,
+"rg_min": 52.82539682539682,
+"rg_min_cuts": [
+[
+4
+]
+],
+"rho_rg": 1.0
+},
+{
+"k": "roomEF_189",
+"rooms": 36,
+"lam": 86.47280165522506,
+"cut": [
+41
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": 86.47280165522429,
+"rho_prog": 1.0000000000000089,
+"unk": 0,
+"rg_min": 86.47280165522429,
+"rg_min_cuts": [
+[
+41
+]
+],
+"rho_rg": 1.0000000000000089
+},
+{
+"k": "roomFB_194",
+"rooms": 25,
+"lam": 52.29398468285141,
+"cut": [
+2
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 14,
+"r48_prog": 14,
+"in_missed": false,
+"nmiss": 1,
+"prog_best": 52.293984682851374,
+"rho_prog": 1.0000000000000007,
+"unk": 0,
+"rg_min": 52.293984682851374,
+"rg_min_cuts": [
+[
+2
+]
+],
+"rho_rg": 1.0000000000000007
+},
+{
+"k": "roomFC_194",
+"rooms": 25,
+"lam": 57.94508841897882,
+"cut": [
+5
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": 57.945088418978756,
+"rho_prog": 1.000000000000001,
+"unk": 0,
+"rg_min": 57.945088418978756,
+"rg_min_cuts": [
+[
+5
+]
+],
+"rho_rg": 1.000000000000001
+},
+{
+"k": "roomFD_194",
+"rooms": 25,
+"lam": 116.14032845509145,
+"cut": [
+2,
+30
+],
+"widths": [
+2,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 82,
+"cls": "含两格门",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": true,
+"nmiss": 14,
+"prog_best": 185.47971124047436,
+"rho_prog": 0.6261619002873882,
+"unk": 0,
+"rg_min": 116.14032845509108,
+"rg_min_cuts": [
+[
+2,
+30
+]
+],
+"rho_rg": 1.000000000000003
+},
+{
+"k": "roomFE_189",
+"rooms": 36,
+"lam": 71.97861598617284,
+"cut": [
+36
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": true,
+"nmiss": 7,
+"prog_best": 88.13496805346288,
+"rho_prog": 0.8166862435635132,
+"unk": 0,
+"rg_min": 71.97861598617224,
+"rg_min_cuts": [
+[
+36
+]
+],
+"rho_rg": 1.0000000000000082
+},
+{
+"k": "roomGA_199",
+"rooms": 16,
+"lam": 85.3333333333334,
+"cut": [
+2
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": 85.33333333333333,
+"rho_prog": 1.0000000000000009,
+"unk": 0,
+"rg_min": 85.33333333333333,
+"rg_min_cuts": [
+[
+2
+]
+],
+"rho_rg": 1.0000000000000009
+},
+{
+"k": "roomFF_188",
+"rooms": 36,
+"lam": 117.06968423733346,
+"cut": [
+8,
+21
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 24,
+"cls": "一格门对太远",
+"prog": 7,
+"r48_prog": 7,
+"in_missed": true,
+"nmiss": 8,
+"prog_best": 123.02184907679955,
+"rho_prog": 0.9516170104405576,
+"unk": 0,
+"rg_min": 117.06968423733129,
+"rg_min_cuts": [
+[
+8,
+21
+]
+],
+"rho_rg": 1.0000000000000187
+},
+{
+"k": "roomGB_194",
+"rooms": 25,
+"lam": 64.634888037808,
+"cut": [
+18
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 8,
+"r48_prog": 8,
+"in_missed": true,
+"nmiss": 3,
+"prog_best": 92.60312424312968,
+"rho_prog": 0.6979774015843027,
+"unk": 0,
+"rg_min": 64.63488803780791,
+"rg_min_cuts": [
+[
+18
+]
+],
+"rho_rg": 1.0000000000000013
+},
+{
+"k": "roomGC_194",
+"rooms": 25,
+"lam": 148.28264274700797,
+"cut": [
+1
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 2,
+"r48_prog": 2,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 148.282642747008,
+"rho_prog": 0.9999999999999998,
+"unk": 0,
+"rg_min": 148.282642747008,
+"rg_min_cuts": [
+[
+1
+]
+],
+"rho_rg": 0.9999999999999998
+},
+{
+"k": "roomGD_194",
+"rooms": 25,
+"lam": 104.04575747488167,
+"cut": [
+19,
+21
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 35,
+"cls": "一格门对太远",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": true,
+"nmiss": 3,
+"prog_best": 160.47163120567376,
+"rho_prog": 0.6483747731181718,
+"unk": 0,
+"rg_min": 104.04575747488117,
+"rg_min_cuts": [
+[
+19,
+21
+]
+],
+"rho_rg": 1.0000000000000049
+},
+{
+"k": "roomHA_200",
+"rooms": 16,
+"lam": 170.66666666666674,
+"cut": [
+26,
+28
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 17,
+"cls": "一格门对太远",
+"prog": 2,
+"r48_prog": 2,
+"in_missed": true,
+"nmiss": 2,
+"prog_best": 237.71428571428572,
+"rho_prog": 0.7179487179487183,
+"unk": 0,
+"rg_min": 170.66666666666666,
+"rg_min_cuts": [
+[
+26,
+28
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "roomGE_188",
+"rooms": 36,
+"lam": 56.444841425140375,
+"cut": [
+23
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 0,
+"prog_best": 56.444841425140226,
+"rho_prog": 1.0000000000000027,
+"unk": 0,
+"rg_min": 56.444841425140226,
+"rg_min_cuts": [
+[
+23
+]
+],
+"rho_rg": 1.0000000000000027
+},
+{
+"k": "roomGF_189",
+"rooms": 36,
+"lam": 140.58027673725363,
+"cut": [
+29,
+65
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 58,
+"cls": "一格门对太远",
+"prog": 2,
+"r48_prog": 2,
+"in_missed": true,
+"nmiss": 8,
+"prog_best": 392.43077251387103,
+"rho_prog": 0.3582294931580184,
+"unk": 0,
+"rg_min": 140.5802767372525,
+"rg_min_cuts": [
+[
+29,
+65
+]
+],
+"rho_rg": 1.000000000000008
+},
+{
+"k": "roomHB_194",
+"rooms": 25,
+"lam": 125.57030259499871,
+"cut": [
+17,
+18
+],
+"widths": [
+2,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 18,
+"cls": "含两格门",
+"prog": 4,
+"r48_prog": 4,
+"in_missed": true,
+"nmiss": 2,
+"prog_best": 260.18210272130864,
+"rho_prog": 0.48262467434011797,
+"unk": 0,
+"rg_min": 125.57030259499868,
+"rg_min_cuts": [
+[
+17,
+18
+]
+],
+"rho_rg": 1.0000000000000002
+},
+{
+"k": "roomHC_194",
+"rooms": 25,
+"lam": 125.00759287342814,
+"cut": [
+15,
+39
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 53,
+"cls": "一格门对太远",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": true,
+"nmiss": 3,
+"prog_best": 188.09936355169202,
+"rho_prog": 0.6645827530356024,
+"unk": 0,
+"rg_min": 125.00759287342802,
+"rg_min_cuts": [
+[
+15,
+39
+]
+],
+"rho_rg": 1.0000000000000009
+},
+{
+"k": "roomHD_194",
+"rooms": 25,
+"lam": 57.25949952818595,
+"cut": [
+23
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 1,
+"prog_best": 57.25949952818598,
+"rho_prog": 0.9999999999999996,
+"unk": 0,
+"rg_min": 57.25949952818598,
+"rg_min_cuts": [
+[
+23
+]
+],
+"rho_rg": 0.9999999999999996
+},
+{
+"k": "roomIA_200",
+"rooms": 16,
+"lam": 60.50909090909091,
+"cut": [
+2
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 12,
+"r48_prog": 12,
+"in_missed": false,
+"nmiss": 0,
+"prog_best": 60.50909090909091,
+"rho_prog": 1.0,
+"unk": 0,
+"rg_min": 60.50909090909091,
+"rg_min_cuts": [
+[
+2
+]
+],
+"rho_rg": 1.0
+},
+{
+"k": "roomHE_189",
+"rooms": 36,
+"lam": 159.64047850545282,
+"cut": [
+25,
+30,
+42
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 0,
+"r48_prog": 0,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 239.6534537618924,
+"rg_min_cuts": [
+[
+34
+]
+],
+"rho_rg": 0.6661305147058868
+},
+{
+"k": "roomHF_189",
+"rooms": 36,
+"lam": 157.7668668496905,
+"cut": [
+11,
+33,
+41
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 5,
+"r48_prog": 5,
+"in_missed": false,
+"nmiss": 8,
+"prog_best": 160.04617928633593,
+"rho_prog": 0.9857584076870242,
+"unk": 0,
+"rg_min": 160.04617928633593,
+"rg_min_cuts": [
+[
+7
+]
+],
+"rho_rg": 0.9857584076870242
+},
+{
+"k": "roomIB_194",
+"rooms": 25,
+"lam": 52.134792626728185,
+"cut": [
+17
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 16,
+"r48_prog": 16,
+"in_missed": false,
+"nmiss": 3,
+"prog_best": 52.134792626728114,
+"rho_prog": 1.0000000000000013,
+"unk": 0,
+"rg_min": 52.134792626728114,
+"rg_min_cuts": [
+[
+17
+]
+],
+"rho_rg": 1.0000000000000013
+},
+{
+"k": "roomIC_194",
+"rooms": 25,
+"lam": 70.7211450916307,
+"cut": [
+5
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": 9,
+"in_missed": false,
+"nmiss": 6,
+"prog_best": 70.72114509163067,
+"rho_prog": 1.0000000000000004,
+"unk": 0,
+"rg_min": 70.72114509163067,
+"rg_min_cuts": [
+[
+5
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "roomID_194",
+"rooms": 25,
+"lam": 116.44420839927557,
+"cut": [
+16,
+30
+],
+"widths": [
+2,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 33,
+"cls": "含两格门",
+"prog": 2,
+"r48_prog": 2,
+"in_missed": true,
+"nmiss": 7,
+"prog_best": 342.6020744162578,
+"rho_prog": 0.33988179609734975,
+"unk": 0,
+"rg_min": 116.44420839927575,
+"rg_min_cuts": [
+[
+16,
+30
+]
+],
+"rho_rg": 0.9999999999999984
+},
+{
+"k": "roomP_199",
+"rooms": 16,
+"lam": 118.85714285714279,
+"cut": [
+3
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 10,
+"r48_prog": 10,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 118.85714285714286,
+"rho_prog": 0.9999999999999994,
+"unk": 0,
+"rg_min": 118.85714285714286,
+"rg_min_cuts": [
+[
+3
+],
+[
+17
+]
+],
+"rho_rg": 0.9999999999999994
+},
+{
+"k": "roomIE_189",
+"rooms": 36,
+"lam": 53.32360771452797,
+"cut": [
+30
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": false,
+"nmiss": 17,
+"prog_best": 53.32360771452669,
+"rho_prog": 1.000000000000024,
+"unk": 0,
+"rg_min": 53.32360771452669,
+"rg_min_cuts": [
+[
+30
+]
+],
+"rho_rg": 1.000000000000024
+},
+{
+"k": "roomIF_189",
+"rooms": 36,
+"lam": 182.28891752577323,
+"cut": [
+41
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 4,
+"r48_prog": 4,
+"in_missed": false,
+"nmiss": 5,
+"prog_best": 182.28891752577317,
+"rho_prog": 1.0000000000000002,
+"unk": 0,
+"rg_min": 182.28891752577317,
+"rg_min_cuts": [
+[
+41
+]
+],
+"rho_rg": 1.0000000000000002
+},
+{
+"k": "roomQ_200",
+"rooms": 16,
+"lam": 105.02564102564101,
+"cut": [
+1
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 4,
+"r48_prog": 4,
+"in_missed": true,
+"nmiss": 6,
+"prog_best": 138.66666666666666,
+"rho_prog": 0.7573964497041419,
+"unk": 0,
+"rg_min": 105.02564102564104,
+"rg_min_cuts": [
+[
+1
+]
+],
+"rho_rg": 0.9999999999999998
+},
+{
+"k": "roomR_194",
+"rooms": 25,
+"lam": 71.00741647283733,
+"cut": [
+17
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": false,
+"nmiss": 10,
+"prog_best": 71.00741647283677,
+"rho_prog": 1.000000000000008,
+"unk": 0,
+"rg_min": 71.00741647283677,
+"rg_min_cuts": [
+[
+17
+]
+],
+"rho_rg": 1.000000000000008
+},
+{
+"k": "roomS_194",
+"rooms": 25,
+"lam": 71.00741647283674,
+"cut": [
+21
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 10,
+"r48_prog": 10,
+"in_missed": false,
+"nmiss": 2,
+"prog_best": 71.00741647283677,
+"rho_prog": 0.9999999999999996,
+"unk": 0,
+"rg_min": 71.00741647283677,
+"rg_min_cuts": [
+[
+21
+]
+],
+"rho_rg": 0.9999999999999996
+},
+{
+"k": "roomT_199",
+"rooms": 16,
+"lam": 85.33333333333327,
+"cut": [
+3
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 5,
+"r48_prog": 5,
+"in_missed": false,
+"nmiss": 9,
+"prog_best": 85.33333333333333,
+"rho_prog": 0.9999999999999993,
+"unk": 0,
+"rg_min": 85.33333333333333,
+"rg_min_cuts": [
+[
+3
+]
+],
+"rho_rg": 0.9999999999999993
+},
+{
+"k": "roomU_199",
+"rooms": 16,
+"lam": 52.82539682539684,
+"cut": [
+18
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 11,
+"r48_prog": 11,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 52.82539682539682,
+"rho_prog": 1.0000000000000002,
+"unk": 0,
+"rg_min": 52.82539682539682,
+"rg_min_cuts": [
+[
+18
+]
+],
+"rho_rg": 1.0000000000000002
+},
+{
+"k": "roomV_194",
+"rooms": 25,
+"lam": 118.69990400062694,
+"cut": [
+11,
+14
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 20,
+"cls": "一格门对太远",
+"prog": 1,
+"r48_prog": 1,
+"in_missed": true,
+"nmiss": 6,
+"prog_best": 185.47971124047436,
+"rho_prog": 0.6399616605329549,
+"unk": 0,
+"rg_min": 118.69990400062693,
+"rg_min_cuts": [
+[
+11,
+14
+]
+],
+"rho_rg": 1.0000000000000002
+},
+{
+"k": "roomW_194",
+"rooms": 25,
+"lam": 143.421350544732,
+"cut": [
+21,
+27
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 29,
+"cls": "一格门对太远",
+"prog": 2,
+"r48_prog": 2,
+"in_missed": true,
+"nmiss": 8,
+"prog_best": 185.47971124047436,
+"rho_prog": 0.7732454918413492,
+"unk": 0,
+"rg_min": 143.42135054473013,
+"rg_min_cuts": [
+[
+21,
+27
+]
+],
+"rho_rg": 1.000000000000013
+},
+{
+"k": "roomX_199",
+"rooms": 16,
+"lam": 85.33333333333336,
+"cut": [
+21
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 85.33333333333333,
+"rho_prog": 1.0000000000000004,
+"unk": 0,
+"rg_min": 85.33333333333333,
+"rg_min_cuts": [
+[
+21
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "roomY_189",
+"rooms": 36,
+"lam": 106.27199491447293,
+"cut": [
+20
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 3,
+"r48_prog": 3,
+"in_missed": false,
+"nmiss": 1,
+"prog_best": 106.27199491447064,
+"rho_prog": 1.0000000000000215,
+"unk": 0,
+"rg_min": 106.27199491447064,
+"rg_min_cuts": [
+[
+20
+]
+],
+"rho_rg": 1.0000000000000215
+},
+{
+"k": "roomZ1_199",
+"rooms": 16,
+"lam": 118.85714285714285,
+"cut": [
+21
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 8,
+"r48_prog": 8,
+"in_missed": false,
+"nmiss": 3,
+"prog_best": 118.85714285714286,
+"rho_prog": 0.9999999999999999,
+"unk": 0,
+"rg_min": 118.85714285714286,
+"rg_min_cuts": [
+[
+21
+]
+],
+"rho_rg": 0.9999999999999999
+},
+{
+"k": "roomZ2_200",
+"rooms": 16,
+"lam": 69.33333333333337,
+"cut": [
+16
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 4,
+"r48_prog": 4,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": 69.33333333333333,
+"rho_prog": 1.0000000000000007,
+"unk": 0,
+"rg_min": 69.33333333333333,
+"rg_min_cuts": [
+[
+16
+]
+],
+"rho_rg": 1.0000000000000007
+},
+{
+"k": "roomZ3_194",
+"rooms": 25,
+"lam": 66.48511509175933,
+"cut": [
+20
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 6,
+"r48_prog": 6,
+"in_missed": true,
+"nmiss": 5,
+"prog_best": 94.14186089596481,
+"rho_prog": 0.706222656520794,
+"unk": 0,
+"rg_min": 66.4851150917593,
+"rg_min_cuts": [
+[
+20
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "roomKA",
+"rooms": 16,
+"lam": 55.46666666666664,
+"cut": [
+11
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 10,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 55.46666666666666,
+"rho_prog": 0.9999999999999997,
+"unk": 0,
+"rg_min": 55.46666666666666,
+"rg_min_cuts": [
+[
+11
+],
+[
+12
+]
+],
+"rho_rg": 0.9999999999999997
+},
+{
+"k": "roomZ4_189",
+"rooms": 36,
+"lam": 208.10621852543767,
+"cut": [
+0,
+22,
+33,
+60
+],
+"widths": [
+1,
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 0,
+"r48_prog": 0,
+"in_missed": false,
+"nmiss": 4,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 298.72166991552956,
+"rg_min_cuts": [
+[
+51,
+52
+]
+],
+"rho_rg": 0.6966559158037798
+},
+{
+"k": "roomKB",
+"rooms": 25,
+"lam": 208.35960176078333,
+"cut": [
+8,
+11,
+22
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 1,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 489.31659988196196,
+"rho_prog": 0.42581756231251094,
+"unk": 0,
+"rg_min": 489.31659988196196,
+"rg_min_cuts": [
+[
+6,
+7
+]
+],
+"rho_rg": 0.42581756231251094
+},
+{
+"k": "roomKC",
+"rooms": 25,
+"lam": 114.69560237770682,
+"cut": [
+21,
+22
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 29,
+"cls": "一格门对太远",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 286.7675068039285,
+"rho_prog": 0.399960245343025,
+"unk": 0,
+"rg_min": 114.69560237770708,
+"rg_min_cuts": [
+[
+21,
+22
+]
+],
+"rho_rg": 0.9999999999999978
+},
+{
+"k": "roomKD",
+"rooms": 25,
+"lam": 117.43653643838745,
+"cut": [
+16,
+17
+],
+"widths": [
+2,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 46,
+"cls": "含两格门",
+"prog": 1,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 185.47971124047436,
+"rho_prog": 0.6331503087479526,
+"unk": 0,
+"rg_min": 117.43653643838618,
+"rg_min_cuts": [
+[
+16,
+17
+]
+],
+"rho_rg": 1.0000000000000109
+},
+{
+"k": "roomKE",
+"rooms": 36,
+"lam": 171.3557018945413,
+"cut": [
+5,
+8
+],
+"widths": [
+1,
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 23,
+"cls": "含两格门",
+"prog": 2,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 312.59444482219345,
+"rho_prog": 0.5481725754659843,
+"unk": 0,
+"rg_min": 171.35570189453983,
+"rg_min_cuts": [
+[
+5,
+8
+]
+],
+"rho_rg": 1.0000000000000087
+},
+{
+"k": "A6",
+"rooms": 16,
+"lam": 110.77884284148435,
+"cut": [
+4,
+5
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 3,
+"cls": "管到",
+"prog": 9,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 110.77884284148442,
+"rho_prog": 0.9999999999999993,
+"unk": 0,
+"rg_min": 110.77884284148442,
+"rg_min_cuts": [
+[
+4,
+5
+]
+],
+"rho_rg": 0.9999999999999993
+},
+{
+"k": "roomKF",
+"rooms": 36,
+"lam": 132.67897546897964,
+"cut": [
+27,
+29
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 25,
+"cls": "一格门对太远",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 320.09235857267186,
+"rho_prog": 0.4145021645021776,
+"unk": 0,
+"rg_min": 132.67897546897547,
+"rg_min_cuts": [
+[
+27,
+29
+]
+],
+"rho_rg": 1.0000000000000315
+},
+{
+"k": "W6",
+"rooms": 16,
+"lam": 85.17642762349136,
+"cut": [
+6
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 8,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 110.77884284148442,
+"rho_prog": 0.7688871398067586,
+"unk": 0,
+"rg_min": 85.17642762349152,
+"rg_min_cuts": [
+[
+6
+]
+],
+"rho_rg": 0.9999999999999981
+},
+{
+"k": "p02/roomPA",
+"rooms": 16,
+"lam": 85.33333333333331,
+"cut": [
+18
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 11,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 85.33333333333333,
+"rho_prog": 0.9999999999999998,
+"unk": 0,
+"rg_min": 85.33333333333333,
+"rg_min_cuts": [
+[
+18
+]
+],
+"rho_rg": 0.9999999999999998
+},
+{
+"k": "p02/roomPB",
+"rooms": 25,
+"lam": 104.26958525345611,
+"cut": [
+11,
+12
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 6,
+"cls": "管到",
+"prog": 10,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 104.26958525345623,
+"rho_prog": 0.9999999999999989,
+"unk": 0,
+"rg_min": 104.26958525345623,
+"rg_min_cuts": [
+[
+11,
+12
+]
+],
+"rho_rg": 0.9999999999999989
+},
+{
+"k": "p02/roomPC",
+"rooms": 25,
+"lam": 62.503796436714055,
+"cut": [
+16
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 13,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 62.50379643671401,
+"rho_prog": 1.0000000000000007,
+"unk": 0,
+"rg_min": 62.50379643671401,
+"rg_min_cuts": [
+[
+16
+]
+],
+"rho_rg": 1.0000000000000007
+},
+{
+"k": "p02/roomPD",
+"rooms": 25,
+"lam": 137.99876434597294,
+"cut": [
+12,
+15
+],
+"widths": [
+2,
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 21,
+"cls": "含两格门",
+"prog": 0,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 137.99876434597175,
+"rg_min_cuts": [
+[
+12,
+15
+]
+],
+"rho_rg": 1.0000000000000087
+},
+{
+"k": "p02/roomPE",
+"rooms": 36,
+"lam": 105.54009412305074,
+"cut": [
+35
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 105.54009412304865,
+"rho_prog": 1.0000000000000198,
+"unk": 0,
+"rg_min": 105.54009412304865,
+"rg_min_cuts": [
+[
+35
+]
+],
+"rho_rg": 1.0000000000000198
+},
+{
+"k": "p18/roomUA",
+"rooms": 16,
+"lam": 69.3333333333333,
+"cut": [
+7
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 13,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 69.33333333333333,
+"rho_prog": 0.9999999999999996,
+"unk": 0,
+"rg_min": 69.33333333333333,
+"rg_min_cuts": [
+[
+7
+],
+[
+11
+]
+],
+"rho_rg": 0.9999999999999996
+},
+{
+"k": "p02/roomPF",
+"rooms": 36,
+"lam": 168.7711637298111,
+"cut": [
+29,
+52
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 35,
+"cls": "一格门对太远",
+"prog": 5,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 232.48174462705435,
+"rho_prog": 0.7259544787077913,
+"unk": 0,
+"rg_min": 168.77116372980907,
+"rg_min_cuts": [
+[
+29,
+52
+]
+],
+"rho_rg": 1.000000000000012
+},
+{
+"k": "p18/roomUB",
+"rooms": 25,
+"lam": 53.20092112079952,
+"cut": [
+11
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 12,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 53.200921120799414,
+"rho_prog": 1.000000000000002,
+"unk": 0,
+"rg_min": 53.200921120799414,
+"rg_min_cuts": [
+[
+11
+]
+],
+"rho_rg": 1.000000000000002
+},
+{
+"k": "p18/roomUC",
+"rooms": 25,
+"lam": 129.82750582750677,
+"cut": [
+14,
+24
+],
+"widths": [
+2,
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 36,
+"cls": "含两格门",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 209.82443290043287,
+"rho_prog": 0.6187435087176587,
+"unk": 0,
+"rg_min": 129.82750582750583,
+"rg_min_cuts": [
+[
+14,
+24
+]
+],
+"rho_rg": 1.0000000000000073
+},
+{
+"k": "p18/roomUD",
+"rooms": 25,
+"lam": 112.12399603110207,
+"cut": [
+8,
+32
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 40,
+"cls": "一格门对太远",
+"prog": 2,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 171.3010372081289,
+"rho_prog": 0.6545435909700456,
+"unk": 0,
+"rg_min": 112.12399603110202,
+"rg_min_cuts": [
+[
+8,
+32
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "p18/roomUE",
+"rooms": 36,
+"lam": 108.73513252224977,
+"cut": [
+14,
+17
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 4,
+"cls": "管到",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 108.73513252224839,
+"rho_prog": 1.0000000000000127,
+"unk": 0,
+"rg_min": 108.73513252224839,
+"rg_min_cuts": [
+[
+14,
+17
+]
+],
+"rho_rg": 1.0000000000000127
+},
+{
+"k": "p57/roomVA",
+"rooms": 16,
+"lam": 138.66666666666674,
+"cut": [
+4,
+5
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 6,
+"cls": "管到",
+"prog": 4,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 138.66666666666666,
+"rho_prog": 1.0000000000000007,
+"unk": 0,
+"rg_min": 138.66666666666666,
+"rg_min_cuts": [
+[
+4,
+5
+]
+],
+"rho_rg": 1.0000000000000007
+},
+{
+"k": "p18/roomUF",
+"rooms": 36,
+"lam": 82.058482820171,
+"cut": [
+43
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 8,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 82.05848282016956,
+"rho_prog": 1.0000000000000175,
+"unk": 0,
+"rg_min": 82.05848282016956,
+"rg_min_cuts": [
+[
+43
+]
+],
+"rho_rg": 1.0000000000000175
+},
+{
+"k": "p57/roomVB",
+"rooms": 25,
+"lam": 114.30087427721125,
+"cut": [
+3,
+14
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 26,
+"cls": "一格门对太远",
+"prog": 5,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 175.75500178515642,
+"rho_prog": 0.6503420848126591,
+"unk": 0,
+"rg_min": 114.30087427721024,
+"rg_min_cuts": [
+[
+3,
+14
+]
+],
+"rho_rg": 1.0000000000000089
+},
+{
+"k": "p57/roomVC",
+"rooms": 25,
+"lam": 66.90206747289636,
+"cut": [
+15
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 296.565285494016,
+"rho_prog": 0.22558967871594093,
+"unk": 0,
+"rg_min": 66.9020674728962,
+"rg_min_cuts": [
+[
+15
+]
+],
+"rho_rg": 1.0000000000000024
+},
+{
+"k": "p57/roomVD",
+"rooms": 25,
+"lam": 104.39825580624802,
+"cut": [
+10,
+25
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 39,
+"cls": "一格门对太远",
+"prog": 1,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 185.47971124047436,
+"rho_prog": 0.5628553932289431,
+"unk": 0,
+"rg_min": 104.39825580624724,
+"rg_min_cuts": [
+[
+10,
+25
+]
+],
+"rho_rg": 1.0000000000000075
+},
+{
+"k": "p57/roomVE",
+"rooms": 36,
+"lam": 104.65434769077025,
+"cut": [
+13,
+26
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 34,
+"cls": "一格门对太远",
+"prog": 6,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 194.71843118153757,
+"rho_prog": 0.5374650312029279,
+"unk": 0,
+"rg_min": 104.65434769077001,
+"rg_min_cuts": [
+[
+13,
+26
+]
+],
+"rho_rg": 1.0000000000000022
+},
+{
+"k": "p61/roomKA",
+"rooms": 16,
+"lam": 156.00000000000014,
+"cut": [
+7,
+8,
+26
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 1,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 221.86666666666665,
+"rho_prog": 0.7031250000000007,
+"unk": 0,
+"rg_min": 221.86666666666665,
+"rg_min_cuts": [
+[
+19
+]
+],
+"rho_rg": 0.7031250000000007
+},
+{
+"k": "p57/roomVF",
+"rooms": 36,
+"lam": 116.01984840771837,
+"cut": [
+27,
+30
+],
+"widths": [
+1,
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 46,
+"cls": "含两格门",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 464.9634892541087,
+"rho_prog": 0.24952464244845682,
+"unk": 0,
+"rg_min": 116.01984840771536,
+"rg_min_cuts": [
+[
+27,
+30
+]
+],
+"rho_rg": 1.000000000000026
+},
+{
+"k": "p61/roomKB",
+"rooms": 25,
+"lam": 74.49967698425303,
+"cut": [
+3
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 11,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 74.49967698425311,
+"rho_prog": 0.9999999999999989,
+"unk": 0,
+"rg_min": 74.49967698425311,
+"rg_min_cuts": [
+[
+3
+]
+],
+"rho_rg": 0.9999999999999989
+},
+{
+"k": "p61/roomKC",
+"rooms": 25,
+"lam": 68.66143235878884,
+"cut": [
+18
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 6,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 115.28266577870801,
+"rho_prog": 0.5955919903048441,
+"unk": 0,
+"rg_min": 68.66143235878879,
+"rg_min_cuts": [
+[
+18
+]
+],
+"rho_rg": 1.0000000000000009
+},
+{
+"k": "p61/roomKD",
+"rooms": 25,
+"lam": 115.86690571811106,
+"cut": [
+6
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 4,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 194.86011078619106,
+"rho_prog": 0.5946158259411298,
+"unk": 0,
+"rg_min": 115.86690571811053,
+"rg_min_cuts": [
+[
+6
+]
+],
+"rho_rg": 1.0000000000000044
+},
+{
+"k": "p61/roomKE",
+"rooms": 36,
+"lam": 73.05624082851962,
+"cut": [
+54
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 4,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 73.05624082851843,
+"rho_prog": 1.0000000000000164,
+"unk": 0,
+"rg_min": 73.05624082851843,
+"rg_min_cuts": [
+[
+54
+]
+],
+"rho_rg": 1.0000000000000164
+},
+{
+"k": "p63/roomLA",
+"rooms": 16,
+"lam": 85.33333333333331,
+"cut": [
+5
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 8,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 118.85714285714286,
+"rho_prog": 0.7179487179487177,
+"unk": 0,
+"rg_min": 85.33333333333333,
+"rg_min_cuts": [
+[
+5
+]
+],
+"rho_rg": 0.9999999999999998
+},
+{
+"k": "p61/roomKF",
+"rooms": 36,
+"lam": 52.373279790386995,
+"cut": [
+22
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 52.37327979038505,
+"rho_prog": 1.000000000000037,
+"unk": 0,
+"rg_min": 52.37327979038505,
+"rg_min_cuts": [
+[
+22
+]
+],
+"rho_rg": 1.000000000000037
+},
+{
+"k": "p63/roomLB",
+"rooms": 25,
+"lam": 55.524311804693404,
+"cut": [
+17
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 5,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 55.524311804693454,
+"rho_prog": 0.9999999999999991,
+"unk": 0,
+"rg_min": 55.524311804693454,
+"rg_min_cuts": [
+[
+17
+]
+],
+"rho_rg": 0.9999999999999991
+},
+{
+"k": "p63/roomLC",
+"rooms": 25,
+"lam": 151.77435557003002,
+"cut": [
+1,
+12
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 16,
+"cls": "一格门对太远",
+"prog": 6,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 163.77467967778554,
+"rho_prog": 0.9267266214083565,
+"unk": 0,
+"rg_min": 151.77435557002931,
+"rg_min_cuts": [
+[
+1,
+12
+]
+],
+"rho_rg": 1.0000000000000047
+},
+{
+"k": "p63/roomLD",
+"rooms": 25,
+"lam": 150.8048848026633,
+"cut": [
+14
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 2,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 160.47163120567376,
+"rho_prog": 0.9397604029423696,
+"unk": 0,
+"rg_min": 150.8048848026633,
+"rg_min_cuts": [
+[
+14
+]
+],
+"rho_rg": 1.0
+},
+{
+"k": "p69/roomMA",
+"rooms": 16,
+"lam": 105.65079365079363,
+"cut": [
+7,
+16
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 28,
+"cls": "一格门对太远",
+"prog": 7,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 118.85714285714286,
+"rho_prog": 0.8888888888888887,
+"unk": 0,
+"rg_min": 105.65079365079364,
+"rg_min_cuts": [
+[
+7,
+16
+]
+],
+"rho_rg": 0.9999999999999999
+},
+{
+"k": "p63/roomLF",
+"rooms": 36,
+"lam": 118.14523610665007,
+"cut": [
+21,
+44
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 52,
+"cls": "一格门对太远",
+"prog": 6,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 120.47501310272536,
+"rho_prog": 0.980661741085774,
+"unk": 0,
+"rg_min": 118.14523610664952,
+"rg_min_cuts": [
+[
+21,
+44
+]
+],
+"rho_rg": 1.0000000000000047
+},
+{
+"k": "p63/roomLE",
+"rooms": 36,
+"lam": 61.063102580918084,
+"cut": [
+30
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 13,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 61.0631025809183,
+"rho_prog": 0.9999999999999966,
+"unk": 0,
+"rg_min": 61.0631025809183,
+"rg_min_cuts": [
+[
+30
+]
+],
+"rho_rg": 0.9999999999999966
+},
+{
+"k": "p69/roomMB",
+"rooms": 25,
+"lam": 92.60312424313035,
+"cut": [
+23
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 7,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 92.60312424312968,
+"rho_prog": 1.000000000000007,
+"unk": 0,
+"rg_min": 92.60312424312968,
+"rg_min_cuts": [
+[
+23
+]
+],
+"rho_rg": 1.000000000000007
+},
+{
+"k": "p69/roomMD",
+"rooms": 25,
+"lam": 117.43653643838668,
+"cut": [
+16,
+29
+],
+"widths": [
+1,
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 45,
+"cls": "含两格门",
+"prog": 4,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 122.52896890216391,
+"rho_prog": 0.9584389511361725,
+"unk": 0,
+"rg_min": 117.43653643838618,
+"rg_min_cuts": [
+[
+16,
+29
+]
+],
+"rho_rg": 1.0000000000000042
+},
+{
+"k": "p69/roomMC",
+"rooms": 25,
+"lam": 221.37624802462835,
+"cut": [
+38
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 1,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 262.36004416922873,
+"rho_prog": 0.8437879659824847,
+"unk": 0,
+"rg_min": 221.37624802462707,
+"rg_min_cuts": [
+[
+38
+]
+],
+"rho_rg": 1.0000000000000058
+},
+{
+"k": "p75/roomNA",
+"rooms": 16,
+"lam": 105.65079365079377,
+"cut": [
+3,
+13
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 50,
+"cls": "一格门对太远",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 221.86666666666665,
+"rho_prog": 0.4761904761904768,
+"unk": 0,
+"rg_min": 105.65079365079364,
+"rg_min_cuts": [
+[
+3,
+13
+]
+],
+"rho_rg": 1.000000000000001
+},
+{
+"k": "p69/roomME",
+"rooms": 36,
+"lam": 54.21527430750569,
+"cut": [
+14
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 8,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 54.21527430750565,
+"rho_prog": 1.0000000000000007,
+"unk": 0,
+"rg_min": 54.21527430750565,
+"rg_min_cuts": [
+[
+14
+]
+],
+"rho_rg": 1.0000000000000007
+},
+{
+"k": "p69/roomMF",
+"rooms": 36,
+"lam": 104.12380952381197,
+"cut": [
+25,
+26
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 33,
+"cls": "一格门对太远",
+"prog": 1,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 464.9634892541087,
+"rho_prog": 0.2239397542608059,
+"unk": 0,
+"rg_min": 104.12380952380951,
+"rg_min_cuts": [
+[
+25,
+26
+]
+],
+"rho_rg": 1.0000000000000235
+},
+{
+"k": "p75/roomNB",
+"rooms": 25,
+"lam": 69.74422125014387,
+"cut": [
+21
+],
+"widths": [
+2
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "含两格门",
+"prog": 2,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 110.12856234007748,
+"rho_prog": 0.6332982086406741,
+"unk": 0,
+"rg_min": 69.7442212501439,
+"rg_min_cuts": [
+[
+21
+]
+],
+"rho_rg": 0.9999999999999996
+},
+{
+"k": "p75/roomNC",
+"rooms": 25,
+"lam": 164.1800186075082,
+"cut": [
+12,
+24,
+35
+],
+"widths": [
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 0,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": null,
+"rho_prog": 0.0,
+"unk": 0,
+"rg_min": 182.5017141501637,
+"rg_min_cuts": [
+[
+14
+]
+],
+"rho_rg": 0.8996080906528895
+},
+{
+"k": "p75/roomND",
+"rooms": 25,
+"lam": 53.59766896673746,
+"cut": [
+22
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 16,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 53.59766896673744,
+"rho_prog": 1.0000000000000004,
+"unk": 0,
+"rg_min": 53.59766896673744,
+"rg_min_cuts": [
+[
+22
+]
+],
+"rho_rg": 1.0000000000000004
+},
+{
+"k": "p76/roomPA",
+"rooms": 16,
+"lam": 110.93333333333335,
+"cut": [
+1,
+16
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 48,
+"cls": "一格门对太远",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 221.86666666666665,
+"rho_prog": 0.5000000000000001,
+"unk": 0,
+"rg_min": 110.93333333333332,
+"rg_min_cuts": [
+[
+1,
+16
+]
+],
+"rho_rg": 1.0000000000000002
+},
+{
+"k": "p75/roomNE",
+"rooms": 36,
+"lam": 105.47641872821966,
+"cut": [
+21,
+24
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 6,
+"cls": "管到",
+"prog": 11,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 105.47641872821983,
+"rho_prog": 0.9999999999999983,
+"unk": 0,
+"rg_min": 105.47641872821983,
+"rg_min_cuts": [
+[
+21,
+24
+]
+],
+"rho_rg": 0.9999999999999983
+},
+{
+"k": "p75/roomNF",
+"rooms": 36,
+"lam": 211.687648209969,
+"cut": [
+18,
+19,
+25,
+26
+],
+"widths": [
+1,
+1,
+1,
+1
+],
+"inrg": false,
+"sig_ok": true,
+"dist": null,
+"cls": "三道以上",
+"prog": 3,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 232.48174462705435,
+"rho_prog": 0.9105560032232075,
+"unk": 0,
+"rg_min": 229.17484916201113,
+"rg_min_cuts": [
+[
+22,
+25
+]
+],
+"rho_rg": 0.9236949385328063
+},
+{
+"k": "p76/roomPB",
+"rooms": 25,
+"lam": 119.12124262135897,
+"cut": [
+5
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 9,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 119.12124262135909,
+"rho_prog": 0.999999999999999,
+"unk": 0,
+"rg_min": 119.12124262135909,
+"rg_min_cuts": [
+[
+5
+]
+],
+"rho_rg": 0.999999999999999
+},
+{
+"k": "p76/roomPC",
+"rooms": 25,
+"lam": 107.19533793347571,
+"cut": [
+18,
+32
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 33,
+"cls": "一格门对太远",
+"prog": 2,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 204.6160249915569,
+"rho_prog": 0.5238853503184754,
+"unk": 0,
+"rg_min": 107.19533793347487,
+"rg_min_cuts": [
+[
+18,
+32
+]
+],
+"rho_rg": 1.0000000000000078
+},
+{
+"k": "p76/roomPD",
+"rooms": 25,
+"lam": 112.12399603110221,
+"cut": [
+15,
+16
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 3,
+"cls": "管到",
+"prog": 7,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 112.12399603110202,
+"rho_prog": 1.0000000000000016,
+"unk": 0,
+"rg_min": 112.12399603110202,
+"rg_min_cuts": [
+[
+15,
+16
+]
+],
+"rho_rg": 1.0000000000000016
+},
+{
+"k": "p76/roomPE",
+"rooms": 36,
+"lam": 104.0036761794891,
+"cut": [
+25,
+33
+],
+"widths": [
+1,
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": 12,
+"cls": "管到",
+"prog": 2,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 104.00367617948802,
+"rho_prog": 1.0000000000000104,
+"unk": 0,
+"rg_min": 104.00367617948802,
+"rg_min_cuts": [
+[
+25,
+33
+]
+],
+"rho_rg": 1.0000000000000104
+},
+{
+"k": "p76/roomPF",
+"rooms": 36,
+"lam": 52.19193392745661,
+"cut": [
+8
+],
+"widths": [
+1
+],
+"inrg": true,
+"sig_ok": true,
+"dist": null,
+"cls": "管到",
+"prog": 4,
+"r48_prog": null,
+"in_missed": null,
+"nmiss": null,
+"prog_best": 52.19193392745643,
+"rho_prog": 1.0000000000000033,
+"unk": 0,
+"rg_min": 52.19193392745643,
+"rg_min_cuts": [
+[
+8
+]
+],
+"rho_rg": 1.0000000000000033
+}
+]

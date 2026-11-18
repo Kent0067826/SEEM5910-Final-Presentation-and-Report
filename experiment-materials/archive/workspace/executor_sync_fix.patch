@@ -1,0 +1,14 @@
+diff --git a/default_planner/default_executor.cpp b/default_planner/default_executor.cpp
+index 48488e6..a0786b1 100644
+--- a/default_planner/default_executor.cpp
++++ b/default_planner/default_executor.cpp
+@@ -51,6 +51,9 @@ vector<State> execute_process_new_plan(int sync_time_limit, Plan& plan_struct, v
+ 
+     for (int i = 0; i < env->num_of_agents; i++)
+     {
++        // fix: remove the order entry of an agent that left its previous cell in the last tick (the next tick would do it)
++        const int prev = previous_locations[i], curr = env->system_states[i].location;
++        if (prev >= 0 && prev != curr) { auto it = tpg.find(prev); if (it != tpg.end() && !it->second.empty() && it->second.front() == i) it->second.pop_front(); }
+         previous_locations[i] = env->system_states[i].location; //for use of keep track of tpg in move function
+     }
+ 

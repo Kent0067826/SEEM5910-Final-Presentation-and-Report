@@ -1,0 +1,6377 @@
+{
+ "rule": {
+  "apron": 2,
+  "share": 0.15,
+  "abs": 0.001
+ },
+ "summary": {
+  "mean_apron_wait": 0.04509430141482468,
+  "mean_hol": 0.004794320004299838,
+  "mean_upper": 0.0005880809597607657,
+  "maps_with_pick": 3
+ },
+ "maps": [
+  {
+   "inst": "room200",
+   "doors": 31,
+   "picked": 0,
+   "apron_wait": 0.032211,
+   "hol_all": 0.003405,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 9,
+     "two_way": 0.111,
+     "wait": 36,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 101,
+     "two_way": 0.426,
+     "wait": 374,
+     "hol": 43,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 86,
+     "two_way": 0.186,
+     "wait": 565,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 85,
+     "two_way": 0.271,
+     "wait": 373,
+     "hol": 16,
+     "hol_share": 0.043,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 140,
+     "two_way": 0.45,
+     "wait": 698,
+     "hol": 14,
+     "hol_share": 0.02,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 153,
+     "two_way": 0.248,
+     "wait": 2293,
+     "hol": 264,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 79,
+     "two_way": 0.494,
+     "wait": 371,
+     "hol": 4,
+     "hol_share": 0.011,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 52,
+     "two_way": 0.385,
+     "wait": 242,
+     "hol": 14,
+     "hol_share": 0.058,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 244,
+     "two_way": 0.463,
+     "wait": 1811,
+     "hol": 113,
+     "hol_share": 0.062,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 192,
+     "two_way": 0.021,
+     "wait": 2841,
+     "hol": 263,
+     "hol_share": 0.093,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 132,
+     "two_way": 0.242,
+     "wait": 2289,
+     "hol": 256,
+     "hol_share": 0.112,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 99,
+     "two_way": 0.293,
+     "wait": 448,
+     "hol": 40,
+     "hol_share": 0.089,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 158,
+     "two_way": 0.171,
+     "wait": 5450,
+     "hol": 703,
+     "hol_share": 0.129,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 57,
+     "two_way": 0.123,
+     "wait": 57,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 156,
+     "two_way": 0.244,
+     "wait": 3530,
+     "hol": 493,
+     "hol_share": 0.14,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 31,
+     "two_way": 0.387,
+     "wait": 37,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 59,
+     "two_way": 0.407,
+     "wait": 109,
+     "hol": 25,
+     "hol_share": 0.229,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 63,
+     "two_way": 0.46,
+     "wait": 328,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 37,
+     "two_way": 0.486,
+     "wait": 65,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 48,
+     "two_way": 0.312,
+     "wait": 139,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 192,
+     "two_way": 0.161,
+     "wait": 2980,
+     "hol": 298,
+     "hol_share": 0.1,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 165,
+     "two_way": 0.079,
+     "wait": 1433,
+     "hol": 228,
+     "hol_share": 0.159,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 182,
+     "two_way": 0.055,
+     "wait": 2033,
+     "hol": 120,
+     "hol_share": 0.059,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 103,
+     "two_way": 0.388,
+     "wait": 533,
+     "hol": 68,
+     "hol_share": 0.128,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 80,
+     "two_way": 0.212,
+     "wait": 355,
+     "hol": 53,
+     "hol_share": 0.149,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 86,
+     "two_way": 0.302,
+     "wait": 1642,
+     "hol": 286,
+     "hol_share": 0.174,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 12,
+     "two_way": 0.417,
+     "wait": 37,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 57,
+     "two_way": 0.263,
+     "wait": 242,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 32,
+     "two_way": 0.312,
+     "wait": 160,
+     "hol": 17,
+     "hol_share": 0.106,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 51,
+     "two_way": 0.471,
+     "wait": 89,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 79,
+     "two_way": 0.468,
+     "wait": 651,
+     "hol": 87,
+     "hol_share": 0.134,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "room250",
+   "doors": 31,
+   "picked": 0,
+   "apron_wait": 0.027936,
+   "hol_all": 0.0028192,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 6,
+     "two_way": 0.333,
+     "wait": 33,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 132,
+     "two_way": 0.386,
+     "wait": 415,
+     "hol": 21,
+     "hol_share": 0.051,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 96,
+     "two_way": 0.146,
+     "wait": 503,
+     "hol": 68,
+     "hol_share": 0.135,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 95,
+     "two_way": 0.263,
+     "wait": 378,
+     "hol": 13,
+     "hol_share": 0.034,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 169,
+     "two_way": 0.444,
+     "wait": 1134,
+     "hol": 176,
+     "hol_share": 0.155,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 166,
+     "two_way": 0.114,
+     "wait": 3987,
+     "hol": 410,
+     "hol_share": 0.103,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 74,
+     "two_way": 0.446,
+     "wait": 446,
+     "hol": 22,
+     "hol_share": 0.049,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 56,
+     "two_way": 0.214,
+     "wait": 238,
+     "hol": 14,
+     "hol_share": 0.059,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 261,
+     "two_way": 0.483,
+     "wait": 2094,
+     "hol": 219,
+     "hol_share": 0.105,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 215,
+     "two_way": 0.028,
+     "wait": 3118,
+     "hol": 257,
+     "hol_share": 0.082,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 141,
+     "two_way": 0.184,
+     "wait": 3249,
+     "hol": 327,
+     "hol_share": 0.101,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 115,
+     "two_way": 0.217,
+     "wait": 568,
+     "hol": 32,
+     "hol_share": 0.056,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 175,
+     "two_way": 0.046,
+     "wait": 2232,
+     "hol": 174,
+     "hol_share": 0.078,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 48,
+     "two_way": 0.167,
+     "wait": 51,
+     "hol": 15,
+     "hol_share": 0.294,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 175,
+     "two_way": 0.04,
+     "wait": 1874,
+     "hol": 200,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 47,
+     "two_way": 0.277,
+     "wait": 75,
+     "hol": 23,
+     "hol_share": 0.307,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 67,
+     "two_way": 0.403,
+     "wait": 365,
+     "hol": 29,
+     "hol_share": 0.079,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 74,
+     "two_way": 0.446,
+     "wait": 568,
+     "hol": 81,
+     "hol_share": 0.143,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 39,
+     "two_way": 0.359,
+     "wait": 63,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 66,
+     "two_way": 0.348,
+     "wait": 283,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 213,
+     "two_way": 0.047,
+     "wait": 3789,
+     "hol": 360,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 199,
+     "two_way": 0.015,
+     "wait": 1311,
+     "hol": 224,
+     "hol_share": 0.171,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 204,
+     "two_way": 0.025,
+     "wait": 2656,
+     "hol": 143,
+     "hol_share": 0.054,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 103,
+     "two_way": 0.388,
+     "wait": 878,
+     "hol": 114,
+     "hol_share": 0.13,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 95,
+     "two_way": 0.179,
+     "wait": 467,
+     "hol": 29,
+     "hol_share": 0.062,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 105,
+     "two_way": 0.124,
+     "wait": 2889,
+     "hol": 428,
+     "hol_share": 0.148,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 17,
+     "two_way": 0.294,
+     "wait": 17,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 56,
+     "two_way": 0.268,
+     "wait": 157,
+     "hol": 9,
+     "hol_share": 0.057,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 41,
+     "two_way": 0.22,
+     "wait": 142,
+     "hol": 19,
+     "hol_share": 0.134,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 68,
+     "two_way": 0.456,
+     "wait": 282,
+     "hol": 92,
+     "hol_share": 0.326,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 94,
+     "two_way": 0.383,
+     "wait": 658,
+     "hol": 25,
+     "hol_share": 0.038,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "room300",
+   "doors": 31,
+   "picked": 0,
+   "apron_wait": 0.023115333333333335,
+   "hol_all": 0.0020013333333333333,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 15,
+     "two_way": 0.2,
+     "wait": 18,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 138,
+     "two_way": 0.391,
+     "wait": 482,
+     "hol": 41,
+     "hol_share": 0.085,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 104,
+     "two_way": 0.202,
+     "wait": 602,
+     "hol": 20,
+     "hol_share": 0.033,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 101,
+     "two_way": 0.287,
+     "wait": 696,
+     "hol": 21,
+     "hol_share": 0.03,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 184,
+     "two_way": 0.462,
+     "wait": 2186,
+     "hol": 66,
+     "hol_share": 0.03,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 191,
+     "two_way": 0.073,
+     "wait": 2507,
+     "hol": 382,
+     "hol_share": 0.152,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 100,
+     "two_way": 0.22,
+     "wait": 656,
+     "hol": 19,
+     "hol_share": 0.029,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 58,
+     "two_way": 0.31,
+     "wait": 187,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 256,
+     "two_way": 0.488,
+     "wait": 2112,
+     "hol": 303,
+     "hol_share": 0.143,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 208,
+     "two_way": 0.014,
+     "wait": 3039,
+     "hol": 214,
+     "hol_share": 0.07,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 166,
+     "two_way": 0.102,
+     "wait": 2664,
+     "hol": 177,
+     "hol_share": 0.066,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 98,
+     "two_way": 0.316,
+     "wait": 647,
+     "hol": 9,
+     "hol_share": 0.014,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 172,
+     "two_way": 0.023,
+     "wait": 3306,
+     "hol": 344,
+     "hol_share": 0.104,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 60,
+     "two_way": 0.217,
+     "wait": 54,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 184,
+     "two_way": 0.033,
+     "wait": 2348,
+     "hol": 319,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 54,
+     "two_way": 0.407,
+     "wait": 83,
+     "hol": 19,
+     "hol_share": 0.229,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 67,
+     "two_way": 0.433,
+     "wait": 176,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 91,
+     "two_way": 0.495,
+     "wait": 533,
+     "hol": 3,
+     "hol_share": 0.006,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 41,
+     "two_way": 0.195,
+     "wait": 73,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 63,
+     "two_way": 0.413,
+     "wait": 285,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 227,
+     "two_way": 0.031,
+     "wait": 4071,
+     "hol": 221,
+     "hol_share": 0.054,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 217,
+     "two_way": 0.037,
+     "wait": 1204,
+     "hol": 112,
+     "hol_share": 0.093,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 216,
+     "two_way": 0.019,
+     "wait": 1756,
+     "hol": 80,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 85,
+     "two_way": 0.118,
+     "wait": 499,
+     "hol": 63,
+     "hol_share": 0.126,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 89,
+     "two_way": 0.326,
+     "wait": 487,
+     "hol": 86,
+     "hol_share": 0.177,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 100,
+     "two_way": 0.26,
+     "wait": 2084,
+     "hol": 331,
+     "hol_share": 0.159,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 15,
+     "two_way": 0.267,
+     "wait": 91,
+     "hol": 17,
+     "hol_share": 0.187,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 66,
+     "two_way": 0.136,
+     "wait": 289,
+     "hol": 39,
+     "hol_share": 0.135,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 47,
+     "two_way": 0.255,
+     "wait": 185,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 82,
+     "two_way": 0.476,
+     "wait": 307,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 99,
+     "two_way": 0.444,
+     "wait": 1046,
+     "hol": 116,
+     "hol_share": 0.111,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomAA_199",
+   "doors": 22,
+   "picked": 0,
+   "apron_wait": 0.027716582914572865,
+   "hol_all": 0.0027688442211055275,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 181,
+     "two_way": 0.459,
+     "wait": 1685,
+     "hol": 42,
+     "hol_share": 0.025,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 158,
+     "two_way": 0.411,
+     "wait": 821,
+     "hol": 45,
+     "hol_share": 0.055,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 204,
+     "two_way": 0.495,
+     "wait": 1650,
+     "hol": 105,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 183,
+     "two_way": 0.432,
+     "wait": 1639,
+     "hol": 144,
+     "hol_share": 0.088,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 81,
+     "two_way": 0.494,
+     "wait": 296,
+     "hol": 3,
+     "hol_share": 0.01,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 227,
+     "two_way": 0.485,
+     "wait": 2841,
+     "hol": 261,
+     "hol_share": 0.092,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 117,
+     "two_way": 0.47,
+     "wait": 567,
+     "hol": 77,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 154,
+     "two_way": 0.429,
+     "wait": 639,
+     "hol": 27,
+     "hol_share": 0.042,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 100,
+     "two_way": 0.12,
+     "wait": 438,
+     "hol": 74,
+     "hol_share": 0.169,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 128,
+     "two_way": 0.477,
+     "wait": 548,
+     "hol": 89,
+     "hol_share": 0.162,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 80,
+     "two_way": 0.325,
+     "wait": 654,
+     "hol": 52,
+     "hol_share": 0.08,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 259,
+     "two_way": 0.486,
+     "wait": 5520,
+     "hol": 524,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 229,
+     "two_way": 0.485,
+     "wait": 2776,
+     "hol": 296,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 86,
+     "two_way": 0.291,
+     "wait": 318,
+     "hol": 22,
+     "hol_share": 0.069,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 229,
+     "two_way": 0.485,
+     "wait": 2077,
+     "hol": 315,
+     "hol_share": 0.152,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 65,
+     "two_way": 0.308,
+     "wait": 245,
+     "hol": 34,
+     "hol_share": 0.139,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 234,
+     "two_way": 0.453,
+     "wait": 1889,
+     "hol": 328,
+     "hol_share": 0.174,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 144,
+     "two_way": 0.472,
+     "wait": 1298,
+     "hol": 96,
+     "hol_share": 0.074,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 97,
+     "two_way": 0.299,
+     "wait": 277,
+     "hol": 68,
+     "hol_share": 0.245,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 99,
+     "two_way": 0.141,
+     "wait": 342,
+     "hol": 14,
+     "hol_share": 0.041,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 111,
+     "two_way": 0.333,
+     "wait": 535,
+     "hol": 30,
+     "hol_share": 0.056,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 82,
+     "two_way": 0.232,
+     "wait": 523,
+     "hol": 109,
+     "hol_share": 0.208,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomAD_189",
+   "doors": 57,
+   "picked": 0,
+   "apron_wait": 0.01743068783068783,
+   "hol_all": 0.0016116402116402116,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 15,
+     "two_way": 0.467,
+     "wait": 87,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 41,
+     "two_way": 0.463,
+     "wait": 156,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 62,
+     "two_way": 0.339,
+     "wait": 533,
+     "hol": 95,
+     "hol_share": 0.178,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 92,
+     "two_way": 0.446,
+     "wait": 393,
+     "hol": 39,
+     "hol_share": 0.099,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 50,
+     "two_way": 0.46,
+     "wait": 213,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 86,
+     "two_way": 0.186,
+     "wait": 464,
+     "hol": 67,
+     "hol_share": 0.144,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 17,
+     "two_way": 0.471,
+     "wait": 125,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 29,
+     "two_way": 0.241,
+     "wait": 49,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 191,
+     "two_way": 0.487,
+     "wait": 1412,
+     "hol": 202,
+     "hol_share": 0.143,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 20,
+     "two_way": 0.4,
+     "wait": 53,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 11,
+     "two_way": 0.455,
+     "wait": 31,
+     "hol": 10,
+     "hol_share": 0.323,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 35,
+     "two_way": 0.457,
+     "wait": 82,
+     "hol": 17,
+     "hol_share": 0.207,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 82,
+     "two_way": 0.463,
+     "wait": 113,
+     "hol": 10,
+     "hol_share": 0.088,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 18,
+     "two_way": 0.444,
+     "wait": 46,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 39,
+     "two_way": 0.436,
+     "wait": 183,
+     "hol": 23,
+     "hol_share": 0.126,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 49,
+     "two_way": 0.469,
+     "wait": 157,
+     "hol": 19,
+     "hol_share": 0.121,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 162,
+     "two_way": 0.494,
+     "wait": 644,
+     "hol": 34,
+     "hol_share": 0.053,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 38,
+     "two_way": 0.474,
+     "wait": 41,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 10,
+     "two_way": 0.4,
+     "wait": 32,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 82,
+     "two_way": 0.195,
+     "wait": 623,
+     "hol": 45,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 17,
+     "two_way": 0.353,
+     "wait": 44,
+     "hol": 28,
+     "hol_share": 0.636,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 37,
+     "two_way": 0.459,
+     "wait": 96,
+     "hol": 7,
+     "hol_share": 0.073,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 9,
+     "two_way": 0.444,
+     "wait": 0,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 81,
+     "two_way": 0.444,
+     "wait": 312,
+     "hol": 61,
+     "hol_share": 0.196,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 38,
+     "two_way": 0.421,
+     "wait": 53,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 150,
+     "two_way": 0.493,
+     "wait": 940,
+     "hol": 60,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 84,
+     "two_way": 0.333,
+     "wait": 302,
+     "hol": 40,
+     "hol_share": 0.132,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 19,
+     "two_way": 0.474,
+     "wait": 54,
+     "hol": 3,
+     "hol_share": 0.056,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 73,
+     "two_way": 0.479,
+     "wait": 297,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 268,
+     "two_way": 0.478,
+     "wait": 3296,
+     "hol": 347,
+     "hol_share": 0.105,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 15,
+     "two_way": 0.467,
+     "wait": 4,
+     "hol": 3,
+     "hol_share": 0.75,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 35,
+     "two_way": 0.371,
+     "wait": 147,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 47,
+     "two_way": 0.489,
+     "wait": 66,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 33,
+     "two_way": 0.455,
+     "wait": 64,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 7,
+     "two_way": 0.429,
+     "wait": 6,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 29,
+     "two_way": 0.207,
+     "wait": 28,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 25,
+     "two_way": 0.48,
+     "wait": 104,
+     "hol": 20,
+     "hol_share": 0.192,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 50,
+     "two_way": 0.34,
+     "wait": 14,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 40,
+     "two_way": 0.425,
+     "wait": 233,
+     "hol": 42,
+     "hol_share": 0.18,
+     "pick": false
+    },
+    {
+     "door": 40,
+     "passes": 86,
+     "two_way": 0.314,
+     "wait": 127,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 41,
+     "passes": 40,
+     "two_way": 0.5,
+     "wait": 116,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 42,
+     "passes": 46,
+     "two_way": 0.5,
+     "wait": 125,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 43,
+     "passes": 13,
+     "two_way": 0.462,
+     "wait": 43,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 44,
+     "passes": 89,
+     "two_way": 0.382,
+     "wait": 1230,
+     "hol": 35,
+     "hol_share": 0.028,
+     "pick": false
+    },
+    {
+     "door": 45,
+     "passes": 56,
+     "two_way": 0.339,
+     "wait": 130,
+     "hol": 11,
+     "hol_share": 0.085,
+     "pick": false
+    },
+    {
+     "door": 46,
+     "passes": 38,
+     "two_way": 0.474,
+     "wait": 77,
+     "hol": 13,
+     "hol_share": 0.169,
+     "pick": false
+    },
+    {
+     "door": 47,
+     "passes": 4,
+     "two_way": 0.25,
+     "wait": 107,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 48,
+     "passes": 55,
+     "two_way": 0.382,
+     "wait": 110,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 49,
+     "passes": 79,
+     "two_way": 0.494,
+     "wait": 551,
+     "hol": 111,
+     "hol_share": 0.201,
+     "pick": false
+    },
+    {
+     "door": 50,
+     "passes": 57,
+     "two_way": 0.474,
+     "wait": 234,
+     "hol": 21,
+     "hol_share": 0.09,
+     "pick": false
+    },
+    {
+     "door": 51,
+     "passes": 30,
+     "two_way": 0.467,
+     "wait": 79,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 52,
+     "passes": 46,
+     "two_way": 0.435,
+     "wait": 203,
+     "hol": 25,
+     "hol_share": 0.123,
+     "pick": false
+    },
+    {
+     "door": 53,
+     "passes": 75,
+     "two_way": 0.4,
+     "wait": 291,
+     "hol": 21,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 54,
+     "passes": 103,
+     "two_way": 0.408,
+     "wait": 828,
+     "hol": 49,
+     "hol_share": 0.059,
+     "pick": false
+    },
+    {
+     "door": 55,
+     "passes": 74,
+     "two_way": 0.446,
+     "wait": 341,
+     "hol": 44,
+     "hol_share": 0.129,
+     "pick": false
+    },
+    {
+     "door": 56,
+     "passes": 25,
+     "two_way": 0.48,
+     "wait": 27,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 57,
+     "passes": 35,
+     "two_way": 0.429,
+     "wait": 356,
+     "hol": 21,
+     "hol_share": 0.059,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomBF_240",
+   "doors": 57,
+   "picked": 0,
+   "apron_wait": 0.02817,
+   "hol_all": 0.0027491666666666667,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 29,
+     "two_way": 0.241,
+     "wait": 91,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 82,
+     "two_way": 0.5,
+     "wait": 886,
+     "hol": 18,
+     "hol_share": 0.02,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 68,
+     "two_way": 0.426,
+     "wait": 276,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 240,
+     "two_way": 0.458,
+     "wait": 2915,
+     "hol": 445,
+     "hol_share": 0.153,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 23,
+     "two_way": 0.435,
+     "wait": 26,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 53,
+     "two_way": 0.434,
+     "wait": 221,
+     "hol": 10,
+     "hol_share": 0.045,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 89,
+     "two_way": 0.247,
+     "wait": 439,
+     "hol": 30,
+     "hol_share": 0.068,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 20,
+     "two_way": 0.25,
+     "wait": 88,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 67,
+     "two_way": 0.463,
+     "wait": 336,
+     "hol": 48,
+     "hol_share": 0.143,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 109,
+     "two_way": 0.147,
+     "wait": 697,
+     "hol": 207,
+     "hol_share": 0.297,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 20,
+     "two_way": 0.5,
+     "wait": 252,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 45,
+     "two_way": 0.4,
+     "wait": 384,
+     "hol": 14,
+     "hol_share": 0.036,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 76,
+     "two_way": 0.408,
+     "wait": 336,
+     "hol": 32,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 211,
+     "two_way": 0.493,
+     "wait": 3135,
+     "hol": 222,
+     "hol_share": 0.071,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 32,
+     "two_way": 0.25,
+     "wait": 124,
+     "hol": 15,
+     "hol_share": 0.121,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 67,
+     "two_way": 0.313,
+     "wait": 418,
+     "hol": 30,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 158,
+     "two_way": 0.443,
+     "wait": 1227,
+     "hol": 191,
+     "hol_share": 0.156,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 48,
+     "two_way": 0.458,
+     "wait": 366,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 26,
+     "two_way": 0.385,
+     "wait": 78,
+     "hol": 9,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 237,
+     "two_way": 0.464,
+     "wait": 2063,
+     "hol": 280,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 33,
+     "two_way": 0.303,
+     "wait": 38,
+     "hol": 1,
+     "hol_share": 0.026,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 20,
+     "two_way": 0.5,
+     "wait": 20,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 73,
+     "two_way": 0.493,
+     "wait": 192,
+     "hol": 44,
+     "hol_share": 0.229,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 43,
+     "two_way": 0.395,
+     "wait": 143,
+     "hol": 5,
+     "hol_share": 0.035,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 139,
+     "two_way": 0.144,
+     "wait": 2985,
+     "hol": 168,
+     "hol_share": 0.056,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 37,
+     "two_way": 0.324,
+     "wait": 44,
+     "hol": 13,
+     "hol_share": 0.295,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 22,
+     "two_way": 0.455,
+     "wait": 164,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 61,
+     "two_way": 0.262,
+     "wait": 144,
+     "hol": 17,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 70,
+     "two_way": 0.371,
+     "wait": 637,
+     "hol": 5,
+     "hol_share": 0.008,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 136,
+     "two_way": 0.441,
+     "wait": 1276,
+     "hol": 174,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 215,
+     "two_way": 0.451,
+     "wait": 3645,
+     "hol": 441,
+     "hol_share": 0.121,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 27,
+     "two_way": 0.444,
+     "wait": 85,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 37,
+     "two_way": 0.27,
+     "wait": 127,
+     "hol": 15,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 85,
+     "two_way": 0.235,
+     "wait": 411,
+     "hol": 14,
+     "hol_share": 0.034,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 27,
+     "two_way": 0.444,
+     "wait": 55,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 154,
+     "two_way": 0.481,
+     "wait": 960,
+     "hol": 121,
+     "hol_share": 0.126,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 126,
+     "two_way": 0.175,
+     "wait": 1449,
+     "hol": 125,
+     "hol_share": 0.086,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 50,
+     "two_way": 0.26,
+     "wait": 252,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 69,
+     "two_way": 0.188,
+     "wait": 365,
+     "hol": 38,
+     "hol_share": 0.104,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 78,
+     "two_way": 0.423,
+     "wait": 393,
+     "hol": 35,
+     "hol_share": 0.089,
+     "pick": false
+    },
+    {
+     "door": 40,
+     "passes": 93,
+     "two_way": 0.161,
+     "wait": 399,
+     "hol": 46,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 41,
+     "passes": 29,
+     "two_way": 0.241,
+     "wait": 100,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 42,
+     "passes": 107,
+     "two_way": 0.196,
+     "wait": 654,
+     "hol": 107,
+     "hol_share": 0.164,
+     "pick": false
+    },
+    {
+     "door": 43,
+     "passes": 47,
+     "two_way": 0.404,
+     "wait": 62,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 44,
+     "passes": 70,
+     "two_way": 0.457,
+     "wait": 319,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 45,
+     "passes": 132,
+     "two_way": 0.447,
+     "wait": 852,
+     "hol": 43,
+     "hol_share": 0.05,
+     "pick": false
+    },
+    {
+     "door": 46,
+     "passes": 100,
+     "two_way": 0.26,
+     "wait": 646,
+     "hol": 79,
+     "hol_share": 0.122,
+     "pick": false
+    },
+    {
+     "door": 47,
+     "passes": 64,
+     "two_way": 0.281,
+     "wait": 412,
+     "hol": 15,
+     "hol_share": 0.036,
+     "pick": false
+    },
+    {
+     "door": 48,
+     "passes": 47,
+     "two_way": 0.468,
+     "wait": 31,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 49,
+     "passes": 27,
+     "two_way": 0.481,
+     "wait": 98,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 50,
+     "passes": 18,
+     "two_way": 0.333,
+     "wait": 91,
+     "hol": 5,
+     "hol_share": 0.055,
+     "pick": false
+    },
+    {
+     "door": 51,
+     "passes": 7,
+     "two_way": 0.429,
+     "wait": 16,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 52,
+     "passes": 36,
+     "two_way": 0.444,
+     "wait": 70,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 53,
+     "passes": 145,
+     "two_way": 0.166,
+     "wait": 1246,
+     "hol": 92,
+     "hol_share": 0.074,
+     "pick": false
+    },
+    {
+     "door": 54,
+     "passes": 42,
+     "two_way": 0.31,
+     "wait": 133,
+     "hol": 8,
+     "hol_share": 0.06,
+     "pick": false
+    },
+    {
+     "door": 55,
+     "passes": 56,
+     "two_way": 0.357,
+     "wait": 133,
+     "hol": 18,
+     "hol_share": 0.135,
+     "pick": false
+    },
+    {
+     "door": 56,
+     "passes": 103,
+     "two_way": 0.165,
+     "wait": 799,
+     "hol": 119,
+     "hol_share": 0.149,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomFD_194",
+   "doors": 38,
+   "picked": 0,
+   "apron_wait": 0.05799690721649484,
+   "hol_all": 0.005742268041237114,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 107,
+     "two_way": 0.15,
+     "wait": 1305,
+     "hol": 120,
+     "hol_share": 0.092,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 99,
+     "two_way": 0.333,
+     "wait": 577,
+     "hol": 23,
+     "hol_share": 0.04,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 118,
+     "two_way": 0.458,
+     "wait": 777,
+     "hol": 18,
+     "hol_share": 0.023,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 208,
+     "two_way": 0.471,
+     "wait": 1790,
+     "hol": 143,
+     "hol_share": 0.08,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 224,
+     "two_way": 0.464,
+     "wait": 2497,
+     "hol": 275,
+     "hol_share": 0.11,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 387,
+     "two_way": 0.499,
+     "wait": 7712,
+     "hol": 839,
+     "hol_share": 0.109,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 58,
+     "two_way": 0.414,
+     "wait": 168,
+     "hol": 18,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 116,
+     "two_way": 0.172,
+     "wait": 1116,
+     "hol": 61,
+     "hol_share": 0.055,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 52,
+     "two_way": 0.385,
+     "wait": 138,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 181,
+     "two_way": 0.033,
+     "wait": 1880,
+     "hol": 232,
+     "hol_share": 0.123,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 58,
+     "two_way": 0.328,
+     "wait": 203,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 173,
+     "two_way": 0.486,
+     "wait": 1875,
+     "hol": 135,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 179,
+     "two_way": 0.447,
+     "wait": 1298,
+     "hol": 199,
+     "hol_share": 0.153,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 138,
+     "two_way": 0.196,
+     "wait": 689,
+     "hol": 24,
+     "hol_share": 0.035,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 131,
+     "two_way": 0.115,
+     "wait": 981,
+     "hol": 62,
+     "hol_share": 0.063,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 194,
+     "two_way": 0.433,
+     "wait": 1837,
+     "hol": 176,
+     "hol_share": 0.096,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 133,
+     "two_way": 0.195,
+     "wait": 1278,
+     "hol": 110,
+     "hol_share": 0.086,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 217,
+     "two_way": 0.475,
+     "wait": 2294,
+     "hol": 273,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 113,
+     "two_way": 0.062,
+     "wait": 725,
+     "hol": 27,
+     "hol_share": 0.037,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 141,
+     "two_way": 0.128,
+     "wait": 1104,
+     "hol": 115,
+     "hol_share": 0.104,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 53,
+     "two_way": 0.358,
+     "wait": 327,
+     "hol": 23,
+     "hol_share": 0.07,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 74,
+     "two_way": 0.459,
+     "wait": 161,
+     "hol": 15,
+     "hol_share": 0.093,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 97,
+     "two_way": 0.433,
+     "wait": 406,
+     "hol": 4,
+     "hol_share": 0.01,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 97,
+     "two_way": 0.031,
+     "wait": 327,
+     "hol": 12,
+     "hol_share": 0.037,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 77,
+     "two_way": 0.39,
+     "wait": 613,
+     "hol": 55,
+     "hol_share": 0.09,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 193,
+     "two_way": 0.047,
+     "wait": 2044,
+     "hol": 73,
+     "hol_share": 0.036,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 199,
+     "two_way": 0.497,
+     "wait": 2465,
+     "hol": 281,
+     "hol_share": 0.114,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 126,
+     "two_way": 0.135,
+     "wait": 2884,
+     "hol": 451,
+     "hol_share": 0.156,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 236,
+     "two_way": 0.47,
+     "wait": 3426,
+     "hol": 367,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 124,
+     "two_way": 0.218,
+     "wait": 545,
+     "hol": 81,
+     "hol_share": 0.149,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 120,
+     "two_way": 0.117,
+     "wait": 779,
+     "hol": 130,
+     "hol_share": 0.167,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 125,
+     "two_way": 0.136,
+     "wait": 1167,
+     "hol": 155,
+     "hol_share": 0.133,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 85,
+     "two_way": 0.388,
+     "wait": 584,
+     "hol": 85,
+     "hol_share": 0.146,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 182,
+     "two_way": 0.044,
+     "wait": 1321,
+     "hol": 60,
+     "hol_share": 0.045,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 175,
+     "two_way": 0.023,
+     "wait": 2391,
+     "hol": 291,
+     "hol_share": 0.122,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 107,
+     "two_way": 0.486,
+     "wait": 490,
+     "hol": 48,
+     "hol_share": 0.098,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 223,
+     "two_way": 0.439,
+     "wait": 3124,
+     "hol": 367,
+     "hol_share": 0.117,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 208,
+     "two_way": 0.447,
+     "wait": 2959,
+     "hol": 222,
+     "hol_share": 0.075,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomFE_189",
+   "doors": 59,
+   "picked": 1,
+   "apron_wait": 0.05722962962962963,
+   "hol_all": 0.006658201058201058,
+   "upper": 0.0016582010582010581,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 87,
+     "two_way": 0.322,
+     "wait": 197,
+     "hol": 23,
+     "hol_share": 0.117,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 86,
+     "two_way": 0.453,
+     "wait": 225,
+     "hol": 29,
+     "hol_share": 0.129,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 44,
+     "two_way": 0.477,
+     "wait": 126,
+     "hol": 3,
+     "hol_share": 0.024,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 20,
+     "two_way": 0.3,
+     "wait": 20,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 88,
+     "two_way": 0.443,
+     "wait": 713,
+     "hol": 82,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 38,
+     "two_way": 0.316,
+     "wait": 158,
+     "hol": 21,
+     "hol_share": 0.133,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 55,
+     "two_way": 0.418,
+     "wait": 238,
+     "hol": 29,
+     "hol_share": 0.122,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 111,
+     "two_way": 0.036,
+     "wait": 1063,
+     "hol": 47,
+     "hol_share": 0.044,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 287,
+     "two_way": 0.484,
+     "wait": 21231,
+     "hol": 2770,
+     "hol_share": 0.13,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 64,
+     "two_way": 0.469,
+     "wait": 117,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 128,
+     "two_way": 0.438,
+     "wait": 590,
+     "hol": 32,
+     "hol_share": 0.054,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 178,
+     "two_way": 0.483,
+     "wait": 1101,
+     "hol": 51,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 23,
+     "two_way": 0.348,
+     "wait": 35,
+     "hol": 7,
+     "hol_share": 0.2,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 70,
+     "two_way": 0.243,
+     "wait": 9783,
+     "hol": 1567,
+     "hol_share": 0.16,
+     "pick": true
+    },
+    {
+     "door": 15,
+     "passes": 169,
+     "two_way": 0.479,
+     "wait": 1157,
+     "hol": 143,
+     "hol_share": 0.124,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 17,
+     "two_way": 0.412,
+     "wait": 66,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 158,
+     "two_way": 0.494,
+     "wait": 729,
+     "hol": 67,
+     "hol_share": 0.092,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 29,
+     "two_way": 0.379,
+     "wait": 151,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 49,
+     "two_way": 0.367,
+     "wait": 88,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 51,
+     "two_way": 0.49,
+     "wait": 210,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 159,
+     "two_way": 0.447,
+     "wait": 1315,
+     "hol": 120,
+     "hol_share": 0.091,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 367,
+     "two_way": 0.444,
+     "wait": 3829,
+     "hol": 403,
+     "hol_share": 0.105,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 73,
+     "two_way": 0.301,
+     "wait": 602,
+     "hol": 32,
+     "hol_share": 0.053,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 79,
+     "two_way": 0.241,
+     "wait": 361,
+     "hol": 49,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 42,
+     "two_way": 0.357,
+     "wait": 98,
+     "hol": 5,
+     "hol_share": 0.051,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 15,
+     "two_way": 0.467,
+     "wait": 32,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 38,
+     "two_way": 0.421,
+     "wait": 106,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 11,
+     "two_way": 0.273,
+     "wait": 12,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 10,
+     "two_way": 0.2,
+     "wait": 0,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 24,
+     "two_way": 0.417,
+     "wait": 35,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 20,
+     "two_way": 0.5,
+     "wait": 105,
+     "hol": 18,
+     "hol_share": 0.171,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 194,
+     "two_way": 0.438,
+     "wait": 1738,
+     "hol": 124,
+     "hol_share": 0.071,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 147,
+     "two_way": 0.442,
+     "wait": 557,
+     "hol": 76,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 70,
+     "two_way": 0.4,
+     "wait": 232,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 94,
+     "two_way": 0.479,
+     "wait": 409,
+     "hol": 79,
+     "hol_share": 0.193,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 59,
+     "two_way": 0.186,
+     "wait": 285,
+     "hol": 75,
+     "hol_share": 0.263,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 152,
+     "two_way": 0.421,
+     "wait": 945,
+     "hol": 90,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 48,
+     "two_way": 0.417,
+     "wait": 123,
+     "hol": 30,
+     "hol_share": 0.244,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 29,
+     "two_way": 0.483,
+     "wait": 109,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 40,
+     "passes": 52,
+     "two_way": 0.423,
+     "wait": 157,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 41,
+     "passes": 23,
+     "two_way": 0.217,
+     "wait": 69,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 42,
+     "passes": 57,
+     "two_way": 0.474,
+     "wait": 312,
+     "hol": 17,
+     "hol_share": 0.054,
+     "pick": false
+    },
+    {
+     "door": 43,
+     "passes": 39,
+     "two_way": 0.359,
+     "wait": 215,
+     "hol": 3,
+     "hol_share": 0.014,
+     "pick": false
+    },
+    {
+     "door": 44,
+     "passes": 76,
+     "two_way": 0.447,
+     "wait": 211,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 45,
+     "passes": 86,
+     "two_way": 0.419,
+     "wait": 390,
+     "hol": 37,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 46,
+     "passes": 73,
+     "two_way": 0.315,
+     "wait": 213,
+     "hol": 17,
+     "hol_share": 0.08,
+     "pick": false
+    },
+    {
+     "door": 47,
+     "passes": 46,
+     "two_way": 0.348,
+     "wait": 253,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 48,
+     "passes": 6,
+     "two_way": 0.167,
+     "wait": 35,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 49,
+     "passes": 158,
+     "two_way": 0.07,
+     "wait": 1016,
+     "hol": 99,
+     "hol_share": 0.097,
+     "pick": false
+    },
+    {
+     "door": 50,
+     "passes": 77,
+     "two_way": 0.468,
+     "wait": 501,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 51,
+     "passes": 15,
+     "two_way": 0.4,
+     "wait": 89,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 52,
+     "passes": 62,
+     "two_way": 0.323,
+     "wait": 180,
+     "hol": 38,
+     "hol_share": 0.211,
+     "pick": false
+    },
+    {
+     "door": 53,
+     "passes": 70,
+     "two_way": 0.329,
+     "wait": 438,
+     "hol": 10,
+     "hol_share": 0.023,
+     "pick": false
+    },
+    {
+     "door": 54,
+     "passes": 55,
+     "two_way": 0.036,
+     "wait": 431,
+     "hol": 49,
+     "hol_share": 0.114,
+     "pick": false
+    },
+    {
+     "door": 55,
+     "passes": 23,
+     "two_way": 0.261,
+     "wait": 44,
+     "hol": 21,
+     "hol_share": 0.477,
+     "pick": false
+    },
+    {
+     "door": 56,
+     "passes": 16,
+     "two_way": 0.312,
+     "wait": 30,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 57,
+     "passes": 29,
+     "two_way": 0.31,
+     "wait": 55,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 58,
+     "passes": 97,
+     "two_way": 0.412,
+     "wait": 333,
+     "hol": 29,
+     "hol_share": 0.087,
+     "pick": false
+    },
+    {
+     "door": 59,
+     "passes": 90,
+     "two_way": 0.244,
+     "wait": 219,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomFF_188",
+   "doors": 57,
+   "picked": 0,
+   "apron_wait": 0.059635106382978725,
+   "hol_all": 0.006693617021276596,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 119,
+     "two_way": 0.05,
+     "wait": 730,
+     "hol": 46,
+     "hol_share": 0.063,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 24,
+     "two_way": 0.375,
+     "wait": 93,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 20,
+     "two_way": 0.35,
+     "wait": 86,
+     "hol": 7,
+     "hol_share": 0.081,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 212,
+     "two_way": 0.481,
+     "wait": 2926,
+     "hol": 479,
+     "hol_share": 0.164,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 89,
+     "two_way": 0.022,
+     "wait": 643,
+     "hol": 83,
+     "hol_share": 0.129,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 112,
+     "two_way": 0.009,
+     "wait": 861,
+     "hol": 122,
+     "hol_share": 0.142,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 84,
+     "two_way": 0.417,
+     "wait": 353,
+     "hol": 52,
+     "hol_share": 0.147,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 55,
+     "two_way": 0.4,
+     "wait": 278,
+     "hol": 4,
+     "hol_share": 0.014,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 77,
+     "two_way": 0.429,
+     "wait": 359,
+     "hol": 23,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 72,
+     "two_way": 0.375,
+     "wait": 79,
+     "hol": 28,
+     "hol_share": 0.354,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 138,
+     "two_way": 0.174,
+     "wait": 1024,
+     "hol": 66,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 33,
+     "two_way": 0.394,
+     "wait": 96,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 72,
+     "two_way": 0.278,
+     "wait": 500,
+     "hol": 78,
+     "hol_share": 0.156,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 108,
+     "two_way": 0.417,
+     "wait": 953,
+     "hol": 58,
+     "hol_share": 0.061,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 95,
+     "two_way": 0.095,
+     "wait": 219,
+     "hol": 10,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 134,
+     "two_way": 0.366,
+     "wait": 852,
+     "hol": 136,
+     "hol_share": 0.16,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 109,
+     "two_way": 0.028,
+     "wait": 406,
+     "hol": 30,
+     "hol_share": 0.074,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 84,
+     "two_way": 0.5,
+     "wait": 353,
+     "hol": 32,
+     "hol_share": 0.091,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 145,
+     "two_way": 0.414,
+     "wait": 3351,
+     "hol": 360,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 47,
+     "two_way": 0.426,
+     "wait": 476,
+     "hol": 10,
+     "hol_share": 0.021,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 28,
+     "two_way": 0.357,
+     "wait": 126,
+     "hol": 8,
+     "hol_share": 0.063,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 151,
+     "two_way": 0.126,
+     "wait": 1273,
+     "hol": 105,
+     "hol_share": 0.082,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 115,
+     "two_way": 0.339,
+     "wait": 2304,
+     "hol": 185,
+     "hol_share": 0.08,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 176,
+     "two_way": 0.455,
+     "wait": 798,
+     "hol": 56,
+     "hol_share": 0.07,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 102,
+     "two_way": 0.294,
+     "wait": 535,
+     "hol": 68,
+     "hol_share": 0.127,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 65,
+     "two_way": 0.385,
+     "wait": 330,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 87,
+     "two_way": 0.103,
+     "wait": 364,
+     "hol": 35,
+     "hol_share": 0.096,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 268,
+     "two_way": 0.448,
+     "wait": 2732,
+     "hol": 271,
+     "hol_share": 0.099,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 58,
+     "two_way": 0.5,
+     "wait": 347,
+     "hol": 6,
+     "hol_share": 0.017,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 248,
+     "two_way": 0.48,
+     "wait": 4357,
+     "hol": 289,
+     "hol_share": 0.066,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 51,
+     "two_way": 0.471,
+     "wait": 128,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 217,
+     "two_way": 0.465,
+     "wait": 1079,
+     "hol": 170,
+     "hol_share": 0.158,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 57,
+     "two_way": 0.351,
+     "wait": 186,
+     "hol": 22,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 132,
+     "two_way": 0.348,
+     "wait": 472,
+     "hol": 64,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 86,
+     "two_way": 0.174,
+     "wait": 810,
+     "hol": 33,
+     "hol_share": 0.041,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 115,
+     "two_way": 0.009,
+     "wait": 660,
+     "hol": 113,
+     "hol_share": 0.171,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 129,
+     "two_way": 0.085,
+     "wait": 727,
+     "hol": 84,
+     "hol_share": 0.116,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 117,
+     "two_way": 0.043,
+     "wait": 1477,
+     "hol": 233,
+     "hol_share": 0.158,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 120,
+     "two_way": 0.125,
+     "wait": 1141,
+     "hol": 169,
+     "hol_share": 0.148,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 157,
+     "two_way": 0.497,
+     "wait": 1188,
+     "hol": 103,
+     "hol_share": 0.087,
+     "pick": false
+    },
+    {
+     "door": 40,
+     "passes": 128,
+     "two_way": 0.438,
+     "wait": 593,
+     "hol": 57,
+     "hol_share": 0.096,
+     "pick": false
+    },
+    {
+     "door": 41,
+     "passes": 182,
+     "two_way": 0.418,
+     "wait": 1976,
+     "hol": 311,
+     "hol_share": 0.157,
+     "pick": false
+    },
+    {
+     "door": 42,
+     "passes": 251,
+     "two_way": 0.482,
+     "wait": 5409,
+     "hol": 759,
+     "hol_share": 0.14,
+     "pick": false
+    },
+    {
+     "door": 43,
+     "passes": 156,
+     "two_way": 0.096,
+     "wait": 2159,
+     "hol": 386,
+     "hol_share": 0.179,
+     "pick": false
+    },
+    {
+     "door": 44,
+     "passes": 111,
+     "two_way": 0.072,
+     "wait": 749,
+     "hol": 85,
+     "hol_share": 0.113,
+     "pick": false
+    },
+    {
+     "door": 45,
+     "passes": 203,
+     "two_way": 0.488,
+     "wait": 2237,
+     "hol": 218,
+     "hol_share": 0.097,
+     "pick": false
+    },
+    {
+     "door": 46,
+     "passes": 87,
+     "two_way": 0.172,
+     "wait": 304,
+     "hol": 14,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 47,
+     "passes": 63,
+     "two_way": 0.476,
+     "wait": 424,
+     "hol": 48,
+     "hol_share": 0.113,
+     "pick": false
+    },
+    {
+     "door": 48,
+     "passes": 75,
+     "two_way": 0.467,
+     "wait": 333,
+     "hol": 50,
+     "hol_share": 0.15,
+     "pick": false
+    },
+    {
+     "door": 49,
+     "passes": 99,
+     "two_way": 0.01,
+     "wait": 423,
+     "hol": 32,
+     "hol_share": 0.076,
+     "pick": false
+    },
+    {
+     "door": 50,
+     "passes": 76,
+     "two_way": 0.487,
+     "wait": 506,
+     "hol": 65,
+     "hol_share": 0.128,
+     "pick": false
+    },
+    {
+     "door": 51,
+     "passes": 203,
+     "two_way": 0.498,
+     "wait": 994,
+     "hol": 42,
+     "hol_share": 0.042,
+     "pick": false
+    },
+    {
+     "door": 52,
+     "passes": 98,
+     "two_way": 0.082,
+     "wait": 513,
+     "hol": 38,
+     "hol_share": 0.074,
+     "pick": false
+    },
+    {
+     "door": 53,
+     "passes": 40,
+     "two_way": 0.475,
+     "wait": 164,
+     "hol": 17,
+     "hol_share": 0.104,
+     "pick": false
+    },
+    {
+     "door": 54,
+     "passes": 85,
+     "two_way": 0.376,
+     "wait": 253,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 55,
+     "passes": 150,
+     "two_way": 0.5,
+     "wait": 2085,
+     "hol": 353,
+     "hol_share": 0.169,
+     "pick": false
+    },
+    {
+     "door": 56,
+     "passes": 159,
+     "two_way": 0.421,
+     "wait": 1263,
+     "hol": 179,
+     "hol_share": 0.142,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomGB_194",
+   "doors": 40,
+   "picked": 1,
+   "apron_wait": 0.03692577319587629,
+   "hol_all": 0.00442680412371134,
+   "upper": 0.0023144329896907217,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 416,
+     "two_way": 0.466,
+     "wait": 14813,
+     "hol": 2245,
+     "hol_share": 0.152,
+     "pick": true
+    },
+    {
+     "door": 1,
+     "passes": 162,
+     "two_way": 0.099,
+     "wait": 978,
+     "hol": 69,
+     "hol_share": 0.071,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 55,
+     "two_way": 0.473,
+     "wait": 53,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 183,
+     "two_way": 0.016,
+     "wait": 2030,
+     "hol": 240,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 101,
+     "two_way": 0.446,
+     "wait": 348,
+     "hol": 46,
+     "hol_share": 0.132,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 46,
+     "two_way": 0.478,
+     "wait": 137,
+     "hol": 18,
+     "hol_share": 0.131,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 145,
+     "two_way": 0.028,
+     "wait": 845,
+     "hol": 50,
+     "hol_share": 0.059,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 130,
+     "two_way": 0.438,
+     "wait": 871,
+     "hol": 121,
+     "hol_share": 0.139,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 63,
+     "two_way": 0.397,
+     "wait": 131,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 35,
+     "two_way": 0.4,
+     "wait": 124,
+     "hol": 27,
+     "hol_share": 0.218,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 186,
+     "two_way": 0.043,
+     "wait": 2164,
+     "hol": 244,
+     "hol_share": 0.113,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 55,
+     "two_way": 0.455,
+     "wait": 197,
+     "hol": 48,
+     "hol_share": 0.244,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 65,
+     "two_way": 0.354,
+     "wait": 197,
+     "hol": 5,
+     "hol_share": 0.025,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 46,
+     "two_way": 0.478,
+     "wait": 28,
+     "hol": 6,
+     "hol_share": 0.214,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 115,
+     "two_way": 0.4,
+     "wait": 306,
+     "hol": 30,
+     "hol_share": 0.098,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 37,
+     "two_way": 0.459,
+     "wait": 77,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 184,
+     "two_way": 0.207,
+     "wait": 2225,
+     "hol": 220,
+     "hol_share": 0.099,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 91,
+     "two_way": 0.044,
+     "wait": 444,
+     "hol": 14,
+     "hol_share": 0.032,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 107,
+     "two_way": 0.29,
+     "wait": 478,
+     "hol": 62,
+     "hol_share": 0.13,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 89,
+     "two_way": 0.461,
+     "wait": 341,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 112,
+     "two_way": 0.045,
+     "wait": 544,
+     "hol": 54,
+     "hol_share": 0.099,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 179,
+     "two_way": 0.413,
+     "wait": 1053,
+     "hol": 132,
+     "hol_share": 0.125,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 65,
+     "two_way": 0.492,
+     "wait": 348,
+     "hol": 24,
+     "hol_share": 0.069,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 25,
+     "two_way": 0.48,
+     "wait": 24,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 108,
+     "two_way": 0.194,
+     "wait": 740,
+     "hol": 98,
+     "hol_share": 0.132,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 54,
+     "two_way": 0.481,
+     "wait": 208,
+     "hol": 10,
+     "hol_share": 0.048,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 58,
+     "two_way": 0.5,
+     "wait": 80,
+     "hol": 5,
+     "hol_share": 0.062,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 28,
+     "two_way": 0.5,
+     "wait": 144,
+     "hol": 17,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 142,
+     "two_way": 0.049,
+     "wait": 423,
+     "hol": 26,
+     "hol_share": 0.061,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 156,
+     "two_way": 0.064,
+     "wait": 852,
+     "hol": 87,
+     "hol_share": 0.102,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 132,
+     "two_way": 0.447,
+     "wait": 708,
+     "hol": 86,
+     "hol_share": 0.121,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 57,
+     "two_way": 0.421,
+     "wait": 156,
+     "hol": 28,
+     "hol_share": 0.179,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 76,
+     "two_way": 0.105,
+     "wait": 335,
+     "hol": 15,
+     "hol_share": 0.045,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 44,
+     "two_way": 0.386,
+     "wait": 161,
+     "hol": 16,
+     "hol_share": 0.099,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 188,
+     "two_way": 0.09,
+     "wait": 1328,
+     "hol": 158,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 62,
+     "two_way": 0.355,
+     "wait": 135,
+     "hol": 12,
+     "hol_share": 0.089,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 82,
+     "two_way": 0.427,
+     "wait": 198,
+     "hol": 13,
+     "hol_share": 0.066,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 22,
+     "two_way": 0.227,
+     "wait": 65,
+     "hol": 3,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 137,
+     "two_way": 0.168,
+     "wait": 1430,
+     "hol": 65,
+     "hol_share": 0.045,
+     "pick": false
+    },
+    {
+     "door": 40,
+     "passes": 40,
+     "two_way": 0.375,
+     "wait": 99,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomHA_200",
+   "doors": 32,
+   "picked": 0,
+   "apron_wait": 0.071732,
+   "hol_all": 0.006803,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 166,
+     "two_way": 0.018,
+     "wait": 2378,
+     "hol": 249,
+     "hol_share": 0.105,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 177,
+     "two_way": 0.136,
+     "wait": 2615,
+     "hol": 177,
+     "hol_share": 0.068,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 119,
+     "two_way": 0.471,
+     "wait": 843,
+     "hol": 65,
+     "hol_share": 0.077,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 249,
+     "two_way": 0.474,
+     "wait": 4568,
+     "hol": 457,
+     "hol_share": 0.1,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 105,
+     "two_way": 0.39,
+     "wait": 1349,
+     "hol": 94,
+     "hol_share": 0.07,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 162,
+     "two_way": 0.006,
+     "wait": 1946,
+     "hol": 140,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 220,
+     "two_way": 0.377,
+     "wait": 2753,
+     "hol": 237,
+     "hol_share": 0.086,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 154,
+     "two_way": 0.227,
+     "wait": 1948,
+     "hol": 196,
+     "hol_share": 0.101,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 179,
+     "two_way": 0.475,
+     "wait": 1499,
+     "hol": 66,
+     "hol_share": 0.044,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 222,
+     "two_way": 0.036,
+     "wait": 5112,
+     "hol": 351,
+     "hol_share": 0.069,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 221,
+     "two_way": 0.045,
+     "wait": 5773,
+     "hol": 579,
+     "hol_share": 0.1,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 125,
+     "two_way": 0.384,
+     "wait": 938,
+     "hol": 108,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 190,
+     "two_way": 0.063,
+     "wait": 1983,
+     "hol": 97,
+     "hol_share": 0.049,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 150,
+     "two_way": 0.313,
+     "wait": 2017,
+     "hol": 209,
+     "hol_share": 0.104,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 224,
+     "two_way": 0.487,
+     "wait": 2538,
+     "hol": 212,
+     "hol_share": 0.084,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 258,
+     "two_way": 0.473,
+     "wait": 4597,
+     "hol": 465,
+     "hol_share": 0.101,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 109,
+     "two_way": 0.486,
+     "wait": 1349,
+     "hol": 133,
+     "hol_share": 0.099,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 98,
+     "two_way": 0.459,
+     "wait": 598,
+     "hol": 7,
+     "hol_share": 0.012,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 150,
+     "two_way": 0.433,
+     "wait": 1347,
+     "hol": 172,
+     "hol_share": 0.128,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 102,
+     "two_way": 0.363,
+     "wait": 422,
+     "hol": 65,
+     "hol_share": 0.154,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 118,
+     "two_way": 0.364,
+     "wait": 793,
+     "hol": 66,
+     "hol_share": 0.083,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 124,
+     "two_way": 0.242,
+     "wait": 2790,
+     "hol": 533,
+     "hol_share": 0.191,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 192,
+     "two_way": 0.495,
+     "wait": 1598,
+     "hol": 109,
+     "hol_share": 0.068,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 163,
+     "two_way": 0.429,
+     "wait": 1730,
+     "hol": 188,
+     "hol_share": 0.109,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 150,
+     "two_way": 0.013,
+     "wait": 1087,
+     "hol": 115,
+     "hol_share": 0.106,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 232,
+     "two_way": 0.487,
+     "wait": 3671,
+     "hol": 461,
+     "hol_share": 0.126,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 236,
+     "two_way": 0.428,
+     "wait": 3884,
+     "hol": 304,
+     "hol_share": 0.078,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 117,
+     "two_way": 0.462,
+     "wait": 852,
+     "hol": 17,
+     "hol_share": 0.02,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 142,
+     "two_way": 0.408,
+     "wait": 1280,
+     "hol": 148,
+     "hol_share": 0.116,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 132,
+     "two_way": 0.311,
+     "wait": 4377,
+     "hol": 334,
+     "hol_share": 0.076,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 144,
+     "two_way": 0.472,
+     "wait": 1051,
+     "hol": 93,
+     "hol_share": 0.088,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 139,
+     "two_way": 0.288,
+     "wait": 2046,
+     "hol": 356,
+     "hol_share": 0.174,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomHE_189",
+   "doors": 62,
+   "picked": 0,
+   "apron_wait": 0.07145820105820105,
+   "hol_all": 0.007078306878306878,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 104,
+     "two_way": 0.317,
+     "wait": 388,
+     "hol": 7,
+     "hol_share": 0.018,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 33,
+     "two_way": 0.485,
+     "wait": 101,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 95,
+     "two_way": 0.179,
+     "wait": 208,
+     "hol": 4,
+     "hol_share": 0.019,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 135,
+     "two_way": 0.341,
+     "wait": 1514,
+     "hol": 117,
+     "hol_share": 0.077,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 193,
+     "two_way": 0.425,
+     "wait": 6375,
+     "hol": 577,
+     "hol_share": 0.091,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 138,
+     "two_way": 0.471,
+     "wait": 1256,
+     "hol": 80,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 317,
+     "two_way": 0.461,
+     "wait": 5215,
+     "hol": 609,
+     "hol_share": 0.117,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 108,
+     "two_way": 0.083,
+     "wait": 781,
+     "hol": 37,
+     "hol_share": 0.047,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 150,
+     "two_way": 0.16,
+     "wait": 599,
+     "hol": 49,
+     "hol_share": 0.082,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 104,
+     "two_way": 0.058,
+     "wait": 544,
+     "hol": 36,
+     "hol_share": 0.066,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 42,
+     "two_way": 0.167,
+     "wait": 194,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 114,
+     "two_way": 0.053,
+     "wait": 1268,
+     "hol": 78,
+     "hol_share": 0.062,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 217,
+     "two_way": 0.47,
+     "wait": 3707,
+     "hol": 432,
+     "hol_share": 0.117,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 108,
+     "two_way": 0.417,
+     "wait": 3295,
+     "hol": 320,
+     "hol_share": 0.097,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 65,
+     "two_way": 0.323,
+     "wait": 329,
+     "hol": 19,
+     "hol_share": 0.058,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 128,
+     "two_way": 0.469,
+     "wait": 458,
+     "hol": 37,
+     "hol_share": 0.081,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 97,
+     "two_way": 0.093,
+     "wait": 762,
+     "hol": 140,
+     "hol_share": 0.184,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 58,
+     "two_way": 0.379,
+     "wait": 307,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 166,
+     "two_way": 0.367,
+     "wait": 1556,
+     "hol": 163,
+     "hol_share": 0.105,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 54,
+     "two_way": 0.389,
+     "wait": 106,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 60,
+     "two_way": 0.367,
+     "wait": 458,
+     "hol": 42,
+     "hol_share": 0.092,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 107,
+     "two_way": 0.421,
+     "wait": 205,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 148,
+     "two_way": 0.027,
+     "wait": 967,
+     "hol": 202,
+     "hol_share": 0.209,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 75,
+     "two_way": 0.227,
+     "wait": 419,
+     "hol": 35,
+     "hol_share": 0.084,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 57,
+     "two_way": 0.474,
+     "wait": 334,
+     "hol": 61,
+     "hol_share": 0.183,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 182,
+     "two_way": 0.445,
+     "wait": 1425,
+     "hol": 196,
+     "hol_share": 0.138,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 56,
+     "two_way": 0.071,
+     "wait": 292,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 96,
+     "two_way": 0.479,
+     "wait": 344,
+     "hol": 33,
+     "hol_share": 0.096,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 134,
+     "two_way": 0.493,
+     "wait": 3677,
+     "hol": 362,
+     "hol_share": 0.098,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 39,
+     "two_way": 0.308,
+     "wait": 115,
+     "hol": 20,
+     "hol_share": 0.174,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 177,
+     "two_way": 0.006,
+     "wait": 2694,
+     "hol": 174,
+     "hol_share": 0.065,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 62,
+     "two_way": 0.468,
+     "wait": 112,
+     "hol": 10,
+     "hol_share": 0.089,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 129,
+     "two_way": 0.101,
+     "wait": 822,
+     "hol": 68,
+     "hol_share": 0.083,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 150,
+     "two_way": 0.047,
+     "wait": 1192,
+     "hol": 40,
+     "hol_share": 0.034,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 99,
+     "two_way": 0.051,
+     "wait": 497,
+     "hol": 16,
+     "hol_share": 0.032,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 250,
+     "two_way": 0.472,
+     "wait": 3457,
+     "hol": 259,
+     "hol_share": 0.075,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 110,
+     "two_way": 0.109,
+     "wait": 499,
+     "hol": 11,
+     "hol_share": 0.022,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 57,
+     "two_way": 0.474,
+     "wait": 344,
+     "hol": 51,
+     "hol_share": 0.148,
+     "pick": false
+    },
+    {
+     "door": 41,
+     "passes": 61,
+     "two_way": 0.426,
+     "wait": 169,
+     "hol": 5,
+     "hol_share": 0.03,
+     "pick": false
+    },
+    {
+     "door": 42,
+     "passes": 92,
+     "two_way": 0.098,
+     "wait": 844,
+     "hol": 86,
+     "hol_share": 0.102,
+     "pick": false
+    },
+    {
+     "door": 43,
+     "passes": 147,
+     "two_way": 0.272,
+     "wait": 2295,
+     "hol": 294,
+     "hol_share": 0.128,
+     "pick": false
+    },
+    {
+     "door": 44,
+     "passes": 168,
+     "two_way": 0.482,
+     "wait": 1129,
+     "hol": 208,
+     "hol_share": 0.184,
+     "pick": false
+    },
+    {
+     "door": 45,
+     "passes": 58,
+     "two_way": 0.448,
+     "wait": 312,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 46,
+     "passes": 245,
+     "two_way": 0.465,
+     "wait": 2332,
+     "hol": 408,
+     "hol_share": 0.175,
+     "pick": false
+    },
+    {
+     "door": 47,
+     "passes": 62,
+     "two_way": 0.065,
+     "wait": 229,
+     "hol": 41,
+     "hol_share": 0.179,
+     "pick": false
+    },
+    {
+     "door": 48,
+     "passes": 112,
+     "two_way": 0.036,
+     "wait": 612,
+     "hol": 62,
+     "hol_share": 0.101,
+     "pick": false
+    },
+    {
+     "door": 49,
+     "passes": 116,
+     "two_way": 0.491,
+     "wait": 892,
+     "hol": 141,
+     "hol_share": 0.158,
+     "pick": false
+    },
+    {
+     "door": 50,
+     "passes": 157,
+     "two_way": 0.051,
+     "wait": 936,
+     "hol": 59,
+     "hol_share": 0.063,
+     "pick": false
+    },
+    {
+     "door": 51,
+     "passes": 98,
+     "two_way": 0.112,
+     "wait": 656,
+     "hol": 121,
+     "hol_share": 0.184,
+     "pick": false
+    },
+    {
+     "door": 52,
+     "passes": 59,
+     "two_way": 0.475,
+     "wait": 205,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 53,
+     "passes": 165,
+     "two_way": 0.0,
+     "wait": 1465,
+     "hol": 141,
+     "hol_share": 0.096,
+     "pick": false
+    },
+    {
+     "door": 54,
+     "passes": 193,
+     "two_way": 0.44,
+     "wait": 1909,
+     "hol": 181,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 55,
+     "passes": 163,
+     "two_way": 0.012,
+     "wait": 1217,
+     "hol": 144,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 56,
+     "passes": 99,
+     "two_way": 0.444,
+     "wait": 417,
+     "hol": 22,
+     "hol_share": 0.053,
+     "pick": false
+    },
+    {
+     "door": 57,
+     "passes": 119,
+     "two_way": 0.277,
+     "wait": 545,
+     "hol": 74,
+     "hol_share": 0.136,
+     "pick": false
+    },
+    {
+     "door": 58,
+     "passes": 132,
+     "two_way": 0.121,
+     "wait": 720,
+     "hol": 108,
+     "hol_share": 0.15,
+     "pick": false
+    },
+    {
+     "door": 59,
+     "passes": 57,
+     "two_way": 0.351,
+     "wait": 295,
+     "hol": 8,
+     "hol_share": 0.027,
+     "pick": false
+    },
+    {
+     "door": 60,
+     "passes": 66,
+     "two_way": 0.409,
+     "wait": 250,
+     "hol": 4,
+     "hol_share": 0.016,
+     "pick": false
+    },
+    {
+     "door": 61,
+     "passes": 107,
+     "two_way": 0.196,
+     "wait": 849,
+     "hol": 74,
+     "hol_share": 0.087,
+     "pick": false
+    },
+    {
+     "door": 62,
+     "passes": 75,
+     "two_way": 0.36,
+     "wait": 180,
+     "hol": 10,
+     "hol_share": 0.056,
+     "pick": false
+    },
+    {
+     "door": 63,
+     "passes": 172,
+     "two_way": 0.017,
+     "wait": 1240,
+     "hol": 81,
+     "hol_share": 0.065,
+     "pick": false
+    },
+    {
+     "door": 64,
+     "passes": 136,
+     "two_way": 0.029,
+     "wait": 1014,
+     "hol": 132,
+     "hol_share": 0.13,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomQ_200",
+   "doors": 26,
+   "picked": 0,
+   "apron_wait": 0.054632,
+   "hol_all": 0.005695,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 208,
+     "two_way": 0.317,
+     "wait": 2814,
+     "hol": 406,
+     "hol_share": 0.144,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 156,
+     "two_way": 0.455,
+     "wait": 3119,
+     "hol": 353,
+     "hol_share": 0.113,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 88,
+     "two_way": 0.182,
+     "wait": 539,
+     "hol": 71,
+     "hol_share": 0.132,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 100,
+     "two_way": 0.41,
+     "wait": 523,
+     "hol": 15,
+     "hol_share": 0.029,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 115,
+     "two_way": 0.443,
+     "wait": 462,
+     "hol": 6,
+     "hol_share": 0.013,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 77,
+     "two_way": 0.403,
+     "wait": 294,
+     "hol": 31,
+     "hol_share": 0.105,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 96,
+     "two_way": 0.448,
+     "wait": 202,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 338,
+     "two_way": 0.482,
+     "wait": 3006,
+     "hol": 356,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 354,
+     "two_way": 0.415,
+     "wait": 6566,
+     "hol": 784,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 329,
+     "two_way": 0.45,
+     "wait": 9304,
+     "hol": 1160,
+     "hol_share": 0.125,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 242,
+     "two_way": 0.017,
+     "wait": 4828,
+     "hol": 335,
+     "hol_share": 0.069,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 110,
+     "two_way": 0.173,
+     "wait": 694,
+     "hol": 28,
+     "hol_share": 0.04,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 213,
+     "two_way": 0.0,
+     "wait": 2454,
+     "hol": 316,
+     "hol_share": 0.129,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 151,
+     "two_way": 0.477,
+     "wait": 1284,
+     "hol": 77,
+     "hol_share": 0.06,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 157,
+     "two_way": 0.064,
+     "wait": 1117,
+     "hol": 139,
+     "hol_share": 0.124,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 154,
+     "two_way": 0.5,
+     "wait": 797,
+     "hol": 10,
+     "hol_share": 0.013,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 165,
+     "two_way": 0.497,
+     "wait": 935,
+     "hol": 56,
+     "hol_share": 0.06,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 183,
+     "two_way": 0.317,
+     "wait": 1541,
+     "hol": 301,
+     "hol_share": 0.195,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 219,
+     "two_way": 0.05,
+     "wait": 3122,
+     "hol": 376,
+     "hol_share": 0.12,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 85,
+     "two_way": 0.306,
+     "wait": 341,
+     "hol": 6,
+     "hol_share": 0.018,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 195,
+     "two_way": 0.497,
+     "wait": 1684,
+     "hol": 137,
+     "hol_share": 0.081,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 141,
+     "two_way": 0.085,
+     "wait": 1086,
+     "hol": 68,
+     "hol_share": 0.063,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 100,
+     "two_way": 0.39,
+     "wait": 842,
+     "hol": 107,
+     "hol_share": 0.127,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 81,
+     "two_way": 0.407,
+     "wait": 3293,
+     "hol": 208,
+     "hol_share": 0.063,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 135,
+     "two_way": 0.319,
+     "wait": 907,
+     "hol": 83,
+     "hol_share": 0.092,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 173,
+     "two_way": 0.069,
+     "wait": 2878,
+     "hol": 266,
+     "hol_share": 0.092,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomQ_254",
+   "doors": 26,
+   "picked": 0,
+   "apron_wait": 0.06336614173228347,
+   "hol_all": 0.007913385826771653,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 224,
+     "two_way": 0.406,
+     "wait": 3230,
+     "hol": 351,
+     "hol_share": 0.109,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 145,
+     "two_way": 0.31,
+     "wait": 11752,
+     "hol": 1567,
+     "hol_share": 0.133,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 92,
+     "two_way": 0.283,
+     "wait": 328,
+     "hol": 3,
+     "hol_share": 0.009,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 100,
+     "two_way": 0.4,
+     "wait": 573,
+     "hol": 63,
+     "hol_share": 0.11,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 112,
+     "two_way": 0.429,
+     "wait": 458,
+     "hol": 9,
+     "hol_share": 0.02,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 94,
+     "two_way": 0.138,
+     "wait": 581,
+     "hol": 49,
+     "hol_share": 0.084,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 80,
+     "two_way": 0.425,
+     "wait": 162,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 287,
+     "two_way": 0.446,
+     "wait": 4139,
+     "hol": 514,
+     "hol_share": 0.124,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 300,
+     "two_way": 0.407,
+     "wait": 3385,
+     "hol": 397,
+     "hol_share": 0.117,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 299,
+     "two_way": 0.375,
+     "wait": 17006,
+     "hol": 2445,
+     "hol_share": 0.144,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 171,
+     "two_way": 0.0,
+     "wait": 1623,
+     "hol": 141,
+     "hol_share": 0.087,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 62,
+     "two_way": 0.371,
+     "wait": 381,
+     "hol": 59,
+     "hol_share": 0.155,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 225,
+     "two_way": 0.013,
+     "wait": 2233,
+     "hol": 213,
+     "hol_share": 0.095,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 156,
+     "two_way": 0.474,
+     "wait": 1006,
+     "hol": 62,
+     "hol_share": 0.062,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 144,
+     "two_way": 0.097,
+     "wait": 996,
+     "hol": 72,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 139,
+     "two_way": 0.468,
+     "wait": 969,
+     "hol": 189,
+     "hol_share": 0.195,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 143,
+     "two_way": 0.483,
+     "wait": 730,
+     "hol": 13,
+     "hol_share": 0.018,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 210,
+     "two_way": 0.352,
+     "wait": 1778,
+     "hol": 243,
+     "hol_share": 0.137,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 146,
+     "two_way": 0.267,
+     "wait": 3401,
+     "hol": 390,
+     "hol_share": 0.115,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 73,
+     "two_way": 0.315,
+     "wait": 326,
+     "hol": 15,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 174,
+     "two_way": 0.494,
+     "wait": 1385,
+     "hol": 244,
+     "hol_share": 0.176,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 129,
+     "two_way": 0.109,
+     "wait": 1935,
+     "hol": 261,
+     "hol_share": 0.135,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 86,
+     "two_way": 0.337,
+     "wait": 728,
+     "hol": 61,
+     "hol_share": 0.084,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 79,
+     "two_way": 0.418,
+     "wait": 9870,
+     "hol": 1174,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 110,
+     "two_way": 0.273,
+     "wait": 1009,
+     "hol": 135,
+     "hol_share": 0.134,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 185,
+     "two_way": 0.032,
+     "wait": 10491,
+     "hol": 1380,
+     "hol_share": 0.132,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomS_247",
+   "doors": 41,
+   "picked": 0,
+   "apron_wait": 0.03128178137651822,
+   "hol_all": 0.0028809716599190282,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 57,
+     "two_way": 0.14,
+     "wait": 179,
+     "hol": 12,
+     "hol_share": 0.067,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 60,
+     "two_way": 0.317,
+     "wait": 247,
+     "hol": 12,
+     "hol_share": 0.049,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 138,
+     "two_way": 0.478,
+     "wait": 1769,
+     "hol": 131,
+     "hol_share": 0.074,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 21,
+     "two_way": 0.476,
+     "wait": 24,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 39,
+     "two_way": 0.436,
+     "wait": 797,
+     "hol": 51,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 115,
+     "two_way": 0.087,
+     "wait": 1063,
+     "hol": 140,
+     "hol_share": 0.132,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 66,
+     "two_way": 0.242,
+     "wait": 148,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 82,
+     "two_way": 0.122,
+     "wait": 718,
+     "hol": 73,
+     "hol_share": 0.102,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 64,
+     "two_way": 0.484,
+     "wait": 144,
+     "hol": 6,
+     "hol_share": 0.042,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 61,
+     "two_way": 0.426,
+     "wait": 88,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 113,
+     "two_way": 0.425,
+     "wait": 517,
+     "hol": 97,
+     "hol_share": 0.188,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 129,
+     "two_way": 0.031,
+     "wait": 405,
+     "hol": 53,
+     "hol_share": 0.131,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 13,
+     "two_way": 0.308,
+     "wait": 37,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 98,
+     "two_way": 0.408,
+     "wait": 880,
+     "hol": 94,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 32,
+     "two_way": 0.438,
+     "wait": 401,
+     "hol": 40,
+     "hol_share": 0.1,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 221,
+     "two_way": 0.484,
+     "wait": 2947,
+     "hol": 289,
+     "hol_share": 0.098,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 132,
+     "two_way": 0.045,
+     "wait": 825,
+     "hol": 98,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 34,
+     "two_way": 0.5,
+     "wait": 239,
+     "hol": 28,
+     "hol_share": 0.117,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 167,
+     "two_way": 0.395,
+     "wait": 2064,
+     "hol": 164,
+     "hol_share": 0.079,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 36,
+     "two_way": 0.444,
+     "wait": 76,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 84,
+     "two_way": 0.083,
+     "wait": 339,
+     "hol": 23,
+     "hol_share": 0.068,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 117,
+     "two_way": 0.385,
+     "wait": 995,
+     "hol": 93,
+     "hol_share": 0.093,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 30,
+     "two_way": 0.4,
+     "wait": 55,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 106,
+     "two_way": 0.321,
+     "wait": 453,
+     "hol": 3,
+     "hol_share": 0.007,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 64,
+     "two_way": 0.484,
+     "wait": 172,
+     "hol": 1,
+     "hol_share": 0.006,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 42,
+     "two_way": 0.357,
+     "wait": 136,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 25,
+     "two_way": 0.48,
+     "wait": 90,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 211,
+     "two_way": 0.066,
+     "wait": 4250,
+     "hol": 442,
+     "hol_share": 0.104,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 37,
+     "two_way": 0.432,
+     "wait": 296,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 68,
+     "two_way": 0.324,
+     "wait": 298,
+     "hol": 45,
+     "hol_share": 0.151,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 158,
+     "two_way": 0.082,
+     "wait": 1493,
+     "hol": 79,
+     "hol_share": 0.053,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 185,
+     "two_way": 0.038,
+     "wait": 4648,
+     "hol": 548,
+     "hol_share": 0.118,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 128,
+     "two_way": 0.125,
+     "wait": 1188,
+     "hol": 86,
+     "hol_share": 0.072,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 122,
+     "two_way": 0.303,
+     "wait": 1049,
+     "hol": 118,
+     "hol_share": 0.112,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 130,
+     "two_way": 0.408,
+     "wait": 777,
+     "hol": 82,
+     "hol_share": 0.106,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 117,
+     "two_way": 0.009,
+     "wait": 856,
+     "hol": 27,
+     "hol_share": 0.032,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 201,
+     "two_way": 0.06,
+     "wait": 4407,
+     "hol": 403,
+     "hol_share": 0.091,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 47,
+     "two_way": 0.489,
+     "wait": 149,
+     "hol": 21,
+     "hol_share": 0.141,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 42,
+     "two_way": 0.476,
+     "wait": 111,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 39,
+     "passes": 128,
+     "two_way": 0.5,
+     "wait": 571,
+     "hol": 64,
+     "hol_share": 0.112,
+     "pick": false
+    },
+    {
+     "door": 40,
+     "passes": 173,
+     "two_way": 0.046,
+     "wait": 2732,
+     "hol": 235,
+     "hol_share": 0.086,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomW_194",
+   "doors": 39,
+   "picked": 0,
+   "apron_wait": 0.05814432989690722,
+   "hol_all": 0.00517319587628866,
+   "upper": 0.0,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 146,
+     "two_way": 0.486,
+     "wait": 1066,
+     "hol": 91,
+     "hol_share": 0.085,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 100,
+     "two_way": 0.47,
+     "wait": 392,
+     "hol": 17,
+     "hol_share": 0.043,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 57,
+     "two_way": 0.246,
+     "wait": 575,
+     "hol": 103,
+     "hol_share": 0.179,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 133,
+     "two_way": 0.459,
+     "wait": 909,
+     "hol": 194,
+     "hol_share": 0.213,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 131,
+     "two_way": 0.466,
+     "wait": 1069,
+     "hol": 60,
+     "hol_share": 0.056,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 126,
+     "two_way": 0.349,
+     "wait": 702,
+     "hol": 41,
+     "hol_share": 0.058,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 40,
+     "two_way": 0.3,
+     "wait": 159,
+     "hol": 19,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 46,
+     "two_way": 0.174,
+     "wait": 464,
+     "hol": 21,
+     "hol_share": 0.045,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 57,
+     "two_way": 0.175,
+     "wait": 182,
+     "hol": 58,
+     "hol_share": 0.319,
+     "pick": false
+    },
+    {
+     "door": 9,
+     "passes": 65,
+     "two_way": 0.415,
+     "wait": 119,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 37,
+     "two_way": 0.486,
+     "wait": 138,
+     "hol": 13,
+     "hol_share": 0.094,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 64,
+     "two_way": 0.359,
+     "wait": 306,
+     "hol": 24,
+     "hol_share": 0.078,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 18,
+     "two_way": 0.333,
+     "wait": 7483,
+     "hol": 284,
+     "hol_share": 0.038,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 59,
+     "two_way": 0.356,
+     "wait": 153,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 27,
+     "two_way": 0.185,
+     "wait": 7242,
+     "hol": 777,
+     "hol_share": 0.107,
+     "pick": false
+    },
+    {
+     "door": 15,
+     "passes": 101,
+     "two_way": 0.02,
+     "wait": 596,
+     "hol": 71,
+     "hol_share": 0.119,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 75,
+     "two_way": 0.08,
+     "wait": 0,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 257,
+     "two_way": 0.444,
+     "wait": 6463,
+     "hol": 656,
+     "hol_share": 0.102,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 136,
+     "two_way": 0.368,
+     "wait": 663,
+     "hol": 31,
+     "hol_share": 0.047,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 84,
+     "two_way": 0.083,
+     "wait": 435,
+     "hol": 20,
+     "hol_share": 0.046,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 186,
+     "two_way": 0.065,
+     "wait": 9300,
+     "hol": 792,
+     "hol_share": 0.085,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 237,
+     "two_way": 0.464,
+     "wait": 2412,
+     "hol": 338,
+     "hol_share": 0.14,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 162,
+     "two_way": 0.037,
+     "wait": 7014,
+     "hol": 719,
+     "hol_share": 0.103,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 74,
+     "two_way": 0.432,
+     "wait": 190,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 89,
+     "two_way": 0.281,
+     "wait": 385,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 141,
+     "two_way": 0.468,
+     "wait": 1325,
+     "hol": 130,
+     "hol_share": 0.098,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 79,
+     "two_way": 0.443,
+     "wait": 688,
+     "hol": 42,
+     "hol_share": 0.061,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 65,
+     "two_way": 0.338,
+     "wait": 320,
+     "hol": 45,
+     "hol_share": 0.141,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 32,
+     "two_way": 0.375,
+     "wait": 127,
+     "hol": 28,
+     "hol_share": 0.22,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 150,
+     "two_way": 0.48,
+     "wait": 1158,
+     "hol": 125,
+     "hol_share": 0.108,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 55,
+     "two_way": 0.473,
+     "wait": 204,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 85,
+     "two_way": 0.459,
+     "wait": 343,
+     "hol": 63,
+     "hol_share": 0.184,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 95,
+     "two_way": 0.368,
+     "wait": 263,
+     "hol": 23,
+     "hol_share": 0.087,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 58,
+     "two_way": 0.448,
+     "wait": 309,
+     "hol": 37,
+     "hol_share": 0.12,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 55,
+     "two_way": 0.491,
+     "wait": 232,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 156,
+     "two_way": 0.436,
+     "wait": 764,
+     "hol": 66,
+     "hol_share": 0.086,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 179,
+     "two_way": 0.464,
+     "wait": 1976,
+     "hol": 126,
+     "hol_share": 0.064,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 56,
+     "two_way": 0.125,
+     "wait": 109,
+     "hol": 4,
+     "hol_share": 0.037,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 53,
+     "two_way": 0.434,
+     "wait": 165,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    }
+   ]
+  },
+  {
+   "inst": "roomZ3_194",
+   "doors": 39,
+   "picked": 2,
+   "apron_wait": 0.04762164948453608,
+   "hol_all": 0.007083505154639175,
+   "upper": 0.006024742268041237,
+   "rows": [
+    {
+     "door": 0,
+     "passes": 77,
+     "two_way": 0.364,
+     "wait": 131,
+     "hol": 31,
+     "hol_share": 0.237,
+     "pick": false
+    },
+    {
+     "door": 1,
+     "passes": 152,
+     "two_way": 0.421,
+     "wait": 912,
+     "hol": 121,
+     "hol_share": 0.133,
+     "pick": false
+    },
+    {
+     "door": 2,
+     "passes": 69,
+     "two_way": 0.406,
+     "wait": 256,
+     "hol": 32,
+     "hol_share": 0.125,
+     "pick": false
+    },
+    {
+     "door": 3,
+     "passes": 26,
+     "two_way": 0.231,
+     "wait": 139,
+     "hol": 5,
+     "hol_share": 0.036,
+     "pick": false
+    },
+    {
+     "door": 4,
+     "passes": 59,
+     "two_way": 0.475,
+     "wait": 282,
+     "hol": 52,
+     "hol_share": 0.184,
+     "pick": false
+    },
+    {
+     "door": 5,
+     "passes": 109,
+     "two_way": 0.468,
+     "wait": 352,
+     "hol": 43,
+     "hol_share": 0.122,
+     "pick": false
+    },
+    {
+     "door": 6,
+     "passes": 6,
+     "two_way": 0.167,
+     "wait": 17,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 7,
+     "passes": 41,
+     "two_way": 0.488,
+     "wait": 60,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 8,
+     "passes": 240,
+     "two_way": 0.492,
+     "wait": 23695,
+     "hol": 3728,
+     "hol_share": 0.157,
+     "pick": true
+    },
+    {
+     "door": 9,
+     "passes": 17,
+     "two_way": 0.412,
+     "wait": 16,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 10,
+     "passes": 147,
+     "two_way": 0.497,
+     "wait": 580,
+     "hol": 70,
+     "hol_share": 0.121,
+     "pick": false
+    },
+    {
+     "door": 11,
+     "passes": 42,
+     "two_way": 0.452,
+     "wait": 162,
+     "hol": 30,
+     "hol_share": 0.185,
+     "pick": false
+    },
+    {
+     "door": 12,
+     "passes": 55,
+     "two_way": 0.473,
+     "wait": 171,
+     "hol": 13,
+     "hol_share": 0.076,
+     "pick": false
+    },
+    {
+     "door": 13,
+     "passes": 21,
+     "two_way": 0.381,
+     "wait": 19,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 14,
+     "passes": 213,
+     "two_way": 0.493,
+     "wait": 13275,
+     "hol": 2116,
+     "hol_share": 0.159,
+     "pick": true
+    },
+    {
+     "door": 15,
+     "passes": 18,
+     "two_way": 0.278,
+     "wait": 78,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 16,
+     "passes": 52,
+     "two_way": 0.481,
+     "wait": 88,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 17,
+     "passes": 95,
+     "two_way": 0.421,
+     "wait": 673,
+     "hol": 178,
+     "hol_share": 0.264,
+     "pick": false
+    },
+    {
+     "door": 18,
+     "passes": 41,
+     "two_way": 0.463,
+     "wait": 123,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 19,
+     "passes": 70,
+     "two_way": 0.5,
+     "wait": 97,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 20,
+     "passes": 43,
+     "two_way": 0.488,
+     "wait": 98,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 21,
+     "passes": 37,
+     "two_way": 0.243,
+     "wait": 78,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 22,
+     "passes": 93,
+     "two_way": 0.462,
+     "wait": 246,
+     "hol": 10,
+     "hol_share": 0.041,
+     "pick": false
+    },
+    {
+     "door": 23,
+     "passes": 28,
+     "two_way": 0.429,
+     "wait": 74,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 24,
+     "passes": 29,
+     "two_way": 0.379,
+     "wait": 89,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 25,
+     "passes": 47,
+     "two_way": 0.447,
+     "wait": 86,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 26,
+     "passes": 113,
+     "two_way": 0.487,
+     "wait": 782,
+     "hol": 72,
+     "hol_share": 0.092,
+     "pick": false
+    },
+    {
+     "door": 27,
+     "passes": 61,
+     "two_way": 0.492,
+     "wait": 324,
+     "hol": 24,
+     "hol_share": 0.074,
+     "pick": false
+    },
+    {
+     "door": 28,
+     "passes": 70,
+     "two_way": 0.043,
+     "wait": 398,
+     "hol": 79,
+     "hol_share": 0.198,
+     "pick": false
+    },
+    {
+     "door": 29,
+     "passes": 83,
+     "two_way": 0.446,
+     "wait": 329,
+     "hol": 69,
+     "hol_share": 0.21,
+     "pick": false
+    },
+    {
+     "door": 30,
+     "passes": 25,
+     "two_way": 0.44,
+     "wait": 40,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 31,
+     "passes": 84,
+     "two_way": 0.131,
+     "wait": 443,
+     "hol": 35,
+     "hol_share": 0.079,
+     "pick": false
+    },
+    {
+     "door": 32,
+     "passes": 36,
+     "two_way": 0.472,
+     "wait": 114,
+     "hol": 16,
+     "hol_share": 0.14,
+     "pick": false
+    },
+    {
+     "door": 33,
+     "passes": 57,
+     "two_way": 0.211,
+     "wait": 307,
+     "hol": 57,
+     "hol_share": 0.186,
+     "pick": false
+    },
+    {
+     "door": 34,
+     "passes": 40,
+     "two_way": 0.5,
+     "wait": 232,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 35,
+     "passes": 130,
+     "two_way": 0.123,
+     "wait": 566,
+     "hol": 63,
+     "hol_share": 0.111,
+     "pick": false
+    },
+    {
+     "door": 36,
+     "passes": 144,
+     "two_way": 0.486,
+     "wait": 574,
+     "hol": 27,
+     "hol_share": 0.047,
+     "pick": false
+    },
+    {
+     "door": 37,
+     "passes": 45,
+     "two_way": 0.333,
+     "wait": 101,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    },
+    {
+     "door": 38,
+     "passes": 51,
+     "two_way": 0.412,
+     "wait": 186,
+     "hol": 0,
+     "hol_share": 0.0,
+     "pick": false
+    }
+   ]
+  }
+ ]
+}

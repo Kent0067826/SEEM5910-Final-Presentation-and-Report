@@ -1,0 +1,120 @@
+[
+ {
+  "seed": 93001,
+  "S": 16,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93002,
+  "S": 16,
+  "result": "kept",
+  "door": 4,
+  "parts": [
+   3375,
+   225
+  ],
+  "rooms": 16,
+  "doors": 23,
+  "name": "roomMA"
+ },
+ {
+  "seed": 93003,
+  "S": 15,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93004,
+  "S": 15,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93005,
+  "S": 15,
+  "result": "kept",
+  "door": 31,
+  "parts": [
+   2828,
+   653
+  ],
+  "rooms": 25,
+  "doors": 45,
+  "name": "roomMB"
+ },
+ {
+  "seed": 93006,
+  "S": 14,
+  "result": "kept",
+  "door": 38,
+  "parts": [
+   3208,
+   273
+  ],
+  "rooms": 25,
+  "doors": 54,
+  "name": "roomMC"
+ },
+ {
+  "seed": 93007,
+  "S": 13,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93008,
+  "S": 13,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93009,
+  "S": 13,
+  "result": "kept",
+  "door": 24,
+  "parts": [
+   3205,
+   276
+  ],
+  "rooms": 25,
+  "doors": 43,
+  "name": "roomMD"
+ },
+ {
+  "seed": 93010,
+  "S": 12,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93011,
+  "S": 12,
+  "result": "kept",
+  "door": 11,
+  "parts": [
+   2385,
+   979
+  ],
+  "rooms": 36,
+  "doors": 61,
+  "name": "roomME"
+ },
+ {
+  "seed": 93012,
+  "S": 11,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93013,
+  "S": 11,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 93014,
+  "S": 11,
+  "result": "kept",
+  "door": 11,
+  "parts": [
+   3124,
+   240
+  ],
+  "rooms": 36,
+  "doors": 59,
+  "name": "roomMF"
+ }
+]

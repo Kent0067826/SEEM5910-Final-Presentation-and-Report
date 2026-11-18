@@ -1,0 +1,96 @@
+{
+ "frozen_at": "2026-09-27, after round 19/20 results, before any round 21 run",
+ "binary": "bin/lifelong-v11",
+ "sha256": "4e37c529078553ca7d45ecb46d6efa55da3f53ecfef7112836c3fc67485703b6",
+ "methods": {
+  "baseline": {},
+  "C_auto_cheap": {
+   "ROBOT_TASK_POLICY": "observed_wait",
+   "ROBOT_TASK_WEIGHT": "8",
+   "ROBOT_WAIT_ROUTE": "mincost",
+   "ROBOT_WAIT_MARGIN": "3",
+   "ROBOT_WAIT_VLOAD": "2",
+   "ROBOT_ROUTE_CACHE": "1",
+   "ROBOT_OCC_KAPPA": "8",
+   "ROBOT_TIE_RULE": "align",
+   "ROBOT_ALIGN_BLOCK": "8",
+   "ROBOT_ALIGN_SLACK": "2",
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_WINDOW": "2",
+   "ROBOT_MC_GATE": "0.2",
+   "ROBOT_MC_ADD_SINGLE": "1",
+   "ROBOT_COMBINE": "1",
+   "ROBOT_PRICE_SWITCH": "1",
+   "ROBOT_PRICE_LEGS": "first"
+  },
+  "B_doors_plus_price": {
+   "ROBOT_TASK_POLICY": "observed_wait",
+   "ROBOT_TASK_WEIGHT": "8",
+   "ROBOT_WAIT_ROUTE": "mincost",
+   "ROBOT_WAIT_MARGIN": "3",
+   "ROBOT_WAIT_VLOAD": "2",
+   "ROBOT_ROUTE_CACHE": "1",
+   "ROBOT_OCC_KAPPA": "8",
+   "ROBOT_TIE_RULE": "align",
+   "ROBOT_ALIGN_BLOCK": "8",
+   "ROBOT_ALIGN_SLACK": "2",
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_WINDOW": "2",
+   "ROBOT_MC_GATE": "0.2",
+   "ROBOT_COMBINE": "1"
+  },
+  "D_doors": {
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_WINDOW": "2",
+   "ROBOT_MC_GATE": "0.2"
+  },
+  "placebo": {
+   "ROBOT_TASK_POLICY": "observed_wait",
+   "ROBOT_TASK_WEIGHT": "0",
+   "ROBOT_TIE_RULE": "random",
+   "ROBOT_TIE_SEED": "1"
+  }
+ },
+ "primary_instances": [
+  "maze40",
+  "warehouse100",
+  "room200",
+  "room250",
+  "random200",
+  "random300"
+ ],
+ "secondary_instances": [
+  "room300",
+  "maze60"
+ ],
+ "unseen_instances": [
+  "city300"
+ ],
+ "seeds": [
+  7000,
+  7001,
+  7002,
+  7003,
+  7004,
+  7005,
+  7006,
+  7007,
+  7008,
+  7009
+ ],
+ "planner_seeds": [
+  51,
+  52
+ ],
+ "primary_hypothesis": "C_auto_cheap > baseline on the 6 primary instances (equal weight)",
+ "holm_family": [
+  "C_auto_cheap",
+  "B_doors_plus_price",
+  "D_doors",
+  "placebo"
+ ],
+ "secondary": [
+  "C_auto_cheap vs B_doors_plus_price, paired, 6 primary instances",
+  "C_auto_cheap on city300 (never tuned)"
+ ]
+}

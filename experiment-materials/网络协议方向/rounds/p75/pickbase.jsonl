@@ -1,0 +1,17 @@
+{"map": "roomNC_247", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.8, "completed": 1458, "plannerErrors": 0, "errors": 0, "scheduleErrors": 85, "stderr_tail": ""}
+{"map": "roomNE_240", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 9.5, "completed": 1122, "plannerErrors": 0, "errors": 0, "scheduleErrors": 59, "stderr_tail": ""}
+{"map": "roomNA_254", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 10.3, "completed": 1160, "plannerErrors": 0, "errors": 0, "scheduleErrors": 76, "stderr_tail": ""}
+{"map": "roomNB_247", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 10.3, "completed": 812, "plannerErrors": 0, "errors": 0, "scheduleErrors": 39, "stderr_tail": ""}
+{"map": "roomND_246", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 11.4, "completed": 679, "plannerErrors": 0, "errors": 0, "scheduleErrors": 26, "stderr_tail": ""}
+{"map": "random300", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 11.7, "completed": 2969, "plannerErrors": 0, "errors": 0, "scheduleErrors": 656, "stderr_tail": ""}
+{"map": "roomNF_240", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.5, "completed": 1479, "plannerErrors": 0, "errors": 0, "scheduleErrors": 76, "stderr_tail": ""}
+{"map": "random200", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.5, "completed": 2088, "plannerErrors": 0, "errors": 0, "scheduleErrors": 388, "stderr_tail": ""}
+{"map": "roomNC_194", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.0, "completed": 1374, "plannerErrors": 0, "errors": 0, "scheduleErrors": 108, "stderr_tail": ""}
+{"map": "roomNA_199", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 9.5, "completed": 1047, "plannerErrors": 0, "errors": 0, "scheduleErrors": 57, "stderr_tail": ""}
+{"map": "roomNB_194", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 9.8, "completed": 845, "plannerErrors": 0, "errors": 0, "scheduleErrors": 52, "stderr_tail": ""}
+{"map": "roomND_193", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.6, "completed": 630, "plannerErrors": 0, "errors": 0, "scheduleErrors": 35, "stderr_tail": ""}
+{"map": "maze40", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 1.3, "completed": 565, "plannerErrors": 0, "errors": 0, "scheduleErrors": 46, "stderr_tail": ""}
+{"map": "maze60", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 1.9, "completed": 684, "plannerErrors": 0, "errors": 0, "scheduleErrors": 117, "stderr_tail": ""}
+{"map": "roomNF_189", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.3, "completed": 1405, "plannerErrors": 0, "errors": 0, "scheduleErrors": 98, "stderr_tail": ""}
+{"map": "roomNE_189", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.4, "completed": 1034, "plannerErrors": 0, "errors": 0, "scheduleErrors": 49, "stderr_tail": ""}
+{"map": "warehouse100", "method": "LCAP", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.9, "completed": 480, "plannerErrors": 0, "errors": 0, "scheduleErrors": 19, "stderr_tail": ""}

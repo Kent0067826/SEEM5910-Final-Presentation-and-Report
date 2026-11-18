@@ -1,0 +1,2 @@
+{"map": "roomZ3_194", "method": "PICK", "seed": 9700, "pseed": 103, "ticks": 5000, "sec": 5.4, "completed": 739, "plannerErrors": 0, "errors": 0, "scheduleErrors": 21, "stderr_tail": ""}
+{"map": "roomGB_194", "method": "PICK", "seed": 9700, "pseed": 103, "ticks": 5000, "sec": 6.1, "completed": 981, "plannerErrors": 0, "errors": 0, "scheduleErrors": 55, "stderr_tail": ""}

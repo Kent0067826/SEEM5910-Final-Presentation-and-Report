@@ -1,0 +1,2 @@
+{"map": "roomZ3_194", "method": "P78on2", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.4, "completed": 733, "plannerErrors": 0, "errors": 0, "scheduleErrors": 35, "stderr_tail": "[voq] pen 2 zone cells 25 (file C:/Users/RETN_kwang/robotnet-lab/work/p78/voq/roomZ3_194.txt)\n"}
+{"map": "room250", "method": "P78on2", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.9, "completed": 1130, "plannerErrors": 0, "errors": 0, "scheduleErrors": 45, "stderr_tail": "[voq] pen 2 zone cells 0 (file C:/Users/RETN_kwang/robotnet-lab/work/p78/voq/room250.txt)\n"}

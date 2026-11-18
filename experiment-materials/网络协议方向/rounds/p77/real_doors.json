@@ -1,0 +1,143 @@
+{
+ "rule": {
+  "min_room": 25
+ },
+ "maps": {
+  "room200": {
+   "doors_all": 31,
+   "doors_real": 31,
+   "door_cells": 32,
+   "zone2": 228,
+   "zone3": 471,
+   "free": 3646
+  },
+  "room250": {
+   "doors_all": 31,
+   "doors_real": 31,
+   "door_cells": 32,
+   "zone2": 228,
+   "zone3": 471,
+   "free": 3646
+  },
+  "room300": {
+   "doors_all": 31,
+   "doors_real": 31,
+   "door_cells": 32,
+   "zone2": 228,
+   "zone3": 471,
+   "free": 3646
+  },
+  "roomAA_199": {
+   "doors_all": 22,
+   "doors_real": 22,
+   "door_cells": 26,
+   "zone2": 186,
+   "zone3": 392,
+   "free": 3626
+  },
+  "roomAD_189": {
+   "doors_all": 58,
+   "doors_real": 57,
+   "door_cells": 66,
+   "zone2": 448,
+   "zone3": 877,
+   "free": 3432
+  },
+  "roomBF_240": {
+   "doors_all": 57,
+   "doors_real": 57,
+   "door_cells": 65,
+   "zone2": 437,
+   "zone3": 855,
+   "free": 3429
+  },
+  "roomFD_194": {
+   "doors_all": 38,
+   "doors_real": 38,
+   "door_cells": 40,
+   "zone2": 307,
+   "zone3": 639,
+   "free": 3521
+  },
+  "roomFE_189": {
+   "doors_all": 60,
+   "doors_real": 59,
+   "door_cells": 68,
+   "zone2": 447,
+   "zone3": 853,
+   "free": 3434
+  },
+  "roomFF_188": {
+   "doors_all": 57,
+   "doors_real": 57,
+   "door_cells": 60,
+   "zone2": 425,
+   "zone3": 860,
+   "free": 3424
+  },
+  "roomGB_194": {
+   "doors_all": 41,
+   "doors_real": 40,
+   "door_cells": 42,
+   "zone2": 291,
+   "zone3": 591,
+   "free": 3524
+  },
+  "roomHA_200": {
+   "doors_all": 32,
+   "doors_real": 32,
+   "door_cells": 33,
+   "zone2": 247,
+   "zone3": 515,
+   "free": 3633
+  },
+  "roomHE_189": {
+   "doors_all": 65,
+   "doors_real": 62,
+   "door_cells": 69,
+   "zone2": 457,
+   "zone3": 877,
+   "free": 3436
+  },
+  "roomQ_200": {
+   "doors_all": 26,
+   "doors_real": 26,
+   "door_cells": 32,
+   "zone2": 224,
+   "zone3": 434,
+   "free": 3632
+  },
+  "roomQ_254": {
+   "doors_all": 26,
+   "doors_real": 26,
+   "door_cells": 32,
+   "zone2": 224,
+   "zone3": 434,
+   "free": 3632
+  },
+  "roomS_247": {
+   "doors_all": 41,
+   "doors_real": 41,
+   "door_cells": 44,
+   "zone2": 329,
+   "zone3": 676,
+   "free": 3525
+  },
+  "roomW_194": {
+   "doors_all": 39,
+   "doors_real": 39,
+   "door_cells": 43,
+   "zone2": 300,
+   "zone3": 617,
+   "free": 3524
+  },
+  "roomZ3_194": {
+   "doors_all": 39,
+   "doors_real": 39,
+   "door_cells": 45,
+   "zone2": 315,
+   "zone3": 638,
+   "free": 3526
+  }
+ }
+}

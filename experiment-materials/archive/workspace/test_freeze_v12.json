@@ -1,0 +1,85 @@
+{
+ "frozen_at": "2026-10-02, after round 23 dev batch, before any round 23 test run",
+ "binary": "bin/lifelong-v12",
+ "sha256": "ea8cb2ea8ce49a0572c71ddf9fcad956cb3a7b47625c9cf4ed11744ca4153831",
+ "selection": "protocol_v12.md rule: best of 9 credit configs on 6 standard instances = cr0.2_z3 (+6.29% dev); Ccredit variants lower (+4.20%, +3.50%), so plain credit kept",
+ "methods": {
+  "baseline": {},
+  "E_credit": {
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_MC_CREDIT": "0.2",
+   "ROBOT_MC_ZONE": "3"
+  },
+  "D_doors": {
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_WINDOW": "2",
+   "ROBOT_MC_GATE": "0.2"
+  },
+  "C_auto_cheap": {
+   "ROBOT_TASK_POLICY": "observed_wait",
+   "ROBOT_TASK_WEIGHT": "8",
+   "ROBOT_WAIT_ROUTE": "mincost",
+   "ROBOT_WAIT_MARGIN": "3",
+   "ROBOT_WAIT_VLOAD": "2",
+   "ROBOT_ROUTE_CACHE": "1",
+   "ROBOT_OCC_KAPPA": "8",
+   "ROBOT_TIE_RULE": "align",
+   "ROBOT_ALIGN_BLOCK": "8",
+   "ROBOT_ALIGN_SLACK": "2",
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_WINDOW": "2",
+   "ROBOT_MC_GATE": "0.2",
+   "ROBOT_MC_ADD_SINGLE": "1",
+   "ROBOT_COMBINE": "1",
+   "ROBOT_PRICE_SWITCH": "1",
+   "ROBOT_PRICE_LEGS": "first"
+  },
+  "hard_gate": {
+   "ROBOT_POLICY": "multicut",
+   "ROBOT_MC_HARD": "1",
+   "ROBOT_MC_GATE": "0.2"
+  },
+  "placebo": {
+   "ROBOT_TASK_POLICY": "observed_wait",
+   "ROBOT_TASK_WEIGHT": "0",
+   "ROBOT_TIE_RULE": "random",
+   "ROBOT_TIE_SEED": "1"
+  }
+ },
+ "primary_hypothesis": "E_credit > baseline on the 6 standard instances (stratified sign-flip)",
+ "secondary": [
+  "E_credit vs D_doors (paired)",
+  "E_credit vs C_auto_cheap (paired)",
+  "room300, maze60",
+  "hard_gate (window 0 with gate) as extreme control"
+ ],
+ "primary_instances": [
+  "maze40",
+  "warehouse100",
+  "room200",
+  "room250",
+  "random200",
+  "random300"
+ ],
+ "secondary_instances": [
+  "room300",
+  "maze60"
+ ],
+ "seeds": [
+  9300,
+  9301,
+  9302,
+  9303,
+  9304,
+  9305,
+  9306,
+  9307,
+  9308,
+  9309
+ ],
+ "planner_seeds": [
+  93,
+  94
+ ],
+ "ticks": 1200
+}

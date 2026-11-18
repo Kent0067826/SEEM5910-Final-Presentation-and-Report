@@ -1,0 +1,4 @@
+{"map": "roomZ3_194", "method": "off", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 5.6, "completed": 752, "plannerErrors": 0, "errors": 0, "scheduleErrors": 44, "stderr_tail": ""}
+{"map": "roomQ_254", "method": "off", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.1, "completed": 1530, "plannerErrors": 0, "errors": 0, "scheduleErrors": 85, "stderr_tail": ""}
+{"map": "room250", "method": "off", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 7.6, "completed": 1130, "plannerErrors": 0, "errors": 0, "scheduleErrors": 45, "stderr_tail": ""}
+{"map": "room300", "method": "off", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 9.2, "completed": 1194, "plannerErrors": 0, "errors": 0, "scheduleErrors": 59, "stderr_tail": ""}

@@ -1,0 +1,225 @@
+{
+ "summary": {
+  "free path": {
+   "total": 2288,
+   "counts": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 1015,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 614,
+    "E: no staged action (planner gave nothing to do)": 290,
+    "B: blocked by a robot not in a fault": 241,
+    "B: blocked by another faulted robot": 128
+   },
+   "share": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 0.26835664335664333,
+    "B: blocked by the faulted next crosser (target = its own cell)": 0.4436188811188811,
+    "E: no staged action (planner gave nothing to do)": 0.12674825174825174,
+    "B: blocked by a robot not in a fault": 0.10533216783216784,
+    "B: blocked by another faulted robot": 0.055944055944055944
+   }
+  },
+  "d1 blocked": {
+   "total": 1791,
+   "counts": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 904,
+    "B: blocked by a robot not in a fault": 468,
+    "E: no staged action (planner gave nothing to do)": 249,
+    "B: blocked by another faulted robot": 164,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 6
+   },
+   "share": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 0.5047459519821329,
+    "B: blocked by another faulted robot": 0.09156895589056394,
+    "B: blocked by a robot not in a fault": 0.2613065326633166,
+    "E: no staged action (planner gave nothing to do)": 0.1390284757118928,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 0.0033500837520938024
+   }
+  },
+  "free path B target": {
+   "target cell at distance 2 (faulted robot on it)": 998,
+   "target cell at distance 2": 450,
+   "target cell at distance 1": 385,
+   "target cell at distance 4": 84,
+   "target cell at distance 3": 64,
+   "target cell at distance 3 (faulted robot on it)": 17
+  },
+  "regression": [
+   {
+    "inst": "room250",
+    "switch": false,
+    "identical": true
+   },
+   {
+    "inst": "room250",
+    "switch": true,
+    "identical": true
+   },
+   {
+    "inst": "room300",
+    "switch": false,
+    "identical": true
+   },
+   {
+    "inst": "maze40",
+    "switch": false,
+    "identical": true
+   },
+   {
+    "inst": "roomZ3_194",
+    "switch": false,
+    "identical": true
+   }
+  ]
+ },
+ "runs": {
+  "9700_101": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 38,
+    "B: blocked by the faulted next crosser (target = its own cell)": 71,
+    "E: no staged action (planner gave nothing to do)": 7,
+    "B: blocked by a robot not in a fault": 9
+   },
+   "d1 blocked": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 90,
+    "B: blocked by another faulted robot": 14,
+    "B: blocked by a robot not in a fault": 32,
+    "E: no staged action (planner gave nothing to do)": 12
+   }
+  },
+  "9700_102": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 136,
+    "E: no staged action (planner gave nothing to do)": 39,
+    "B: blocked by a robot not in a fault": 70,
+    "B: blocked by the faulted next crosser (target = its own cell)": 238,
+    "B: blocked by another faulted robot": 17
+   },
+   "d1 blocked": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 126,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 2,
+    "E: no staged action (planner gave nothing to do)": 28,
+    "B: blocked by a robot not in a fault": 59
+   }
+  },
+  "9701_101": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 65,
+    "B: blocked by a robot not in a fault": 38,
+    "B: blocked by the faulted next crosser (target = its own cell)": 77,
+    "E: no staged action (planner gave nothing to do)": 20,
+    "B: blocked by another faulted robot": 10
+   },
+   "d1 blocked": {
+    "E: no staged action (planner gave nothing to do)": 52,
+    "B: blocked by the faulted next crosser (target = its own cell)": 35,
+    "B: blocked by a robot not in a fault": 24,
+    "B: blocked by another faulted robot": 6
+   }
+  },
+  "9701_102": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 104,
+    "B: blocked by the faulted next crosser (target = its own cell)": 79,
+    "B: blocked by a robot not in a fault": 17,
+    "E: no staged action (planner gave nothing to do)": 37,
+    "B: blocked by another faulted robot": 5
+   },
+   "d1 blocked": {
+    "E: no staged action (planner gave nothing to do)": 29,
+    "B: blocked by the faulted next crosser (target = its own cell)": 21,
+    "B: blocked by a robot not in a fault": 20,
+    "B: blocked by another faulted robot": 17
+   }
+  },
+  "9702_101": {
+   "free path": {
+    "E: no staged action (planner gave nothing to do)": 25,
+    "B: blocked by another faulted robot": 36,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 65,
+    "B: blocked by a robot not in a fault": 13,
+    "B: blocked by the faulted next crosser (target = its own cell)": 45
+   },
+   "d1 blocked": {
+    "B: blocked by a robot not in a fault": 77,
+    "B: blocked by the faulted next crosser (target = its own cell)": 114,
+    "E: no staged action (planner gave nothing to do)": 18,
+    "B: blocked by another faulted robot": 5
+   }
+  },
+  "9702_102": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 31,
+    "B: blocked by the faulted next crosser (target = its own cell)": 60,
+    "E: no staged action (planner gave nothing to do)": 20,
+    "B: blocked by a robot not in a fault": 14
+   },
+   "d1 blocked": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 95,
+    "B: blocked by a robot not in a fault": 64,
+    "E: no staged action (planner gave nothing to do)": 33,
+    "B: blocked by another faulted robot": 9
+   }
+  },
+  "9703_101": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 29,
+    "B: blocked by a robot not in a fault": 14,
+    "B: blocked by the faulted next crosser (target = its own cell)": 99,
+    "B: blocked by another faulted robot": 37,
+    "E: no staged action (planner gave nothing to do)": 65
+   },
+   "d1 blocked": {
+    "B: blocked by another faulted robot": 44,
+    "B: blocked by the faulted next crosser (target = its own cell)": 75,
+    "B: blocked by a robot not in a fault": 52,
+    "E: no staged action (planner gave nothing to do)": 6
+   }
+  },
+  "9703_102": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 79,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 45,
+    "B: blocked by a robot not in a fault": 16,
+    "E: no staged action (planner gave nothing to do)": 2,
+    "B: blocked by another faulted robot": 13
+   },
+   "d1 blocked": {
+    "E: no staged action (planner gave nothing to do)": 23,
+    "B: blocked by another faulted robot": 16,
+    "B: blocked by the faulted next crosser (target = its own cell)": 74,
+    "B: blocked by a robot not in a fault": 20,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 1
+   }
+  },
+  "9704_101": {
+   "free path": {
+    "E: no staged action (planner gave nothing to do)": 34,
+    "B: blocked by a robot not in a fault": 7,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 21,
+    "B: blocked by the faulted next crosser (target = its own cell)": 134
+   },
+   "d1 blocked": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 181,
+    "B: blocked by a robot not in a fault": 32,
+    "B: blocked by another faulted robot": 10,
+    "E: no staged action (planner gave nothing to do)": 21,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 2
+   }
+  },
+  "9704_102": {
+   "free path": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 133,
+    "E: no staged action (planner gave nothing to do)": 41,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 80,
+    "B: blocked by a robot not in a fault": 43,
+    "B: blocked by another faulted robot": 10
+   },
+   "d1 blocked": {
+    "B: blocked by the faulted next crosser (target = its own cell)": 93,
+    "B: blocked by another faulted robot": 43,
+    "B: blocked by a robot not in a fault": 88,
+    "E: no staged action (planner gave nothing to do)": 27,
+    "B: blocked by the faulted next crosser (target = a cell it is only queued for)": 1
+   }
+  }
+ }
+}

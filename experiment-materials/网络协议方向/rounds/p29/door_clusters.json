@@ -1,0 +1,155 @@
+[
+ {
+  "inst": "room200",
+  "doors": 31,
+  "clusters": 21,
+  "multi": 8,
+  "doors_in_multi": 18,
+  "cross_in_multi": 0.6769869135014364,
+  "biggest": 4
+ },
+ {
+  "inst": "room250",
+  "doors": 31,
+  "clusters": 21,
+  "multi": 8,
+  "doors_in_multi": 18,
+  "cross_in_multi": 0.6617910447761194,
+  "biggest": 4
+ },
+ {
+  "inst": "room300",
+  "doors": 31,
+  "clusters": 21,
+  "multi": 8,
+  "doors_in_multi": 18,
+  "cross_in_multi": 0.6631517281780902,
+  "biggest": 4
+ },
+ {
+  "inst": "roomAA_199",
+  "doors": 22,
+  "clusters": 20,
+  "multi": 2,
+  "doors_in_multi": 4,
+  "cross_in_multi": 0.11877278250303766,
+  "biggest": 2
+ },
+ {
+  "inst": "roomAD_189",
+  "doors": 57,
+  "clusters": 34,
+  "multi": 12,
+  "doors_in_multi": 35,
+  "cross_in_multi": 0.5728706624605678,
+  "biggest": 5
+ },
+ {
+  "inst": "roomBF_240",
+  "doors": 57,
+  "clusters": 35,
+  "multi": 17,
+  "doors_in_multi": 39,
+  "cross_in_multi": 0.7543658088235294,
+  "biggest": 4
+ },
+ {
+  "inst": "roomFD_194",
+  "doors": 38,
+  "clusters": 29,
+  "multi": 7,
+  "doors_in_multi": 16,
+  "cross_in_multi": 0.34061748195669606,
+  "biggest": 3
+ },
+ {
+  "inst": "roomFE_189",
+  "doors": 59,
+  "clusters": 31,
+  "multi": 17,
+  "doors_in_multi": 45,
+  "cross_in_multi": 0.7138698274069453,
+  "biggest": 5
+ },
+ {
+  "inst": "roomFF_188",
+  "doors": 57,
+  "clusters": 38,
+  "multi": 13,
+  "doors_in_multi": 32,
+  "cross_in_multi": 0.531104921077066,
+  "biggest": 4
+ },
+ {
+  "inst": "roomGB_194",
+  "doors": 40,
+  "clusters": 28,
+  "multi": 8,
+  "doors_in_multi": 20,
+  "cross_in_multi": 0.4095701540957015,
+  "biggest": 4
+ },
+ {
+  "inst": "roomHA_200",
+  "doors": 32,
+  "clusters": 21,
+  "multi": 9,
+  "doors_in_multi": 20,
+  "cross_in_multi": 0.5830286703867615,
+  "biggest": 3
+ },
+ {
+  "inst": "roomHE_189",
+  "doors": 62,
+  "clusters": 33,
+  "multi": 17,
+  "doors_in_multi": 46,
+  "cross_in_multi": 0.7134368669817691,
+  "biggest": 5
+ },
+ {
+  "inst": "roomQ_200",
+  "doors": 26,
+  "clusters": 18,
+  "multi": 6,
+  "doors_in_multi": 14,
+  "cross_in_multi": 0.5595209580838323,
+  "biggest": 4
+ },
+ {
+  "inst": "roomQ_254",
+  "doors": 26,
+  "clusters": 18,
+  "multi": 6,
+  "doors_in_multi": 14,
+  "cross_in_multi": 0.5529753265602322,
+  "biggest": 4
+ },
+ {
+  "inst": "roomS_247",
+  "doors": 41,
+  "clusters": 31,
+  "multi": 8,
+  "doors_in_multi": 18,
+  "cross_in_multi": 0.4690603514132926,
+  "biggest": 3
+ },
+ {
+  "inst": "roomW_194",
+  "doors": 39,
+  "clusters": 28,
+  "multi": 7,
+  "doors_in_multi": 18,
+  "cross_in_multi": 0.38731814438649464,
+  "biggest": 4
+ },
+ {
+  "inst": "roomZ3_194",
+  "doors": 39,
+  "clusters": 28,
+  "multi": 10,
+  "doors_in_multi": 21,
+  "cross_in_multi": 0.5934306569343065,
+  "biggest": 3
+ }
+]

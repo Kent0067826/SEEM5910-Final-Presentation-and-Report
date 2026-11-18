@@ -1,0 +1,520 @@
+{
+ "rows": [
+  {
+   "src": "..",
+   "map": "room200",
+   "runs": 10,
+   "median": 1021.5,
+   "collapsed": 0,
+   "worst": 767,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "room250",
+   "runs": 10,
+   "median": 1125.0,
+   "collapsed": 0,
+   "worst": 1049,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "room300",
+   "runs": 10,
+   "median": 1216.5,
+   "collapsed": 0,
+   "worst": 1089,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomAA_199",
+   "runs": 10,
+   "median": 1131.5,
+   "collapsed": 0,
+   "worst": 1108,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomAD_189",
+   "runs": 10,
+   "median": 752.5,
+   "collapsed": 0,
+   "worst": 719,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomBF_240",
+   "runs": 10,
+   "median": 898.0,
+   "collapsed": 0,
+   "worst": 864,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomFD_194",
+   "runs": 10,
+   "median": 1252.5,
+   "collapsed": 0,
+   "worst": 1088,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomFE_189",
+   "runs": 10,
+   "median": 976.5,
+   "collapsed": 0,
+   "worst": 882,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomFF_188",
+   "runs": 10,
+   "median": 1106.5,
+   "collapsed": 0,
+   "worst": 1098,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomGB_194",
+   "runs": 10,
+   "median": 862.0,
+   "collapsed": 0,
+   "worst": 695,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomHA_200",
+   "runs": 10,
+   "median": 1754.5,
+   "collapsed": 0,
+   "worst": 1627,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomHE_189",
+   "runs": 10,
+   "median": 1430.5,
+   "collapsed": 0,
+   "worst": 1382,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomQ_200",
+   "runs": 10,
+   "median": 1371.5,
+   "collapsed": 0,
+   "worst": 1326,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomQ_254",
+   "runs": 10,
+   "median": 1442.0,
+   "collapsed": 0,
+   "worst": 1372,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomS_247",
+   "runs": 10,
+   "median": 937.0,
+   "collapsed": 0,
+   "worst": 852,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomW_194",
+   "runs": 10,
+   "median": 857.5,
+   "collapsed": 0,
+   "worst": 827,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "..",
+   "map": "roomZ3_194",
+   "runs": 10,
+   "median": 742.0,
+   "collapsed": 0,
+   "worst": 684,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "maze40",
+   "runs": 20,
+   "median": 566.0,
+   "collapsed": 0,
+   "worst": 557,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "maze60",
+   "runs": 20,
+   "median": 731.5,
+   "collapsed": 0,
+   "worst": 630,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "random200",
+   "runs": 20,
+   "median": 2082.0,
+   "collapsed": 0,
+   "worst": 2077,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "random300",
+   "runs": 20,
+   "median": 2978.0,
+   "collapsed": 0,
+   "worst": 2957,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "room200",
+   "runs": 20,
+   "median": 1018.5,
+   "collapsed": 0,
+   "worst": 775,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "room250",
+   "runs": 20,
+   "median": 1117.0,
+   "collapsed": 0,
+   "worst": 1071,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "room300",
+   "runs": 20,
+   "median": 1206.5,
+   "collapsed": 2,
+   "worst": 482,
+   "lost_frac": 0.05232609658839167
+  },
+  {
+   "src": "p02",
+   "map": "roomPA_199",
+   "runs": 20,
+   "median": 1012.5,
+   "collapsed": 1,
+   "worst": 707,
+   "lost_frac": 0.015563706760405522
+  },
+  {
+   "src": "p02",
+   "map": "roomPA_254",
+   "runs": 20,
+   "median": 1151.5,
+   "collapsed": 0,
+   "worst": 1029,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPB_194",
+   "runs": 20,
+   "median": 1066.5,
+   "collapsed": 0,
+   "worst": 1002,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPB_246",
+   "runs": 20,
+   "median": 1117.0,
+   "collapsed": 0,
+   "worst": 999,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPC_194",
+   "runs": 20,
+   "median": 804.5,
+   "collapsed": 0,
+   "worst": 775,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPC_246",
+   "runs": 20,
+   "median": 860.0,
+   "collapsed": 0,
+   "worst": 841,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPD_194",
+   "runs": 20,
+   "median": 1365.5,
+   "collapsed": 0,
+   "worst": 1331,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPD_247",
+   "runs": 20,
+   "median": 1412.0,
+   "collapsed": 0,
+   "worst": 1388,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPE_188",
+   "runs": 20,
+   "median": 1083.5,
+   "collapsed": 0,
+   "worst": 1045,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPE_240",
+   "runs": 20,
+   "median": 1145.5,
+   "collapsed": 0,
+   "worst": 1020,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPF_189",
+   "runs": 20,
+   "median": 1387.5,
+   "collapsed": 0,
+   "worst": 1351,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "roomPF_240",
+   "runs": 20,
+   "median": 1445.5,
+   "collapsed": 0,
+   "worst": 1410,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p02",
+   "map": "warehouse100",
+   "runs": 20,
+   "median": 477.0,
+   "collapsed": 0,
+   "worst": 473,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "maze40",
+   "runs": 20,
+   "median": 566.0,
+   "collapsed": 0,
+   "worst": 557,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "maze60",
+   "runs": 20,
+   "median": 731.5,
+   "collapsed": 0,
+   "worst": 630,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "random200",
+   "runs": 20,
+   "median": 2082.0,
+   "collapsed": 0,
+   "worst": 2077,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "random300",
+   "runs": 20,
+   "median": 2978.0,
+   "collapsed": 0,
+   "worst": 2957,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "room200",
+   "runs": 20,
+   "median": 1018.5,
+   "collapsed": 0,
+   "worst": 775,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "room250",
+   "runs": 20,
+   "median": 1117.0,
+   "collapsed": 0,
+   "worst": 1071,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "room300",
+   "runs": 20,
+   "median": 1206.5,
+   "collapsed": 2,
+   "worst": 482,
+   "lost_frac": 0.05232609658839167
+  },
+  {
+   "src": "p18",
+   "map": "roomUA_199",
+   "runs": 20,
+   "median": 780.5,
+   "collapsed": 1,
+   "worst": 539,
+   "lost_frac": 0.015791538612437064
+  },
+  {
+   "src": "p18",
+   "map": "roomUA_253",
+   "runs": 20,
+   "median": 848.5,
+   "collapsed": 0,
+   "worst": 616,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUB_194",
+   "runs": 20,
+   "median": 647.5,
+   "collapsed": 0,
+   "worst": 512,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUB_247",
+   "runs": 20,
+   "median": 716.5,
+   "collapsed": 3,
+   "worst": 457,
+   "lost_frac": 0.05532847800237812
+  },
+  {
+   "src": "p18",
+   "map": "roomUC_194",
+   "runs": 20,
+   "median": 1251.5,
+   "collapsed": 0,
+   "worst": 1097,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUC_247",
+   "runs": 20,
+   "median": 1329.5,
+   "collapsed": 0,
+   "worst": 1151,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUD_194",
+   "runs": 20,
+   "median": 1186.5,
+   "collapsed": 0,
+   "worst": 947,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUD_247",
+   "runs": 20,
+   "median": 1200.5,
+   "collapsed": 0,
+   "worst": 1036,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUE_189",
+   "runs": 20,
+   "median": 735.0,
+   "collapsed": 0,
+   "worst": 526,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUE_240",
+   "runs": 20,
+   "median": 776.0,
+   "collapsed": 0,
+   "worst": 680,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUF_189",
+   "runs": 20,
+   "median": 1179.5,
+   "collapsed": 0,
+   "worst": 1153,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "roomUF_240",
+   "runs": 20,
+   "median": 1256.0,
+   "collapsed": 0,
+   "worst": 1237,
+   "lost_frac": 0.0
+  },
+  {
+   "src": "p18",
+   "map": "warehouse100",
+   "runs": 20,
+   "median": 477.0,
+   "collapsed": 0,
+   "worst": 473,
+   "lost_frac": 0.0
+  }
+ ],
+ "runs": 970,
+ "collapsed": 9,
+ "lost_frac": 0.003317069539069423
+}

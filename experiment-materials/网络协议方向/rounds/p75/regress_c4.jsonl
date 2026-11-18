@@ -1,0 +1,4 @@
+{"map": "maze40", "method": "C4", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 1.2, "completed": 560, "plannerErrors": 0, "errors": 0, "scheduleErrors": 51, "stderr_tail": ""}
+{"map": "random200", "method": "C4", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 6.8, "completed": 2082, "plannerErrors": 0, "errors": 0, "scheduleErrors": 411, "stderr_tail": ""}
+{"map": "roomNA_199", "method": "C4", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.1, "completed": 1047, "plannerErrors": 0, "errors": 0, "scheduleErrors": 56, "stderr_tail": "[cap_tight] t=1500 done=354 rate=1.709 th=2.120 -> tight\n"}
+{"map": "room250", "method": "C4", "seed": 9700, "pseed": 101, "ticks": 5000, "sec": 8.9, "completed": 1141, "plannerErrors": 0, "errors": 0, "scheduleErrors": 67, "stderr_tail": "[cap_tight] t=1500 done=451 rate=2.167 th=2.120 -> keep\n"}

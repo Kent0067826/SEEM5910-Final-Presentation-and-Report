@@ -1,0 +1,90 @@
+[
+ {
+  "seed": 95501,
+  "S": 16,
+  "result": "kept",
+  "door": 17,
+  "parts": [
+   3375,
+   225
+  ],
+  "rooms": 16,
+  "doors": 24,
+  "name": "roomPA"
+ },
+ {
+  "seed": 95502,
+  "S": 15,
+  "result": "kept",
+  "door": 30,
+  "parts": [
+   3201,
+   280
+  ],
+  "rooms": 25,
+  "doors": 39,
+  "name": "roomPB"
+ },
+ {
+  "seed": 95503,
+  "S": 14,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 95504,
+  "S": 14,
+  "result": "kept",
+  "door": 35,
+  "parts": [
+   3299,
+   182
+  ],
+  "rooms": 25,
+  "doors": 43,
+  "name": "roomPC"
+ },
+ {
+  "seed": 95505,
+  "S": 13,
+  "result": "kept",
+  "door": 4,
+  "parts": [
+   432,
+   3049
+  ],
+  "rooms": 25,
+  "doors": 43,
+  "name": "roomPD"
+ },
+ {
+  "seed": 95506,
+  "S": 12,
+  "result": "kept",
+  "door": 61,
+  "parts": [
+   3014,
+   350
+  ],
+  "rooms": 36,
+  "doors": 65,
+  "name": "roomPE"
+ },
+ {
+  "seed": 95507,
+  "S": 11,
+  "result": "no 2-cell bridge with both sides >= 5 %"
+ },
+ {
+  "seed": 95508,
+  "S": 11,
+  "result": "kept",
+  "door": 7,
+  "parts": [
+   3164,
+   200
+  ],
+  "rooms": 36,
+  "doors": 58,
+  "name": "roomPF"
+ }
+]

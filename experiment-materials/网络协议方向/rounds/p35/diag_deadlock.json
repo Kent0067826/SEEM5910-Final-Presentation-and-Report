@@ -1,0 +1,2791 @@
+[
+ {
+  "run": "room250_LCAP_9700_103",
+  "completed": 1138,
+  "standoffs": [
+   {
+    "agents": [
+     62,
+     71
+    ],
+    "t0": 153,
+    "t1": 257,
+    "dur": 104,
+    "cells": [
+     [
+      52,
+      4
+     ],
+     [
+      52,
+      5
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 33,
+    "to_end": false
+   },
+   {
+    "agents": [
+     155,
+     195
+    ],
+    "t0": 284,
+    "t1": 677,
+    "dur": 393,
+    "cells": [
+     [
+      39,
+      12
+     ],
+     [
+      40,
+      12
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 30,
+    "to_end": false
+   },
+   {
+    "agents": [
+     186,
+     189
+    ],
+    "t0": 377,
+    "t1": 482,
+    "dur": 105,
+    "cells": [
+     [
+      33,
+      1
+     ],
+     [
+      33,
+      2
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 47,
+    "to_end": false
+   },
+   {
+    "agents": [
+     190,
+     234
+    ],
+    "t0": 393,
+    "t1": 955,
+    "dur": 562,
+    "cells": [
+     [
+      23,
+      17
+     ],
+     [
+      23,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     65,
+     107
+    ],
+    "t0": 528,
+    "t1": 647,
+    "dur": 119,
+    "cells": [
+     [
+      37,
+      46
+     ],
+     [
+      38,
+      46
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 23,
+    "to_end": false
+   },
+   {
+    "agents": [
+     88,
+     117
+    ],
+    "t0": 528,
+    "t1": 673,
+    "dur": 145,
+    "cells": [
+     [
+      20,
+      24
+     ],
+     [
+      20,
+      23
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 37,
+    "to_end": false
+   },
+   {
+    "agents": [
+     125,
+     126
+    ],
+    "t0": 543,
+    "t1": 812,
+    "dur": 269,
+    "cells": [
+     [
+      35,
+      3
+     ],
+     [
+      36,
+      3
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   },
+   {
+    "agents": [
+     119,
+     180
+    ],
+    "t0": 1932,
+    "t1": 2057,
+    "dur": 125,
+    "cells": [
+     [
+      21,
+      1
+     ],
+     [
+      22,
+      1
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 59,
+    "to_end": false
+   },
+   {
+    "agents": [
+     34,
+     245
+    ],
+    "t0": 3258,
+    "t1": 3437,
+    "dur": 179,
+    "cells": [
+     [
+      35,
+      58
+     ],
+     [
+      35,
+      57
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 37,
+    "to_end": false
+   },
+   {
+    "agents": [
+     146,
+     195
+    ],
+    "t0": 3642,
+    "t1": 3950,
+    "dur": 308,
+    "cells": [
+     [
+      17,
+      20
+     ],
+     [
+      18,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     190,
+     195
+    ],
+    "t0": 3990,
+    "t1": 5000,
+    "dur": 1010,
+    "cells": [
+     [
+      18,
+      20
+     ],
+     [
+      18,
+      19
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 43,
+    "to_end": true
+   },
+   {
+    "agents": [
+     146,
+     205
+    ],
+    "t0": 4025,
+    "t1": 4472,
+    "dur": 447,
+    "cells": [
+     [
+      19,
+      21
+     ],
+     [
+      19,
+      22
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     74,
+     229
+    ],
+    "t0": 4071,
+    "t1": 4592,
+    "dur": 521,
+    "cells": [
+     [
+      45,
+      19
+     ],
+     [
+      45,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 17,
+    "to_end": false
+   },
+   {
+    "agents": [
+     115,
+     116
+    ],
+    "t0": 4526,
+    "t1": 5000,
+    "dur": 474,
+    "cells": [
+     [
+      31,
+      60
+     ],
+     [
+      31,
+      61
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 43,
+    "to_end": true
+   }
+  ]
+ },
+ {
+  "run": "room250_LCAP_9700_104",
+  "completed": 1140,
+  "standoffs": [
+   {
+    "agents": [
+     62,
+     71
+    ],
+    "t0": 153,
+    "t1": 287,
+    "dur": 134,
+    "cells": [
+     [
+      52,
+      3
+     ],
+     [
+      52,
+      4
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     190,
+     234
+    ],
+    "t0": 354,
+    "t1": 1099,
+    "dur": 745,
+    "cells": [
+     [
+      23,
+      17
+     ],
+     [
+      23,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     13,
+     217
+    ],
+    "t0": 537,
+    "t1": 647,
+    "dur": 110,
+    "cells": [
+     [
+      22,
+      26
+     ],
+     [
+      21,
+      26
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 33,
+    "to_end": false
+   },
+   {
+    "agents": [
+     24,
+     217
+    ],
+    "t0": 1731,
+    "t1": 1894,
+    "dur": 163,
+    "cells": [
+     [
+      41,
+      35
+     ],
+     [
+      41,
+      34
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 8,
+    "to_end": false
+   },
+   {
+    "agents": [
+     26,
+     74
+    ],
+    "t0": 2058,
+    "t1": 2737,
+    "dur": 679,
+    "cells": [
+     [
+      19,
+      19
+     ],
+     [
+      18,
+      19
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   },
+   {
+    "agents": [
+     63,
+     249
+    ],
+    "t0": 2287,
+    "t1": 4082,
+    "dur": 1795,
+    "cells": [
+     [
+      49,
+      27
+     ],
+     [
+      49,
+      28
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 7,
+    "to_end": false
+   },
+   {
+    "agents": [
+     70,
+     233
+    ],
+    "t0": 2328,
+    "t1": 2432,
+    "dur": 104,
+    "cells": [
+     [
+      45,
+      62
+     ],
+     [
+      46,
+      62
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 31,
+    "to_end": false
+   },
+   {
+    "agents": [
+     83,
+     112
+    ],
+    "t0": 2382,
+    "t1": 2972,
+    "dur": 590,
+    "cells": [
+     [
+      58,
+      47
+     ],
+     [
+      59,
+      47
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 23,
+    "to_end": false
+   },
+   {
+    "agents": [
+     74,
+     82
+    ],
+    "t0": 2825,
+    "t1": 3167,
+    "dur": 342,
+    "cells": [
+     [
+      19,
+      18
+     ],
+     [
+      18,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     210,
+     221
+    ],
+    "t0": 2915,
+    "t1": 3422,
+    "dur": 507,
+    "cells": [
+     [
+      27,
+      28
+     ],
+     [
+      28,
+      28
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 26,
+    "to_end": false
+   },
+   {
+    "agents": [
+     144,
+     208
+    ],
+    "t0": 2985,
+    "t1": 3527,
+    "dur": 542,
+    "cells": [
+     [
+      29,
+      18
+     ],
+     [
+      29,
+      19
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     94,
+     246
+    ],
+    "t0": 2992,
+    "t1": 4922,
+    "dur": 1930,
+    "cells": [
+     [
+      30,
+      17
+     ],
+     [
+      29,
+      17
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     167,
+     195
+    ],
+    "t0": 3190,
+    "t1": 3452,
+    "dur": 262,
+    "cells": [
+     [
+      42,
+      60
+     ],
+     [
+      42,
+      59
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 32,
+    "to_end": false
+   },
+   {
+    "agents": [
+     132,
+     156
+    ],
+    "t0": 3221,
+    "t1": 4262,
+    "dur": 1041,
+    "cells": [
+     [
+      37,
+      19
+     ],
+     [
+      37,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 25,
+    "to_end": false
+   },
+   {
+    "agents": [
+     158,
+     207
+    ],
+    "t0": 3229,
+    "t1": 3331,
+    "dur": 102,
+    "cells": [
+     [
+      8,
+      1
+     ],
+     [
+      9,
+      1
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 72,
+    "to_end": false
+   },
+   {
+    "agents": [
+     129,
+     141
+    ],
+    "t0": 3333,
+    "t1": 3804,
+    "dur": 471,
+    "cells": [
+     [
+      33,
+      21
+     ],
+     [
+      34,
+      21
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 27,
+    "to_end": false
+   },
+   {
+    "agents": [
+     48,
+     101
+    ],
+    "t0": 3401,
+    "t1": 3684,
+    "dur": 283,
+    "cells": [
+     [
+      22,
+      17
+     ],
+     [
+      22,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 42,
+    "to_end": false
+   },
+   {
+    "agents": [
+     48,
+     58
+    ],
+    "t0": 3876,
+    "t1": 4550,
+    "dur": 674,
+    "cells": [
+     [
+      23,
+      17
+     ],
+     [
+      24,
+      17
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     141,
+     161
+    ],
+    "t0": 3907,
+    "t1": 4652,
+    "dur": 745,
+    "cells": [
+     [
+      33,
+      19
+     ],
+     [
+      33,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 29,
+    "to_end": false
+   },
+   {
+    "agents": [
+     42,
+     153
+    ],
+    "t0": 4150,
+    "t1": 5000,
+    "dur": 850,
+    "cells": [
+     [
+      50,
+      28
+     ],
+     [
+      50,
+      27
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 7,
+    "to_end": true
+   },
+   {
+    "agents": [
+     36,
+     99
+    ],
+    "t0": 4315,
+    "t1": 5000,
+    "dur": 685,
+    "cells": [
+     [
+      34,
+      23
+     ],
+     [
+      33,
+      23
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 24,
+    "to_end": true
+   },
+   {
+    "agents": [
+     24,
+     180
+    ],
+    "t0": 4638,
+    "t1": 5000,
+    "dur": 362,
+    "cells": [
+     [
+      39,
+      19
+     ],
+     [
+      39,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 23,
+    "to_end": true
+   },
+   {
+    "agents": [
+     40,
+     156
+    ],
+    "t0": 4689,
+    "t1": 5000,
+    "dur": 311,
+    "cells": [
+     [
+      36,
+      19
+     ],
+     [
+      37,
+      19
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 26,
+    "to_end": true
+   },
+   {
+    "agents": [
+     151,
+     154
+    ],
+    "t0": 4721,
+    "t1": 5000,
+    "dur": 279,
+    "cells": [
+     [
+      34,
+      17
+     ],
+     [
+      35,
+      17
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 30,
+    "to_end": true
+   },
+   {
+    "agents": [
+     146,
+     193
+    ],
+    "t0": 4875,
+    "t1": 4982,
+    "dur": 107,
+    "cells": [
+     [
+      54,
+      18
+     ],
+     [
+      55,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 21,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "room250_LCAP_9701_103",
+  "completed": 1089,
+  "standoffs": [
+   {
+    "agents": [
+     157,
+     228
+    ],
+    "t0": 105,
+    "t1": 2072,
+    "dur": 1967,
+    "cells": [
+     [
+      63,
+      1
+     ],
+     [
+      63,
+      0
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 47,
+    "to_end": false
+   },
+   {
+    "agents": [
+     62,
+     124
+    ],
+    "t0": 138,
+    "t1": 1022,
+    "dur": 884,
+    "cells": [
+     [
+      52,
+      2
+     ],
+     [
+      52,
+      3
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 35,
+    "to_end": false
+   },
+   {
+    "agents": [
+     100,
+     159
+    ],
+    "t0": 251,
+    "t1": 602,
+    "dur": 351,
+    "cells": [
+     [
+      57,
+      26
+     ],
+     [
+      57,
+      27
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 16,
+    "to_end": false
+   },
+   {
+    "agents": [
+     6,
+     104
+    ],
+    "t0": 2494,
+    "t1": 5000,
+    "dur": 2506,
+    "cells": [
+     [
+      50,
+      27
+     ],
+     [
+      50,
+      28
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 8,
+    "to_end": true
+   },
+   {
+    "agents": [
+     168,
+     210
+    ],
+    "t0": 3058,
+    "t1": 3167,
+    "dur": 109,
+    "cells": [
+     [
+      25,
+      29
+     ],
+     [
+      25,
+      30
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 27,
+    "to_end": false
+   },
+   {
+    "agents": [
+     178,
+     186
+    ],
+    "t0": 3425,
+    "t1": 3797,
+    "dur": 372,
+    "cells": [
+     [
+      22,
+      18
+     ],
+     [
+      22,
+      19
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     144,
+     218
+    ],
+    "t0": 3621,
+    "t1": 4607,
+    "dur": 986,
+    "cells": [
+     [
+      23,
+      22
+     ],
+     [
+      23,
+      21
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 36,
+    "to_end": false
+   },
+   {
+    "agents": [
+     159,
+     224
+    ],
+    "t0": 3986,
+    "t1": 4093,
+    "dur": 107,
+    "cells": [
+     [
+      20,
+      4
+     ],
+     [
+      21,
+      4
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 57,
+    "to_end": false
+   },
+   {
+    "agents": [
+     17,
+     134
+    ],
+    "t0": 4182,
+    "t1": 4433,
+    "dur": 251,
+    "cells": [
+     [
+      47,
+      60
+     ],
+     [
+      47,
+      61
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 27,
+    "to_end": false
+   },
+   {
+    "agents": [
+     3,
+     190
+    ],
+    "t0": 4240,
+    "t1": 5000,
+    "dur": 760,
+    "cells": [
+     [
+      17,
+      17
+     ],
+     [
+      17,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 47,
+    "to_end": true
+   }
+  ]
+ },
+ {
+  "run": "room250_LCAP_9701_104",
+  "completed": 1056,
+  "standoffs": [
+   {
+    "agents": [
+     63,
+     228
+    ],
+    "t0": 102,
+    "t1": 1757,
+    "dur": 1655,
+    "cells": [
+     [
+      63,
+      1
+     ],
+     [
+      63,
+      0
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 47,
+    "to_end": false
+   },
+   {
+    "agents": [
+     91,
+     168
+    ],
+    "t0": 1119,
+    "t1": 1382,
+    "dur": 263,
+    "cells": [
+     [
+      38,
+      39
+     ],
+     [
+      38,
+      38
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 15,
+    "to_end": false
+   },
+   {
+    "agents": [
+     148,
+     168
+    ],
+    "t0": 1386,
+    "t1": 1487,
+    "dur": 101,
+    "cells": [
+     [
+      36,
+      38
+     ],
+     [
+      37,
+      38
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 16,
+    "to_end": false
+   },
+   {
+    "agents": [
+     115,
+     147
+    ],
+    "t0": 1625,
+    "t1": 2162,
+    "dur": 537,
+    "cells": [
+     [
+      39,
+      33
+     ],
+     [
+      38,
+      33
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 9,
+    "to_end": false
+   },
+   {
+    "agents": [
+     73,
+     100
+    ],
+    "t0": 1717,
+    "t1": 2477,
+    "dur": 760,
+    "cells": [
+     [
+      60,
+      14
+     ],
+     [
+      61,
+      14
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 31,
+    "to_end": false
+   },
+   {
+    "agents": [
+     114,
+     211
+    ],
+    "t0": 2688,
+    "t1": 3347,
+    "dur": 659,
+    "cells": [
+     [
+      33,
+      19
+     ],
+     [
+      33,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 29,
+    "to_end": false
+   },
+   {
+    "agents": [
+     20,
+     97
+    ],
+    "t0": 2930,
+    "t1": 3302,
+    "dur": 372,
+    "cells": [
+     [
+      61,
+      61
+     ],
+     [
+      61,
+      62
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 40,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "room250_LCAP_9702_103",
+  "completed": 1132,
+  "standoffs": [
+   {
+    "agents": [
+     93,
+     219
+    ],
+    "t0": 1179,
+    "t1": 1397,
+    "dur": 218,
+    "cells": [
+     [
+      52,
+      62
+     ],
+     [
+      51,
+      62
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 32,
+    "to_end": false
+   },
+   {
+    "agents": [
+     87,
+     225
+    ],
+    "t0": 1591,
+    "t1": 1967,
+    "dur": 376,
+    "cells": [
+     [
+      34,
+      63
+     ],
+     [
+      33,
+      63
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   },
+   {
+    "agents": [
+     194,
+     198
+    ],
+    "t0": 1795,
+    "t1": 1907,
+    "dur": 112,
+    "cells": [
+     [
+      18,
+      22
+     ],
+     [
+      18,
+      21
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     129,
+     211
+    ],
+    "t0": 2343,
+    "t1": 2732,
+    "dur": 389,
+    "cells": [
+     [
+      33,
+      20
+     ],
+     [
+      33,
+      19
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 28,
+    "to_end": false
+   },
+   {
+    "agents": [
+     15,
+     154
+    ],
+    "t0": 2838,
+    "t1": 2972,
+    "dur": 134,
+    "cells": [
+     [
+      22,
+      21
+     ],
+     [
+      21,
+      21
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 38,
+    "to_end": false
+   },
+   {
+    "agents": [
+     43,
+     187
+    ],
+    "t0": 3000,
+    "t1": 3227,
+    "dur": 227,
+    "cells": [
+     [
+      34,
+      57
+     ],
+     [
+      34,
+      58
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 37,
+    "to_end": false
+   },
+   {
+    "agents": [
+     145,
+     197
+    ],
+    "t0": 3750,
+    "t1": 3857,
+    "dur": 107,
+    "cells": [
+     [
+      15,
+      60
+     ],
+     [
+      15,
+      59
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 59,
+    "to_end": false
+   },
+   {
+    "agents": [
+     163,
+     217
+    ],
+    "t0": 3957,
+    "t1": 5000,
+    "dur": 1043,
+    "cells": [
+     [
+      18,
+      18
+     ],
+     [
+      19,
+      18
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 45,
+    "to_end": true
+   },
+   {
+    "agents": [
+     127,
+     190
+    ],
+    "t0": 4839,
+    "t1": 5000,
+    "dur": 161,
+    "cells": [
+     [
+      23,
+      22
+     ],
+     [
+      24,
+      22
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 36,
+    "to_end": true
+   }
+  ]
+ },
+ {
+  "run": "room250_LCAP_9702_104",
+  "completed": 1114,
+  "standoffs": [
+   {
+    "agents": [
+     62,
+     71
+    ],
+    "t0": 498,
+    "t1": 1262,
+    "dur": 764,
+    "cells": [
+     [
+      52,
+      3
+     ],
+     [
+      52,
+      4
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     39,
+     180
+    ],
+    "t0": 1524,
+    "t1": 1757,
+    "dur": 233,
+    "cells": [
+     [
+      21,
+      35
+     ],
+     [
+      21,
+      34
+     ]
+    ],
+    "kinds": [
+     "room",
+     "apron"
+    ],
+    "dist_pick": 28,
+    "to_end": false
+   },
+   {
+    "agents": [
+     36,
+     157
+    ],
+    "t0": 1983,
+    "t1": 2282,
+    "dur": 299,
+    "cells": [
+     [
+      62,
+      6
+     ],
+     [
+      63,
+      6
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     39,
+     223
+    ],
+    "t0": 2846,
+    "t1": 2987,
+    "dur": 141,
+    "cells": [
+     [
+      19,
+      33
+     ],
+     [
+      19,
+      34
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 29,
+    "to_end": false
+   },
+   {
+    "agents": [
+     19,
+     95
+    ],
+    "t0": 2852,
+    "t1": 3137,
+    "dur": 285,
+    "cells": [
+     [
+      22,
+      23
+     ],
+     [
+      23,
+      23
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 36,
+    "to_end": false
+   },
+   {
+    "agents": [
+     62,
+     155
+    ],
+    "t0": 3421,
+    "t1": 3572,
+    "dur": 151,
+    "cells": [
+     [
+      10,
+      1
+     ],
+     [
+      9,
+      1
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 70,
+    "to_end": false
+   },
+   {
+    "agents": [
+     6,
+     217
+    ],
+    "t0": 3893,
+    "t1": 4098,
+    "dur": 205,
+    "cells": [
+     [
+      18,
+      19
+     ],
+     [
+      18,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     99,
+     217
+    ],
+    "t0": 4154,
+    "t1": 4337,
+    "dur": 183,
+    "cells": [
+     [
+      19,
+      20
+     ],
+     [
+      18,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 42,
+    "to_end": false
+   },
+   {
+    "agents": [
+     84,
+     206
+    ],
+    "t0": 4656,
+    "t1": 5000,
+    "dur": 344,
+    "cells": [
+     [
+      47,
+      60
+     ],
+     [
+      47,
+      61
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 27,
+    "to_end": true
+   },
+   {
+    "agents": [
+     69,
+     86
+    ],
+    "t0": 4863,
+    "t1": 5000,
+    "dur": 137,
+    "cells": [
+     [
+      36,
+      20
+     ],
+     [
+      37,
+      20
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 25,
+    "to_end": true
+   }
+  ]
+ },
+ {
+  "run": "room250_PICK_9702_104",
+  "completed": 700,
+  "standoffs": [
+   {
+    "agents": [
+     19,
+     206
+    ],
+    "t0": 330,
+    "t1": 1687,
+    "dur": 1357,
+    "cells": [
+     [
+      33,
+      48
+     ],
+     [
+      33,
+      47
+     ]
+    ],
+    "kinds": [
+     "door",
+     "apron"
+    ],
+    "dist_pick": 29,
+    "to_end": false
+   },
+   {
+    "agents": [
+     76,
+     227
+    ],
+    "t0": 459,
+    "t1": 572,
+    "dur": 113,
+    "cells": [
+     [
+      47,
+      44
+     ],
+     [
+      47,
+      43
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 11,
+    "to_end": false
+   },
+   {
+    "agents": [
+     139,
+     204
+    ],
+    "t0": 781,
+    "t1": 3121,
+    "dur": 2340,
+    "cells": [
+     [
+      29,
+      21
+     ],
+     [
+      30,
+      21
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 31,
+    "to_end": false
+   },
+   {
+    "agents": [
+     36,
+     244
+    ],
+    "t0": 894,
+    "t1": 1112,
+    "dur": 218,
+    "cells": [
+     [
+      61,
+      6
+     ],
+     [
+      61,
+      7
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 40,
+    "to_end": false
+   },
+   {
+    "agents": [
+     150,
+     206
+    ],
+    "t0": 1859,
+    "t1": 2192,
+    "dur": 333,
+    "cells": [
+     [
+      32,
+      47
+     ],
+     [
+      33,
+      47
+     ]
+    ],
+    "kinds": [
+     "door",
+     "apron"
+    ],
+    "dist_pick": 29,
+    "to_end": false
+   },
+   {
+    "agents": [
+     91,
+     183
+    ],
+    "t0": 2058,
+    "t1": 2192,
+    "dur": 134,
+    "cells": [
+     [
+      31,
+      45
+     ],
+     [
+      30,
+      45
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 28,
+    "to_end": false
+   },
+   {
+    "agents": [
+     36,
+     81
+    ],
+    "t0": 2196,
+    "t1": 2855,
+    "dur": 659,
+    "cells": [
+     [
+      62,
+      6
+     ],
+     [
+      61,
+      6
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 41,
+    "to_end": false
+   },
+   {
+    "agents": [
+     119,
+     170
+    ],
+    "t0": 2505,
+    "t1": 2646,
+    "dur": 141,
+    "cells": [
+     [
+      36,
+      11
+     ],
+     [
+      36,
+      10
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     115,
+     118
+    ],
+    "t0": 2717,
+    "t1": 3077,
+    "dur": 360,
+    "cells": [
+     [
+      29,
+      49
+     ],
+     [
+      30,
+      49
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     24,
+     236
+    ],
+    "t0": 2829,
+    "t1": 3077,
+    "dur": 248,
+    "cells": [
+     [
+      29,
+      51
+     ],
+     [
+      29,
+      52
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "room"
+    ],
+    "dist_pick": 36,
+    "to_end": false
+   },
+   {
+    "agents": [
+     85,
+     119
+    ],
+    "t0": 3487,
+    "t1": 3752,
+    "dur": 265,
+    "cells": [
+     [
+      13,
+      30
+     ],
+     [
+      12,
+      30
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 38,
+    "to_end": false
+   },
+   {
+    "agents": [
+     27,
+     181
+    ],
+    "t0": 3846,
+    "t1": 4202,
+    "dur": 356,
+    "cells": [
+     [
+      42,
+      12
+     ],
+     [
+      42,
+      13
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 27,
+    "to_end": false
+   },
+   {
+    "agents": [
+     172,
+     224
+    ],
+    "t0": 4251,
+    "t1": 4412,
+    "dur": 161,
+    "cells": [
+     [
+      55,
+      6
+     ],
+     [
+      55,
+      5
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 34,
+    "to_end": false
+   },
+   {
+    "agents": [
+     0,
+     207
+    ],
+    "t0": 4537,
+    "t1": 5000,
+    "dur": 463,
+    "cells": [
+     [
+      31,
+      35
+     ],
+     [
+      31,
+      36
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 18,
+    "to_end": true
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_LCAP_9700_103",
+  "completed": 857,
+  "standoffs": [
+   {
+    "agents": [
+     10,
+     163
+    ],
+    "t0": 1218,
+    "t1": 1322,
+    "dur": 104,
+    "cells": [
+     [
+      38,
+      12
+     ],
+     [
+      37,
+      12
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     88,
+     124
+    ],
+    "t0": 2557,
+    "t1": 2807,
+    "dur": 250,
+    "cells": [
+     [
+      38,
+      12
+     ],
+     [
+      38,
+      13
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "door"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     10,
+     124
+    ],
+    "t0": 3679,
+    "t1": 4664,
+    "dur": 985,
+    "cells": [
+     [
+      38,
+      12
+     ],
+     [
+      38,
+      13
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "door"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_LCAP_9700_104",
+  "completed": 809,
+  "standoffs": [
+   {
+    "agents": [
+     38,
+     148
+    ],
+    "t0": 3141,
+    "t1": 3257,
+    "dur": 116,
+    "cells": [
+     [
+      36,
+      44
+     ],
+     [
+      37,
+      44
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 12,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_LCAP_9701_103",
+  "completed": 1102,
+  "standoffs": [
+   {
+    "agents": [
+     29,
+     101
+    ],
+    "t0": 4593,
+    "t1": 4737,
+    "dur": 144,
+    "cells": [
+     [
+      38,
+      13
+     ],
+     [
+      38,
+      12
+     ]
+    ],
+    "kinds": [
+     "door",
+     "apron"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   },
+   {
+    "agents": [
+     35,
+     52
+    ],
+    "t0": 4597,
+    "t1": 4697,
+    "dur": 100,
+    "cells": [
+     [
+      35,
+      12
+     ],
+     [
+      36,
+      12
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_LCAP_9701_104",
+  "completed": 851,
+  "standoffs": []
+ },
+ {
+  "run": "roomW_194_LCAP_9702_103",
+  "completed": 824,
+  "standoffs": [
+   {
+    "agents": [
+     29,
+     144
+    ],
+    "t0": 309,
+    "t1": 542,
+    "dur": 233,
+    "cells": [
+     [
+      38,
+      13
+     ],
+     [
+      38,
+      12
+     ]
+    ],
+    "kinds": [
+     "door",
+     "apron"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   },
+   {
+    "agents": [
+     29,
+     144
+    ],
+    "t0": 588,
+    "t1": 962,
+    "dur": 374,
+    "cells": [
+     [
+      38,
+      13
+     ],
+     [
+      38,
+      12
+     ]
+    ],
+    "kinds": [
+     "door",
+     "apron"
+    ],
+    "dist_pick": 43,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_LCAP_9702_104",
+  "completed": 1178,
+  "standoffs": [
+   {
+    "agents": [
+     25,
+     38
+    ],
+    "t0": 2918,
+    "t1": 3212,
+    "dur": 294,
+    "cells": [
+     [
+      37,
+      11
+     ],
+     [
+      36,
+      11
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "room"
+    ],
+    "dist_pick": 46,
+    "to_end": false
+   },
+   {
+    "agents": [
+     103,
+     125
+    ],
+    "t0": 4631,
+    "t1": 4762,
+    "dur": 131,
+    "cells": [
+     [
+      40,
+      10
+     ],
+     [
+      40,
+      9
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "room"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_PICK_9700_103",
+  "completed": 699,
+  "standoffs": [
+   {
+    "agents": [
+     14,
+     29
+    ],
+    "t0": 331,
+    "t1": 591,
+    "dur": 260,
+    "cells": [
+     [
+      38,
+      12
+     ],
+     [
+      38,
+      13
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "door"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     10,
+     32
+    ],
+    "t0": 1018,
+    "t1": 1862,
+    "dur": 844,
+    "cells": [
+     [
+      36,
+      12
+     ],
+     [
+      37,
+      12
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 44,
+    "to_end": false
+   },
+   {
+    "agents": [
+     59,
+     176
+    ],
+    "t0": 4475,
+    "t1": 4637,
+    "dur": 162,
+    "cells": [
+     [
+      54,
+      36
+     ],
+     [
+      54,
+      35
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 8,
+    "to_end": false
+   },
+   {
+    "agents": [
+     1,
+     176
+    ],
+    "t0": 4785,
+    "t1": 5000,
+    "dur": 215,
+    "cells": [
+     [
+      54,
+      36
+     ],
+     [
+      54,
+      35
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 8,
+    "to_end": true
+   },
+   {
+    "agents": [
+     145,
+     162
+    ],
+    "t0": 4820,
+    "t1": 4922,
+    "dur": 102,
+    "cells": [
+     [
+      44,
+      11
+     ],
+     [
+      43,
+      11
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 39,
+    "to_end": false
+   }
+  ]
+ },
+ {
+  "run": "roomW_194_PICK_9700_104",
+  "completed": 698,
+  "standoffs": [
+   {
+    "agents": [
+     103,
+     160
+    ],
+    "t0": 153,
+    "t1": 392,
+    "dur": 239,
+    "cells": [
+     [
+      43,
+      12
+     ],
+     [
+      42,
+      12
+     ]
+    ],
+    "kinds": [
+     "room",
+     "apron"
+    ],
+    "dist_pick": 39,
+    "to_end": false
+   },
+   {
+    "agents": [
+     141,
+     160
+    ],
+    "t0": 769,
+    "t1": 1187,
+    "dur": 418,
+    "cells": [
+     [
+      42,
+      10
+     ],
+     [
+      41,
+      10
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 42,
+    "to_end": false
+   },
+   {
+    "agents": [
+     70,
+     71
+    ],
+    "t0": 1254,
+    "t1": 1412,
+    "dur": 158,
+    "cells": [
+     [
+      47,
+      41
+     ],
+     [
+      46,
+      41
+     ]
+    ],
+    "kinds": [
+     "room",
+     "room"
+    ],
+    "dist_pick": 6,
+    "to_end": false
+   },
+   {
+    "agents": [
+     79,
+     153
+    ],
+    "t0": 1565,
+    "t1": 1677,
+    "dur": 112,
+    "cells": [
+     [
+      43,
+      38
+     ],
+     [
+      42,
+      38
+     ]
+    ],
+    "kinds": [
+     "apron",
+     "apron"
+    ],
+    "dist_pick": 13,
+    "to_end": false
+   }
+  ]
+ }
+]

@@ -1,0 +1,148 @@
+{
+ "K": 300,
+ "total": {
+  "rel": 2685,
+  "fake": 2611,
+  "fake_near": 285,
+  "real": 74,
+  "real_near": 41
+ },
+ "per_inst": [
+  {
+   "inst": "room200",
+   "rel": 195,
+   "fake": 195,
+   "fake_near": 14,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "room250",
+   "rel": 219,
+   "fake": 218,
+   "fake_near": 17,
+   "real": 1,
+   "real_near": 0
+  },
+  {
+   "inst": "room300",
+   "rel": 254,
+   "fake": 253,
+   "fake_near": 13,
+   "real": 1,
+   "real_near": 0
+  },
+  {
+   "inst": "roomAA_199",
+   "rel": 179,
+   "fake": 178,
+   "fake_near": 9,
+   "real": 1,
+   "real_near": 0
+  },
+  {
+   "inst": "roomAD_189",
+   "rel": 250,
+   "fake": 250,
+   "fake_near": 59,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "roomBF_240",
+   "rel": 249,
+   "fake": 249,
+   "fake_near": 39,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "roomFD_194",
+   "rel": 48,
+   "fake": 48,
+   "fake_near": 3,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "roomFE_189",
+   "rel": 139,
+   "fake": 134,
+   "fake_near": 24,
+   "real": 5,
+   "real_near": 2
+  },
+  {
+   "inst": "roomFF_188",
+   "rel": 132,
+   "fake": 129,
+   "fake_near": 13,
+   "real": 3,
+   "real_near": 0
+  },
+  {
+   "inst": "roomGB_194",
+   "rel": 166,
+   "fake": 166,
+   "fake_near": 16,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "roomHA_200",
+   "rel": 3,
+   "fake": 2,
+   "fake_near": 0,
+   "real": 1,
+   "real_near": 0
+  },
+  {
+   "inst": "roomHE_189",
+   "rel": 7,
+   "fake": 0,
+   "fake_near": 0,
+   "real": 7,
+   "real_near": 5
+  },
+  {
+   "inst": "roomQ_200",
+   "rel": 131,
+   "fake": 131,
+   "fake_near": 4,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "roomQ_254",
+   "rel": 176,
+   "fake": 175,
+   "fake_near": 4,
+   "real": 1,
+   "real_near": 1
+  },
+  {
+   "inst": "roomS_247",
+   "rel": 262,
+   "fake": 262,
+   "fake_near": 37,
+   "real": 0,
+   "real_near": 0
+  },
+  {
+   "inst": "roomW_194",
+   "rel": 74,
+   "fake": 25,
+   "fake_near": 0,
+   "real": 49,
+   "real_near": 31
+  },
+  {
+   "inst": "roomZ3_194",
+   "rel": 201,
+   "fake": 196,
+   "fake_near": 33,
+   "real": 5,
+   "real_near": 2
+  }
+ ]
+}
