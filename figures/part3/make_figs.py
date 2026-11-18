@@ -183,7 +183,7 @@ def fig_ladder():
     save(fig, "p3_fig02_ladder_room.png")
 
 
-def fig_collapse():
+def fig_collapse(with_ours=True):
     acc = defaultdict(list)
     for r in rows_of(R52B):
         acc[(r["map"], r["method"])].append(r["prof"])
@@ -192,7 +192,7 @@ def fig_collapse():
     cols = {"DEF": GRAY, "N2": LBLUE, "N2F": BLUE, "LCAP": ORANGE}
     fig, axes = plt.subplots(1, 3, figsize=(12, 3.8), sharey=True)
     for ax, m in zip(axes, OFFICIAL):
-        for meth in ["DEF", "N2", "N2F", "LCAP"]:
+        for meth in (["DEF", "N2", "N2F", "LCAP"] if with_ours else ["DEF", "N2", "N2F"]):
             P = acc[(m, meth)]
             mean = [st.mean(p[i] for p in P) for i in range(len(P[0]))]
             ax.plot([500 * (i + 1) for i in range(len(mean))], mean, color=cols[meth], lw=2, marker="o", ms=4, label=names[meth])
@@ -202,9 +202,15 @@ def fig_collapse():
     axes[0].set_ylabel("tasks completed per 500 ticks", fontsize=9, color=INK2)
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, loc="lower center", bbox_to_anchor=(0.5, -0.08), ncol=4, frameon=False, fontsize=9)
-    fig.suptitle("Congestion collapse: without door control the completion rate keeps falling; with it the late rate stays 2-3x higher",
-                 fontsize=10.5, color=INK, y=1.02)
-    save(fig, "p3_fig03_collapse.png")
+    if with_ours:
+        fig.suptitle("With door control the completion rate stays 2-3x higher in the second half of the run",
+                     fontsize=10.5, color=INK, y=1.02)
+        save(fig, "p3_fig03_collapse.png")
+    else:
+        axes[0].set_ylim(0, 190)
+        fig.suptitle("Without door control the completion rate keeps falling as the run goes on (same programs, more time)",
+                     fontsize=10.5, color=INK, y=1.02)
+        save(fig, "p3_fig03a_collapse_problem.png")
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -307,8 +313,8 @@ def fig_executor_data():
 
 
 def fig_deadlock_diagram():
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5.4))
-    for ax, after in zip(axes, [False, True]):
+    for after in (False, True):
+        fig, ax = plt.subplots(figsize=(6.4, 5.6))
         ax.set_xlim(-0.2, 6.2)
         ax.set_ylim(-0.8, 5.2)
         ax.set_aspect("equal")
@@ -342,7 +348,7 @@ def fig_deadlock_diagram():
             ax.set_title("Watchdog: a robot that has a task, has stood still 300 ticks,\nat a door nobody entered for 300 ticks,"
                          " ignores the door rule\nfor this tick (the collision check is kept)", fontsize=9.5, color=OK)
             ax.text(2.5, -0.15, "A steps aside, B comes out, traffic flows again", ha="center", va="top", fontsize=8.5, color=OK)
-    save(fig, "p3_fig09_deadlock_diagram.png")
+        save(fig, "p3_fig09b_watchdog_fix.png" if after else "p3_fig09a_deadlock.png")
 
 
 def _read_map(path):
@@ -621,6 +627,7 @@ def copy_english_figures():
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     copy_english_figures()
+    fig_collapse(with_ours=False)
     for f in [fig_ablation, fig_synergy, fig_ladder, fig_collapse, fig_quota_diagram, fig_executor_diagram, fig_executor_data,
               fig_deadlock_diagram, fig_generated_maps, fig_roadmap, fig_ruler, fig_routing, fig_funnel, fig_dev_vs_confirm,
               fig_combo, fig_watchdog_confirm]:
