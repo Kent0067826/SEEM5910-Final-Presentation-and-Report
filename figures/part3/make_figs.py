@@ -439,3 +439,55 @@ if __name__ == "__main__":
     fig_funnel()
     fig_dev_vs_confirm()
     fig_combo()
+
+
+# ---------------------------------------------------------------------------
+# 图 9  重新测试（2026-11-18）：官方 4×4 房间图上逐项去掉 / 单独加上
+#   数据 figures/part3/rerun/ablation_room_4x4.jsonl（600 局，种子 11900–11909 × 规划 171、172）
+# ---------------------------------------------------------------------------
+def _abl_rows():
+    import random as _r, statistics as _st
+    rows = [json.loads(l) for l in open(os.path.join(OUT, "rerun", "ablation_room_4x4.jsonl"), encoding="utf-8")]
+    by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows}
+    def comp(a, b):
+        G = [[by[(m, a, s, p)] / by[(m, b, s, p)] - 1 for (mm, k, s, p) in by if mm == m and k == b] for m in OFFICIAL]
+        rnd = _r.Random(0)
+        ms = sorted(_st.mean(_st.mean(rnd.choice(g) for _ in g) for g in G) for _ in range(4000))
+        return 100 * _st.mean(_st.mean(g) for g in G), 100 * ms[100], 100 * ms[3899]
+    return comp
+
+
+def fig_ablation():
+    comp = _abl_rows()
+    left = [("门口半双工穷尽放行", "noDoor"), ("每门名额（带宽×时延）", "noQuota"), ("执行器信用及时归还", "noSync"),
+            ("PFC 死锁看门狗", "noWD"), ("全图接单上限（最大流）", "noGlobal")]
+    right = [("门口半双工穷尽放行", "onlyDoor"), ("每门名额（带宽×时延）", "onlyQuota"), ("全图接单上限（最大流）", "onlyGlobal"),
+             ("全部打开（完整方法）", "FULL")]
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 4.0))
+    for ax, items, title, base, col in [
+            (a1, left, "从完整方法里去掉一项，完成数掉多少", "FULL", ORANGE),
+            (a2, right, "在底座（冠军派单+修好执行器）上只加这一项", "NONE", BLUE)]:
+        vals = [comp(k, base) if base == "FULL" else comp(k, base) for _, k in items]
+        names = [n for n, _ in items]
+        ys = list(range(len(items)))[::-1]
+        for y, (m, lo, hi), n in zip(ys, vals, names):
+            c = col if (lo > 0 or hi < 0) else GRAY
+            ax.barh(y, m, color=c, height=0.6)
+            ax.plot([lo, hi], [y, y], color=INK, lw=1)
+            x = min(m, lo) if m < 0 else max(m, hi)
+            ax.text(x + (-1 if m < 0 else 1), y, f"{m:+.1f}%", va="center", ha="right" if m < 0 else "left", fontsize=9, color=INK)
+        ax.set_yticks(ys)
+        ax.set_yticklabels(names, fontsize=9)
+        ax.axvline(0, color=MUTED, lw=1)
+        ax.set_title(title, fontsize=10, color=INK)
+        style(ax, ygrid=False, xgrid=True)
+    fig.subplots_adjust(wspace=0.55)
+    a1.set_xlim(-32, 6)
+    a2.set_xlim(0, 92)
+    a1.set_xlabel("完成数变化（%，黑线为 95% 区间；灰色＝区间跨 0，看不出作用）", fontsize=8.5, color=INK2)
+    a2.set_xlabel("完成数变化（%）", fontsize=8.5, color=INK2)
+    fig.suptitle("重新测试：官方 4×4 房间图，200/250/300 台车，每个版本每种车数 20 局（共 600 局，0 错误）", fontsize=10.5, color=INK, y=1.02)
+    save(fig, "fig3_9_ablation_rerun.png")
+
+
+fig_ablation()
