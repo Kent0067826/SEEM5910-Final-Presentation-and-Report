@@ -382,15 +382,19 @@ def fig_generalization():
         m, lo, hi = (100 * x for x in boot(G))
         ys = list(range(len(insts)))[::-1]
         ax.barh(ys, vals, color=c, height=0.65)
+        lo_x, hi_x = min(0, min(vals)), max(0, max(vals))
+        pad = 0.18 * (hi_x - lo_x)
+        ax.set_xlim(lo_x - pad, hi_x + pad)
+        off = 0.02 * (hi_x - lo_x + 2 * pad)
         for y, v in zip(ys, vals):
-            ax.text(v + (0.6 if v >= 0 else -0.6), y, f"{v:+.1f}", va="center", ha="left" if v >= 0 else "right", fontsize=7.5, color=INK)
+            ax.text(v + (off if v >= 0 else -off), y, f"{v:+.1f}", va="center", ha="left" if v >= 0 else "right", fontsize=7.5, color=INK)
         ax.axvline(0, color=MUTED, lw=1)
         ax.set_title(f"{title}\nmean {m:+.1f}%  [95%: {lo:+.1f}, {hi:+.1f}]", fontsize=9.5, color=INK)
         style(ax, ygrid=False, xgrid=True)
     axes[0].set_yticks(list(range(len(insts)))[::-1])
-    axes[0].set_yticklabels([k.replace("room", "") + " robots" for k in insts], fontsize=8)
+    axes[0].set_yticklabels([k.replace("room", "").replace("_", ", ") + " robots" for k in insts], fontsize=8)
     fig.suptitle("Generalization test on 8 random-door 4x4 room maps x 2 robot counts (10 paired runs each, new seeds)",
-                 fontsize=10.5, color=INK, y=1.02)
+                 fontsize=10.5, color=INK, y=1.09)
     fig.text(0.5, -0.03, "change in tasks completed (%) per instance", ha="center", fontsize=9, color=INK2)
     save(fig, "p3_fig10_generalization.png")
 

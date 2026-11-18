@@ -24,6 +24,7 @@ def run(j):
     try:
         o = json.loads((d / 'out.json').read_text()); row.update(completed=o['numTaskFinished'], plannerErrors=o.get('numPlannerErrors'), errors=len(o.get('errors', [])))
     except Exception as e: row['error'] = (p.stderr or '')[-300:] + repr(e)
+    row['stderr_tail'] = (p.stderr or '')[-800:]
     shutil.rmtree(d, ignore_errors=True); return row
 def batch(jobs, out, workers=4):
     out = Path(out); done = set()
