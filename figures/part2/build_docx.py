@@ -1,8 +1,9 @@
-"""把 第二部分_网络建模与主要优化.md 导出成排好中文字体的 Word。
+"""把正文源稿导出成排好中文字体的 Word（报告以根目录的 Word 为准）。
 
-运行（仓库根目录）：python3 figures/part2/build_docx.py
-需要 pandoc 和 python-docx。
+运行（仓库根目录）：python3 figures/part2/build_docx.py [源稿 输出.docx 图片根目录]
+不带参数时导出第二部分。需要 pandoc 和 python-docx。
 """
+import sys
 import subprocess
 import tempfile
 from pathlib import Path
@@ -14,7 +15,7 @@ from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "第二部分_网络建模与主要优化.md"
+SRC = ROOT / "figures/part2/正文源稿.md"
 OUT = ROOT / "第二部分_网络建模与主要优化.docx"
 
 CN_BODY = "宋体"
@@ -114,10 +115,16 @@ def fit_images(doc, max_cm=16.5):
 
 
 def main():
+    global SRC, OUT, ROOT
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    alt_captions = "--alt-captions" in sys.argv  # 源稿用图片说明文字当图注时加这个参数
+    if len(args) == 3:
+        SRC, OUT, ROOT = (Path(a).resolve() for a in args)
+    reader = "markdown" if alt_captions else "markdown-implicit_figures"
     with tempfile.TemporaryDirectory() as td:
         ref = Path(td) / "ref.docx"
         make_reference(ref)
-        subprocess.run(["pandoc", "-f", "markdown-implicit_figures", str(SRC), "-o", str(OUT), "--resource-path", str(ROOT),
+        subprocess.run(["pandoc", "-f", reader, str(SRC), "-o", str(OUT), "--resource-path", str(ROOT),
                         "--reference-doc", str(ref)], check=True, cwd=ROOT)
     doc = Document(OUT)
     border_tables(doc)
