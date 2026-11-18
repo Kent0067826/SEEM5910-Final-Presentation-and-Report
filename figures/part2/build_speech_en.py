@@ -60,14 +60,21 @@ SLIDES = [
          "第三，门口放行和源头限量要一起决定。这是我们后来在消融实验里才看清的：只开名额比冠军派单多 29.1%，只开门口规则多 27.6%，两个一起开多 51.2%。"),
     ]),
     ("Why we tried a computer network", "0:50", None, [
-        ("Our collapse has a name in networking: congestion collapse. In October 1986 the early Internet "
-         "collapsed the same way: one link dropped from 32 kilobits per second to 40 bits per second, "
-         "about one thousandth. Every router worked; everyone simply sent onto the same link. "
-         "The fix was not better routing. It was the TCP window: each sender limits the data that is "
-         "sent but not yet delivered, and sizes that limit by link speed times delay.",
-         "这种崩溃在网络里有名字：拥塞崩溃。1986 年 10 月，早期互联网就这样塌过：一条线路从每秒 32 千比特掉到 40 比特，约千分之一。"
-         "每台路由器都正常，只是大家都往同一条线上发。解决办法不是更好的路由，而是 TCP 窗口：每个发送端限制已发出、未送达的数据量，"
-         "大小按线速乘时延来定。"),
+        ("Our collapse shows two features: past some point, more load means less throughput, and many "
+         "independent deciders share one bottleneck. The 1986 Internet congestion collapse shows the same two "
+         "features: one link fell from 32 kilobits per second to 40 bits per second. But the cause was "
+         "different. There, acknowledgements were delayed or lost in long queues, senders kept retransmitting, "
+         "and the link filled with duplicates. Robots are never retransmitted or dropped; they jam face to "
+         "face at a one-cell door and block the cells others need.",
+         "我们看到的崩溃有两个特征：负载超过某一点后吞吐下降；许多各自做决定的个体共享一个瓶颈。1986 年互联网的拥塞崩溃也有这两个特征，"
+         "一条线路从每秒 32 千比特掉到 40 比特。但原因不同：那里是确认包在长队列里延误或丢失，发送端不停重传，线路被重复数据占满。"
+         "机器人不会被重传，也不会被丢掉；它们是在一格宽的门口面对面顶住，并占着别人要用的格子。"),
+        ("So we did not borrow the fixes for retransmission. We borrowed one idea that does not depend on the "
+         "cause: limit, at the source, how much is sent but not yet delivered, so the system stays before the "
+         "drop. And because robots cannot be dropped and block cells while they wait, we also looked at "
+         "lossless data-center networks, which face pauses, spreading jams and deadlock.",
+         "所以我们不借专门对付重传的办法，只借一个不依赖原因的思路：在源头限制已发出、未送达的量，让系统停在下降点之前。"
+         "又因为机器人不能丢、等的时候还占着格子，我们也去看了数据中心的无损网络，那里同样有暂停、堵塞蔓延和死锁。"),
         ("So we asked a question that only experiments could answer: if we model the warehouse as a computer "
          "network and borrow its congestion control for the door, will the fleet finish more tasks? "
          "What follows was not planned from the start. We tried ideas one by one, kept what the experiments "
@@ -108,9 +115,12 @@ SLIDES = [
         ("The second tool is the TCP window. Before assigning a task, we count the robots that already "
          "hold a task and still have to cross door 6 in that direction, including those far away. "
          "If the count is full, we assign a different task. The size comes from bandwidth times delay, "
-         "plus a breakdown factor of 2.23: 15 robots into the lower-left area, 10 out.",
+         "plus a breakdown factor of 2.23: 15 robots into the lower-left area, 10 out. Unlike TCP, the quota is "
+         "fixed and is released when a robot crosses the door, not by an acknowledgement, so only an experiment "
+         "could tell us whether it works.",
          "第二个工具是 TCP 窗口。派单前，我们数一数已经拿着任务、还要往这个方向过门 6 的车，包括还在远处的车。名额满了，就改派别的单。"
-         "名额大小按带宽乘时延，再乘故障放慢系数 2.23：进左下 15 台，出左下 10 台。"),
+         "名额大小按带宽乘时延，再乘故障放慢系数 2.23：进左下 15 台，出左下 10 台。和 TCP 不同，名额是固定的，靠车过门释放，"
+         "不靠确认报文，所以它有没有用只能靠实验回答。"),
         ("This chart shows why. Without control, robots heading for the door grow from 59 to 211, and the "
          "door passes only 3 to 5. With the quota, about 25 robots are in flight and the door runs full at "
          "about 26. Past the knee there is no way back.",
@@ -119,9 +129,10 @@ SLIDES = [
     ]),
     ("Step 3. Serve one side at a time, in batches", "1:00", ["e08_door_rule.png", "e07_batch_utilization.png"], [
         ("The third tool is half-duplex scheduling. The door serves one direction at a time. Robots waiting "
-         "on the other side back off four cells to keep the exit clear, because a waiting robot is not a "
-         "packet in memory; it stands in the way. When this side is empty, the door switches.",
-         "第三个工具是半双工调度。门一次只服务一个方向；对面等待的车退到 4 格以外，把出口让出来，因为排队的车不是内存里的包，而是真的挡在路上。"
+         "on the other side back off four cells to keep the exit clear. This rule is not in any network "
+         "protocol: a waiting packet sits in memory, but a waiting robot stands in the way. When this side is "
+         "empty, the door switches.",
+         "第三个工具是半双工调度。门一次只服务一个方向；对面等待的车退到 4 格以外，把出口让出来。这一条任何网络协议里都没有：排队的包待在内存里，排队的机器人却挡在路上。"
          "这一边走空了，门才换方向。"),
         ("[Show the batch chart] Why batches? A switch costs 21 ticks, while robots in one direction can "
          "follow each other every 9 ticks. Switch after every robot and the door is busy only 43 percent "
@@ -139,10 +150,11 @@ SLIDES = [
          "第五步来自用网络的眼光查账。门一直卡在 22 台：车已经离开一格，执行队列里却还占着它，空位空了，信用却晚还了一拍。"
          "改三行代码，冠军自己的程序就多完成了 16.7%。"),
         ("Step 6 borrows from lossless data-center networks. Two doors one step apart can lock each other. "
-         "If a robot has waited 300 ticks and its door has seen no entry for 300 ticks, it may ignore the "
-         "door rule for one tick, while collision checks stay on. Confirmed on new maps: plus 1.73 percent.",
+         "A switch's watchdog would drop the stuck packets; robots cannot be dropped. So if a robot has waited "
+         "300 ticks and its door has seen no entry for 300 ticks, it may ignore the door rule for one tick, "
+         "while collision checks stay on. Confirmed on new maps: plus 1.73 percent.",
          "第六步借自数据中心的无损网络。两道只隔一步的门会互相锁死。如果一台车等了 300 拍、它的门 300 拍没有车进，"
-         "这一拍就允许它不守门口规则，防撞检查照常。在新地图上确认：+1.73%。"),
+         "这一拍就允许它不守门口规则，防撞检查照常。交换机的看门狗会丢掉卡住的包，机器人不能丢，所以改成暂时放宽规则。在新地图上确认：+1.73%。"),
     ]),
     ("Results", "0:40", "e09_results.png", [
         ("On the eight official instances, 20 runs each: the champion's assignment adds 27 percent over the "
