@@ -6,8 +6,6 @@
 
 ## 正式 Room 实验前提
 
-![Room 仿真中的固定输入、按进度揭示的任务、算法决策和随机延误](01-room-experiment-conditions.png)
-
 任务内容和顺序由输入文件给定。任务何时进入可见池取决于完成进度。配对使用相同种子，车辆的实际行驶轨迹和完成时刻可以不同。[任务管理源码](https://github.com/MAPF-Competition/Start-Kit/blob/v3.1.0/src/TaskManager.cpp) · [延误生成源码](https://github.com/MAPF-Competition/Start-Kit/blob/v3.1.0/src/DelayGenerator.cpp)
 
 | 条件 | 取值或规则 |
