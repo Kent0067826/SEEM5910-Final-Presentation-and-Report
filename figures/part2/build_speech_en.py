@@ -54,21 +54,26 @@ SLIDES = [
         ("Second, the wrong robots are counted. In the same frame, many orange robots are still rooms away, "
          "but their tasks already commit them to door 6. A rule at the door cannot see them until it is too late.",
          "第二，数的车不对。在同一个画面里，很多橙色的车还在别的房间，但它们的任务已经决定要过门 6。门口的规则要等它们到了才看得见，那时已经晚了。"),
-        ("Third, the door and the source must be decided together. In an early ablation, the quota alone gave "
+        ("Third, the door and the source must be decided together. We only saw this later, in an ablation: the quota alone gave "
          "29.1 percent more tasks than the champion assignment, the door rule alone 27.6 percent, and both "
          "together 51.2 percent.",
-         "第三，门口放行和源头限量要一起决定。早期的消融实验里，只开名额比冠军派单多 29.1%，只开门口规则多 27.6%，两个一起开多 51.2%。"),
+         "第三，门口放行和源头限量要一起决定。这是我们后来在消融实验里才看清的：只开名额比冠军派单多 29.1%，只开门口规则多 27.6%，两个一起开多 51.2%。"),
     ]),
-    ("Why the computer network fits", "0:40", None, [
+    ("Why we tried a computer network", "0:50", None, [
         ("Our collapse has a name in networking: congestion collapse. In October 1986 the early Internet "
          "collapsed the same way: one link dropped from 32 kilobits per second to 40 bits per second, "
          "about one thousandth. Every router worked; everyone simply sent onto the same link. "
          "The fix was not better routing. It was the TCP window: each sender limits the data that is "
-         "sent but not yet delivered, and sizes that limit by link speed times delay. "
-         "That is exactly the variable earlier work did not count.",
+         "sent but not yet delivered, and sizes that limit by link speed times delay.",
          "这种崩溃在网络里有名字：拥塞崩溃。1986 年 10 月，早期互联网就这样塌过：一条线路从每秒 32 千比特掉到 40 比特，约千分之一。"
          "每台路由器都正常，只是大家都往同一条线上发。解决办法不是更好的路由，而是 TCP 窗口：每个发送端限制已发出、未送达的数据量，"
-         "大小按线速乘时延来定。这正是前人没有数的那个量。"),
+         "大小按线速乘时延来定。"),
+        ("So we asked a question that only experiments could answer: if we model the warehouse as a computer "
+         "network and borrow its congestion control for the door, will the fleet finish more tasks? "
+         "What follows was not planned from the start. We tried ideas one by one, kept what the experiments "
+         "supported, and dropped the rest; Part 3 tells that story.",
+         "于是我们提出一个只能靠实验回答的问题：如果把仓库按计算机网络建模，借用它管拥塞的办法来管门，车队能不能完成更多的单？"
+         "后面的内容不是一开始就定好的，而是一项项试出来的：实验支持的留下，不支持的放弃，这个过程在第三部分讲。"),
     ]),
     ("Flatten the map into a network", "0:40", "e03_map_to_network.png", [
         ("So we flatten the map. 3,646 walkable cells become 16 nodes, one per room, and 31 edges, one per "
