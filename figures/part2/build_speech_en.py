@@ -20,14 +20,15 @@ BLUE = RGBColor(0x1F, 0x4E, 0x9C)
 
 # (slide title, minutes, figure file or None, [(english, chinese), ...])
 SLIDES = [
-    ("Part 2. Why a computer network?", "0:40", "e01_collapse.png", [
-        ("In Part 1 you saw the problem: the longer the robots run, the slower they get. "
-         "At the start the fleet finishes about 127 tasks every 500 ticks; later it finishes only 37. "
-         "Every robot makes a sensible move, yet they all squeeze toward the same one-cell door, "
-         "and the door, which used to pass about 25 robots every 500 ticks, now passes only 2 to 8. "
-         "More robots, fewer crossings.",
-         "第一部分讲了问题：跑得越久，车队越慢。开局每 500 拍完成约 127 单，后面只剩 37 单。"
-         "每台车每一步都合理，但大家都挤向同一道一格宽的门；这道门原来每 500 拍能过约 25 台，后来只过 2 到 8 台。车越多，过得越少。"),
+    ("Part 2. Why a computer network?", "0:50", "e01_jam_tick3000.png", [
+        ("In Part 1 you saw the problem: the longer the robots run, the slower they get, from about 127 tasks "
+         "every 500 ticks at the start to 37 later. This frame from a real run shows why. At tick 3000, orange "
+         "robots must cross door 6 into the lower-left rooms and blue robots must come out. They meet face to "
+         "face at a one-cell door. 97 robots wait to go in, 38 wait to come out, and 130 robots hold a task but "
+         "cannot move. Every robot followed its plan, and the plans all ended at the same door.",
+         "第一部分讲了问题：跑得越久越慢，从开局每 500 拍约 127 单掉到后来的 37 单。这张真实运行的画面说明了原因。"
+         "第 3000 拍，橙色的车要穿过门 6 进左下的房间，蓝色的车要出来，两边在一格宽的门口面对面顶住。97 台等着进，38 台等着出，"
+         "全图 130 台车拿着任务却动不了。每台车都按计划走，而所有计划都走到了同一道门。"),
     ]),
     ("Earlier work already thought in networks", "1:00", "e02_prior_work_vs_ours.png", [
         ("We are not the first to see a warehouse as a network. Route guidance counts how many planned "
@@ -38,13 +39,25 @@ SLIDES = [
          "把仓库看成网络，我们不是第一个。交通流引导数每条边上有几条计划路线，再加上拥堵代价；引导图调整每条边的权重，像给道路收费；"
          "流式派单求最小费用流；城市周界控制限制进入一个区域的车数，旧金山的算例里，受控路网多完成了约三分之一的出行；"
          "工厂用信号量保护单车道，一次只放一辆车。"),
-        ("But these are traffic networks and flow networks. They ask which road to take, how expensive "
-         "each road is, or how many cars are in a whole region. On our map that falls short in three ways. "
-         "Door 6 cannot be avoided, so spreading the flow does not help. Nobody counts the robots that have "
-         "already taken a task and are still on their way to the door. And nobody decides, together with "
-         "the source, which side the door should serve now. What was missing is the computer-network model.",
-         "但这些是交通网和网络流，关心的是走哪条路、每条路多贵、一个区域里总共有多少车。放到我们的地图上有三处不够："
-         "门 6 绕不开，分流没用；没人去数已经接了单、还在路上的车；也没人把门先放哪边和源头限量放在一起决定。缺的是计算机网络的建模。"),
+        ("But these are traffic networks and flow networks. They ask which road to take, how expensive each "
+         "road is, or how many cars are in a whole region. On our map that falls short in three ways, "
+         "and we have evidence for each.",
+         "但这些是交通网和网络流，关心的是走哪条路、每条路多贵、一个区域里总共有多少车。放到我们的地图上有三处不够，每一处我们都有证据。"),
+    ]),
+    ("Three gaps, with evidence", "1:30", ["e02a_no_bypass.png", "e02b_far_from_door.png", "e02c_both_needed.png"], [
+        ("First, door 6 cannot be avoided. A linear program over the room network shows that only door 6 limits "
+         "the whole map: one more robot per 500 ticks through door 6 gives 2.66 more tasks, while widening any of "
+         "the other 30 doors gives nothing. And every rerouting method we tried made things worse, by up to "
+         "26 percent.",
+         "第一，门 6 绕不开。对房间网络求线性规划可以看到，只有门 6 卡住整张图：门 6 每 500 拍多过 1 台车，就能多完成 2.66 单；"
+         "其余 30 道门加宽一点都没用。我们试过的每一种换路办法都让结果变差，最多差了约 26%。"),
+        ("Second, the wrong robots are counted. In the same frame, many orange robots are still rooms away, "
+         "but their tasks already commit them to door 6. A rule at the door cannot see them until it is too late.",
+         "第二，数的车不对。在同一个画面里，很多橙色的车还在别的房间，但它们的任务已经决定要过门 6。门口的规则要等它们到了才看得见，那时已经晚了。"),
+        ("Third, the door and the source must be decided together. In an early ablation, the quota alone gave "
+         "29.1 percent more tasks than the champion assignment, the door rule alone 27.6 percent, and both "
+         "together 51.2 percent.",
+         "第三，门口放行和源头限量要一起决定。早期的消融实验里，只开名额比冠军派单多 29.1%，只开门口规则多 27.6%，两个一起开多 51.2%。"),
     ]),
     ("Why the computer network fits", "0:40", None, [
         ("Our collapse has a name in networking: congestion collapse. In October 1986 the early Internet "

@@ -6,6 +6,10 @@
 - [英文讲稿 v97（附中文对照）](SEEM5910_English_Speech_v97.docx)单独存放，图号对应课程报告。
 - [v96 完整存档](Robot_Traffic_Presentation_Report_v96_相关工作与实验前置条件.docx)保留拆分前的内容。
 
+## 写作规则
+
+给每个会话用的写作要求（只交 Word、正文中文图片英文、每张图写「怎么讲」和「怎么做出来的」、论断要有图作证据等）见 [CLAUDE.md](CLAUDE.md)。
+
 ## 最终研究报告分工
 
 ```text
