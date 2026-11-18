@@ -103,6 +103,25 @@ def border_tables(doc):
                             r.font.bold = True
 
 
+def shade_block_text(doc):
+    """给"怎么讲 / 怎么做出来的"这类引用段加浅色底和左边线。"""
+    for p in doc.paragraphs:
+        if p.style is not None and p.style.name.lower() == "block text":
+            pPr = p._p.get_or_add_pPr()
+            shd = OxmlElement("w:shd")
+            shd.set(qn("w:val"), "clear")
+            shd.set(qn("w:fill"), "F2F5FA")
+            pPr.append(shd)
+            bdr = OxmlElement("w:pBdr")
+            left = OxmlElement("w:left")
+            for k, v in (("w:val", "single"), ("w:sz", "18"), ("w:space", "6"), ("w:color", "2F6FDB")):
+                left.set(qn(k), v)
+            bdr.append(left)
+            pPr.append(bdr)
+            for r in p.runs:
+                r.font.size = Pt(10)
+
+
 def fit_images(doc, max_cm=16.5):
     for shape in doc.inline_shapes:
         if shape.width > Cm(max_cm):
@@ -128,6 +147,7 @@ def main():
                         "--reference-doc", str(ref)], check=True, cwd=ROOT)
     doc = Document(OUT)
     border_tables(doc)
+    shade_block_text(doc)
     fit_images(doc)
     doc.save(OUT)
     print("wrote", OUT)
