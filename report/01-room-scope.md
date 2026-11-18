@@ -6,11 +6,9 @@
 
 ## 正式 Room 实验前提
 
-任务内容和顺序由输入文件给定。任务何时进入可见池取决于完成进度。配对使用相同种子，车辆的实际行驶轨迹和完成时刻可以不同。[任务管理源码](https://github.com/MAPF-Competition/Start-Kit/blob/v3.1.0/src/TaskManager.cpp) · [延误生成源码](https://github.com/MAPF-Competition/Start-Kit/blob/v3.1.0/src/DelayGenerator.cpp)
-
 | 条件 | 取值或规则 |
 | --- | --- |
-| 地图与开口 | 三种车队配置共用固定地图 `room-64-64-16`。地图为 64×64 格，3646 格可通行，16 个房间之间有 31 处墙上开口，其中 30 处宽一格、1 处宽两格。各局沿用地图给定的开口位置和宽度。[LoRR 地图原文件](https://raw.githubusercontent.com/MAPF-Competition/Start-Kit/v3.1.0/example_problems/room.domain/maps/room-64-64-16.map) |
+| 地图 | LoRR 2026 的 64×64 格 Room 地图 `room-64-64-16`。[LoRR 地图原文件](https://raw.githubusercontent.com/MAPF-Competition/Start-Kit/v3.1.0/example_problems/room.domain/maps/room-64-64-16.map) |
 | 车队与起点 | 同一底图分别设 200、250、300 台车，按固定文件读取互不重合的起点，初始均朝东。300 台配置在 250 台配置基础上补入 50 个离线选定的固定空格，原离线抽样种子尚未证实。 |
 | 任务与任务池 | 共用 1375 条固定的两点任务模板，每单按取货、交货顺序完成。起始可见任务数依次为 300、375、450。每完成一单就按模板顺序补入一单，读完从头循环并分配新任务编号。已分配但未完成的任务仍在池中。调度器只见已公开任务。 |
 | 运动与安全 | 仿真依据车辆位置和动作进度检查碰撞，禁止两车相向互换位置。前进一格或原地转向需 3 个执行拍。停顿或等待时车辆仍占据停下时的空间。 |
