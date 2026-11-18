@@ -1,0 +1,20 @@
+{
+ "numTasksReveal": 1.5,
+ "version": "2026 LoRR",
+ "agentCounter": 3,
+ "agentSize": 1.0,
+ "delayConfig": {
+  "seed": 0,
+  "minDelay": 10,
+  "maxDelay": 30,
+  "eventModel": "poisson",
+  "pDelay": 0.01,
+  "durationModel": "uniform",
+  "gaussMeanRatio": 0.5,
+  "gaussStdRatio": 0.22
+ },
+ "mapFile": "roomGenG.map",
+ "agentFile": "roomGenG.agents",
+ "taskFile": "roomGenG.tasks",
+ "teamSize": 199
+}

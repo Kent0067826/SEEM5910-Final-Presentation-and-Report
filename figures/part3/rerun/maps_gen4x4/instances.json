@@ -1,0 +1,114 @@
+{
+ "roomGenA_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenA_199.json",
+  "team": 199,
+  "seed": 2611001,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenA_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenA_249.json",
+  "team": 249,
+  "seed": 2611001,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenB_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenB_199.json",
+  "team": 199,
+  "seed": 2611002,
+  "free": 3630,
+  "door_cells": 30
+ },
+ "roomGenB_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenB_249.json",
+  "team": 249,
+  "seed": 2611002,
+  "free": 3630,
+  "door_cells": 30
+ },
+ "roomGenC_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenC_199.json",
+  "team": 199,
+  "seed": 2611003,
+  "free": 3630,
+  "door_cells": 30
+ },
+ "roomGenC_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenC_249.json",
+  "team": 249,
+  "seed": 2611003,
+  "free": 3630,
+  "door_cells": 30
+ },
+ "roomGenD_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenD_199.json",
+  "team": 199,
+  "seed": 2611004,
+  "free": 3630,
+  "door_cells": 30
+ },
+ "roomGenD_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenD_249.json",
+  "team": 249,
+  "seed": 2611004,
+  "free": 3630,
+  "door_cells": 30
+ },
+ "roomGenE_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenE_199.json",
+  "team": 199,
+  "seed": 2611005,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenE_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenE_249.json",
+  "team": 249,
+  "seed": 2611005,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenF_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenF_199.json",
+  "team": 199,
+  "seed": 2611006,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenF_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenF_249.json",
+  "team": 249,
+  "seed": 2611006,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenG_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenG_199.json",
+  "team": 199,
+  "seed": 2611007,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenG_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenG_249.json",
+  "team": 249,
+  "seed": 2611007,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenH_199": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenH_199.json",
+  "team": 199,
+  "seed": 2611008,
+  "free": 3629,
+  "door_cells": 29
+ },
+ "roomGenH_249": {
+  "mapfile": "/home/user/SEEM5910-Final-Presentation-and-Report/figures/part3/rerun/maps_gen4x4/roomGenH_249.json",
+  "team": 249,
+  "seed": 2611008,
+  "free": 3629,
+  "door_cells": 29
+ }
+}
