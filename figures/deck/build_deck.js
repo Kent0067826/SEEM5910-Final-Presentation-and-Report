@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v3.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v4.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -109,7 +109,7 @@ section(1);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 1" });
   slide.addText(s.title, { placeholder: "title" });
   slide.addText("SEEM5910 Final Presentation\nLeague of Robot Runners 2026 · official room map", { x: M, y: 4.15, w: 7.8, h: 0.9, fontSize: 18, color: C.accent5, margin: 0, isTextBox: true });
-  slide.addText("Speakers 1–4  ·  15 minutes", { x: M, y: 6.3, w: 6, h: 0.4, fontSize: 14, color: C.accent1, bold: true, margin: 0, isTextBox: true });
+  slide.addText("15 minutes", { x: M, y: 6.3, w: 6, h: 0.4, fontSize: 14, color: C.accent1, bold: true, margin: 0, isTextBox: true });
   card(slide, 8.2, 0.75, 4.55, 6.0, C.background1);
   addImg(slide, "bg", 8.3, 0.85, 4.35, 5.8);
   notes(slide, s);
@@ -157,7 +157,7 @@ section(1);
   const s = S(4); const slide = content(s);
   addImg(slide, "jam", M, 1.35, 5.7, 5.75, "left");
   const cards = [
-    ["97", "robots waiting to cross door 6 at tick 3,000", C.accent3],
+    ["97", "robots at tick 3,000 that still must cross door 6 inward, incl. ones not yet at the door", C.accent3],
     ["38% → 86%", "share of open orders that must cross door 6", C.accent2],
     ["3.4–7.0 vs 26", "robots through door 6 per 500 ticks: jammed vs orderly", C.accent2],
   ];

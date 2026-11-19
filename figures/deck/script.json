@@ -58,14 +58,14 @@
    "图 3 第 3000 拍堵门截图"
   ],
   "hints": [
-   "Tick 3,000: 97 robots at door 6",
+   "Tick 3,000: 97 robots still have to cross door 6 inward (incl. not yet at the door)",
    "Easy orders first → 38% → 86% must cross",
    "Face to face in a 1-cell door",
    "3.4–7.0 vs 26 per 500 ticks",
    "More robots, fewer crossings"
   ],
-  "en": "Thank you. To find out what was building up, we watched the replay tick by tick. 【指左图黑圈】 This is tick three thousand. **Ninety-seven robots** are waiting to cross **one door, door six**, into the lower-left rooms. 【指右边第二张卡】 Why? The easy orders get finished first, so the orders left in the pool are more and more the ones that must cross this door: from **38 percent to as much as 86**. 【指第三张卡】 Robots then meet **face to face** in a one-cell door. In the second half, the door passes only **3.4 to 7 robots** per five hundred ticks, while an orderly door passes **26**. **More robots, fewer crossings.**",
-  "zh": "谢谢。为了弄清楚累积的是什么，我们逐拍看回放。【指左图黑圈】这是第 3000 拍，**97 台车**在等着穿过**同一道门，门 6**，进左下房间。【指右边第二张卡】为什么？好做的单先做完，任务池里剩下的越来越多是要过这道门的单：从 **38% 涨到最多 86%**。【指第三张卡】于是车在一格宽的门口**面对面顶住**。后半程门每 500 拍只过 **3.4 到 7 台**，而门口有序时能过 **26 台**。**车越多，过得越少。**"
+  "en": "Thank you. To find out what was building up, we watched the replay tick by tick. 【指左图黑圈】 This is tick three thousand. **Ninety-seven robots** hold orders that still have to cross **one door, door six**, into the lower-left rooms. Some are already queued at the door, the rest are still on their way. The red dots are robots that have not moved for at least twelve ticks. 【指右边第二张卡】 Why? The easy orders get finished first, so the orders left in the pool are more and more the ones that must cross this door: from **38 percent to as much as 86**. 【指第三张卡】 Robots then meet **face to face** in a one-cell door. In the second half, the door passes only **3.4 to 7 robots** per five hundred ticks, while an orderly door passes **26**. **More robots, fewer crossings.**",
+  "zh": "谢谢。为了弄清楚累积的是什么，我们逐拍看回放。【指左图黑圈】这是第 3000 拍，手上任务还要穿过**同一道门，门 6**，进左下房间的车有 **97 台**：有的已经堵在门口，有的还在路上。红点是已接单、连续 12 拍以上没动的车。【指右边第二张卡】为什么？好做的单先做完，任务池里剩下的越来越多是要过这道门的单：从 **38% 涨到最多 86%**。【指第三张卡】于是车在一格宽的门口**面对面顶住**。后半程门每 500 拍只过 **3.4 到 7 台**，而门口有序时能过 **26 台**。**车越多，过得越少。**"
  },
  {
   "n": 5,
