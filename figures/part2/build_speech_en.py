@@ -24,11 +24,11 @@ SLIDES = [
         ("In Part 1 you saw the problem: the longer the robots run, the slower they get, from about 127 tasks "
          "every 500 ticks at the start to 37 later. This frame from a real run shows why. At tick 3000, orange "
          "robots must cross door 6 into the lower-left rooms and blue robots must come out. They meet face to "
-         "face at a one-cell door. 97 robots wait to go in, 38 wait to come out, and 130 robots hold a task but "
-         "cannot move. Every robot followed its plan, and the plans all ended at the same door.",
+         "face at a one-cell door. 97 robots wait to go in, 38 wait to come out, and the replay marks 130 robots "
+         "as holding a task but stuck. Every robot followed its plan, and the plans all ended at the same door.",
          "第一部分讲了问题：跑得越久越慢，从开局每 500 拍约 127 单掉到后来的 37 单。这张真实运行的画面说明了原因。"
          "第 3000 拍，橙色的车要穿过门 6 进左下的房间，蓝色的车要出来，两边在一格宽的门口面对面顶住。97 台等着进，38 台等着出，"
-         "全图 130 台车拿着任务却动不了。每台车都按计划走，而所有计划都走到了同一道门。"),
+         "回放程序还把 130 台车标为“拿着任务但卡住”。每台车都按计划走，而所有计划都走到了同一道门。"),
     ]),
     ("Earlier work already thought in networks", "1:00", "e02_prior_work_vs_ours.png", [
         ("We are not the first to see a warehouse as a network. Route guidance counts how many planned "
@@ -85,10 +85,11 @@ SLIDES = [
     ("Flatten the map into a network", "0:40", "e03_map_to_network.png", [
         ("So we flatten the map. 3,646 walkable cells become 16 nodes, one per room, and 31 edges, one per "
          "door. It is a flat network: no backbone, rooms joined directly by doors. Once flattened, door 6 "
-         "stands out. It is a cut: remove it and the four lower-left rooms are cut off. 37.6 percent of all "
-         "tasks must pass through this one cell.",
+         "stands out. It is a cut: remove it and the four lower-left rooms are cut off. The lower-left rooms hold a quarter of "
+         "the cells; if pickups and deliveries were random, 2 times 0.25 times 0.75, about 37.6 percent of tasks, "
+         "would have their two ends on opposite sides. The official task file gives 38.5 percent.",
          "于是我们把地图压扁：3646 个可走格子变成 16 个点（每个房间一个）和 31 条边（每道门一条）。这是一张扁平网络，没有骨干网，"
-         "房间直接靠门相连。压扁之后，门 6 一眼可见：它是一个割，拿掉它，左下 4 个房间就断开了。37.6% 的任务必须经过这一格。"),
+         "房间直接靠门相连。压扁之后，门 6 一眼可见：它是一个割，拿掉它，左下 4 个房间就断开了。左下房间约占四分之一的格子，如果取货点和送货点随机分布，约 2 × 0.25 × 0.75 ≈ 37.6% 的单两端分在门两侧；官方任务文件实际是 38.5%。"),
     ]),
     ("A dictionary: warehouse to network", "1:00", "e04_warehouse_as_network.png", [
         ("Here is our dictionary. A room is a local network, mostly free-flowing. A door is a link, and a "
