@@ -1,0 +1,32 @@
+"""Write the Markdown source of the Word speech script from script.json (run from the repo root, then pandoc)."""
+import json, re, sys
+ver = sys.argv[1] if len(sys.argv) > 1 else "v2"
+S = json.load(open("figures/deck/script.json", encoding="utf-8"))
+tot = {}
+for s in S:
+    m, sec = map(int, s["time"].split(":")); tot[s["speaker"]] = tot.get(s["speaker"], 0) + m * 60 + sec
+words = sum(len(re.sub(r"【[^】]*】", "", s["en"]).split()) for s in S)
+cue = lambda t: re.sub(r"【([^】]*)】", r"*【\1】*", t)
+parts = {1: "背景、现象、前人工作", 2: "我们的想法、建模、和网络的不同、改路由还是改调度",
+         3: "三项调度优化：名额、门口规则、执行器修复和两个兜底", 4: "结果、哪些起作用和换图测试、失败的尝试、结论"}
+L = ["# SEEM5910 演讲稿与幻灯片（四人，15 分钟）", "",
+     f"这份 Word 是幻灯片 `SEEM5910_演讲PPT_{ver}.pptx` 的讲稿版。每页依次是：幻灯片图片；讲者、时长和配图；**提示卡**（几个要点，看一眼就能接着讲）；英文讲稿；中文对照。",
+     "讲稿里的 *【……】* 是动作提示，告诉你这时指图上哪里；**加粗**的是这一页要讲准的关键句和数字。幻灯片备注栏里有同样的提示卡和讲稿，放映时用演讲者视图就能看到。", "",
+     "## 分工和时间", "", "| 讲者 | 负责的页 | 内容 | 时长 |", "|---|---|---|---|"]
+for k in sorted(tot):
+    pages = [str(s["n"]) for s in S if s["speaker"] == k]
+    L.append(f"| 讲者 {k} | 第 {pages[0]}–{pages[-1]} 页 | {parts[k]} | {tot[k] // 60}:{tot[k] % 60:02d} |")
+T = sum(tot.values())
+L += [f"| 合计 | 16 页 | | {T // 60}:{T % 60:02d} |", "",
+      f"英文讲稿共 {words} 词（不算动作提示），按每分钟 130 词约 {words / 130:.1f} 分钟。", ""]
+for s in S:
+    figs = "；".join(s["figs"]) if s["figs"] else "无（文字和数字卡片）"
+    L += [f"## 第 {s['n']} 页　{s['title']}", "", f"![第 {s['n']} 页](figures/deck/slides/slide-{s['n']:02d}.png)", "",
+          f"**讲者 {s['speaker']}　·　{s['time']}　·　配图：{figs}**", "", "**提示卡**", ""]
+    L += [f"- {h}" for h in s["hints"]]
+    L += ["", f"**English.** {cue(s['en'])}", "", f"**中文对照.** {cue(s['zh'])}", ""]
+L += ["## 说明", "", "- 图号指《全文简明版（中文）v11》里的图号；幻灯片里的图和报告共用，图中文字都是英文。",
+      "- 讲稿里的数字都取自全文简明版，出处见那份文档末尾的数字来源表。",
+      "- 幻灯片由 `figures/deck/build_deck.js` 生成，讲稿来自 `figures/deck/script.json`，这份 Word 由 `figures/deck/make_script_doc.py` 生成；改讲稿时改 script.json，再重新生成两份。", ""]
+open("figures/deck/演讲稿_源稿.md", "w", encoding="utf-8").write("\n".join(L))
+print(words, tot)

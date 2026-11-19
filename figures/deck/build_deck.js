@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v1.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v2.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -86,7 +86,9 @@ function body(slide, items, x, y, w, h, size = 16) {
   slide.addText(runs, { x, y, w, h, fontSize: size, color: C.text1, valign: "top", margin: 0, isTextBox: true });
 }
 function notes(slide, s) {
-  slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n${s.en}\n\n中文对照：${s.zh}`);
+  const clean = (t) => t.replace(/\*\*/g, "");
+  const hints = s.hints.map((h) => "- " + h).join("\n");
+  slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n提示 / Cues:\n${hints}\n\nScript:\n${clean(s.en)}\n\n中文对照：\n${clean(s.zh)}`);
 }
 function content(s) {
   const slide = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Speaker " + s.speaker });
