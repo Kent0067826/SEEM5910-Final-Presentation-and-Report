@@ -6,19 +6,24 @@
   "title": "Managing Warehouse Robots Like a Computer Network",
   "figs": [],
   "hints": [
-   "Question: hundreds of robots, narrow doors, how to stop jams?",
-   "Answer: manage it like a computer network"
+   "LoRR 2026 problem",
+   "Warehouse-like map: plan robot moves to finish as many orders as possible",
+   "Approach: borrow ideas from computer networks"
   ],
-  "en": "Good afternoon, everyone. We start with a simple question: **hundreds of robots share a warehouse with narrow doors. How do we stop them from getting stuck?** Our answer: **manage the robots the way a computer network manages data.**",
-  "zh": "大家下午好。我们从一个简单的问题开始：**几百台机器人共用一个有窄门的仓库，怎么不让它们堵住？**我们的答案是：**像计算机网络管数据那样管机器人。**",
+  "en": "Good afternoon, everyone. Our project works on the **League of Robot Runners 2026** problem, or **LoRR** for short. We study **a warehouse-like map**: how to plan the robots' moves so that they **finish as many orders as possible**. Our approach borrows ideas from **computer networks**.",
+  "zh": "大家下午好。我们的项目做的是 **2026 年机器人跑者联赛（LoRR）** 的问题。我们研究的是：在一张**类似仓库的地图**上，怎么安排机器人走路，让它们**完成尽可能多的派单任务**。我们的做法是借用**计算机网络**的思路。",
   "segs": [
    {
-    "en": "Good afternoon, everyone. We start with a simple question: **hundreds of robots share a warehouse with narrow doors. How do we stop them from getting stuck?**",
-    "zh": "大家下午好。我们从一个简单的问题开始：**几百台机器人共用一个有窄门的仓库，怎么不让它们堵住？**"
+    "en": "Good afternoon, everyone. Our project works on the **League of Robot Runners 2026** problem, or **LoRR** for short.",
+    "zh": "大家下午好。我们的项目做的是 **2026 年机器人跑者联赛（LoRR）** 的问题。"
    },
    {
-    "en": "Our answer: **manage the robots the way a computer network manages data.**",
-    "zh": "我们的答案是：**像计算机网络管数据那样管机器人。**"
+    "en": "We study **a warehouse-like map**: how to plan the robots' moves so that they **finish as many orders as possible**.",
+    "zh": "我们研究的是：在一张**类似仓库的地图**上，怎么安排机器人走路，让它们**完成尽可能多的派单任务**。"
+   },
+   {
+    "en": "Our approach borrows ideas from **computer networks**.",
+    "zh": "我们的做法是借用**计算机网络**的思路。"
    }
   ]
  },
@@ -37,12 +42,12 @@
    "16 rooms, 31 doors, 1 cell wide, 200–300 robots",
    "Blue path: 8 doors"
   ],
-  "en": "Our setting is the League of Robot Runners. Amazon Robotics sponsors it, and 2026 is its third year. 【指左图】 Each grey dot is a robot. For **5,000 ticks**, robots pick up and deliver orders. The score is **how many orders they finish**. 【指右边 1、2、3】 Every tick, the program makes **three choices**: which robot takes which order, which way it goes, and whether its next step can go now. 【指下方数字】 We use the official room map: **16 rooms and 31 doors**. Most doors are **one cell wide**. There are **200 to 300 robots**. 【指蓝色路线】 This one order goes through **eight doors**.",
-  "zh": "我们的场景是机器人跑者联赛，由亚马逊机器人赞助，2026 年是第三届。【指左图】每个灰点是一台车。在 **5000 拍**里，车不停地取货、送货。比的是**完成多少单**。【指右边 1、2、3】程序每一拍做**三个决定**：哪台车接哪单、走哪条路、下一步现在能不能走。【指下方数字】我们用官方房间图：**16 个房间、31 道门**，大多数门只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单就要穿过 **8 道门**。",
+  "en": "First, the competition. Amazon Robotics sponsors it, and 2026 is its third year. 【指左图】 Each grey dot is a robot. For **5,000 ticks**, robots pick up and deliver orders. The score is **how many orders they finish**. 【指右边 1、2、3】 Every tick, the program makes **three choices**: which robot takes which order, which way it goes, and whether its next step can go now. 【指下方数字】 We use the official room map: **16 rooms and 31 doors**. Most doors are **one cell wide**. There are **200 to 300 robots**. 【指蓝色路线】 This one order goes through **eight doors**.",
+  "zh": "先介绍比赛：它由亚马逊机器人赞助，2026 年是第三届。【指左图】每个灰点是一台车。在 **5000 拍**里，车不停地取货、送货。比的是**完成多少单**。【指右边 1、2、3】程序每一拍做**三个决定**：哪台车接哪单、走哪条路、下一步现在能不能走。【指下方数字】我们用官方房间图：**16 个房间、31 道门**，大多数门只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单就要穿过 **8 道门**。",
   "segs": [
    {
-    "en": "Our setting is the League of Robot Runners. Amazon Robotics sponsors it, and 2026 is its third year.",
-    "zh": "我们的场景是机器人跑者联赛，由亚马逊机器人赞助，2026 年是第三届。"
+    "en": "First, the competition. Amazon Robotics sponsors it, and 2026 is its third year.",
+    "zh": "先介绍比赛：它由亚马逊机器人赞助，2026 年是第三届。"
    },
    {
     "en": "【指左图】 Each grey dot is a robot. For **5,000 ticks**, robots pick up and deliver orders. The score is **how many orders they finish**.",
