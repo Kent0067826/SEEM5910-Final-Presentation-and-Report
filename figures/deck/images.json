@@ -1,0 +1,97 @@
+{
+ "bg": {
+  "path": "figures/brief/b01_background.png",
+  "w": 972,
+  "h": 1010
+ },
+ "collapse": {
+  "path": "figures/part3/p3_fig03a_collapse_problem.png",
+  "w": 2003,
+  "h": 863
+ },
+ "jam": {
+  "path": "figures/brief/b03_jam.png",
+  "w": 974,
+  "h": 1010
+ },
+ "map": {
+  "path": "figures/brief/e03_map_to_network.png",
+  "w": 1870,
+  "h": 918
+ },
+ "mapping": {
+  "path": "figures/brief/e04_warehouse_as_network.png",
+  "w": 2380,
+  "h": 1220
+ },
+ "prior": {
+  "path": "figures/brief/e02_prior_work_vs_ours.png",
+  "w": 1977,
+  "h": 1057
+ },
+ "bound": {
+  "path": "figures/brief/b_f1_bound.png",
+  "w": 1030,
+  "h": 454
+ },
+ "knee": {
+  "path": "figures/part3/p3_en_knee.png",
+  "w": 1428,
+  "h": 748
+ },
+ "door": {
+  "path": "figures/part3/p3_en_door_rule.png",
+  "w": 2280,
+  "h": 820
+ },
+ "doorf": {
+  "path": "figures/brief/b_f3_door_rule.png",
+  "w": 1442,
+  "h": 454
+ },
+ "exec": {
+  "path": "figures/part3/p3_fig06_executor_diagram.png",
+  "w": 1745,
+  "h": 810
+ },
+ "ladder": {
+  "path": "figures/part3/p3_fig02_ladder_room.png",
+  "w": 1631,
+  "h": 707
+ },
+ "tick": {
+  "path": "figures/part3/p3_en_tick3000.png",
+  "w": 1872,
+  "h": 1062
+ },
+ "abl": {
+  "path": "figures/part3/p3_fig01_ablation.png",
+  "w": 2300,
+  "h": 943
+ },
+ "gen": {
+  "path": "figures/part3/p3_fig10_generalization.png",
+  "w": 2270,
+  "h": 1076
+ },
+ "funnel": {
+  "path": "figures/part3/p3_fig14_funnel.png",
+  "w": 2031,
+  "h": 603
+ },
+ "routing": {
+  "path": "figures/part3/p3_fig13_routing.png",
+  "w": 2071,
+  "h": 992
+ },
+ "quota": {
+  "path": "figures/brief/b_f2_quota.png",
+  "w": 1609,
+  "h": 454
+ },
+ "adm": {
+  "path": "figures/brief/b_f4_admission.png",
+  "w": 1455,
+  "h": 454
+ }
+}
