@@ -634,3 +634,51 @@ if __name__ == "__main__":
         f()
     if os.path.exists(GEN):
         fig_generalization()
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Finer re-test (2026-11-19): remove one kept improvement at a time, labelled with the round that added it
+#   data: rerun/ablation_room_4x4.jsonl (FULL and the coarse groups) + rerun/ablation2_room_4x4.jsonl (finer pieces)
+# ---------------------------------------------------------------------------------------------------------------------
+def fig_fine_ablation():
+    rows = rows_of(ABL) + rows_of(os.path.join(RERUN, "ablation2_room_4x4.jsonl"))
+    by = by_key(rows)
+    items = [  # (label, method, group colour)
+        ("Door rule, whole group (rounds 29-46)", "noDoor", ORANGE),
+        ("Per-door quota, whole group (rounds 28-41)", "noQuota", ORANGE),
+        ("Executor fix (round 36)", "noSync", ORANGE),
+        ("Quota for door pairs (round 38)", "noCut2", BLUE),
+        ("Held robots get lowest priority (round 29)", "noDemote", BLUE),
+        ("Approach zone 4 cells, not 2 (round 33)", "apron2", BLUE),
+        ("PFC watchdog (protocol round 36)", "noWD", BLUE),
+        ("Idle robots in a passage do not block (round 35)", "noIdleChain", BLUE),
+        ("Robot in one passage free of another's rules (r. 37)", "noChainFree", BLUE),
+        ("Exit side clears the approach zone (round 29)", "noEvac", BLUE),
+        ("Formula quotas instead of hand-set (round 41)", "handQuota", BLUE),
+        ("Global admission cap (rounds 30-58)", "noGlobal", BLUE),
+        ("Exhaustive service instead of 80-step hold (r. 46)", "gated80", BLUE),
+        ("Door rule on narrow non-cut links (round 30)", "noLMAC", BLUE),
+    ]
+    vals = [(n, *(100 * x for x in boot(paired(by, k, "FULL", OFFICIAL))), c) for n, k, c in items]
+    fig, ax = plt.subplots(figsize=(11, 6.2))
+    ys = list(range(len(vals)))[::-1]
+    for y, (n, m, lo, hi, c) in zip(ys, vals):
+        col = c if hi < 0 else (GRAY if lo <= 0 else RED)
+        ax.barh(y, m, color=col, height=0.62)
+        ax.plot([lo, hi], [y, y], color=INK, lw=1)
+        x = min(m, lo) if m < 0 else max(m, hi)
+        ax.text(x + (-0.6 if m < 0 else 0.6), y, f"{m:+.1f}%", va="center", ha="right" if m < 0 else "left", fontsize=8.5, color=INK)
+    ax.set_yticks(ys)
+    ax.set_yticklabels([v[0] for v in vals], fontsize=8.8)
+    ax.axvline(0, color=MUTED, lw=1)
+    ax.set_xlim(-31, 6)
+    ax.set_xlabel("change in tasks completed when this piece is removed from the full method (%); black line = 95% interval", fontsize=8.8, color=INK2)
+    ax.legend(handles=[Patch(color=ORANGE, label="whole group"), Patch(color=BLUE, label="single kept improvement, clearly needed"),
+                       Patch(color=GRAY, label="no measurable effect on this map"),
+                       Patch(color=RED, label="removing it helps on this map")], fontsize=8.5, frameon=False, loc="lower left")
+    ax.set_title("Official 4x4 room map: what each kept improvement is worth (60 paired runs per bar, same seeds)", fontsize=10.5, color=INK)
+    style(ax, ygrid=False, xgrid=True)
+    save(fig, "p3_fig18_fine_ablation.png")
+
+
+fig_fine_ablation()
