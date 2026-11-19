@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v2.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v3.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -91,6 +91,7 @@ function notes(slide, s) {
   slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n提示 / Cues:\n${hints}\n\nScript:\n${clean(s.en)}\n\n中文对照：\n${clean(s.zh)}`);
 }
 function content(s) {
+  section(s.speaker);
   const slide = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Speaker " + s.speaker });
   slide.addText(s.title, { placeholder: "title" });
   speakerChip(slide, s.speaker);
@@ -189,7 +190,6 @@ section(1);
 }
 
 // ---------- 6 idea ----------
-section(2);
 {
   const s = S(6); const slide = content(s);
   slide.addText("It looks like a computer network", { x: M, y: 1.45, w: 5.8, h: 0.45, fontSize: 18, bold: true, color: C.text2, margin: 0, isTextBox: true });
@@ -261,7 +261,6 @@ section(2);
 }
 
 // ---------- 10 quota ----------
-section(3);
 {
   const s = S(10); const slide = content(s);
   addImg(slide, "knee", M, 1.35, 7.6, 4.2, "left");
@@ -306,7 +305,6 @@ section(3);
 }
 
 // ---------- 13 results ----------
-section(4);
 {
   const s = S(13); const slide = content(s);
   const st = [["+140.5%", "vs official starter program"], ["+76.5%", "vs same assignment + fixed executor (fairest)"], ["618 → 1,106", "orders per run, 250 robots"]];
