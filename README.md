@@ -2,6 +2,8 @@
 
 ## 当前文档
 
+- **新会话接手请先读 [交接说明](figures/交接说明.md)**：最新文件、已确认的报告结构、用户的全部要求和还没定的事。
+
 - [课程研究报告 v97](Robot_Traffic_Course_Report_v97.docx)是给老师阅读和后续修订的版本。
 - [英文讲稿 v97（附中文对照）](SEEM5910_English_Speech_v97.docx)单独存放，图号对应课程报告。
 - [v96 完整存档](Robot_Traffic_Presentation_Report_v96_相关工作与实验前置条件.docx)保留拆分前的内容。
