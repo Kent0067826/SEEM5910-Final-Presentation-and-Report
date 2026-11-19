@@ -36,19 +36,14 @@
    "图 1 背景图"
   ],
   "hints": [
-   "LoRR, Amazon Robotics, 3rd season",
    "Score = orders finished in 5,000 ticks",
    "3 decisions: assign / route / execute",
    "16 rooms, 31 doors, 1 cell wide, 200–300 robots",
    "Blue path: 8 doors"
   ],
-  "en": "First, the competition. Amazon Robotics sponsors it, and 2026 is its third year. 【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**. A tick is one time step. The score is **how many orders they finish**. 【指右边 1、2、3】 Each tick, the program decides three things: **who takes which order, which way to go, and whether to move now**. 【指下方数字】 We use the official room map: **16 rooms, 31 doors**, most doors **one cell wide**, and **200 to 300 robots**. 【指蓝色路线】 This one order passes **eight doors**.",
-  "zh": "先介绍比赛：它由亚马逊机器人赞助，2026 年是第三届。【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，一拍就是一个时间步。比的是**完成多少单**。【指右边 1、2、3】程序每一拍决定三件事：**谁接哪单、走哪条路、现在走不走**。【指下方数字】我们用官方房间图：**16 个房间、31 道门**，大多数门只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单就要穿过 **8 道门**。",
+  "en": "【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**. A tick is one time step. The score is **how many orders they finish**. 【指右边 1、2、3】 Each tick, the program decides three things: **who takes which order, which way to go, and whether to move now**. 【指下方数字】 We use the official room map: **16 rooms, 31 doors**, most doors **one cell wide**, and **200 to 300 robots**. 【指蓝色路线】 This one order passes **eight doors**.",
+  "zh": "【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，一拍就是一个时间步。比的是**完成多少单**。【指右边 1、2、3】程序每一拍决定三件事：**谁接哪单、走哪条路、现在走不走**。【指下方数字】我们用官方房间图：**16 个房间、31 道门**，大多数门只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单就要穿过 **8 道门**。",
   "segs": [
-   {
-    "en": "First, the competition. Amazon Robotics sponsors it, and 2026 is its third year.",
-    "zh": "先介绍比赛：它由亚马逊机器人赞助，2026 年是第三届。"
-   },
    {
     "en": "【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**. A tick is one time step. The score is **how many orders they finish**.",
     "zh": "【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，一拍就是一个时间步。比的是**完成多少单**。"
@@ -148,17 +143,16 @@
   "figs": [],
   "hints": [
    "4 groups: assignment / route guidance / PIBT planners / congestion handling",
-   "Each does its own step well",
    "One door → spreading traffic cannot help",
    "Starter already has route guidance, still slows",
    "Missing: count robots heading for the door, at assignment"
   ],
-  "en": "Many people have worked on this. 【依次指四张卡】 Their methods fall into four groups. **Order assignment** picks close, cheap orders. **Route guidance** spreads robots to less busy roads. **Planners like PIBT** decide who moves first. **Jam handling** keeps some robots idle. 【指红字 Gap here】 But here, the lower-left rooms have **only one door**, so there is no other road. The starter program already uses route guidance, and it still slows down. 【指底部黄框】 In the methods we read, **no one counts how many robots are already heading for this door when giving out orders.**",
-  "zh": "前人做过很多工作。【依次指四张卡】他们的方法分四类。**派单**挑近的、便宜的单；**选路**把车分到不那么挤的路上；**PIBT 这类规划**决定谁先走；**拥堵处理**让一部分车闲着。【指红字 Gap here】但这张图上，左下房间**只有一道门**，没有别的路可分；官方起始程序已经用了选路引导，照样变慢。【指底部黄框】在我们读到的方法里，**没有一种在派单时去数：已经有多少车正奔向这道门。**",
+  "en": "【依次指四张卡】 Prior methods fall into four groups. **Order assignment** picks close, cheap orders. **Route guidance** spreads robots to less busy roads. **Planners like PIBT** decide who moves first. **Jam handling** keeps some robots idle. 【指红字 Gap here】 But here, the lower-left rooms have **only one door**, so there is no other road. The starter program already uses route guidance, and it still slows down. 【指底部黄框】 In the methods we read, **no one counts how many robots are already heading for this door when giving out orders.**",
+  "zh": "【依次指四张卡】前人的方法分四类。**派单**挑近的、便宜的单；**选路**把车分到不那么挤的路上；**PIBT 这类规划**决定谁先走；**拥堵处理**让一部分车闲着。【指红字 Gap here】但这张图上，左下房间**只有一道门**，没有别的路可分；官方起始程序已经用了选路引导，照样变慢。【指底部黄框】在我们读到的方法里，**没有一种在派单时去数：已经有多少车正奔向这道门。**",
   "segs": [
    {
-    "en": "Many people have worked on this. 【依次指四张卡】 Their methods fall into four groups.",
-    "zh": "前人做过很多工作。【依次指四张卡】他们的方法分四类。"
+    "en": "【依次指四张卡】 Prior methods fall into four groups.",
+    "zh": "【依次指四张卡】前人的方法分四类。"
    },
    {
     "en": "**Order assignment** picks close, cheap orders. **Route guidance** spreads robots to less busy roads. **Planners like PIBT** decide who moves first. **Jam handling** keeps some robots idle.",
