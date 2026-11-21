@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v9.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v10.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -185,43 +185,44 @@ section(1);
 {
   const s = S(5); const slide = content(s);
   const groups = [
-    ["Order assignment", "Official starter, 2024 champion, flow-based assignment", "Picks close, cheap orders.", "ignores how many robots already head for the door"],
-    ["Route guidance", "Traffic-flow optimisation, guidance graphs", "Makes busy roads cost more, so robots spread to other roads.", "door 6 has no other road; the starter already does this and still slows down"],
-    ["Planning & collision avoidance", "PIBT, RHCR, WPPL", "Decides who moves first and avoids collisions.", "decides who moves next, not how many are coming"],
-    ["Jam handling", "Keep part of the fleet idle; narrow-passage conflicts; AGV deadlock prevention", "Keeps some robots idle, or handles robots at the passage.", "fixed global ratio, or only robots already at the passage"],
+    ["Order assignment", "Official starter, 2024 champion, flow-based assignment", "Decides which robot takes which order. Picks close, cheap orders first."],
+    ["Route guidance", "Traffic-flow optimisation, guidance graphs", "Makes busy roads cost more, so robots spread out to other roads."],
+    ["Planning & collision avoidance", "PIBT, RHCR, WPPL", "Plans each robot's next steps: decides who moves first and avoids collisions."],
+    ["Jam handling", "Keep part of the fleet idle; narrow-passage conflicts; AGV deadlock prevention", "Keeps some robots idle, or sorts out robots that meet in a narrow passage."],
   ];
-  groups.forEach(([t, ex, how, gap], i) => {
+  groups.forEach(([t, ex, how], i) => {
     const x = M + (i % 2) * 6.15, y = 1.4 + Math.floor(i / 2) * 2.2;
     card(slide, x, y, 5.95, 2.05, C.background2);
-    slide.addText(t, { x: x + 0.25, y: y + 0.1, w: 5.5, h: 0.4, fontSize: 17, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    slide.addText(ex, { x: x + 0.25, y: y + 0.5, w: 5.5, h: 0.35, fontSize: 12, italic: true, color: C.accent4, margin: 0, isTextBox: true });
-    slide.addText(how, { x: x + 0.25, y: y + 0.88, w: 5.5, h: 0.45, fontSize: 13, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
-    slide.addText([{ text: "Gap here: ", options: { bold: true, color: C.accent3 } }, { text: gap, options: { color: C.text1 } }], { x: x + 0.25, y: y + 1.35, w: 5.5, h: 0.62, fontSize: 13, margin: 0, isTextBox: true, valign: "top" });
+    slide.addText(t, { x: x + 0.25, y: y + 0.15, w: 5.5, h: 0.45, fontSize: 18, bold: true, color: C.text2, margin: 0, isTextBox: true });
+    slide.addText(ex, { x: x + 0.25, y: y + 0.62, w: 5.5, h: 0.4, fontSize: 12, italic: true, color: C.accent4, margin: 0, isTextBox: true });
+    slide.addText(how, { x: x + 0.25, y: y + 1.08, w: 5.5, h: 0.85, fontSize: 15, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
   });
   card(slide, M, 5.9, 12.1, 0.95, C.accent6);
-  slide.addText([{ text: "Missing in the methods we read: ", options: { bold: true, color: C.text2 } }, { text: "when giving out orders, count how many robots already head for this door in this direction", options: { color: C.text1 } }], { x: M + 0.3, y: 5.9, w: 11.6, h: 0.95, fontSize: 16, valign: "middle", margin: 0, isTextBox: true });
+  slide.addText([{ text: "In the methods we read: ", options: { bold: true, color: C.text2 } }, { text: "each one improves its own step. None looks at the whole system and weighs many factors together.", options: { color: C.text1 } }], { x: M + 0.3, y: 5.9, w: 11.6, h: 0.95, fontSize: 16, valign: "middle", margin: 0, isTextBox: true });
 }
 
 // ---------- 6 idea ----------
 {
   const s = S(6); const slide = content(s);
-  slide.addText("It looks like a computer network", { x: M, y: 1.4, w: 5.8, h: 0.45, fontSize: 18, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  card(slide, M, 1.35, 12.15, 0.75, C.accent6);
+  para(slide, "We wanted a **more systematic** approach. One of us has **implemented and optimized traffic scheduling on a global carrier's backbone network**, so we explored from the computer-network angle.", M + 0.25, 1.35, 11.7, 0.75, 14, C.text1, C.text2, "middle");
+  slide.addText("It looks like a computer network", { x: M, y: 2.25, w: 5.8, h: 0.4, fontSize: 17, bold: true, color: C.text2, margin: 0, isTextBox: true });
   const like = [["Door", "link: carries only so much"], ["Order through 8 doors", "packet through 8 routers"], ["More robots, fewer crossings", "network congestion"]];
   like.forEach(([a, b], i) => {
-    const y = 1.95 + i * 0.95;
-    card(slide, M, y, 5.8, 0.78, C.background2);
-    slide.addText([{ text: a, options: { bold: true, color: C.text2 } }, { text: "  →  " + b, options: { color: C.text1 } }], { x: M + 0.25, y, w: 5.4, h: 0.78, fontSize: 16, valign: "middle", margin: 0, isTextBox: true });
+    const y = 2.75 + i * 0.75;
+    card(slide, M, y, 5.8, 0.62, C.background2);
+    slide.addText([{ text: a, options: { bold: true, color: C.text2 } }, { text: "  →  " + b, options: { color: C.text1 } }], { x: M + 0.25, y, w: 5.4, h: 0.62, fontSize: 15, valign: "middle", margin: 0, isTextBox: true });
   });
-  slide.addText("Why computer networks", { x: 6.95, y: 1.4, w: 5.8, h: 0.45, fontSize: 18, bold: true, color: C.text2, margin: 0, isTextBox: true });
-  const why = ["For **decades**, networks have handled **many senders sharing few links**.", "A mature field: proven **routing** (which path to take) and **scheduling** (who goes when) methods.", "We study computer science: we know these methods **and what they assume**."];
+  slide.addText("Why computer networks", { x: 6.95, y: 2.25, w: 5.8, h: 0.4, fontSize: 17, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  const why = ["**Whole-system view:** decades of work on many senders sharing few links.", "**Proven methods:** routing (which path to take) and scheduling (who goes when).", "**Hands-on experience** with these methods, so we know what they assume."];
   why.forEach((t, i) => {
-    const y = 1.95 + i * 0.95;
-    numCircle(slide, 6.95, y + 0.14, i + 1);
-    para(slide, t, 7.6, y, 5.15, 0.85, 15, C.text1, C.text2, "middle");
+    const y = 2.75 + i * 0.75;
+    numCircle(slide, 6.95, y + 0.08, i + 1, 0.45);
+    para(slide, t, 7.55, y, 5.2, 0.65, 14, C.text1, C.text2, "middle");
   });
-  card(slide, M, 4.95, 12.1, 1.85, C.text2);
-  slide.addText([{ text: "Hypothesis  ", options: { bold: true, color: C.accent1 } }, { text: "Borrowing routing and scheduling methods from computer networks may help the robots finish more orders.", options: { color: C.background1 } }], { x: M + 0.35, y: 5.05, w: 11.4, h: 0.95, fontSize: 18, valign: "middle", margin: 0, isTextBox: true });
-  slide.addText("It is only a guess. Which kind helps, routing or scheduling, must be tested: that is the next part.", { x: M + 0.35, y: 6.0, w: 11.4, h: 0.65, fontSize: 15, italic: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
+  card(slide, M, 5.15, 12.1, 1.7, C.text2);
+  slide.addText([{ text: "Hypothesis  ", options: { bold: true, color: C.accent1 } }, { text: "Borrowing routing and scheduling methods from computer networks may help the robots finish more orders.", options: { color: C.background1 } }], { x: M + 0.35, y: 5.22, w: 11.4, h: 0.9, fontSize: 18, valign: "middle", margin: 0, isTextBox: true });
+  slide.addText("It is only a guess. Which kind helps, routing or scheduling, must be tested: that is the next part.", { x: M + 0.35, y: 6.1, w: 11.4, h: 0.6, fontSize: 15, italic: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
 }
 
 // ---------- 7 model ----------

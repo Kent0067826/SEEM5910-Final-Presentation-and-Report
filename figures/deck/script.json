@@ -139,32 +139,27 @@
   "n": 5,
   "speaker": 2,
   "time": "0:55",
-  "title": "Prior work misses one number",
+  "title": "Prior work: four groups of methods",
   "figs": [],
   "hints": [
-   "4 groups: assignment / route guidance / PIBT planners / congestion handling",
-   "One door → spreading traffic cannot help",
-   "Starter already has route guidance, still slows",
-   "Missing: count robots heading for the door, at assignment"
+   "4 groups: assignment / route guidance / planners (PIBT) / jam handling",
+   "Each improves its own step",
+   "None looks at the whole system with many factors together"
   ],
-  "en": "【依次指四张卡】 Prior methods fall into four groups. **Order assignment** picks close, cheap orders. **Route guidance** spreads robots to less busy roads. **Planners like PIBT** decide who moves first. **Jam handling** keeps some robots idle. 【指红字 Gap here】 But here, the lower-left rooms have **only one door**, so there is no other road. The starter program already uses route guidance, and it still slows down. 【指底部黄框】 In the methods we read, **no one counts how many robots are already heading for this door when giving out orders.**",
-  "zh": "【依次指四张卡】前人的方法分四类。**派单**挑近的、便宜的单；**选路**把车分到不那么挤的路上；**PIBT 这类规划**决定谁先走；**拥堵处理**让一部分车闲着。【指红字 Gap here】但这张图上，左下房间**只有一道门**，没有别的路可分；官方起始程序已经用了选路引导，照样变慢。【指底部黄框】在我们读到的方法里，**没有一种在派单时去数：已经有多少车正奔向这道门。**",
+  "en": "【依次指四张卡】 Prior methods fall into four groups. **Order assignment** picks close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread to other roads. **Planners like PIBT** decide who moves first and avoid collisions. **Jam handling** keeps some robots idle, or handles robots at narrow passages. 【指底部黄框】 In the methods we read, each one improves **its own step**. None looks at **the whole system** and weighs **many factors together**.",
+  "zh": "【依次指四张卡】前人的方法分四类。**派单**挑近的、便宜的单；**选路**给拥挤的路加代价，让车分散到别的路；**PIBT 这类规划**决定谁先走、避免碰撞；**拥堵处理**让一部分车闲着，或者处理窄道上的车。【指底部黄框】在我们读到的方法里，每一种只优化**自己那一步**，没有一种从**整体**出发、**同时考虑多个因素**来解决这个问题。",
   "segs": [
    {
     "en": "【依次指四张卡】 Prior methods fall into four groups.",
     "zh": "【依次指四张卡】前人的方法分四类。"
    },
    {
-    "en": "**Order assignment** picks close, cheap orders. **Route guidance** spreads robots to less busy roads. **Planners like PIBT** decide who moves first. **Jam handling** keeps some robots idle.",
-    "zh": "**派单**挑近的、便宜的单；**选路**把车分到不那么挤的路上；**PIBT 这类规划**决定谁先走；**拥堵处理**让一部分车闲着。"
+    "en": "**Order assignment** picks close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread to other roads. **Planners like PIBT** decide who moves first and avoid collisions. **Jam handling** keeps some robots idle, or handles robots at narrow passages.",
+    "zh": "**派单**挑近的、便宜的单；**选路**给拥挤的路加代价，让车分散到别的路；**PIBT 这类规划**决定谁先走、避免碰撞；**拥堵处理**让一部分车闲着，或者处理窄道上的车。"
    },
    {
-    "en": "【指红字 Gap here】 But here, the lower-left rooms have **only one door**, so there is no other road. The starter program already uses route guidance, and it still slows down.",
-    "zh": "【指红字 Gap here】但这张图上，左下房间**只有一道门**，没有别的路可分；官方起始程序已经用了选路引导，照样变慢。"
-   },
-   {
-    "en": "【指底部黄框】 In the methods we read, **no one counts how many robots are already heading for this door when giving out orders.**",
-    "zh": "【指底部黄框】在我们读到的方法里，**没有一种在派单时去数：已经有多少车正奔向这道门。**"
+    "en": "【指底部黄框】 In the methods we read, each one improves **its own step**. None looks at **the whole system** and weighs **many factors together**.",
+    "zh": "【指底部黄框】在我们读到的方法里，每一种只优化**自己那一步**，没有一种从**整体**出发、**同时考虑多个因素**来解决这个问题。"
    }
   ]
  },
@@ -175,22 +170,27 @@
   "title": "Our idea: treat the warehouse as a computer network",
   "figs": [],
   "hints": [
-   "Door = link; order through 8 doors = packet through 8 routers; jam = congestion",
-   "Why networks: decades on shared links; mature algorithms; we are CS students",
-   "Hypothesis: borrow routing + scheduling",
-   "Only a hypothesis → test",
+   "Want a more systematic approach",
+   "Teammate: implemented + optimized backbone traffic scheduling at a global carrier → network angle",
+   "Door = link; order = packet through routers; more robots, fewer crossings = congestion",
+   "Why networks: whole-system view; proven routing + scheduling; hands-on experience",
+   "Hypothesis: borrow routing + scheduling → test",
    "Hand over to Speaker 3 (technical part)"
   ],
-  "en": "This reminded us of a computer network. 【指左边三行】 **A door is like a link**, an **order is like a packet** passing routers, and **more robots, fewer crossings is like network congestion**. 【指右边 1、2、3】 Why networks? They have solved **many senders sharing few links** for **decades**. They have proven methods for **routing**, which path to take, and **scheduling**, who goes when. And **we study computer science**, so we know these methods and their limits. 【指底部深色框】 Our guess: **borrowing routing and scheduling from networks may help robots finish more orders.** We had to test it. Speaker 3 will explain the model.",
-  "zh": "这让我们想到计算机网络。【指左边三行】**门像一条链路**，**一单像经过一串路由器的数据包**，**车越多、过得越少，像网络拥塞**。【指右边 1、2、3】为什么是网络？网络几十年来解决的就是**很多发送者共用少数线路**；它有成熟的**路由**（走哪条路）和**调度**（谁什么时候走）方法；而且**我们学计算机**，熟悉这些方法和它们的前提。【指底部深色框】我们的猜想：**借用网络的路由和调度，也许能让车完成更多的单。** 这要靠实验检验。下面讲者 3 讲模型。",
+  "en": "So we wanted a **more systematic** way to solve the problem. One of us has **implemented and optimized traffic scheduling algorithms on a global carrier's backbone network**, so we decided to explore from the **computer network** angle. 【指左边三行】 Seen this way, **a door is like a link**, **an order is like a packet** passing a chain of routers, and **more robots but fewer crossings is like network congestion**. 【指右边 1、2、3】 Networks fit for three reasons. They look at **the whole system**: for decades they have handled **many senders sharing few links**. They have proven methods for **routing**, which path to take, and **scheduling**, who goes when. And we have **hands-on experience** with these methods, so we know what they assume. 【指底部深色框】 Our guess: **borrowing routing and scheduling from networks may help robots finish more orders.** We had to test it. Speaker 3 will explain the model.",
+  "zh": "所以我们想用**更系统**的思路和方法来解决这个问题。我们组有同学**在全球网络运营商的骨干网上实施和优化过流量调度算法**，所以我们决定从**计算机网络**的角度去探索。【指左边三行】从这个角度看，**门像一条链路**，**一单像经过一串路由器的数据包**，**车越多、过得越少，就像网络拥塞**。【指右边 1、2、3】网络合适有三个原因：它看的是**整个系统**，几十年来解决的就是**很多发送者共用少数线路**；它有成熟的**路由**（走哪条路）和**调度**（谁什么时候走）方法；我们对这些方法有**实际经验**，知道它们的前提。【指底部深色框】我们的猜想：**借用网络的路由和调度，也许能让车完成更多的单。** 这要靠实验检验。下面讲者 3 讲模型。",
   "segs": [
    {
-    "en": "This reminded us of a computer network. 【指左边三行】 **A door is like a link**, an **order is like a packet** passing routers, and **more robots, fewer crossings is like network congestion**.",
-    "zh": "这让我们想到计算机网络。【指左边三行】**门像一条链路**，**一单像经过一串路由器的数据包**，**车越多、过得越少，像网络拥塞**。"
+    "en": "So we wanted a **more systematic** way to solve the problem. One of us has **implemented and optimized traffic scheduling algorithms on a global carrier's backbone network**, so we decided to explore from the **computer network** angle.",
+    "zh": "所以我们想用**更系统**的思路和方法来解决这个问题。我们组有同学**在全球网络运营商的骨干网上实施和优化过流量调度算法**，所以我们决定从**计算机网络**的角度去探索。"
    },
    {
-    "en": "【指右边 1、2、3】 Why networks? They have solved **many senders sharing few links** for **decades**. They have proven methods for **routing**, which path to take, and **scheduling**, who goes when. And **we study computer science**, so we know these methods and their limits.",
-    "zh": "【指右边 1、2、3】为什么是网络？网络几十年来解决的就是**很多发送者共用少数线路**；它有成熟的**路由**（走哪条路）和**调度**（谁什么时候走）方法；而且**我们学计算机**，熟悉这些方法和它们的前提。"
+    "en": "【指左边三行】 Seen this way, **a door is like a link**, **an order is like a packet** passing a chain of routers, and **more robots but fewer crossings is like network congestion**.",
+    "zh": "【指左边三行】从这个角度看，**门像一条链路**，**一单像经过一串路由器的数据包**，**车越多、过得越少，就像网络拥塞**。"
+   },
+   {
+    "en": "【指右边 1、2、3】 Networks fit for three reasons. They look at **the whole system**: for decades they have handled **many senders sharing few links**. They have proven methods for **routing**, which path to take, and **scheduling**, who goes when. And we have **hands-on experience** with these methods, so we know what they assume.",
+    "zh": "【指右边 1、2、3】网络合适有三个原因：它看的是**整个系统**，几十年来解决的就是**很多发送者共用少数线路**；它有成熟的**路由**（走哪条路）和**调度**（谁什么时候走）方法；我们对这些方法有**实际经验**，知道它们的前提。"
    },
    {
     "en": "【指底部深色框】 Our guess: **borrowing routing and scheduling from networks may help robots finish more orders.** We had to test it.",
