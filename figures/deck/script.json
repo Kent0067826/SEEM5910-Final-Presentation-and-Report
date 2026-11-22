@@ -458,11 +458,10 @@
    "Bars: starter → champion → fixed executor → ours",
    "+140.5% vs starter",
    "+76.5% vs same base (fairest)",
-   "618 → 1,106 (250 robots)",
-   "All 8 official instances: +113.6%; no harm where off"
+   "618 → 1,106 (250 robots)"
   ],
-  "en": "Thank you. Results on the **official room map**: three fleet sizes, **20 runs** each. 【指柱状图，从灰到橙】 Each bar adds one step: starter program, champion's assignment, fixed executor, and, in orange, our control. 【指 +140.5%】 Against the starter program: **plus 140.5 percent**. 【指 +76.5%】 The **fairest comparison**, same assignment and same fixed executor, so only our control differs: **plus 76.5 percent**. 【指 618 → 1,106】 With 250 robots: **618 orders become 1,106**. 【指底部小字】 On all eight official instances, it is **plus 113.6 percent**. On maps where our control **never turns on**, results stay the same: **no harm**.",
-  "zh": "谢谢。这是**官方房间图**上的结果：三种车数，每种 **20 局**。【指柱状图，从灰到橙】每根柱子加一步：起始程序、冠军派单、修好执行器，橙色是加上我们的控制。【指 +140.5%】比起始程序：**多 140.5%**。【指 +76.5%】**最公平的比较**是同样派单、同样修好执行器，只差我们的控制：**多 76.5%**。【指 618 → 1,106】250 台车时：**从 618 单到 1106 单**。【指底部小字】算官方全部 8 个实例是 **+113.6%**。在我们的控制**根本不启动**的图上，结果不变：**不添乱**。",
+  "en": "Thank you. Results on the **official room map**: three fleet sizes, **20 runs** each. 【指柱状图，从灰到橙】 Each bar adds one step: starter program, champion's assignment, fixed executor, and, in orange, our control. 【指 +140.5%】 Against the starter program: **plus 140.5 percent**. 【指 +76.5%】 The **fairest comparison**, same assignment and same fixed executor, so only our control differs: **plus 76.5 percent**. 【指 618 → 1,106】 With 250 robots: **618 orders become 1,106**.",
+  "zh": "谢谢。这是**官方房间图**上的结果：三种车数，每种 **20 局**。【指柱状图，从灰到橙】每根柱子加一步：起始程序、冠军派单、修好执行器，橙色是加上我们的控制。【指 +140.5%】比起始程序：**多 140.5%**。【指 +76.5%】**最公平的比较**是同样派单、同样修好执行器，只差我们的控制：**多 76.5%**。【指 618 → 1,106】250 台车时：**从 618 单到 1106 单**。",
   "segs": [
    {
     "en": "Thank you. Results on the **official room map**: three fleet sizes, **20 runs** each.",
@@ -479,10 +478,6 @@
    {
     "en": "【指 618 → 1,106】 With 250 robots: **618 orders become 1,106**.",
     "zh": "【指 618 → 1,106】250 台车时：**从 618 单到 1106 单**。"
-   },
-   {
-    "en": "【指底部小字】 On all eight official instances, it is **plus 113.6 percent**. On maps where our control **never turns on**, results stay the same: **no harm**.",
-    "zh": "【指底部小字】算官方全部 8 个实例是 **+113.6%**。在我们的控制**根本不启动**的图上，结果不变：**不添乱**。"
    }
   ]
  },

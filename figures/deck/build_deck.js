@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v10.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v11.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -327,11 +327,11 @@ section(1);
 // ---------- 13 results ----------
 {
   const s = S(13); const slide = content(s);
-  const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only our control differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2], ["+113.6%", "all 8 official instances; where our control never turns on, results are unchanged", C.accent2]];
+  const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only our control differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]];
   st.forEach(([b, l, col], i) => {
-    const y = 1.4 + i * 1.38;
-    slide.addText(b, { x: M, y, w: 3.7, h: 0.62, fontSize: 30, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
-    slide.addText(l, { x: M, y: y + 0.64, w: 3.7, h: 0.7, fontSize: 12, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
+    const y = 1.5 + i * 1.65;
+    slide.addText(b, { x: M, y, w: 3.7, h: 0.7, fontSize: 34, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
+    slide.addText(l, { x: M, y: y + 0.74, w: 3.7, h: 0.75, fontSize: 14, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
   });
   addImg(slide, "ladder", 4.5, 1.35, 8.25, 4.75);
   para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **our control (orange)**.", 4.6, 6.2, 8.1, 0.7, 13, C.accent4, C.text2);
