@@ -538,7 +538,7 @@
  {
   "n": 16,
   "speaker": 3,
-  "time": "1:30",
+  "time": "1:35",
   "title": "Does it only work on this map? Random doors",
   "figs": [
    "换图测试图（8 张随机门房间图 × 2 种车数）"
@@ -655,40 +655,37 @@
  {
   "n": 19,
   "speaker": 4,
-  "time": "1:30",
-  "title": "We tried many ideas: the failures led us to what works",
+  "time": "1:25",
+  "title": "We tried many ideas; not all of them worked",
   "figs": [
-   "失败尝试与教训表（幻灯片上的表格，数字取自报告第九节）"
+   "失败尝试总表（幻灯片上，两个阶段全部失败项，按组分六列，关键项标红；数字取自报告第九节）"
   ],
   "hints": [
-   "Tried many ideas; table: what failed, why, what it taught us",
-   "Rerouting: 14 of 15 worse (worst −25.9%, best +0.20%) → scheduling",
-   "Throttle after a jam −7 to −15 points; physical capacity 49 → −17.2% → quota at assignment from measured 26",
-   "Fixed timetable −5.0 / −6.4%; 3-cell step-back deadlocks 11 → 29 → serve until empty, 4 cells",
-   "Two-lane doors deadlock 1,114 → 700; no-step-back without limit −64% → watchdog"
+   "Tried a lot; this page = everything we tested that failed",
+   "Phase 1 ideas + 68 of 69 network protocols",
+   "Red: rerouting HN-SPF −25.88%; throttle after a jam −7 to −15 points; quota 49 → −17.2%",
+   "Red: credit flow −2.74% (saved waiting ≠ crossings); no stepping back −64.09%; timetable switching −4.98% / −6.43%",
+   "Why: door 6 cannot be bypassed; robots cannot be dropped and take cells; few-map gains; 38 of 69 stopped at a quick measurement",
+   "These failures narrowed us down to the few methods we kept"
   ],
-  "en": "We tried **many** ideas, and most of them did not work. 【指表格】 This table shows some that we tested and that failed, **why** they failed, and **what each failure taught us**. Together, they led us to the methods we kept. 【指第一行】 Of **15 rerouting** methods, 14 made things worse, by up to **25.9 percent**, and the best gained only **0.20 percent**. Door 6 cannot be bypassed. That pushed us to **scheduling**. 【指第二行】 **Slowing down only after a jam is detected** lost **7 to 15 points** on room maps: by then, robots already block the door. A quota from the door's **physical capacity, 49 robots**, was too loose: **minus 17.2 percent** with 300 robots. So our quota is set **when orders are given out**, from the **measured 26**. 【指第三行】 **Switching the door on a fixed timetable** lost **5.0 and 6.4 percent**: it switches even when nobody is waiting. Stepping back **3 cells** instead of 4 raised the deadlocked runs **from 11 to 29**. So the door **serves until empty**, and robots **step back 4 cells**. 【指第四行】 **Splitting wide doors into two lanes** caused a **deadlock**: one run fell from **1,114 to 700** orders. Forbidding robots to step back **with no time limit** lost **64 percent**. That is why we added the **watchdog**: after waiting too long, a rule is relaxed.",
-  "zh": "我们其实试了**非常多**的办法，大多数没有用。【指表格】这张表列出我们测试过、但失败了的一些办法，**为什么失败**，以及**每次失败让我们学到了什么**。正是这些失败，最后让我们找到了留下来的这几个办法。【指第一行】**15 种换路**办法里 14 种变差，最多少了 **25.9%**，最好的一种也只多 **0.20%**。门 6 根本绕不开，这让我们转向**调度**。【指第二行】**测到拥堵才限流**，房间图少了 **7 到 15 个百分点**：等测到时，车已经堵在门口了。按门的**物理容量 49 台**定名额又太松：300 台时少了 **17.2%**。所以我们的名额**在派单时**就算，用的是**实测的 26 台**。【指第三行】门**按固定时间表换向**，少了 **5.0% 和 6.4%**：没人等也照样换。让路从 4 格改成 **3 格**，堵死的局从 **11 局增到 29 局**。所以门**服务到走空再换**，对面的车**退 4 格**。【指第四行】把宽门**分成两条道**引出了**死锁**：有一局从 **1114 单掉到 700 单**。不许车退回、却**不设期限**，少了 **64%**。所以我们加了**看门狗**：等太久就放宽规则。",
+  "en": "We tried a **lot** of ideas, and most of them did not work. 【指整张图】 This page lists the ones we tested that failed: the ideas from our first phase, and **68 of the 69** network protocols we brought over. 【指红字】 The key ones are in red. 【指第五列红字】 **Changing routes** did not pay off: one method, **HN-SPF**, lost **25.88 percent**. 【指第一列红字】 **Slowing down only after a jam is seen** came too late: room maps lost **7 to 15 points**. A quota from the door's **physical capacity, 49 robots**, was too loose: **minus 17.2 percent** with 300 robots. 【指第六列红字】 **Hop-by-hop credit flow** lost **2.74 percent**: robots waited less, but the saved waiting **did not become more crossings**. 【指第五列红字】 Forbidding robots to step back, **with no time limit**, lost **64 percent**. 【指第三列红字】 And switching the door **on a fixed timetable** lost **5.0 and 6.4 percent**. 【指底部五张卡】 Most failures came down to a few reasons: door 6 cannot be bypassed; robots cannot be dropped and take up cells; and gains on a few maps did not hold on new ones. **38 of the 69** stopped at a quick measurement, before any code. These failures showed us where the real limit was, and slowly narrowed us down to the few methods we kept.",
+  "zh": "我们其实试了**非常多**的办法，大多数没有用。【指整张图】这一页列出我们测试过、但失败了的办法：第一阶段的想法，加上我们搬过来的 **69 种**网络协议里的 **68 种**。【指红字】关键的几项标成了红色。【指第五列红字】**换路**没有用：比如 **HN-SPF** 少了 **25.88%**。【指第一列红字】**测到拥堵才限流**太晚了，房间图少了 **7 到 15 个百分点**。按门的**物理容量 49 台**定名额又太松：300 台时少了 **17.2%**。【指第六列红字】**逐跳信用流控**少了 **2.74%**：车等得少了，但省下的等待**没有变成多过门**。【指第五列红字】不许车退回、又**不设期限**，少了 **64%**。【指第三列红字】门**按固定时间表换向**，少了 **5.0% 和 6.4%**。【指底部五张卡】大多数失败归结为几个原因：门 6 绕不开；车不能丢、还占着格子；只在少数几张图上有提升，换新图就没了。69 种里有 **38 种**先量一下就停了，没写代码。这些失败让我们看清真正的上限在哪里，一步步把范围缩小到最后留下的这几个办法。",
   "segs": [
    {
-    "en": "We tried **many** ideas, and most of them did not work. 【指表格】 This table shows some that we tested and that failed, **why** they failed, and **what each failure taught us**. Together, they led us to the methods we kept.",
-    "zh": "我们其实试了**非常多**的办法，大多数没有用。【指表格】这张表列出我们测试过、但失败了的一些办法，**为什么失败**，以及**每次失败让我们学到了什么**。正是这些失败，最后让我们找到了留下来的这几个办法。"
+    "en": "We tried a **lot** of ideas, and most of them did not work. 【指整张图】 This page lists the ones we tested that failed: the ideas from our first phase, and **68 of the 69** network protocols we brought over. 【指红字】 The key ones are in red.",
+    "zh": "我们其实试了**非常多**的办法，大多数没有用。【指整张图】这一页列出我们测试过、但失败了的办法：第一阶段的想法，加上我们搬过来的 **69 种**网络协议里的 **68 种**。【指红字】关键的几项标成了红色。"
    },
    {
-    "en": "【指第一行】 Of **15 rerouting** methods, 14 made things worse, by up to **25.9 percent**, and the best gained only **0.20 percent**. Door 6 cannot be bypassed. That pushed us to **scheduling**.",
-    "zh": "【指第一行】**15 种换路**办法里 14 种变差，最多少了 **25.9%**，最好的一种也只多 **0.20%**。门 6 根本绕不开，这让我们转向**调度**。"
+    "en": "【指第五列红字】 **Changing routes** did not pay off: one method, **HN-SPF**, lost **25.88 percent**. 【指第一列红字】 **Slowing down only after a jam is seen** came too late: room maps lost **7 to 15 points**. A quota from the door's **physical capacity, 49 robots**, was too loose: **minus 17.2 percent** with 300 robots.",
+    "zh": "【指第五列红字】**换路**没有用：比如 **HN-SPF** 少了 **25.88%**。【指第一列红字】**测到拥堵才限流**太晚了，房间图少了 **7 到 15 个百分点**。按门的**物理容量 49 台**定名额又太松：300 台时少了 **17.2%**。"
    },
    {
-    "en": "【指第二行】 **Slowing down only after a jam is detected** lost **7 to 15 points** on room maps: by then, robots already block the door. A quota from the door's **physical capacity, 49 robots**, was too loose: **minus 17.2 percent** with 300 robots. So our quota is set **when orders are given out**, from the **measured 26**.",
-    "zh": "【指第二行】**测到拥堵才限流**，房间图少了 **7 到 15 个百分点**：等测到时，车已经堵在门口了。按门的**物理容量 49 台**定名额又太松：300 台时少了 **17.2%**。所以我们的名额**在派单时**就算，用的是**实测的 26 台**。"
+    "en": "【指第六列红字】 **Hop-by-hop credit flow** lost **2.74 percent**: robots waited less, but the saved waiting **did not become more crossings**. 【指第五列红字】 Forbidding robots to step back, **with no time limit**, lost **64 percent**. 【指第三列红字】 And switching the door **on a fixed timetable** lost **5.0 and 6.4 percent**.",
+    "zh": "【指第六列红字】**逐跳信用流控**少了 **2.74%**：车等得少了，但省下的等待**没有变成多过门**。【指第五列红字】不许车退回、又**不设期限**，少了 **64%**。【指第三列红字】门**按固定时间表换向**，少了 **5.0% 和 6.4%**。"
    },
    {
-    "en": "【指第三行】 **Switching the door on a fixed timetable** lost **5.0 and 6.4 percent**: it switches even when nobody is waiting. Stepping back **3 cells** instead of 4 raised the deadlocked runs **from 11 to 29**. So the door **serves until empty**, and robots **step back 4 cells**.",
-    "zh": "【指第三行】门**按固定时间表换向**，少了 **5.0% 和 6.4%**：没人等也照样换。让路从 4 格改成 **3 格**，堵死的局从 **11 局增到 29 局**。所以门**服务到走空再换**，对面的车**退 4 格**。"
-   },
-   {
-    "en": "【指第四行】 **Splitting wide doors into two lanes** caused a **deadlock**: one run fell from **1,114 to 700** orders. Forbidding robots to step back **with no time limit** lost **64 percent**. That is why we added the **watchdog**: after waiting too long, a rule is relaxed.",
-    "zh": "【指第四行】把宽门**分成两条道**引出了**死锁**：有一局从 **1114 单掉到 700 单**。不许车退回、却**不设期限**，少了 **64%**。所以我们加了**看门狗**：等太久就放宽规则。"
+    "en": "【指底部五张卡】 Most failures came down to a few reasons: door 6 cannot be bypassed; robots cannot be dropped and take up cells; and gains on a few maps did not hold on new ones. **38 of the 69** stopped at a quick measurement, before any code. These failures showed us where the real limit was, and slowly narrowed us down to the few methods we kept.",
+    "zh": "【指底部五张卡】大多数失败归结为几个原因：门 6 绕不开；车不能丢、还占着格子；只在少数几张图上有提升，换新图就没了。69 种里有 **38 种**先量一下就停了，没写代码。这些失败让我们看清真正的上限在哪里，一步步把范围缩小到最后留下的这几个办法。"
    }
   ]
  },

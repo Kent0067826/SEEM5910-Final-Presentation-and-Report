@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v15.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v16.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -421,26 +421,60 @@ section(1);
   para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.   **Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.72, 11.6, 1.15, 15, C.text1, C.text2, "middle");
 }
 
-// ---------- 19 failures that led to the kept methods ----------
+// ---------- 19 everything that failed ----------
 {
   const s = S(19); const slide = content(s);
-  const hx = [M, M + 5.0, M + 8.75], hw = [4.85, 3.55, 3.35];
-  ["What we tried → result", "Why it failed", "→ What we kept"].forEach((h, i) => slide.addText(h, { x: hx[i] + 0.2, y: 1.35, w: hw[i], h: 0.4, fontSize: 14, bold: true, color: C.accent4, margin: 0, isTextBox: true }));
-  const rows = [
-    ["**Rerouting** around door 6: 14 of 15 methods worse, worst **−25.9%**, best only +0.20%", "Door 6 cannot be bypassed: it sets the ceiling", "**Scheduling**, not routing"],
-    ["**Throttle after a jam is seen:** −7 to −15 points on room maps\n**Quota = physical capacity 49:** −17.2% at 300 robots", "Too late: robots already block the door. 49 is far above the measured 26", "**Quota at assignment** = measured bandwidth × delay"],
-    ["**Fixed-timetable switching:** −5.0%, −6.4%\n**Step back 3 cells, not 4:** deadlocked runs 11 → 29", "Switches when nobody waits; 3 cells cannot hold the exiting robots", "**Serve until empty**, step back **4 cells**"],
-    ["**Two lanes in a wide door:** one run 1,114 → 700 (deadlock)\n**No stepping back, no time limit:** −64%", "Rules that never expire lock robots in", "**Watchdog**: relax a rule after waiting too long"],
+  // [text, key?] ; numbers from report section 9 (both tables)
+  const cols = [
+    ["Phase 1 · dispatch & quotas", [
+      ["Early windows & prices: +0.53% on top of the champion"], ["Hungarian matching: −1.9%"], ["Pin broken robots: −2.3%, −4.9%"], ["4× planning compute: −1%"],
+      ["Throttle after a jam is seen: −7 to −15 points on room maps", 1], ["20 small tweaks: none reliable"], ["AIMD quota: worse than fixed"],
+      ["Quota = physical capacity 49: −17.2% (300 robots)", 1], ["Per-link windows: −1.28%, −1.13%, −4.28%"], ["Quotas for missed cuts: −1.12%, −2.78%"],
+      ["BBR-style cap: +0.08%"], ["Region gate: +6.8%, but picked no door"]]],
+    ["Phase 1 · routes & door rules", [
+      ["Early backpressure, backoff, pricing: void (evaluation bug)"], ["Reroute by live occupancy: +1.18% at 1,200 ticks only"], ["Detours: +0.75% (random control +1.07%)"],
+      ["Load balancing: −5.2%, −3.76%, −0.06%"], ["Segment routing: −39.2% to −55.4%"], ["Fix a deadlock between two door rules: confirm +0.11%"],
+      ["Max 80 steps per side: −0.90%"], ["Step back 3 cells: −2.64%, deadlocked runs 11 → 29"], ["Self-computed global cap: −0.27%"],
+      ["Yield past broken robots: one run 1,130 → 351"]]],
+    ["Protocols · door order", [
+      ["NAV reservation: +0.20%, worst −7.60%"], ["EF priority for crossers: −0.74%"], ["Token-ring early release: +0.55%, −0.50%"],
+      ["802.1Qbv timetable switching: −4.98%, −6.43%", 1], ["VOQ: +1.07%, mostly from 2 maps"],
+      ["TXOP, iSLIP, fast reroute, MPLS, RSVP-TE, PCE, hop-by-hop admission: skipped"]]],
+    ["Protocols · rate & quotas", [
+      ["Token bucket: −1.82%, −2.42%"], ["PFC pause on dispatch: −4.11%"], ["HTTP pipelining: +0.25%, worst −7.47%"], ["Looser global quota: −0.46%, −1.08%"],
+      ["Longer execution window: −2.36%, −2.92%"], ["SWAN headroom: dev +1.69%, confirm −0.75%"], ["Quota from early measurement: −0.05%"],
+      ["Auto-bandwidth quotas: never triggered"], ["CoDel, DCTCP, ECN, DCQCN, BwE: skipped"]]],
+    ["Protocols · rerouting", [
+      ["BFD + LFA detour: −2.07%"], ["FRER backup doors: −6.04%, −9.88%"], ["SWAN / B4 strict priority: −1.25%, −1.31%"], ["Fortz–Thorup weights: −0.29%"],
+      ["Retarget on arrival: −1.36%"], ["oFIB, no stepping back: −64.09%", 1], ["HN-SPF link costs: −25.88%", 1], ["CSPF detour limit: −20.98%, −8.70%"],
+      ["BGP damping: +0.20%, rarely triggered"], ["Two lanes in wide doors: +0.20%; one deadlock 1,114 → 700"], ["Anycast, flowlets, deflection, …: skipped"]]],
+    ["Protocols · queues & deadlock", [
+      ["Hop-by-hop credit flow: −2.74%", 1], ["RED early drop: −0.47%, −0.69%"], ["Predictive follow-up: −1.24%"], ["More door schedulers (SDN): −0.06%, −0.13%"],
+      ["Turn before the door: −1.32%, −2.09%"], ["Duato escape channel: +0.02%"], ["Watchdog re-timing: +0.13%"], ["4-mechanism combo: +1.65%, mostly 1 map"],
+      ["Wormhole, cut-through, cycle breaking, …: skipped"]]],
   ];
-  rows.forEach(([a1, a2, a3], i) => {
-    const y = 1.8 + i * 1.2;
-    card(slide, M, y, 12.15, 1.08, i % 2 ? C.background1 : C.background2);
-    para(slide, a1, hx[0] + 0.2, y, hw[0], 1.08, 14, C.text1, C.text2, "middle");
-    para(slide, a2, hx[1] + 0.2, y, hw[1], 1.08, 14, C.text1, C.text2, "middle");
-    card(slide, hx[2] + 0.05, y + 0.12, 3.35, 0.84, C.accent6);
-    para(slide, a3, hx[2] + 0.2, y + 0.12, hw[2] - 0.3, 0.84, 15, C.text1, C.accent2, "middle");
+  const cw = 1.95, gap = 0.09;
+  cols.forEach(([head, items], i) => {
+    const x = M + i * (cw + gap);
+    card(slide, x, 1.3, cw, 3.95, C.background2);
+    slide.addText(head, { x: x + 0.1, y: 1.36, w: cw - 0.2, h: 0.42, fontSize: 10.5, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "top" });
+    const runs = items.map(([txt, key], j) => ({ text: txt, options: { color: key ? C.accent3 : C.text1, bold: !!key, breakLine: j < items.length - 1, paraSpaceAfter: 2.5 } }));
+    slide.addText(runs, { x: x + 0.1, y: 1.8, w: cw - 0.18, h: 3.4, fontSize: 8.5, valign: "top", margin: 0, isTextBox: true });
   });
-  caption(slide, "Each change is vs the method at that time, on that round's test set (report, section 9). Protocol phase alone: 69 network mechanisms tried, 1 kept.", M, 6.65, 12.1);
+  slide.addText("Why they failed", { x: M, y: 5.32, w: 4, h: 0.32, fontSize: 13, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  const why = [
+    "**Door 6 cannot be bypassed:** 14 of 15 rerouting methods lost",
+    "**Robots cannot be dropped and take up cells:** loss-, buffer- and priority-based protocols do not carry over",
+    "**Saved waiting ≠ more crossings:** only crossing door 6 adds orders",
+    "**Gains on a few maps only:** 7 of 69 passed development but not new maps",
+    "**Too little to gain:** 38 of 69 stopped at a quick measurement, before any code",
+  ];
+  why.forEach((t2, i) => {
+    const x = M + i * 2.45;
+    card(slide, x, 5.68, 2.35, 1.0, C.accent6);
+    para(slide, t2, x + 0.12, 5.7, 2.13, 0.96, 10, C.text1, C.text2, "middle");
+  });
+  caption(slide, "Red = key failures. Each result is vs the method at that time, on that round's test set (report, section 9). Skipped = stopped at a quick measurement.", M, 6.75, 12.1);
 }
 
 // ---------- 20 conclusion ----------
