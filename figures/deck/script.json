@@ -30,7 +30,7 @@
  {
   "n": 2,
   "speaker": 1,
-  "time": "0:35",
+  "time": "0:30",
   "title": "The task: hundreds of robots, narrow doors",
   "figs": [
    "图 1 背景图"
@@ -102,7 +102,7 @@
  {
   "n": 4,
   "speaker": 2,
-  "time": "0:45",
+  "time": "0:40",
   "title": "Robots jam at one narrow door",
   "figs": [
    "图 3 第 3000 拍堵门截图"
@@ -166,7 +166,7 @@
  {
   "n": 6,
   "speaker": 2,
-  "time": "1:05",
+  "time": "1:00",
   "title": "Our idea: treat the warehouse as a computer network",
   "figs": [],
   "hints": [
@@ -276,7 +276,7 @@
  {
   "n": 9,
   "speaker": 3,
-  "time": "0:50",
+  "time": "0:45",
   "title": "Routing or scheduling? The ceiling decides",
   "figs": [
    "图 7 天花板公式"
@@ -317,7 +317,7 @@
  {
   "n": 10,
   "speaker": 3,
-  "time": "1:00",
+  "time": "0:55",
   "title": "Scheduling 1: the TCP window principle",
   "figs": [
    "TCP / BBR 概念图（示意，不是实测数据）"
@@ -354,7 +354,7 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "1:25",
+  "time": "1:20",
   "title": "Scheduling 1: why BBR, not ordinary TCP",
   "figs": [
    "BBR 与丢包型 TCP 概念图（示意，不是实测数据）"
@@ -396,7 +396,7 @@
  {
   "n": 12,
   "speaker": 3,
-  "time": "1:00",
+  "time": "0:55",
   "title": "Scheduling 1: our per-door quota = bandwidth × delay",
   "figs": [
    "图 9 在途车与过门数",
@@ -465,7 +465,7 @@
  {
   "n": 14,
   "speaker": 3,
-  "time": "1:10",
+  "time": "1:05",
   "title": "Scheduling 2: queue scheduling at the door",
   "figs": [
    "图 11 门利用率公式"
@@ -538,7 +538,7 @@
  {
   "n": 16,
   "speaker": 3,
-  "time": "1:45",
+  "time": "1:30",
   "title": "Does it only work on this map? Random doors",
   "figs": [
    "换图测试图（8 张随机门房间图 × 2 种车数）"
@@ -624,7 +624,7 @@
  {
   "n": 18,
   "speaker": 4,
-  "time": "0:25",
+  "time": "0:20",
   "title": "Which parts matter?",
   "figs": [
    "图 16 逐项拿掉与加上"
@@ -655,38 +655,47 @@
  {
   "n": 19,
   "speaker": 4,
-  "time": "0:25",
-  "title": "Most ideas failed, and why",
+  "time": "1:30",
+  "title": "We tried many ideas: the failures led us to what works",
   "figs": [
-   "图 18 69 项机制的筛选漏斗"
+   "失败尝试与教训表（幻灯片上的表格，数字取自报告第九节）"
   ],
   "hints": [
-   "69 mechanisms",
-   "38 measure-first / 23 development / 7 new maps / 1 passed",
-   "Every rerouting method lost",
-   "Lessons: assumptions break; door 6 sets throughput; confirm on new maps"
+   "Tried many ideas; table: what failed, why, what it taught us",
+   "Rerouting: 14 of 15 worse (worst −25.9%, best +0.20%) → scheduling",
+   "Throttle after a jam −7 to −15 points; physical capacity 49 → −17.2% → quota at assignment from measured 26",
+   "Fixed timetable −5.0 / −6.4%; 3-cell step-back deadlocks 11 → 29 → serve until empty, 4 cells",
+   "Two-lane doors deadlock 1,114 → 700; no-step-back without limit −64% → watchdog"
   ],
-  "en": "Most of our ideas failed. 【指漏斗从上到下】 We tried **69 network mechanisms**. **38** were dropped after a quick check, **23** failed testing, **7** failed on new maps. **Only one passed: the watchdog.** **Every rerouting idea lost.** 【指三张卡】 Three lessons. **Network assumptions often break for robots.** **Door 6 sets the limit.** **Always confirm on new maps.**",
-  "zh": "我们的大多数想法都失败了。【指漏斗从上到下】我们试了 **69 种网络机制**。**38 种**先量一下就放弃，**23 种**没过测试，**7 种**在新图上没确认。**只有看门狗 1 种通过。** **所有换路办法都变差。**【指三张卡】三点教训：**网络的前提在车上常常不成立；上限由门 6 决定；提升一定要换新图确认。**",
+  "en": "We tried **many** ideas, and most of them did not work. 【指表格】 This table shows some that we tested and that failed, **why** they failed, and **what each failure taught us**. Together, they led us to the methods we kept. 【指第一行】 Of **15 rerouting** methods, 14 made things worse, by up to **25.9 percent**, and the best gained only **0.20 percent**. Door 6 cannot be bypassed. That pushed us to **scheduling**. 【指第二行】 **Slowing down only after a jam is detected** lost **7 to 15 points** on room maps: by then, robots already block the door. A quota from the door's **physical capacity, 49 robots**, was too loose: **minus 17.2 percent** with 300 robots. So our quota is set **when orders are given out**, from the **measured 26**. 【指第三行】 **Switching the door on a fixed timetable** lost **5.0 and 6.4 percent**: it switches even when nobody is waiting. Stepping back **3 cells** instead of 4 raised the deadlocked runs **from 11 to 29**. So the door **serves until empty**, and robots **step back 4 cells**. 【指第四行】 **Splitting wide doors into two lanes** caused a **deadlock**: one run fell from **1,114 to 700** orders. Forbidding robots to step back **with no time limit** lost **64 percent**. That is why we added the **watchdog**: after waiting too long, a rule is relaxed.",
+  "zh": "我们其实试了**非常多**的办法，大多数没有用。【指表格】这张表列出我们测试过、但失败了的一些办法，**为什么失败**，以及**每次失败让我们学到了什么**。正是这些失败，最后让我们找到了留下来的这几个办法。【指第一行】**15 种换路**办法里 14 种变差，最多少了 **25.9%**，最好的一种也只多 **0.20%**。门 6 根本绕不开，这让我们转向**调度**。【指第二行】**测到拥堵才限流**，房间图少了 **7 到 15 个百分点**：等测到时，车已经堵在门口了。按门的**物理容量 49 台**定名额又太松：300 台时少了 **17.2%**。所以我们的名额**在派单时**就算，用的是**实测的 26 台**。【指第三行】门**按固定时间表换向**，少了 **5.0% 和 6.4%**：没人等也照样换。让路从 4 格改成 **3 格**，堵死的局从 **11 局增到 29 局**。所以门**服务到走空再换**，对面的车**退 4 格**。【指第四行】把宽门**分成两条道**引出了**死锁**：有一局从 **1114 单掉到 700 单**。不许车退回、却**不设期限**，少了 **64%**。所以我们加了**看门狗**：等太久就放宽规则。",
   "segs": [
    {
-    "en": "Most of our ideas failed. 【指漏斗从上到下】 We tried **69 network mechanisms**.",
-    "zh": "我们的大多数想法都失败了。【指漏斗从上到下】我们试了 **69 种网络机制**。"
+    "en": "We tried **many** ideas, and most of them did not work. 【指表格】 This table shows some that we tested and that failed, **why** they failed, and **what each failure taught us**. Together, they led us to the methods we kept.",
+    "zh": "我们其实试了**非常多**的办法，大多数没有用。【指表格】这张表列出我们测试过、但失败了的一些办法，**为什么失败**，以及**每次失败让我们学到了什么**。正是这些失败，最后让我们找到了留下来的这几个办法。"
    },
    {
-    "en": "**38** were dropped after a quick check, **23** failed testing, **7** failed on new maps. **Only one passed: the watchdog.** **Every rerouting idea lost.**",
-    "zh": "**38 种**先量一下就放弃，**23 种**没过测试，**7 种**在新图上没确认。**只有看门狗 1 种通过。** **所有换路办法都变差。**"
+    "en": "【指第一行】 Of **15 rerouting** methods, 14 made things worse, by up to **25.9 percent**, and the best gained only **0.20 percent**. Door 6 cannot be bypassed. That pushed us to **scheduling**.",
+    "zh": "【指第一行】**15 种换路**办法里 14 种变差，最多少了 **25.9%**，最好的一种也只多 **0.20%**。门 6 根本绕不开，这让我们转向**调度**。"
    },
    {
-    "en": "【指三张卡】 Three lessons. **Network assumptions often break for robots.** **Door 6 sets the limit.** **Always confirm on new maps.**",
-    "zh": "【指三张卡】三点教训：**网络的前提在车上常常不成立；上限由门 6 决定；提升一定要换新图确认。**"
+    "en": "【指第二行】 **Slowing down only after a jam is detected** lost **7 to 15 points** on room maps: by then, robots already block the door. A quota from the door's **physical capacity, 49 robots**, was too loose: **minus 17.2 percent** with 300 robots. So our quota is set **when orders are given out**, from the **measured 26**.",
+    "zh": "【指第二行】**测到拥堵才限流**，房间图少了 **7 到 15 个百分点**：等测到时，车已经堵在门口了。按门的**物理容量 49 台**定名额又太松：300 台时少了 **17.2%**。所以我们的名额**在派单时**就算，用的是**实测的 26 台**。"
+   },
+   {
+    "en": "【指第三行】 **Switching the door on a fixed timetable** lost **5.0 and 6.4 percent**: it switches even when nobody is waiting. Stepping back **3 cells** instead of 4 raised the deadlocked runs **from 11 to 29**. So the door **serves until empty**, and robots **step back 4 cells**.",
+    "zh": "【指第三行】门**按固定时间表换向**，少了 **5.0% 和 6.4%**：没人等也照样换。让路从 4 格改成 **3 格**，堵死的局从 **11 局增到 29 局**。所以门**服务到走空再换**，对面的车**退 4 格**。"
+   },
+   {
+    "en": "【指第四行】 **Splitting wide doors into two lanes** caused a **deadlock**: one run fell from **1,114 to 700** orders. Forbidding robots to step back **with no time limit** lost **64 percent**. That is why we added the **watchdog**: after waiting too long, a rule is relaxed.",
+    "zh": "【指第四行】把宽门**分成两条道**引出了**死锁**：有一局从 **1114 单掉到 700 单**。不许车退回、却**不设期限**，少了 **64%**。所以我们加了**看门狗**：等太久就放宽规则。"
    }
   ]
  },
  {
   "n": 20,
   "speaker": 4,
-  "time": "0:35",
+  "time": "0:30",
   "title": "Conclusion",
   "figs": [],
   "hints": [

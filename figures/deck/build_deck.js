@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v14.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v15.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -421,19 +421,26 @@ section(1);
   para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.   **Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.72, 11.6, 1.15, 15, C.text1, C.text2, "middle");
 }
 
-// ---------- 19 failures ----------
+// ---------- 19 failures that led to the kept methods ----------
 {
   const s = S(19); const slide = content(s);
-  addImg(slide, "funnel", M, 1.3, 12.1, 3.05);
-  para(slide, "**69 network mechanisms tried:** 38 dropped after a quick check, 23 failed development tests, 7 not confirmed on new maps, **only 1 passed (the watchdog)**. Every rerouting idea lost.", M, 4.42, 12.1, 0.62, 14);
-  const les = [["Assumptions break", "Network methods assume packets can be dropped and take no space; robots cannot be dropped and occupy cells."], ["Door 6 sets the limit", "That is why every rerouting method lost."], ["Confirm on new maps", "Gains on development maps often shrink."]];
-  les.forEach(([a, b], i) => {
-    const x = M + i * 4.1;
-    card(slide, x, 5.15, 3.9, 1.75, C.background2);
-    numCircle(slide, x + 0.2, 5.28, i + 1, 0.45, C.accent3);
-    slide.addText(a, { x: x + 0.8, y: 5.25, w: 3.0, h: 0.5, fontSize: 16, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "middle" });
-    slide.addText(b, { x: x + 0.25, y: 5.85, w: 3.5, h: 1.0, fontSize: 13, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
+  const hx = [M, M + 5.0, M + 8.75], hw = [4.85, 3.55, 3.35];
+  ["What we tried → result", "Why it failed", "→ What we kept"].forEach((h, i) => slide.addText(h, { x: hx[i] + 0.2, y: 1.35, w: hw[i], h: 0.4, fontSize: 14, bold: true, color: C.accent4, margin: 0, isTextBox: true }));
+  const rows = [
+    ["**Rerouting** around door 6: 14 of 15 methods worse, worst **−25.9%**, best only +0.20%", "Door 6 cannot be bypassed: it sets the ceiling", "**Scheduling**, not routing"],
+    ["**Throttle after a jam is seen:** −7 to −15 points on room maps\n**Quota = physical capacity 49:** −17.2% at 300 robots", "Too late: robots already block the door. 49 is far above the measured 26", "**Quota at assignment** = measured bandwidth × delay"],
+    ["**Fixed-timetable switching:** −5.0%, −6.4%\n**Step back 3 cells, not 4:** deadlocked runs 11 → 29", "Switches when nobody waits; 3 cells cannot hold the exiting robots", "**Serve until empty**, step back **4 cells**"],
+    ["**Two lanes in a wide door:** one run 1,114 → 700 (deadlock)\n**No stepping back, no time limit:** −64%", "Rules that never expire lock robots in", "**Watchdog**: relax a rule after waiting too long"],
+  ];
+  rows.forEach(([a1, a2, a3], i) => {
+    const y = 1.8 + i * 1.2;
+    card(slide, M, y, 12.15, 1.08, i % 2 ? C.background1 : C.background2);
+    para(slide, a1, hx[0] + 0.2, y, hw[0], 1.08, 14, C.text1, C.text2, "middle");
+    para(slide, a2, hx[1] + 0.2, y, hw[1], 1.08, 14, C.text1, C.text2, "middle");
+    card(slide, hx[2] + 0.05, y + 0.12, 3.35, 0.84, C.accent6);
+    para(slide, a3, hx[2] + 0.2, y + 0.12, hw[2] - 0.3, 0.84, 15, C.text1, C.accent2, "middle");
   });
+  caption(slide, "Each change is vs the method at that time, on that round's test set (report, section 9). Protocol phase alone: 69 network mechanisms tried, 1 kept.", M, 6.65, 12.1);
 }
 
 // ---------- 20 conclusion ----------
