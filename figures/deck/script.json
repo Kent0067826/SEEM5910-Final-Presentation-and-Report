@@ -2,7 +2,7 @@
  {
   "n": 1,
   "speaker": 1,
-  "time": "0:20",
+  "time": "0:25",
   "title": "Managing Warehouse Robots Like a Computer Network",
   "figs": [],
   "hints": [
@@ -30,7 +30,7 @@
  {
   "n": 2,
   "speaker": 1,
-  "time": "0:50",
+  "time": "0:45",
   "title": "The task: hundreds of robots, narrow doors",
   "figs": [
    "图 1 背景图"
@@ -65,7 +65,7 @@
  {
   "n": 3,
   "speaker": 1,
-  "time": "0:50",
+  "time": "0:40",
   "title": "The longer it runs, the slower it gets",
   "figs": [
    "图 2 越跑越慢曲线"
@@ -102,7 +102,7 @@
  {
   "n": 4,
   "speaker": 2,
-  "time": "0:50",
+  "time": "0:55",
   "title": "Robots jam at one narrow door",
   "figs": [
    "图 3 第 3000 拍堵门截图"
@@ -138,7 +138,7 @@
  {
   "n": 5,
   "speaker": 2,
-  "time": "0:55",
+  "time": "0:40",
   "title": "Prior work: four groups of methods",
   "figs": [],
   "hints": [
@@ -166,7 +166,7 @@
  {
   "n": 6,
   "speaker": 2,
-  "time": "1:00",
+  "time": "1:20",
   "title": "Our idea: treat the warehouse as a computer network",
   "figs": [],
   "hints": [
@@ -240,7 +240,7 @@
  {
   "n": 8,
   "speaker": 3,
-  "time": "0:50",
+  "time": "0:45",
   "title": "Similar, but not the same",
   "figs": [
    "图 5 仓库与网络的对应"
@@ -276,7 +276,7 @@
  {
   "n": 9,
   "speaker": 3,
-  "time": "0:55",
+  "time": "1:05",
   "title": "Routing or scheduling? The ceiling decides",
   "figs": [
    "图 7 天花板公式"
@@ -317,7 +317,7 @@
  {
   "n": 10,
   "speaker": 3,
-  "time": "1:20",
+  "time": "1:10",
   "title": "Scheduling 1: a per-door quota, like a TCP window",
   "figs": [
    "图 9 在途车与过门数",
@@ -359,7 +359,7 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "1:15",
+  "time": "1:00",
   "title": "Scheduling 2: one side at a time, switch when empty",
   "figs": [
    "图 10 门口规则示意",
@@ -401,23 +401,19 @@
  {
   "n": 12,
   "speaker": 3,
-  "time": "1:10",
-  "title": "A bug fix and two safety nets",
+  "time": "0:30",
+  "title": "Scheduling 3: a bug fix in the executor",
   "figs": [
-   "图 12 执行器修复示意",
-   "图 13 全图上限公式"
+   "图 12 执行器修复示意"
   ],
   "hints": [
-   "Stuck at 22",
-   "Credit flow control: return a freed slot at once",
+   "Stuck at 22 per 500 ticks",
+   "Credit flow control: report a freed slot at once",
    "Executor kept robot in old cell's queue",
-   "3 lines → 26",
-   "Global cap 138 (Little's law)",
-   "Watchdog 300 ticks; relax rule, never drop",
-   "Hand over to Speaker 4"
+   "3 lines → back to 26"
   ],
-  "en": "Third, a **bug fix**. Door 6 was **stuck at 22** robots per 500 ticks. In **credit flow control**, a freed slot must be reported **at once**. 【指上排】 But the official executor **kept a robot in a cell's queue after it left**, so the next robot waited a whole round. 【指下排和 22 → 26】 **Three lines** fixed it: back to **26**. 【指右上】 Then, **two safety nets**. A **global cap** from Little's law: **1.76 times 69.2 divided by 500, times 2.23, times 255, is 138 robots** with orders at most. 【指右下】 And a **deadlock watchdog**: if a robot waits **300 ticks** and its door is idle that long, it may skip the door rule for one tick. **Networks drop packets here; we relax the rule instead.** Speaker 4 will show the results.",
-  "zh": "第三，**修一个程序错误**。门 6 **卡在每 500 拍 22 台**。**信用流控**要求空位一腾出来就**立刻**报告。【指上排】但官方执行器**在车离开后，那一格的排队名单里还留着它**，后面的车白等一整轮。【指下排和 22 → 26】改了 **3 行**，回到 **26 台**。【指右上】然后是**两个兜底**。按 Little 定律的**全图上限**：**1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138 台**，同时接单最多 138 台。【指右下】还有**死锁看门狗**：车等满 **300 拍**、它的门也 300 拍没车进，就允许它这一拍不守门口规则。**网络在这时丢包，我们改成放宽规则。**下面讲者 4 讲结果。",
+  "en": "Third, a **bug fix**. Door 6 was **stuck at 22** robots per 500 ticks. In **credit flow control**, a freed slot must be reported **at once**. 【指上排】 But the official executor **kept a robot in a cell's queue after it left**, so the next robot waited a whole round. 【指下排和 22 → 26】 **Three lines** fixed it: back to **26**.",
+  "zh": "第三，**修一个程序错误**。门 6 **卡在每 500 拍 22 台**。**信用流控**要求空位一腾出来就**立刻**报告。【指上排】但官方执行器**在车离开后，那一格的排队名单里还留着它**，后面的车白等一整轮。【指下排和 22 → 26】改了 **3 行**，回到 **26 台**。",
   "segs": [
    {
     "en": "Third, a **bug fix**. Door 6 was **stuck at 22** robots per 500 ticks. In **credit flow control**, a freed slot must be reported **at once**.",
@@ -430,25 +426,63 @@
    {
     "en": "【指下排和 22 → 26】 **Three lines** fixed it: back to **26**.",
     "zh": "【指下排和 22 → 26】改了 **3 行**，回到 **26 台**。"
-   },
-   {
-    "en": "【指右上】 Then, **two safety nets**. A **global cap** from Little's law: **1.76 times 69.2 divided by 500, times 2.23, times 255, is 138 robots** with orders at most.",
-    "zh": "【指右上】然后是**两个兜底**。按 Little 定律的**全图上限**：**1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138 台**，同时接单最多 138 台。"
-   },
-   {
-    "en": "【指右下】 And a **deadlock watchdog**: if a robot waits **300 ticks** and its door is idle that long, it may skip the door rule for one tick. **Networks drop packets here; we relax the rule instead.**",
-    "zh": "【指右下】还有**死锁看门狗**：车等满 **300 拍**、它的门也 300 拍没车进，就允许它这一拍不守门口规则。**网络在这时丢包，我们改成放宽规则。**"
-   },
-   {
-    "en": "Speaker 4 will show the results.",
-    "zh": "下面讲者 4 讲结果。"
    }
   ]
  },
  {
   "n": 13,
+  "speaker": 3,
+  "time": "2:25",
+  "title": "Does it only work on this map? Random doors",
+  "figs": [
+   "换图测试图（8 张随机门房间图 × 2 种车数）"
+  ],
+  "hints": [
+   "Worry: tuned on the fixed official map only",
+   "Wrote a random door generator → 8 new room maps",
+   "199 / 249 robots, 640 runs: wins every map, +86.9%",
+   "New problem 1: narrow spots → global cap 138 (Little's law); without it −16.9% on one map",
+   "New problem 2: rare deadlock 1,114 → 700 → watchdog 300 ticks, relax rule",
+   "Watchdog: no measurable effect on these 8; earlier confirmation +2.30% on 15 generated room-map instances",
+   "Hand over to Speaker 4"
+  ],
+  "segs": [
+   {
+    "en": "These three changes were all made on the **official map**, where the doors never move. We worried they only work on **this map and these doors**. So we wrote a program that **places doors at random**, and built **8 new room maps**.",
+    "zh": "这三项优化都是在官方这张门位置固定的地图上做的。我们担心它们只对**这张图、这些门**有用，所以写了一个**随机生成门位置**的程序，造了 **8 张新的房间图**。"
+   },
+   {
+    "en": "【指左图第一栏】 On each map we ran **199 and 249 robots**, **640 runs** in all. Against the same base, our method **won on every map**, by **86.9 percent** on average.",
+    "zh": "【指左图第一栏】每张图跑 **199 台和 249 台**两种车数，一共 **640 局**。和同一底座比，我们的方法**每张图都赢**，平均多 **86.9%**。"
+   },
+   {
+    "en": "But the new maps also showed **two problems** that the official map does not have, so we added **two safety nets**.",
+    "zh": "但新图也暴露了官方图上没有的**两个问题**，于是我们又加了**两个兜底**。"
+   },
+   {
+    "en": "【指左下卡片】 First, some maps have **narrow spots that our door rules do not cover**. A **global cap** from Little's law limits how many robots hold orders at once. On the official map: **1.76 times 69.2 divided by 500, times 2.23, times 255, is 138 robots**. 【指左图第二栏】 Without the cap, one new map loses **16.9 percent** with 249 robots.",
+    "zh": "【指左下卡片】第一，有些图上有**门口规则管不到的窄处**。按 Little 定律加一个**全图上限**，限制同时接单的车数。在官方图上：**1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138 台**。【指左图第二栏】拿掉这个上限，一张新图在 249 台时少了 **16.9%**。"
+   },
+   {
+    "en": "【指右下卡片】 Second, **rare deadlocks**: in one test run, two doors one step apart locked each other, and completions fell from **1,114 to 700**. A **watchdog** from lossless networks fixes this: if a robot waits **300 ticks** and its door has had no entry for 300 ticks, it may skip the door rule for one tick. Networks drop packets here; **we cannot drop robots, so we relax the rule instead**.",
+    "zh": "【指右下卡片】第二，**少见的死锁**：有一局里两道只隔一步的门互相锁住，完成数从 **1114 单掉到 700 单**。我们借无损网络的**看门狗**：车等满 **300 拍**、它的门也 300 拍没车进，就允许它这一拍不守门口规则。网络在这时丢包，**我们不能丢车，所以改成放宽规则**。"
+   },
+   {
+    "en": "【指左图第三栏】 Deadlocks are rare, so on these 8 maps the watchdog shows **no measurable effect**. In an earlier confirmation on **15 generated room-map instances**, it added **2.30 percent**. So we keep both safety nets.",
+    "zh": "【指左图第三栏】死锁很少见，所以在这 8 张图上看门狗**测不出作用**；在更早一次、**15 个生成房间图实例**上的确认实验里，它多了 **2.30%**。所以两个兜底都留着。"
+   },
+   {
+    "en": "Speaker 4 will show the results.",
+    "zh": "下面讲者 4 讲结果。"
+   }
+  ],
+  "en": "These three changes were all made on the **official map**, where the doors never move. We worried they only work on **this map and these doors**. So we wrote a program that **places doors at random**, and built **8 new room maps**. 【指左图第一栏】 On each map we ran **199 and 249 robots**, **640 runs** in all. Against the same base, our method **won on every map**, by **86.9 percent** on average. But the new maps also showed **two problems** that the official map does not have, so we added **two safety nets**. 【指左下卡片】 First, some maps have **narrow spots that our door rules do not cover**. A **global cap** from Little's law limits how many robots hold orders at once. On the official map: **1.76 times 69.2 divided by 500, times 2.23, times 255, is 138 robots**. 【指左图第二栏】 Without the cap, one new map loses **16.9 percent** with 249 robots. 【指右下卡片】 Second, **rare deadlocks**: in one test run, two doors one step apart locked each other, and completions fell from **1,114 to 700**. A **watchdog** from lossless networks fixes this: if a robot waits **300 ticks** and its door has had no entry for 300 ticks, it may skip the door rule for one tick. Networks drop packets here; **we cannot drop robots, so we relax the rule instead**. 【指左图第三栏】 Deadlocks are rare, so on these 8 maps the watchdog shows **no measurable effect**. In an earlier confirmation on **15 generated room-map instances**, it added **2.30 percent**. So we keep both safety nets. Speaker 4 will show the results.",
+  "zh": "这三项优化都是在官方这张门位置固定的地图上做的。我们担心它们只对**这张图、这些门**有用，所以写了一个**随机生成门位置**的程序，造了 **8 张新的房间图**。【指左图第一栏】每张图跑 **199 台和 249 台**两种车数，一共 **640 局**。和同一底座比，我们的方法**每张图都赢**，平均多 **86.9%**。但新图也暴露了官方图上没有的**两个问题**，于是我们又加了**两个兜底**。【指左下卡片】第一，有些图上有**门口规则管不到的窄处**。按 Little 定律加一个**全图上限**，限制同时接单的车数。在官方图上：**1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138 台**。【指左图第二栏】拿掉这个上限，一张新图在 249 台时少了 **16.9%**。【指右下卡片】第二，**少见的死锁**：有一局里两道只隔一步的门互相锁住，完成数从 **1114 单掉到 700 单**。我们借无损网络的**看门狗**：车等满 **300 拍**、它的门也 300 拍没车进，就允许它这一拍不守门口规则。网络在这时丢包，**我们不能丢车，所以改成放宽规则**。【指左图第三栏】死锁很少见，所以在这 8 张图上看门狗**测不出作用**；在更早一次、**15 个生成房间图实例**上的确认实验里，它多了 **2.30%**。所以两个兜底都留着。下面讲者 4 讲结果。"
+ },
+ {
+  "n": 14,
   "speaker": 4,
-  "time": "1:10",
+  "time": "0:35",
   "title": "Results on the official room map",
   "figs": [
    "图 14 逐级结果柱状图"
@@ -482,10 +516,10 @@
   ]
  },
  {
-  "n": 14,
+  "n": 15,
   "speaker": 4,
-  "time": "0:55",
-  "title": "What matters, and does it work on other maps?",
+  "time": "0:30",
+  "title": "Which parts matter?",
   "figs": [
    "图 16 逐项拿掉与加上"
   ],
@@ -493,12 +527,10 @@
    "600 runs, remove one part",
    "Door rule −25.6, quota −13.6, executor −6.7",
    "Door rule alone +29.7, quota alone +29.3, together +76.4",
-   "Quota = how many; door rule = how they pass",
-   "8 random-door maps: +86.9%, wins every map",
-   "Remove global cap: −16.9% on one map"
+   "Quota = how many; door rule = how they pass"
   ],
-  "en": "Which parts matter? 【指左边红条】 In **600 runs**, we removed one part at a time. **No door rule: minus 25.6 percent. No quota: minus 13.6. No executor fix: minus 6.7.** 【指右边蓝条】 Alone, the door rule gives **29.7 percent**, the quota **29.3**; together, **76.4**. 【指黄框】 **The quota decides how many robots come. The door rule decides how they pass.** 【指右上 +86.9%】 Does it only fit this map? We made **eight new maps with random doors**. Our method **won on every one**, **86.9 percent** on average. 【指 −16.9%】 The global cap did nothing on the official map, but on one new map removing it cost **16.9 percent**. So we keep the safety nets.",
-  "zh": "哪些部分起作用？【指左边红条】我们跑了 **600 局**，每次拿掉一项：**拿掉门口规则少 25.6%，名额少 13.6%，执行器修复少 6.7%。**【指右边蓝条】单加门口规则 **+29.7%**，单加名额 **+29.3%**；两个一起 **+76.4%**。【指黄框】**名额管来多少车，门口规则管怎么过。**【指右上 +86.9%】是不是只适合这张图？我们造了 **8 张随机门的新图**，方法**每张都赢**，平均 **+86.9%**。【指 −16.9%】全图上限在官方图上测不出作用，但在一张新图上拿掉它少 **16.9%**，所以兜底要留着。",
+  "en": "Which parts matter? 【指左边红条】 In **600 runs**, we removed one part at a time. **No door rule: minus 25.6 percent. No quota: minus 13.6. No executor fix: minus 6.7.** 【指右边蓝条】 Alone, the door rule gives **29.7 percent**, the quota **29.3**; together, **76.4**. 【指黄框】 **The quota decides how many robots come. The door rule decides how they pass.**",
+  "zh": "哪些部分起作用？【指左边红条】我们跑了 **600 局**，每次拿掉一项：**拿掉门口规则少 25.6%，名额少 13.6%，执行器修复少 6.7%。**【指右边蓝条】单加门口规则 **+29.7%**，单加名额 **+29.3%**；两个一起 **+76.4%**。【指黄框】**名额管来多少车，门口规则管怎么过。**",
   "segs": [
    {
     "en": "Which parts matter? 【指左边红条】 In **600 runs**, we removed one part at a time. **No door rule: minus 25.6 percent. No quota: minus 13.6. No executor fix: minus 6.7.**",
@@ -511,21 +543,13 @@
    {
     "en": "【指黄框】 **The quota decides how many robots come. The door rule decides how they pass.**",
     "zh": "【指黄框】**名额管来多少车，门口规则管怎么过。**"
-   },
-   {
-    "en": "【指右上 +86.9%】 Does it only fit this map? We made **eight new maps with random doors**. Our method **won on every one**, **86.9 percent** on average.",
-    "zh": "【指右上 +86.9%】是不是只适合这张图？我们造了 **8 张随机门的新图**，方法**每张都赢**，平均 **+86.9%**。"
-   },
-   {
-    "en": "【指 −16.9%】 The global cap did nothing on the official map, but on one new map removing it cost **16.9 percent**. So we keep the safety nets.",
-    "zh": "【指 −16.9%】全图上限在官方图上测不出作用，但在一张新图上拿掉它少 **16.9%**，所以兜底要留着。"
    }
   ]
  },
  {
-  "n": 15,
+  "n": 16,
   "speaker": 4,
-  "time": "0:50",
+  "time": "0:30",
   "title": "Most ideas failed, and why",
   "figs": [
    "图 18 69 项机制的筛选漏斗"
@@ -554,9 +578,9 @@
   ]
  },
  {
-  "n": 16,
+  "n": 17,
   "speaker": 4,
-  "time": "0:50",
+  "time": "0:45",
   "title": "Conclusion",
   "figs": [],
   "hints": [

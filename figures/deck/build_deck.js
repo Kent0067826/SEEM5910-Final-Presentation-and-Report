@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v11.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v12.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -304,29 +304,42 @@ section(1);
   });
 }
 
-// ---------- 12 executor + safety nets ----------
+// ---------- 12 executor bug fix ----------
 {
   const s = S(12); const slide = content(s);
-  addImg(slide, "exec", M, 1.35, 6.9, 3.1, "left");
-  card(slide, M, 4.6, 6.9, 2.25, C.background2);
-  slide.addText("Bug fix: 22 → 26", { x: M + 0.25, y: 4.68, w: 6.4, h: 0.6, fontSize: 26, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-  para(slide, "Door 6 was stuck at **22** per 500 ticks. **Credit flow control:** report a freed slot at once. But the official executor kept a robot in a cell's queue **after it left**, so the next robot waited a whole round. **3 lines** fixed it: back to **26**.", M + 0.25, 5.3, 6.45, 1.5, 13);
+  addImg(slide, "exec", M, 1.35, 8.3, 4.0, "left");
+  caption(slide, "Top: official executor (bug). Bottom: fixed executor (3-line patch).", M, 5.4, 8.2);
+  card(slide, 9.15, 1.4, 3.6, 2.2, C.accent6);
+  slide.addText("22 → 26", { x: 9.4, y: 1.55, w: 3.2, h: 0.8, fontSize: 36, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
+  slide.addText("robots through door 6 per 500 ticks, before → after the fix", { x: 9.4, y: 2.4, w: 3.2, h: 1.0, fontSize: 14, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
+  bullets(slide, ["With both rules, door 6 was still **stuck at 22**.", "**Credit flow control:** a freed slot must be reported **at once**.", "The official executor kept a robot in a cell's queue **after it left**, so the next robot waited a whole round.", "**3 lines** fixed it."], 9.15, 3.8, 3.6, 3.05, 13);
+  card(slide, M, 5.85, 8.3, 1.0, C.background2);
+  para(slide, "**All three changes so far were tuned on the official map, whose doors never move.** Next: do they still work when the doors move?", M + 0.25, 5.85, 7.85, 1.0, 14, C.text1, C.text2, "middle");
+}
+
+// ---------- 13 random-door maps + safety nets ----------
+{
+  const s = S(13); const slide = content(s);
+  addImg(slide, "gen", M, 1.35, 7.6, 3.6, "left");
+  card(slide, 8.45, 1.4, 4.3, 3.5, C.background2);
+  para(slide, "**Worry:** our changes may only fit the official map and its doors. So we wrote a program that **places doors at random**.", 8.7, 1.5, 3.85, 1.05, 13);
+  slide.addText("+86.9%", { x: 8.7, y: 2.55, w: 3.85, h: 0.75, fontSize: 38, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
+  para(slide, "vs the same base on **8 new room maps** × 199 / 249 robots (**640 runs**): **wins on every map**.", 8.7, 3.35, 3.85, 1.45, 13);
   const nets = [
-    ["Global cap: 138 robots", "**Little's law** (number = rate × time): 1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138.5 → at most **138** robots hold orders at once."],
-    ["Deadlock watchdog: 300 ticks", "From **lossless networks**. Stuck **300 ticks** and no entry at its door: it may skip the door rule for one tick. Networks drop packets here; **we relax the rule instead**."],
+    ["Safety net 1 · Global cap", "Problem: narrow spots the door rules do not cover. **Little's law:** 1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138.5 → **138** robots hold orders at most (official map). Without it: **−16.9%** on one new map (249 robots)."],
+    ["Safety net 2 · Deadlock watchdog", "Problem: rare deadlock, one run fell **1,114 → 700**. Waited **300 ticks** and no entry at its door: skip the door rule for one tick. **Relax the rule, never drop a robot.** No measurable effect on these 8 maps; earlier confirmation: **+2.30%** on 15 generated room-map instances."],
   ];
   nets.forEach(([a, b], i) => {
-    const y = 1.4 + i * 2.78;
-    card(slide, 7.8, y, 4.95, 2.6, C.accent6);
-    slide.addText("Safety net " + (i + 1), { x: 8.05, y: y + 0.12, w: 4.5, h: 0.32, fontSize: 12, bold: true, color: C.accent1, margin: 0, isTextBox: true });
-    slide.addText(a, { x: 8.05, y: y + 0.45, w: 4.5, h: 0.45, fontSize: 18, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    para(slide, b, 8.05, y + 0.95, 4.5, 1.55, 13);
+    const x = M + i * 6.15;
+    card(slide, x, 5.05, 5.95, 1.85, C.accent6);
+    slide.addText(a, { x: x + 0.25, y: 5.1, w: 5.5, h: 0.4, fontSize: 15, bold: true, color: C.text2, margin: 0, isTextBox: true });
+    para(slide, b, x + 0.25, 5.5, 5.5, 1.35, 12);
   });
 }
 
-// ---------- 13 results ----------
+// ---------- 14 results ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(14); const slide = content(s);
   const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only our control differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]];
   st.forEach(([b, l, col], i) => {
     const y = 1.5 + i * 1.65;
@@ -337,25 +350,18 @@ section(1);
   para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **our control (orange)**.", 4.6, 6.2, 8.1, 0.7, 13, C.accent4, C.text2);
 }
 
-// ---------- 14 what matters ----------
-{
-  const s = S(14); const slide = content(s);
-  addImg(slide, "abl", M, 1.35, 8.2, 3.45, "left");
-  caption(slide, "Re-test on the official map: 600 runs, one part removed or added at a time", M, 4.85, 8);
-  const st = [["+86.9%", "Does it only fit this map? **8 new maps with random doors** (640 runs): it **wins on every map**."], ["−16.9%", "Global cap: no effect on the official map, but removing it costs 16.9% on one new map. **Keep the safety nets.**"]];
-  st.forEach(([b, l], i) => {
-    const y = 1.4 + i * 2.75;
-    card(slide, 9.05, y, 3.7, 2.55, C.background2);
-    slide.addText(b, { x: 9.3, y: y + 0.12, w: 3.3, h: 0.75, fontSize: 34, bold: true, color: i ? C.accent3 : C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-    para(slide, l, 9.3, y + 0.95, 3.3, 1.5, 13);
-  });
-  card(slide, M, 5.25, 8.2, 1.65, C.accent6);
-  para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.\n**Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.3, 7.7, 1.55, 14, C.text1, C.text2, "middle");
-}
-
-// ---------- 15 failures ----------
+// ---------- 15 what matters ----------
 {
   const s = S(15); const slide = content(s);
+  addImg(slide, "abl", M, 1.35, 12.1, 3.9);
+  caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.3, 12);
+  card(slide, M, 5.7, 12.15, 1.2, C.accent6);
+  para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.   **Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.72, 11.6, 1.15, 15, C.text1, C.text2, "middle");
+}
+
+// ---------- 16 failures ----------
+{
+  const s = S(16); const slide = content(s);
   addImg(slide, "funnel", M, 1.3, 12.1, 3.05);
   para(slide, "**69 network mechanisms tried:** 38 dropped after a quick check, 23 failed development tests, 7 not confirmed on new maps, **only 1 passed (the watchdog)**. Every rerouting idea lost.", M, 4.42, 12.1, 0.62, 14);
   const les = [["Assumptions break", "Network methods assume packets can be dropped and take no space; robots cannot be dropped and occupy cells."], ["Door 6 sets the limit", "That is why every rerouting method lost."], ["Confirm on new maps", "Gains on development maps often shrink."]];
@@ -368,9 +374,9 @@ section(1);
   });
 }
 
-// ---------- 16 conclusion ----------
+// ---------- 17 conclusion ----------
 {
-  const s = S(16);
+  const s = S(17);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const pts = [
