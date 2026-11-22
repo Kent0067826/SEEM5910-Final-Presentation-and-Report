@@ -98,5 +98,10 @@
   "path": "figures/deck/tcp_bdp_concept.png",
   "w": 1280,
   "h": 920
+ },
+ "bbr": {
+  "path": "figures/deck/bbr_concept.png",
+  "w": 1280,
+  "h": 880
  }
 }

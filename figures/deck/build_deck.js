@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v13.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v14.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -79,7 +79,7 @@ function caption(slide, text, x, y, w) {
 }
 function body(slide, items, x, y, w, h, size = 16) {
   const runs = items.map((t, i) => {
-    const o = { bullet: { indent: 18 }, paraSpaceAfter: 8, breakLine: i < items.length - 1 };
+    const o = { paraSpaceAfter: 8, breakLine: i < items.length - 1 };
     if (Array.isArray(t)) return t.map((r, j) => ({ text: r.text, options: { ...r.options, ...(j === 0 ? o : {}), breakLine: j === t.length - 1 && i < items.length - 1 } }));
     return [{ text: t, options: o }];
   }).flat();
@@ -288,15 +288,34 @@ section(1);
     "**TCP window:** how much data may be sent but not yet confirmed.",
     "**Too little in flight:** the link sometimes sits idle.",
     "**Too much:** no faster; extra data only queues, delay grows.",
-    "**Best point:** in flight = **bandwidth × delay**. **BBR** measures bottleneck bandwidth and the shortest round-trip time and aims here.",
+    "**Best point:** in flight = **bandwidth × delay**. Google's **BBR** aims right here (next slide).",
     "**Robots are worse than a queue:** extra robots stand in the door area and block the other side, so crossings **fall**.",
     "**So:** cap robots heading for the door at bandwidth × delay.",
   ], x0, 2.75, w0, 4.15, 14);
 }
 
-// ---------- 11 our quota ----------
+// ---------- 11 BBR ----------
 {
   const s = S(11); const slide = content(s);
+  addImg(slide, "bbr", M, 1.35, 6.6, 4.55, "left");
+  card(slide, M, 6.0, 6.6, 0.9, C.background2);
+  para(slide, "**Loss-based TCP** stops growing only when a packet is lost. **Robots are never dropped**, so it would never stop: we measured **211** robots heading for one door.", M + 0.2, 6.0, 6.2, 0.9, 13, C.text1, C.text2, "middle");
+  bullets(slide, [
+    "**BBR (Google, 2016):** measures the **highest delivery rate** and the **shortest round-trip time**; keeps in flight near their product. **No loss needed**, so it fits robots.",
+    "**Use the shortest delay, not the current one:** a jam makes delay longer; following the current delay would let **the jam raise the window**.",
+  ], 7.35, 1.4, 5.4, 2.2, 15);
+  card(slide, 7.35, 3.7, 5.4, 3.2, C.accent6);
+  slide.addText("What we took from BBR", { x: 7.6, y: 3.8, w: 5.0, h: 0.4, fontSize: 16, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  bullets(slide, [
+    "Quota from **measured** door bandwidth × travel time.",
+    "Rounds 50–51: narrow spots our model missed had **2.2–2.9×** the model delay → **BBR-style cap** (max crossing rate × min delay): big losses gone, average only **+0.08%** → kept the fixed quota.",
+    "Not copied: BBR's probing cycle and pacing.",
+  ], 7.6, 4.3, 5.0, 2.55, 14);
+}
+
+// ---------- 12 our quota ----------
+{
+  const s = S(12); const slide = content(s);
   addImg(slide, "knee", M, 1.35, 7.4, 3.3, "left");
   caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.4);
   card(slide, M, 5.05, 7.4, 1.85, C.background1);
@@ -306,13 +325,13 @@ section(1);
     "**Bandwidth:** door 6 passes 26 per 500 ticks → **13 per direction**.",
     "**Delay:** 247 ticks to the door × **2.23** for breakdowns → **15 in**; 158 ticks → **10 out**.",
     "**Result:** no control, 211 head for the door and only **3** cross; quota, about 25 (the knee) and **26** cross.",
-    "**Unlike TCP:** nothing dropped, quota fixed. Self-adjusting windows (**AIMD**, **BBR-style**) were not better, so we kept the formula.",
+    "**Unlike TCP:** nothing dropped, quota fixed. A self-adjusting window (**AIMD**) did worse than the fixed value, so we kept the formula.",
   ], 8.2, 1.4, 4.55, 5.5, 15);
 }
 
-// ---------- 12 half-duplex ----------
+// ---------- 13 half-duplex ----------
 {
-  const s = S(12); const slide = content(s);
+  const s = S(13); const slide = content(s);
   addImg(slide, "door", M, 1.3, 12.1, 3.55);
   const stats = [["Half-duplex", "A one-cell door is a **half-duplex link**: it carries **one direction at a time**."], ["Wind down, switch", "Serve one side. When it is empty, stop letting new robots in, then switch. **No timer.**"], ["4 cells", "**Not from networks:** robots on the other side step back 4 cells to keep the exit clear. A waiting robot blocks the way."]];
   stats.forEach(([b, l], i) => {
@@ -323,9 +342,9 @@ section(1);
   });
 }
 
-// ---------- 13 queue scheduling ----------
+// ---------- 14 queue scheduling ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(14); const slide = content(s);
   card(slide, M, 1.4, 6.5, 0.95, C.accent6);
   para(slide, "**Door = router port with 2 queues**, one per direction (robots within 8 cells that want to cross). Which queue, and for how long?", M + 0.25, 1.4, 6.05, 0.95, 14, C.text1, C.text2, "middle");
   addImg(slide, "doorf", M, 2.5, 6.5, 2.05);
@@ -347,9 +366,9 @@ section(1);
   para(slide, "**Difference:** polling theory assumes arrivals do not depend on the scheduler. Here they depend on our quota, so the theory is a guide; we tested it.", 7.7, 5.65, 4.85, 1.2, 13, C.text1, C.text2, "middle");
 }
 
-// ---------- 14 executor bug fix ----------
+// ---------- 15 executor bug fix ----------
 {
-  const s = S(14); const slide = content(s);
+  const s = S(15); const slide = content(s);
   addImg(slide, "exec", M, 1.35, 8.3, 4.0, "left");
   caption(slide, "Top: official executor (bug). Bottom: fixed executor (3-line patch).", M, 5.4, 8.2);
   card(slide, 9.15, 1.4, 3.6, 2.2, C.accent6);
@@ -360,9 +379,9 @@ section(1);
   para(slide, "**All three changes so far were tuned on the official map, whose doors never move.** Next: do they still work when the doors move?", M + 0.25, 5.85, 7.85, 1.0, 14, C.text1, C.text2, "middle");
 }
 
-// ---------- 15 random-door maps + safety nets ----------
+// ---------- 16 random-door maps + safety nets ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(16); const slide = content(s);
   addImg(slide, "gen", M, 1.35, 7.6, 3.6, "left");
   card(slide, 8.45, 1.4, 4.3, 3.5, C.background2);
   para(slide, "**Worry:** our changes may only fit the official map and its doors. So we wrote a program that **places doors at random**.", 8.7, 1.5, 3.85, 1.05, 13);
@@ -380,9 +399,9 @@ section(1);
   });
 }
 
-// ---------- 16 results ----------
+// ---------- 17 results ----------
 {
-  const s = S(16); const slide = content(s);
+  const s = S(17); const slide = content(s);
   const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only our control differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]];
   st.forEach(([b, l, col], i) => {
     const y = 1.5 + i * 1.65;
@@ -393,18 +412,18 @@ section(1);
   para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **our control (orange)**.", 4.6, 6.2, 8.1, 0.7, 13, C.accent4, C.text2);
 }
 
-// ---------- 17 what matters ----------
+// ---------- 18 what matters ----------
 {
-  const s = S(17); const slide = content(s);
+  const s = S(18); const slide = content(s);
   addImg(slide, "abl", M, 1.35, 12.1, 3.9);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.3, 12);
   card(slide, M, 5.7, 12.15, 1.2, C.accent6);
   para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.   **Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.72, 11.6, 1.15, 15, C.text1, C.text2, "middle");
 }
 
-// ---------- 18 failures ----------
+// ---------- 19 failures ----------
 {
-  const s = S(18); const slide = content(s);
+  const s = S(19); const slide = content(s);
   addImg(slide, "funnel", M, 1.3, 12.1, 3.05);
   para(slide, "**69 network mechanisms tried:** 38 dropped after a quick check, 23 failed development tests, 7 not confirmed on new maps, **only 1 passed (the watchdog)**. Every rerouting idea lost.", M, 4.42, 12.1, 0.62, 14);
   const les = [["Assumptions break", "Network methods assume packets can be dropped and take no space; robots cannot be dropped and occupy cells."], ["Door 6 sets the limit", "That is why every rerouting method lost."], ["Confirm on new maps", "Gains on development maps often shrink."]];
@@ -417,9 +436,9 @@ section(1);
   });
 }
 
-// ---------- 19 conclusion ----------
+// ---------- 20 conclusion ----------
 {
-  const s = S(19);
+  const s = S(20);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const pts = [
