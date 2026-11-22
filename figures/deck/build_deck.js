@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v16.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v17.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -225,40 +225,30 @@ section(1);
   slide.addText("It is only a guess. Which kind helps, routing or scheduling, must be tested: that is the next part.", { x: M + 0.35, y: 6.1, w: 11.4, h: 0.6, fontSize: 15, italic: true, color: C.accent5, valign: "middle", margin: 0, isTextBox: true });
 }
 
-// ---------- 7 model ----------
+// ---------- 7 model + differences ----------
 {
   const s = S(7); const slide = content(s);
-  addImg(slide, "map", M, 1.4, 7.6, 4.3, "left");
-  para(slide, "3,646 cells → **16 rooms (nodes)** and **31 doors (links)**. **Door 6 is a cut**: remove it, and the 4 lower-left rooms are cut off from the rest.", M, 5.85, 7.5, 0.95, 14);
-  const rows = [["Giving out orders", "sender", "decides what enters the network"], ["Robot", "packet", "carries one order"], ["Door", "half-duplex link", "one direction at a time"], ["Within 8 steps of a door", "router port", "decides who goes next"]];
-  rows.forEach(([a, b, c], i) => {
-    const y = 1.4 + i * 0.78;
-    slide.addText([{ text: a, options: { bold: true, color: C.text2 } }, { text: "  =  " + b, options: { color: C.text1, bold: true } }, { text: "\n" + c, options: { color: C.accent4, fontSize: 12 } }], { x: 8.5, y, w: 4.3, h: 0.72, fontSize: 15, valign: "top", margin: 0, isTextBox: true });
+  addImg(slide, "map", M, 1.35, 6.6, 3.3, "left");
+  para(slide, "3,646 cells → **16 rooms (nodes)** and **31 doors (links)**. **Door 6 is a cut**: remove it, and the 4 lower-left rooms are cut off.", M, 4.72, 6.6, 0.55, 13);
+  card(slide, M, 5.3, 6.6, 0.8, C.accent6);
+  para(slide, "**Router at the door:** near a door, robots stand still **4.2×** as long as they move; the door cell and 2 steps around it are **10% of the area** but hold **30% of all waiting**.", M + 0.2, 5.3, 6.2, 0.8, 12, C.text1, C.text2, "middle");
+  slide.addText("How the parts match", { x: 7.45, y: 1.35, w: 5.3, h: 0.35, fontSize: 15, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  ["**Giving out orders** = sender", "**Robot** = packet", "**Door** = half-duplex link (one direction at a time)", "**Within 8 steps of a door** = router port (decides who goes next)"].forEach((t2, i) => {
+    para(slide, t2, 7.45, 1.75 + i * 0.5, 5.3, 0.48, 13, C.text1, C.text2, "middle");
   });
-  card(slide, 8.5, 4.6, 4.25, 2.25, C.accent6);
-  slide.addText("Why at the door?", { x: 8.75, y: 4.7, w: 3.9, h: 0.4, fontSize: 15, bold: true, color: C.text2, margin: 0, isTextBox: true });
-  para(slide, "Near a door, robots stand still **4.2×** as long as they move. The door cell and 2 steps around it: **10% of the area, 30% of all waiting**. Time is lost at the door, so the router goes there.", 8.75, 5.1, 3.85, 1.7, 13);
+  slide.addText("Where robots differ", { x: 7.45, y: 3.82, w: 5.3, h: 0.35, fontSize: 15, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  ["**Cannot be dropped:** a robot can only wait", "**Waiting blocks a cell:** it may block the other side", "**Fixed fleet:** robots stay on the map", "**Different cause:** face-to-face jams, not resending (1986)"].forEach((t2, i) => {
+    const y = 4.22 + i * 0.47;
+    numCircle(slide, 7.45, y + 0.05, i + 1, 0.36, C.accent3);
+    para(slide, t2, 7.95, y, 4.8, 0.45, 13, C.text1, C.text2, "middle");
+  });
+  card(slide, M, 6.22, 12.15, 0.66, C.background2);
+  para(slide, "**So:** we skip methods built for resending. Robots are closer to a **lossless data-center network**: no drops, only pauses, and deadlock is possible.", M + 0.25, 6.22, 11.7, 0.66, 14, C.text1, C.text2, "middle");
 }
 
-// ---------- 8 differences ----------
+// ---------- 8 routing or scheduling ----------
 {
   const s = S(8); const slide = content(s);
-  addImg(slide, "mapping", M, 1.4, 6.6, 4.6, "left");
-  const diffs = [["Cannot be dropped", "a router can drop a packet; a robot can only wait"], ["Waiting blocks a cell", "a queued robot takes space and may block robots coming the other way"], ["Fixed fleet", "robots stay on the map after delivery; nothing leaves"], ["Different cause of jams", "1986 internet collapse: endless resending. Here: robots meet face to face"]];
-  diffs.forEach(([a, b], i) => {
-    const y = 1.4 + i * 1.2;
-    card(slide, 7.45, y, 5.3, 1.08, C.background2);
-    numCircle(slide, 7.6, y + 0.28, i + 1, 0.5, C.accent3);
-    slide.addText(a, { x: 8.25, y: y + 0.06, w: 4.4, h: 0.4, fontSize: 16, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    slide.addText(b, { x: 8.25, y: y + 0.46, w: 4.4, h: 0.58, fontSize: 13, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
-  });
-  card(slide, M, 6.2, 12.15, 0.7, C.accent6);
-  para(slide, "**So:** we skip methods built for resending. Robots are closer to a **lossless data-center network**: no drops, only pauses, and deadlock is possible.", M + 0.25, 6.2, 11.7, 0.7, 14, C.text1, C.text2, "middle");
-}
-
-// ---------- 9 routing or scheduling ----------
-{
-  const s = S(9); const slide = content(s);
   para(slide, "We tried **routing first**. It did not help. The ceiling shows why:", M, 1.4, 6.3, 0.45, 15);
   const steps = [
     ["Lower-left share", "The lower-left rooms hold 906 of 3,614 room cells: 906 ÷ 3,614 = **0.2507**"],
@@ -277,9 +267,9 @@ section(1);
   para(slide, "rerouting methods tried later: **all were worse**. Only door 6 sets the ceiling, so the real question is **how many robots to send, and which side goes first**. That is **scheduling**.", M + 1.8, 5.05, 10.1, 1.7, 17, C.text1, C.text2, "middle");
 }
 
-// ---------- 10 TCP window principle ----------
+// ---------- 9 TCP window principle ----------
 {
-  const s = S(10); const slide = content(s);
+  const s = S(9); const slide = content(s);
   addImg(slide, "tcp", M, 1.35, 6.6, 5.5, "left");
   const x0 = 7.35, w0 = 5.4;
   card(slide, x0, 1.4, w0, 1.15, C.accent6);
@@ -294,9 +284,9 @@ section(1);
   ], x0, 2.75, w0, 4.15, 14);
 }
 
-// ---------- 11 BBR ----------
+// ---------- 10 BBR ----------
 {
-  const s = S(11); const slide = content(s);
+  const s = S(10); const slide = content(s);
   addImg(slide, "bbr", M, 1.35, 6.6, 4.55, "left");
   card(slide, M, 6.0, 6.6, 0.9, C.background2);
   para(slide, "**Loss-based TCP** stops growing only when a packet is lost. **Robots are never dropped**, so it would never stop: we measured **211** robots heading for one door.", M + 0.2, 6.0, 6.2, 0.9, 13, C.text1, C.text2, "middle");
@@ -313,9 +303,9 @@ section(1);
   ], 7.6, 4.3, 5.0, 2.55, 14);
 }
 
-// ---------- 12 our quota ----------
+// ---------- 11 our quota ----------
 {
-  const s = S(12); const slide = content(s);
+  const s = S(11); const slide = content(s);
   addImg(slide, "knee", M, 1.35, 7.4, 3.3, "left");
   caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.4);
   card(slide, M, 5.05, 7.4, 1.85, C.background1);
@@ -329,9 +319,9 @@ section(1);
   ], 8.2, 1.4, 4.55, 5.5, 15);
 }
 
-// ---------- 13 half-duplex ----------
+// ---------- 12 half-duplex ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(12); const slide = content(s);
   addImg(slide, "door", M, 1.3, 12.1, 3.55);
   const stats = [["Half-duplex", "A one-cell door is a **half-duplex link**: it carries **one direction at a time**."], ["Wind down, switch", "Serve one side. When it is empty, stop letting new robots in, then switch. **No timer.**"], ["4 cells", "**Not from networks:** robots on the other side step back 4 cells to keep the exit clear. A waiting robot blocks the way."]];
   stats.forEach(([b, l], i) => {
@@ -342,9 +332,9 @@ section(1);
   });
 }
 
-// ---------- 14 queue scheduling ----------
+// ---------- 13 queue scheduling ----------
 {
-  const s = S(14); const slide = content(s);
+  const s = S(13); const slide = content(s);
   card(slide, M, 1.4, 6.5, 0.95, C.accent6);
   para(slide, "**Door = router port with 2 queues**, one per direction (robots within 8 cells that want to cross). Which queue, and for how long?", M + 0.25, 1.4, 6.05, 0.95, 14, C.text1, C.text2, "middle");
   addImg(slide, "doorf", M, 2.5, 6.5, 2.05);
@@ -366,9 +356,9 @@ section(1);
   para(slide, "**Difference:** polling theory assumes arrivals do not depend on the scheduler. Here they depend on our quota, so the theory is a guide; we tested it.", 7.7, 5.65, 4.85, 1.2, 13, C.text1, C.text2, "middle");
 }
 
-// ---------- 15 executor bug fix ----------
+// ---------- 14 executor bug fix ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(14); const slide = content(s);
   addImg(slide, "exec", M, 1.35, 8.3, 4.0, "left");
   caption(slide, "Top: official executor (bug). Bottom: fixed executor (3-line patch).", M, 5.4, 8.2);
   card(slide, 9.15, 1.4, 3.6, 2.2, C.accent6);
@@ -379,9 +369,9 @@ section(1);
   para(slide, "**All three changes so far were tuned on the official map, whose doors never move.** Next: do they still work when the doors move?", M + 0.25, 5.85, 7.85, 1.0, 14, C.text1, C.text2, "middle");
 }
 
-// ---------- 16 random-door maps + safety nets ----------
+// ---------- 15 random-door maps + safety nets ----------
 {
-  const s = S(16); const slide = content(s);
+  const s = S(15); const slide = content(s);
   addImg(slide, "gen", M, 1.35, 7.6, 3.6, "left");
   card(slide, 8.45, 1.4, 4.3, 3.5, C.background2);
   para(slide, "**Worry:** our changes may only fit the official map and its doors. So we wrote a program that **places doors at random**.", 8.7, 1.5, 3.85, 1.05, 13);
@@ -399,9 +389,9 @@ section(1);
   });
 }
 
-// ---------- 17 results ----------
+// ---------- 16 results ----------
 {
-  const s = S(17); const slide = content(s);
+  const s = S(16); const slide = content(s);
   const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only our control differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]];
   st.forEach(([b, l, col], i) => {
     const y = 1.5 + i * 1.65;
@@ -412,18 +402,18 @@ section(1);
   para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **our control (orange)**.", 4.6, 6.2, 8.1, 0.7, 13, C.accent4, C.text2);
 }
 
-// ---------- 18 what matters ----------
+// ---------- 17 what matters ----------
 {
-  const s = S(18); const slide = content(s);
+  const s = S(17); const slide = content(s);
   addImg(slide, "abl", M, 1.35, 12.1, 3.9);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.3, 12);
   card(slide, M, 5.7, 12.15, 1.2, C.accent6);
   para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.   **Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.72, 11.6, 1.15, 15, C.text1, C.text2, "middle");
 }
 
-// ---------- 19 everything that failed ----------
+// ---------- 18 everything that failed ----------
 {
-  const s = S(19); const slide = content(s);
+  const s = S(18); const slide = content(s);
   // [text, key?] ; numbers from report section 9 (both tables)
   const cols = [
     ["Phase 1 · dispatch & quotas", [
@@ -477,9 +467,9 @@ section(1);
   caption(slide, "Red = key failures. Each result is vs the method at that time, on that round's test set (report, section 9). Skipped = stopped at a quick measurement.", M, 6.75, 12.1);
 }
 
-// ---------- 20 conclusion ----------
+// ---------- 19 conclusion ----------
 {
-  const s = S(20);
+  const s = S(19);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const pts = [
