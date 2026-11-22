@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v12.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v13.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -277,36 +277,79 @@ section(1);
   para(slide, "rerouting methods tried later: **all were worse**. Only door 6 sets the ceiling, so the real question is **how many robots to send, and which side goes first**. That is **scheduling**.", M + 1.8, 5.05, 10.1, 1.7, 17, C.text1, C.text2, "middle");
 }
 
-// ---------- 10 quota ----------
+// ---------- 10 TCP window principle ----------
 {
   const s = S(10); const slide = content(s);
-  addImg(slide, "knee", M, 1.35, 7.6, 3.75, "left");
-  caption(slide, "Red: no door control. Blue: with the quota. Each dot is one 500-tick window.", M, 5.12, 7.5);
-  card(slide, M, 5.5, 7.6, 1.35, C.background2);
-  para(slide, "**Red, no control:** 211 robots head for the door, only **3** get through per 500 ticks.\n**Blue, quota:** about 25 head for it, **26** get through. More robots do not go faster: **they jam**.", M + 0.25, 5.55, 7.15, 1.25, 14, C.text1, C.text2, "middle");
-  card(slide, 8.45, 1.4, 4.3, 2.1, C.accent6);
-  slide.addText([{ text: "15", options: { fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace } }, { text: " in   ", options: { fontSize: 18, color: C.text1 } }, { text: "10", options: { fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace } }, { text: " out", options: { fontSize: 18, color: C.text1 } }], { x: 8.7, y: 1.45, w: 3.9, h: 0.85, margin: 0, isTextBox: true, valign: "middle" });
-  slide.addText("Size = bandwidth × delay\n2.23 × 247 ÷ 500 × 13 = 14.3 → 15\n2.23 × 158 ÷ 500 × 13 = 9.2 → 10", { x: 8.7, y: 2.3, w: 3.95, h: 1.1, fontSize: 13, color: C.text1, margin: 0, isTextBox: true });
-  bullets(slide, ["**TCP window:** limits data sent but not yet confirmed.", "**We count** robots that hold a door-6 order but have not crossed yet, even far away.", "**Quota full:** give that robot an order that does not cross.", "**Unlike TCP:** nothing is dropped and the quota is fixed, so it had to be tested."], 8.45, 3.65, 4.3, 3.25, 13);
+  addImg(slide, "tcp", M, 1.35, 6.6, 5.5, "left");
+  const x0 = 7.35, w0 = 5.4;
+  card(slide, x0, 1.4, w0, 1.15, C.accent6);
+  para(slide, "**Question:** how many robots should head for door 6 at the same time?", x0 + 0.25, 1.4, w0 - 0.45, 1.15, 16, C.text1, C.text2, "middle");
+  bullets(slide, [
+    "**TCP window:** how much data may be sent but not yet confirmed.",
+    "**Too little in flight:** the link sometimes sits idle.",
+    "**Too much:** no faster; extra data only queues, delay grows.",
+    "**Best point:** in flight = **bandwidth × delay**. **BBR** measures bottleneck bandwidth and the shortest round-trip time and aims here.",
+    "**Robots are worse than a queue:** extra robots stand in the door area and block the other side, so crossings **fall**.",
+    "**So:** cap robots heading for the door at bandwidth × delay.",
+  ], x0, 2.75, w0, 4.15, 14);
 }
 
-// ---------- 11 door rule ----------
+// ---------- 11 our quota ----------
 {
   const s = S(11); const slide = content(s);
-  addImg(slide, "door", M, 1.3, 12.1, 3.25);
-  para(slide, "From **half-duplex links and polling** (serve each side in turn): serve one side until it is empty, then switch. **No timer needed.**", M, 4.6, 12.1, 0.45, 15);
-  const stats = [["43%", "Switch after every robot: same direction **9 ticks**, switching **21 ticks**, so the door is busy only 9 ÷ 21."], ["88%", "Let **10 robots** through each time: busy 90 ÷ 102."], ["4 cells", "**Not from networks:** robots on the other side step back 4 cells to keep the exit clear. A waiting robot blocks the way."]];
+  addImg(slide, "knee", M, 1.35, 7.4, 3.3, "left");
+  caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.4);
+  card(slide, M, 5.05, 7.4, 1.85, C.background1);
+  addImg(slide, "quota", M + 0.1, 5.1, 7.2, 1.75, "left");
+  bullets(slide, [
+    "**Count** robots that hold a door-6 order but have not crossed yet, even far away. **Full:** give an order that does not cross.",
+    "**Bandwidth:** door 6 passes 26 per 500 ticks → **13 per direction**.",
+    "**Delay:** 247 ticks to the door × **2.23** for breakdowns → **15 in**; 158 ticks → **10 out**.",
+    "**Result:** no control, 211 head for the door and only **3** cross; quota, about 25 (the knee) and **26** cross.",
+    "**Unlike TCP:** nothing dropped, quota fixed. Self-adjusting windows (**AIMD**, **BBR-style**) were not better, so we kept the formula.",
+  ], 8.2, 1.4, 4.55, 5.5, 15);
+}
+
+// ---------- 12 half-duplex ----------
+{
+  const s = S(12); const slide = content(s);
+  addImg(slide, "door", M, 1.3, 12.1, 3.55);
+  const stats = [["Half-duplex", "A one-cell door is a **half-duplex link**: it carries **one direction at a time**."], ["Wind down, switch", "Serve one side. When it is empty, stop letting new robots in, then switch. **No timer.**"], ["4 cells", "**Not from networks:** robots on the other side step back 4 cells to keep the exit clear. A waiting robot blocks the way."]];
   stats.forEach(([b, l], i) => {
     const x = M + i * 4.1;
-    card(slide, x, 5.15, 3.9, 1.75, C.background2);
-    slide.addText(b, { x: x + 0.25, y: 5.22, w: 3.5, h: 0.6, fontSize: 30, bold: true, color: i === 2 ? C.accent1 : C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-    para(slide, l, x + 0.25, 5.85, 3.5, 1.0, 12);
+    card(slide, x, 5.0, 3.9, 1.85, C.background2);
+    slide.addText(b, { x: x + 0.25, y: 5.08, w: 3.5, h: 0.55, fontSize: 24, bold: true, color: i === 2 ? C.accent1 : C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
+    para(slide, l, x + 0.25, 5.68, 3.5, 1.1, 13);
   });
 }
 
-// ---------- 12 executor bug fix ----------
+// ---------- 13 queue scheduling ----------
 {
-  const s = S(12); const slide = content(s);
+  const s = S(13); const slide = content(s);
+  card(slide, M, 1.4, 6.5, 0.95, C.accent6);
+  para(slide, "**Door = router port with 2 queues**, one per direction (robots within 8 cells that want to cross). Which queue, and for how long?", M + 0.25, 1.4, 6.05, 0.95, 14, C.text1, C.text2, "middle");
+  addImg(slide, "doorf", M, 2.5, 6.5, 2.05);
+  const st = [["43%", "**Round-robin**, 1 robot per turn: 9 ÷ 21"], ["88%", "**10 per turn**: 90 ÷ 102"]];
+  st.forEach(([b, l], i) => {
+    const x = M + i * 3.3;
+    card(slide, x, 4.75, 3.15, 2.1, C.background2);
+    slide.addText(b, { x: x + 0.25, y: 4.85, w: 2.7, h: 0.75, fontSize: 34, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
+    para(slide, l, x + 0.25, 5.65, 2.7, 1.1, 14);
+  });
+  slide.addText("Queue scheduling at the door", { x: 7.45, y: 1.4, w: 5.3, h: 0.45, fontSize: 18, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  bullets(slide, [
+    "**Switching is expensive:** same direction every **9 ticks**, change direction **21 ticks**.",
+    "**Polling:** serve one queue, then the other.",
+    "**Tried:** at most 80 steps per turn → **kept: exhaustive service**, serve a queue **until it is empty**.",
+    "**Priority:** robots stopped by the rule drop to the **lowest priority** in the planner, so they never hold up others.",
+  ], 7.45, 1.95, 5.3, 3.6, 14);
+  card(slide, 7.45, 5.65, 5.3, 1.2, C.accent6);
+  para(slide, "**Difference:** polling theory assumes arrivals do not depend on the scheduler. Here they depend on our quota, so the theory is a guide; we tested it.", 7.7, 5.65, 4.85, 1.2, 13, C.text1, C.text2, "middle");
+}
+
+// ---------- 14 executor bug fix ----------
+{
+  const s = S(14); const slide = content(s);
   addImg(slide, "exec", M, 1.35, 8.3, 4.0, "left");
   caption(slide, "Top: official executor (bug). Bottom: fixed executor (3-line patch).", M, 5.4, 8.2);
   card(slide, 9.15, 1.4, 3.6, 2.2, C.accent6);
@@ -317,9 +360,9 @@ section(1);
   para(slide, "**All three changes so far were tuned on the official map, whose doors never move.** Next: do they still work when the doors move?", M + 0.25, 5.85, 7.85, 1.0, 14, C.text1, C.text2, "middle");
 }
 
-// ---------- 13 random-door maps + safety nets ----------
+// ---------- 15 random-door maps + safety nets ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(15); const slide = content(s);
   addImg(slide, "gen", M, 1.35, 7.6, 3.6, "left");
   card(slide, 8.45, 1.4, 4.3, 3.5, C.background2);
   para(slide, "**Worry:** our changes may only fit the official map and its doors. So we wrote a program that **places doors at random**.", 8.7, 1.5, 3.85, 1.05, 13);
@@ -337,9 +380,9 @@ section(1);
   });
 }
 
-// ---------- 14 results ----------
+// ---------- 16 results ----------
 {
-  const s = S(14); const slide = content(s);
+  const s = S(16); const slide = content(s);
   const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only our control differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]];
   st.forEach(([b, l, col], i) => {
     const y = 1.5 + i * 1.65;
@@ -350,18 +393,18 @@ section(1);
   para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **our control (orange)**.", 4.6, 6.2, 8.1, 0.7, 13, C.accent4, C.text2);
 }
 
-// ---------- 15 what matters ----------
+// ---------- 17 what matters ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(17); const slide = content(s);
   addImg(slide, "abl", M, 1.35, 12.1, 3.9);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.3, 12);
   card(slide, M, 5.7, 12.15, 1.2, C.accent6);
   para(slide, "**Remove one part:** door rule −25.6%, quota −13.6%, executor fix −6.7%.   **Add alone:** door rule +29.7%, quota +29.3%; **together +76.4%**.\n**Quota** decides how many robots come; **door rule** decides how they pass.", M + 0.3, 5.72, 11.6, 1.15, 15, C.text1, C.text2, "middle");
 }
 
-// ---------- 16 failures ----------
+// ---------- 18 failures ----------
 {
-  const s = S(16); const slide = content(s);
+  const s = S(18); const slide = content(s);
   addImg(slide, "funnel", M, 1.3, 12.1, 3.05);
   para(slide, "**69 network mechanisms tried:** 38 dropped after a quick check, 23 failed development tests, 7 not confirmed on new maps, **only 1 passed (the watchdog)**. Every rerouting idea lost.", M, 4.42, 12.1, 0.62, 14);
   const les = [["Assumptions break", "Network methods assume packets can be dropped and take no space; robots cannot be dropped and occupy cells."], ["Door 6 sets the limit", "That is why every rerouting method lost."], ["Confirm on new maps", "Gains on development maps often shrink."]];
@@ -374,9 +417,9 @@ section(1);
   });
 }
 
-// ---------- 17 conclusion ----------
+// ---------- 19 conclusion ----------
 {
-  const s = S(17);
+  const s = S(19);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const pts = [

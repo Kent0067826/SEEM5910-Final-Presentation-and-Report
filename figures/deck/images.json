@@ -93,5 +93,10 @@
   "path": "figures/brief/b_f4_admission.png",
   "w": 1455,
   "h": 454
+ },
+ "tcp": {
+  "path": "figures/deck/tcp_bdp_concept.png",
+  "w": 1280,
+  "h": 920
  }
 }
