@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v25.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v26.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -282,21 +282,32 @@ section(1);
   para(slide, "3,646 cells → **16 rooms (nodes)** and **31 doors (edges)**. **Door 6 is a cut**: remove it, and the 4 lower-left rooms are cut off.", M, 4.72, 6.6, 0.55, 13);
   card(slide, M, 5.3, 6.6, 0.8, C.accent6);
   para(slide, "**Jams form at the doors:** near a door, robots stand still **4.2×** as long as they move; the door cell and 2 steps around it are **10% of the area** but hold **30% of all waiting**.", M + 0.2, 5.3, 6.2, 0.8, 12, C.text1, C.text2, "middle");
-  slide.addText("What makes robots special", { x: 7.45, y: 1.35, w: 5.3, h: 0.4, fontSize: 17, bold: true, color: C.text2, margin: 0, isTextBox: true });
-  const props = [
-    ["Cannot be dropped", "a robot can only wait; it never disappears"],
-    ["Waiting takes up a cell", "a robot waiting near a door may block the other side"],
-    ["Fixed fleet", "the same robots stay on the map for the whole run"],
-    ["Face to face", "jams come from robots meeting in a one-cell door"],
+  // right: our robots vs computer networks vs road traffic (shaded = different from our robots)
+  const X0 = 7.35, cw = [1.9, 1.7, 1.7], g = 0.05, y0 = 1.83, rh = 0.56;
+  const cx = [X0, X0 + cw[0] + g, X0 + cw[0] + cw[1] + 2 * g];
+  slide.addText("What makes our robots different", { x: X0, y: 1.3, w: 5.4, h: 0.4, fontSize: 17, bold: true, color: C.text2, margin: 0, isTextBox: true });
+  ["Our robots", "Computer networks", "Road traffic"].forEach((h, j) =>
+    slide.addText(h, { x: cx[j] + 0.08, y: y0, w: cw[j] - 0.1, h: 0.32, fontSize: 11.5, bold: true, color: j ? C.text1 : C.accent3, margin: 0, isTextBox: true, valign: "bottom" }));
+  const rows = [  // [our robots, networks, differs?, traffic, differs?]
+    ["**1 · Cannot be dropped**", "**Drops packets**, sends them again", 1, "Same: a car cannot vanish", 0],
+    ["**2 · Waiting takes up a cell**", "Waits in router memory, **off the line**", 1, "Same: a waiting car blocks its lane", 0],
+    ["**3 · Fixed fleet:** robots never leave the map", "A packet **leaves** once delivered", 1, "Cars **leave** at their destination", 1],
+    ["**4 · Face to face:** a one-cell door jams", "Most lines carry **both ways at once**", 1, "Most roads have **a lane each way**", 1],
+    ["**+ May wait long,** if more orders finish", "Flows expect **a fair share**", 1, "**No car** may wait forever", 1],
+    ["**+ One program** decides every order and move", "**Each sender** sets its own rate", 1, "**Each driver** picks a route", 1],
   ];
-  props.forEach(([a, b], i) => {
-    const y = 1.92 + i * 1.02;
-    numCircle(slide, 7.45, y + 0.1, i + 1, 0.45, C.accent3);
-    slide.addText(a, { x: 8.08, y, w: 4.67, h: 0.4, fontSize: 15, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    slide.addText(b, { x: 8.08, y: y + 0.42, w: 4.67, h: 0.5, fontSize: 13, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
+  rows.forEach(([a, b, db, c, dc], i) => {
+    const y = y0 + 0.38 + i * (rh + 0.04);
+    card(slide, cx[0], y, cw[0], rh, C.background2);
+    card(slide, cx[1], y, cw[1], rh, db ? C.accent6 : "FFFFFF");
+    card(slide, cx[2], y, cw[2], rh, dc ? C.accent6 : "FFFFFF");
+    para(slide, a, cx[0] + 0.08, y, cw[0] - 0.12, rh, 10.5, C.text1, C.text2, "middle");
+    para(slide, b, cx[1] + 0.08, y, cw[1] - 0.12, rh, 10, db ? C.text1 : "8A8F98", C.text2, "middle");
+    para(slide, c, cx[2] + 0.08, y, cw[2] - 0.12, rh, 10, dc ? C.text1 : "8A8F98", C.text2, "middle");
   });
+  caption(slide, "Shaded = different from our robots. Neither column matches all six rows.", X0, y0 + 0.38 + 6 * (rh + 0.04) + 0.02, 5.4);
   card(slide, M, 6.22, 12.15, 0.66, C.background2);
-  para(slide, "**So a good algorithm** never drops a robot. It only decides **who goes and when**, and keeps the exits clear.", M + 0.25, 6.22, 11.7, 0.66, 15, C.text1, C.text2, "middle");
+  para(slide, "**Neither can be copied directly.** So DoorFlow never drops a robot; it only decides **who goes and when**, and keeps exits clear.", M + 0.25, 6.22, 11.7, 0.66, 15, C.text1, C.text2, "middle");
 }
 
 // ---------- 9 routing or scheduling ----------
@@ -330,12 +341,11 @@ section(1);
   bullets(slide, [
     "**Our measure:** robots on the way to a door = hold an order through it, **not crossed yet**.",
     "**Window:** at most this many orders through the door **at the same time**.",
-    "**Little's law:** on the way = **rate × trip time**.",
+    "**Counting rule:** on the way = **rate × trip time**. A shop where 1 customer leaves per minute and each stays 10 minutes has about **10** inside.",
     "**Too few:** the door waits; capacity is wasted.",
-    "**Too many:** the rate is stuck at **26** per 500 ticks, so extra robots only **queue**.",
-    "**Best window:** door rate × trip time **with no queue** (door 6 inward ≈ **15**).",
+    "**Too many:** the door still passes only **26** per 500 ticks; extra robots only **queue**.",
+    "**Best window:** door rate × trip time **with no queue**, for every door (door 6 inward ≈ **15**).",
     "**Robots are worse than a queue:** waiting robots block the other side, so crossings **fall**.",
-    "**So:** every door gets a window of **rate × trip time**.",
   ], x0, 2.55, w0, 4.4, 13.5);
 }
 
@@ -349,8 +359,8 @@ section(1);
   bullets(slide, [
     "**Grow until something breaks?** Robots are never lost, so there is **no stop signal**; the queue just grows.",
     "**BBR:** bandwidth = **highest** delivery rate seen; delay = **shortest** round trip seen. A jam cannot raise its own limit.",
-    "**Our delay:** real time (Little's law) vs **shortest-path time**. On spots our first model missed: **2.2–2.9×**, so a fixed formula there would hold back doors that are not jammed.",
-    "**Tested:** a BBR-style cap there, which bites only when delay rises and crossings fall. Big losses gone, but overall only **+0.08%** → kept the fixed quota; stuck robots → watchdog.",
+    "**Our delay:** real time (robots on the way ÷ rate) vs **shortest-path time**. On spots our first model missed: **2.2–2.9×**, so a fixed formula there would hold back doors that are not jammed.",
+    "**Tested:** a BBR-style cap there, which bites only when delay rises and crossings fall. Big losses gone, but overall only **+0.08%** → kept the fixed quota.",
   ], x0, 2.9, w0, 4.05, 13);
 }
 
@@ -485,7 +495,7 @@ section(1);
   slide.addText("+86.9%", { x: 8.7, y: 2.55, w: 3.85, h: 0.75, fontSize: 38, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
   para(slide, "vs the same base on **8 new room maps** × 199 / 249 robots (**640 runs**): **wins on every map**.", 8.7, 3.35, 3.85, 1.45, 13);
   const nets = [
-    ["Safety net 1 · Global cap", "Problem: narrow spots the door rules do not cover. **Little's law:** 1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138.5 → **138** robots hold orders at most (official map). Without it: **−16.9%** on one new map (249 robots)."],
+    ["Safety net 1 · Global cap", "Problem: narrow spots the door rules do not cover. **Rate × trip time:** 1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138.5 → **138** robots hold orders at most (official map). Without it: **−16.9%** on one new map (249 robots)."],
     ["Safety net 2 · Deadlock watchdog", "Problem: rare deadlock, one run fell **1,114 → 700**. Waited **300 ticks** and no entry at its door: skip the door rule for one tick. **Relax the rule, never drop a robot.** No measurable effect on these 8 maps; earlier confirmation: **+2.30%** on 15 generated room-map instances."],
   ];
   nets.forEach(([a, b], i) => {

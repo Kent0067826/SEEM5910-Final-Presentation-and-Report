@@ -20,7 +20,7 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.edgeco
 
 
 def bdp_principle(path):
-    """How big should a door's window be? Derived from the problem with Little's law (theory sketch, no measured data)."""
+    """How big should a door's window be? Derived from the counting rule N = X * T (known as Little's law; theory sketch, no measured data)."""
     C, T0 = 1.0, 1.0                     # door rate, trip time with no queue (units: the best window = 1)
     best = C * T0
     N = np.linspace(0, 3.0, 600)
@@ -38,7 +38,7 @@ def bdp_principle(path):
         ax.spines[["top", "right"]].set_visible(False)
     a1.plot(N, X, color=TEAL, lw=2.8)
     a1.plot(N, Xr, color=RED, lw=2.4, ls=(0, (5, 2)))
-    a1.text(2.05, C + 0.05, "ideal door: $X=\\min(N/T_0,\\,C)$", color=TEAL, fontsize=9, ha="center")
+    a1.text(2.05, C + 0.05, "ideal door: more robots, more crossings, up to $C$", color=TEAL, fontsize=9, ha="center")
     a1.set_ylim(0, 1.42); a1.set_yticks([0, C]); a1.set_yticklabels(["0", "$C$"])
     a1.set_ylabel("robots crossing per tick, $X$")
     a1.text(0.5 * best, 1.27, "too few on the way:\nthe door sometimes waits", ha="center", va="center", color=GREY, fontsize=9)
@@ -60,9 +60,11 @@ def bdp_principle(path):
     a2.set_xticks([0, best]); a2.set_xticklabels(["0", "$C\\cdot T_0$"])
     a2.set_xlabel("robots on the way: hold an order through the door, not crossed yet, $N$")
     fig.text(0.1, 0.955, "How many robots should head for a door?", fontsize=12.5, fontweight="bold", color=INK)
-    fig.text(0.1, 0.918, "Little's law  $N = X\\cdot T$,   $X=\\min(N/T_0,\\ C)$,   $T=\\max(T_0,\\ N/C)$   $\\Rightarrow$   best window $N^{*}=C\\cdot T_0$",
+    fig.text(0.1, 0.918, "Counting rule:  robots on the way = crossing rate x trip time   ($N = X\\cdot T$)",
              fontsize=10.5, color=INK)
-    fig.text(0.1, 0.012, "$C$: door rate per direction    $T_0$: trip time with no queue (breakdowns included)    theory sketch",
+    fig.text(0.1, 0.034, "$C$: door rate per direction    $T_0$: trip time with no queue (breakdowns included)    theory sketch",
+             fontsize=7.8, color=GREY, style="italic")
+    fig.text(0.1, 0.008, "The counting rule $N = X\\cdot T$ is known in queueing theory as Little's law.",
              fontsize=7.8, color=GREY, style="italic")
     fig.savefig(path, facecolor="white")
     plt.close(fig)
@@ -237,7 +239,7 @@ def bbr_loop(path):
     rows = [("BBR", "DoorFlow"),
             ("BtlBw", "door crossings: 26 / 500 ticks (13 per direction)"),
             ("RTprop", "no-queue time: shortest path x 2.23 (breakdowns)"),
-            ("RTT / RTprop", "real time (Little's law) / no-queue time: bars, right"),
+            ("RTT / RTprop", "real time (on the way ÷ rate) / no-queue time: bars"),
             ("in-flight limit", "quota per door and direction (buffer size)"),
             ("one connection", "every door and direction at once; global cap 138")]
     for i, (a, b) in enumerate(rows):

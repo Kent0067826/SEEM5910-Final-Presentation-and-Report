@@ -201,42 +201,47 @@
  {
   "n": 8,
   "speaker": 3,
-  "time": "0:45",
+  "time": "1:05",
   "title": "The model, and what makes robots special",
   "figs": [
-   "图 4 地图压成网络"
+   "图 4 地图压成网络；右侧对比表（我们的车 / 计算机网络 / 道路交通，幻灯片上直接画的，阴影 = 和我们不一样）"
   ],
   "hints": [
    "To analyze: a model; 16 rooms = nodes, 31 doors = edges; door 6 is a cut",
    "Near a door: stand still 4.2× → the problem is at the doors",
-   "4 properties: cannot drop; waiting takes a cell; fixed fleet; face to face",
-   "So: never drop a robot; decide who goes and when; keep exits clear"
+   "4 properties shape the algorithm: cannot drop; waiting takes a cell; fixed fleet; face to face",
+   "vs networks: they drop packets; vs traffic: no car may wait forever; here one program decides → copy neither",
+   "So: DoorFlow never drops a robot; decides who goes and when; keeps exits clear"
   ],
-  "en": "Thank you. To analyze this, we first built a model. 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off. 【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so the problem is **at the doors**. 【指右边四点】 Four properties of robots matter: they **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**. 【指底部】 So a good algorithm can never drop a robot; it can only decide **who goes and when**, and keep exits clear.",
-  "zh": "谢谢。为了分析，我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以问题出在**门口**。【指右边四点】车有四个要紧的特点：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。【指底部】所以好的算法不能丢掉车，只能决定**谁走、什么时候走**，并让出口保持畅通。",
+  "en": "Thank you. First, we built a model. 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off. 【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so the problem is **at the doors**. 【指右边四点】 Four properties shape the algorithm: robots **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**. 【指右边两列】 Our analysis also showed where we differ from **computer networks** and **road traffic**. A congested network can simply **drop packets**; a robot **cannot be dropped**, and a waiting robot **takes up a cell**. Road traffic cannot leave some cars **standing still forever**, but here we can. And **one program decides every order and move**, not each driver. So we **cannot simply copy** network or traffic algorithms. 【指底部】 So DoorFlow **never drops a robot**; it only decides **who goes and when**, and keeps **exits clear**.",
+  "zh": "谢谢。我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以问题出在**门口**。【指右边四点】四个特点决定了算法的样子：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。【指右边两列】同时我们的分析发现了我们和计算机网络和交通流算法不一样的地方：计算机网络里拥塞往往可以直接**丢包**来解决，车**不能因为拥塞被丢弃**；而且等着的车**占着格子**；对于交通来说，交通不能让某些车辆**永远不动**，但是这里我们可以；而且这里**每一单、每一步都由一个程序统一决定**，不像路上每个司机自己选路。所以都**不能直接抄**和借用交通流和计算机网络的算法。【指底部】所以我们后来的方向转向了让**出口保持畅通**。",
   "segs": [
    {
-    "en": "Thank you. To analyze this, we first built a model. 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off.",
-    "zh": "谢谢。为了分析，我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。"
+    "en": "Thank you. First, we built a model. 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off.",
+    "zh": "谢谢。我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。"
    },
    {
     "en": "【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so the problem is **at the doors**.",
     "zh": "【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以问题出在**门口**。"
    },
    {
-    "en": "【指右边四点】 Four properties of robots matter: they **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**.",
-    "zh": "【指右边四点】车有四个要紧的特点：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。"
+    "en": "【指右边四点】 Four properties shape the algorithm: robots **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**.",
+    "zh": "【指右边四点】四个特点决定了算法的样子：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。"
    },
    {
-    "en": "【指底部】 So a good algorithm can never drop a robot; it can only decide **who goes and when**, and keep exits clear.",
-    "zh": "【指底部】所以好的算法不能丢掉车，只能决定**谁走、什么时候走**，并让出口保持畅通。"
+    "en": "【指右边两列】 Our analysis also showed where we differ from **computer networks** and **road traffic**. A congested network can simply **drop packets**; a robot **cannot be dropped**, and a waiting robot **takes up a cell**. Road traffic cannot leave some cars **standing still forever**, but here we can. And **one program decides every order and move**, not each driver. So we **cannot simply copy** network or traffic algorithms.",
+    "zh": "【指右边两列】同时我们的分析发现了我们和计算机网络和交通流算法不一样的地方：计算机网络里拥塞往往可以直接**丢包**来解决，车**不能因为拥塞被丢弃**；而且等着的车**占着格子**；对于交通来说，交通不能让某些车辆**永远不动**，但是这里我们可以；而且这里**每一单、每一步都由一个程序统一决定**，不像路上每个司机自己选路。所以都**不能直接抄**和借用交通流和计算机网络的算法。"
+   },
+   {
+    "en": "【指底部】 So DoorFlow **never drops a robot**; it only decides **who goes and when**, and keeps **exits clear**.",
+    "zh": "【指底部】所以我们后来的方向转向了让**出口保持畅通**。"
    }
   ]
  },
  {
   "n": 9,
   "speaker": 3,
-  "time": "0:50",
+  "time": "0:45",
   "title": "Routing or scheduling? The ceiling decides",
   "figs": [
    "图 7 天花板公式"
@@ -249,12 +254,12 @@
    "14 of 15 rerouting methods lowered results; the 15th +0.20% (report Fig. 20)",
    "So: scheduling → our algorithm DoorFlow"
   ],
-  "en": "So why did changing routes not help? A simple calculation explains it. 【指 1】 The lower-left rooms hold **906 of the 3,614** room cells, which is **25 percent**. 【指 2】 An order needs door 6 when its two ends are on different sides: **2 times 0.25 times 0.75, about 37.6 percent** of orders; the task file gives 38.5. 【指 3 和公式】 Door 6 passes **26 robots** every 500 ticks, so the map can finish at most **26 divided by 0.376, about 69 orders**, whatever routes robots take. 【指底部】 So the real question is scheduling: **how many robots to send, and which side goes first**. This is the idea of our algorithm, **DoorFlow**: regulate the flow through every door, for the whole map.",
-  "zh": "那为什么改路线没有用？一个简单的计算就能说明。【指 1】左下房间占 3614 个房间格里的 **906 个**，也就是 906 ÷ 3614 ≈ **25%**。【指 2】一单两头落在门的两侧，就要过门 6：**2 × 0.2507 × 0.7493 ≈ 37.6%**；任务文件里是 38.5%。【指 3 和公式】门 6 每 500 拍过 **26 台**，所以不管车怎么走，整张图最多完成 **26 ÷ 0.376 ≈ 69 单**。【指底部】所以真正的问题是调度：**派多少车、哪边先走**。这就是我们的算法 **DoorFlow** 的想法：从全图出发，调控每道门的流量。",
+  "en": "So why did changing routes not help? 【指 1】 The lower-left rooms hold **906 of the 3,614** room cells, which is **25 percent**. 【指 2】 An order needs door 6 when its two ends are on different sides: **2 times 0.25 times 0.75, about 37.6 percent** of orders; the task file gives 38.5. 【指 3 和公式】 Door 6 passes **26 robots** every 500 ticks, so the map can finish at most **26 divided by 0.376, about 69 orders**, whatever routes robots take. 【指底部】 So the real question is scheduling: **how many robots to send, and which side goes first**. This is the idea of our algorithm, **DoorFlow**: regulate the flow through every door, for the whole map.",
+  "zh": "那为什么改路线没有用？【指 1】左下房间占 3614 个房间格里的 **906 个**，也就是 906 ÷ 3614 ≈ **25%**。【指 2】一单两头落在门的两侧，就要过门 6：**2 × 0.2507 × 0.7493 ≈ 37.6%**；任务文件里是 38.5%。【指 3 和公式】门 6 每 500 拍过 **26 台**，所以不管车怎么走，整张图最多完成 **26 ÷ 0.376 ≈ 69 单**。【指底部】所以真正的问题是调度：**派多少车、哪边先走**。这就是我们的算法 **DoorFlow** 的想法：从全图出发，调控每道门的流量。",
   "segs": [
    {
-    "en": "So why did changing routes not help? A simple calculation explains it.",
-    "zh": "那为什么改路线没有用？一个简单的计算就能说明。"
+    "en": "So why did changing routes not help?",
+    "zh": "那为什么改路线没有用？"
    },
    {
     "en": "【指 1】 The lower-left rooms hold **906 of the 3,614** room cells, which is **25 percent**.",
@@ -280,12 +285,12 @@
   "time": "1:00",
   "title": "Scheduling 1: a window for each door",
   "figs": [
-   "窗口大小原理图（从 Little 定律推出；理论示意，附门 6 的数字）"
+   "窗口大小原理图（从“路上的车数 = 过门速率 × 路程时间”推出；这条计数规律在排队论里叫 Little 定律，讲稿不提名字，只写在图注里；理论示意，附门 6 的数字）"
   ],
   "hints": [
    "Our measure: robots on the way to a door (hold an order through it, not crossed yet)",
    "Window (quota) = how many orders may cross a door at once",
-   "Little's law: on the way = crossing rate × trip time",
+   "Simple rule: on the way = door rate × trip time (shop: 1 out per minute, 10 min each → about 10 inside)",
    "Too few: door waits; too many: rate stuck at 26 → extra only queues",
    "Best window = door rate × trip time with no queue (door 6 inward ≈ 15)",
    "Robots: past it, waiting robots block the other side → rate falls"
@@ -296,21 +301,21 @@
     "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。这个数就是我们的**窗口**，用它来决定**同时指派多少个要穿过这道门的任务**。"
    },
    {
-    "en": "How big should the window be? **Little's law** says robots on the way equal the **crossing rate times the trip time**. 【指左图上半】 With too few, the door **waits**; with too many, the rate stays at **26** per 500 ticks, and the extra robots only 【指左图下半】 **queue**.",
-    "zh": "窗口该多大？**Little 定律**说：路上的车数 = **过门速率 × 路程时间**。【指左图上半】车太少，门就**等车**；太多，速率也只有每 500 拍 **26 台**，多出来的车只会【指左图下半】**排队**。"
+    "en": "How big should the window be? A simple rule helps: if a shop lets one customer out every minute and each stays ten minutes, about **ten** are inside. So robots on the way = **door rate × trip time**.",
+    "zh": "窗口该多大？有一个很简单的规律：一家店每分钟走出 1 位客人，每位待 10 分钟，店里就大约有 **10 个人**。同样，路上的车数 = **过门速率 × 路程时间**。"
    },
    {
-    "en": "【指橙色虚线】 So the best window is **the door's rate times the trip time with no queue**: about **15 robots** for door 6 inward. 【指右边最后一条】 Going past it is worse than a queue: waiting robots **block the other side**, so the rate **falls**.",
-    "zh": "【指橙色虚线】所以最好的窗口是**门的速率 × 不排队时的路程时间**：门 6 往里的方向大约 **15 台**。【指右边最后一条】超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。"
+    "en": "【指左图上半】 Door 6 passes at most **26** robots per 500 ticks. Fewer on the way, and the door **waits**; more, and the extras just 【指左图下半】 **queue**. 【指橙色虚线】 So the best window is **door rate × trip time with no queue**: about **15** for door 6 inward. 【指右边最后一条】 Past that, waiting robots **block the other side**, and the rate even **falls**.",
+    "zh": "【指左图上半】门 6 每 500 拍最多过 **26 台**。路上的车少了，门就**等车**；多了，多出来的车只会【指左图下半】**排队**。【指橙色虚线】所以最好的窗口是**门的速率 × 不排队时的路程时间**：门 6 往里的方向大约 **15 台**。【指右边最后一条】再多，等着的车会**挡住对面**，速率反而**下降**。"
    }
   ],
-  "en": "How many robots should head for door 6 at once? We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. This number is our **window**: it decides **how many orders may cross the door at the same time**. How big should the window be? **Little's law** says robots on the way equal the **crossing rate times the trip time**. 【指左图上半】 With too few, the door **waits**; with too many, the rate stays at **26** per 500 ticks, and the extra robots only 【指左图下半】 **queue**. 【指橙色虚线】 So the best window is **the door's rate times the trip time with no queue**: about **15 robots** for door 6 inward. 【指右边最后一条】 Going past it is worse than a queue: waiting robots **block the other side**, so the rate **falls**.",
-  "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。这个数就是我们的**窗口**，用它来决定**同时指派多少个要穿过这道门的任务**。窗口该多大？**Little 定律**说：路上的车数 = **过门速率 × 路程时间**。【指左图上半】车太少，门就**等车**；太多，速率也只有每 500 拍 **26 台**，多出来的车只会【指左图下半】**排队**。【指橙色虚线】所以最好的窗口是**门的速率 × 不排队时的路程时间**：门 6 往里的方向大约 **15 台**。【指右边最后一条】超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。"
+  "en": "How many robots should head for door 6 at once? We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. This number is our **window**: it decides **how many orders may cross the door at the same time**. How big should the window be? A simple rule helps: if a shop lets one customer out every minute and each stays ten minutes, about **ten** are inside. So robots on the way = **door rate × trip time**. 【指左图上半】 Door 6 passes at most **26** robots per 500 ticks. Fewer on the way, and the door **waits**; more, and the extras just 【指左图下半】 **queue**. 【指橙色虚线】 So the best window is **door rate × trip time with no queue**: about **15** for door 6 inward. 【指右边最后一条】 Past that, waiting robots **block the other side**, and the rate even **falls**.",
+  "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。这个数就是我们的**窗口**，用它来决定**同时指派多少个要穿过这道门的任务**。窗口该多大？有一个很简单的规律：一家店每分钟走出 1 位客人，每位待 10 分钟，店里就大约有 **10 个人**。同样，路上的车数 = **过门速率 × 路程时间**。【指左图上半】门 6 每 500 拍最多过 **26 台**。路上的车少了，门就**等车**；多了，多出来的车只会【指左图下半】**排队**。【指橙色虚线】所以最好的窗口是**门的速率 × 不排队时的路程时间**：门 6 往里的方向大约 **15 台**。【指右边最后一条】再多，等着的车会**挡住对面**，速率反而**下降**。"
  },
  {
   "n": 11,
   "speaker": 3,
-  "time": "1:00",
+  "time": "1:05",
   "title": "Scheduling 1: global regulation, like BBR",
   "figs": [
    "BBR 控制环与 DoorFlow 对照图（含第 50 轮实测时延比）"
@@ -319,38 +324,38 @@
    "Goal: global regulation; a buffer size (quota) per door & direction",
    "Grow until something breaks? robots never lost → no stop signal → queue grows",
    "BBR: max delivery rate × min round trip; min keeps a jam from raising its own limit",
-   "Our delay: real time (Little) vs shortest-path time; missed spots 2.2–2.9× → a fixed formula there holds back doors that are not jammed",
-   "BBR-style cap (round 51): bites only when delay rises and crossings fall; big losses gone, overall +0.08% [−0.32, +0.47] → fixed quota; watchdog later"
+   "Our delay: no queue = shortest-path time; real time (on the way ÷ rate); missed spots 2.2–2.9× → a fixed formula there holds back doors that are not jammed",
+   "BBR-style cap (round 51): bites only when delay rises and crossings fall; big losses gone, overall +0.08% [−0.32, +0.47] → kept the fixed quota"
   ],
   "segs": [
    {
-    "en": "Our goal is **global regulation**: a **buffer size**, the quota, for every door and direction at once. How should we set these limits?",
-    "zh": "我们的目标是**全局调控**：同时给每道门、每个方向一个**缓冲区大小**，也就是名额。这些上限该怎么定？"
+    "en": "Our goal is **global regulation**: a **buffer size**, the quota, for every door and direction at once.",
+    "zh": "我们的目标是**全局调控**：同时给每道门、每个方向一个**缓冲区大小**，也就是名额。"
    },
    {
-    "en": "We could let the window grow until something goes wrong, but robots are never lost, so there is **no clear stop signal**, and the queue just grows.",
-    "zh": "也可以让窗口一直变大、直到出问题才停；但车永远不会丢，**没有明确的“停”信号**，队只会越排越长。"
+    "en": "Growing the window until something breaks does not work here: robots are never lost, so there is **no stop signal**, and the queue just grows.",
+    "zh": "让窗口一直变大、直到出问题才停，在这里行不通：车永远不会丢，**没有“停”的信号**，队只会越排越长。"
    },
    {
-    "en": "【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit.",
-    "zh": "【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。"
+    "en": "【指左图第 2 框】 **BBR** measures instead: bandwidth is the **highest delivery rate** seen, and delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 Following the current delay would let a jam raise its own limit.",
+    "zh": "【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果跟着当前时延走，堵车就会把自己的上限抬高。"
    },
    {
-    "en": "【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes everything else. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model, so a fixed formula there would **hold back doors that were not jammed**.",
-    "zh": "【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了其余的一切。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**，所以在那里用固定公式，会**卡住本来不堵的门**。"
+    "en": "【指下方对照表】 We estimate delay the same way: with no queue, it is the **shortest-path time**. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model, so a fixed formula there would **hold back doors that were not jammed**.",
+    "zh": "【指下方对照表】我们用同样的办法估计时延：不排队时就是**最短路时间**。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**，所以在那里用固定公式，会**卡住本来不堵的门**。"
    },
    {
-    "en": "So on those spots we tried a **BBR-style cap**, which only bites when the delay keeps rising and crossings fall. It removed the big losses where a door had collapsed, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
-    "zh": "所以在这些窄处，我们试了 **BBR 式上限**：只有时延一直变长、过门数下降时才收紧。它把门塌掉时的大损失补回来了，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
+    "en": "So there we tried a **BBR-style cap** that tightens only when delay keeps rising and crossings fall. It removed big losses where a door collapsed, but overall it added only **0.08 percent**, so we kept the fixed quota.",
+    "zh": "所以在这些窄处，我们试了 **BBR 式上限**：只有时延一直变长、过门数下降时才收紧。它把门塌掉时的大损失补回来了，但总体只多了 **0.08%**，所以保留固定名额。"
    }
   ],
-  "en": "Our goal is **global regulation**: a **buffer size**, the quota, for every door and direction at once. How should we set these limits? We could let the window grow until something goes wrong, but robots are never lost, so there is **no clear stop signal**, and the queue just grows. 【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit. 【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes everything else. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model, so a fixed formula there would **hold back doors that were not jammed**. So on those spots we tried a **BBR-style cap**, which only bites when the delay keeps rising and crossings fall. It removed the big losses where a door had collapsed, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
-  "zh": "我们的目标是**全局调控**：同时给每道门、每个方向一个**缓冲区大小**，也就是名额。这些上限该怎么定？也可以让窗口一直变大、直到出问题才停；但车永远不会丢，**没有明确的“停”信号**，队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了其余的一切。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**，所以在那里用固定公式，会**卡住本来不堵的门**。所以在这些窄处，我们试了 **BBR 式上限**：只有时延一直变长、过门数下降时才收紧。它把门塌掉时的大损失补回来了，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
+  "en": "Our goal is **global regulation**: a **buffer size**, the quota, for every door and direction at once. Growing the window until something breaks does not work here: robots are never lost, so there is **no stop signal**, and the queue just grows. 【指左图第 2 框】 **BBR** measures instead: bandwidth is the **highest delivery rate** seen, and delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 Following the current delay would let a jam raise its own limit. 【指下方对照表】 We estimate delay the same way: with no queue, it is the **shortest-path time**. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model, so a fixed formula there would **hold back doors that were not jammed**. So there we tried a **BBR-style cap** that tightens only when delay keeps rising and crossings fall. It removed big losses where a door collapsed, but overall it added only **0.08 percent**, so we kept the fixed quota.",
+  "zh": "我们的目标是**全局调控**：同时给每道门、每个方向一个**缓冲区大小**，也就是名额。让窗口一直变大、直到出问题才停，在这里行不通：车永远不会丢，**没有“停”的信号**，队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：不排队时就是**最短路时间**。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**，所以在那里用固定公式，会**卡住本来不堵的门**。所以在这些窄处，我们试了 **BBR 式上限**：只有时延一直变长、过门数下降时才收紧。它把门塌掉时的大损失补回来了，但总体只多了 **0.08%**，所以保留固定名额。"
  },
  {
   "n": 12,
   "speaker": 3,
-  "time": "0:50",
+  "time": "0:40",
   "title": "Scheduling 1: the quota, version by version",
   "figs": [
    "图 9 在途车与过门数",
@@ -365,8 +370,8 @@
   ],
   "segs": [
    {
-    "en": "The quota counts every robot that **holds an order through door 6 but has not crossed yet**; when it is full, the next robot gets **an order that does not need the door**.",
-    "zh": "名额数的是所有**接了过门 6 的单、还没过门**的车；名额满了，下一台车就派**一单不用过门的**。"
+    "en": "When a door's quota is full, the next robot gets **an order that does not need the door**.",
+    "zh": "某道门的名额满了，下一台车就派**一单不用过这道门的**。"
    },
    {
     "en": "【指右边第二条】 Our first window counted all robots together and gained only **0.53 percent**. 【指右边第三条】 Counting **per door and per direction** gained **29.1 percent** on its own, on 17 room-map instances.",
@@ -381,8 +386,8 @@
     "zh": "【指左图】不管门时 **211 台**车奔向门、只过 **3 台**；用名额后大约 25 台，正好在拐点上，能过 **26 台**。"
    }
   ],
-  "en": "The quota counts every robot that **holds an order through door 6 but has not crossed yet**; when it is full, the next robot gets **an order that does not need the door**. 【指右边第二条】 Our first window counted all robots together and gained only **0.53 percent**. 【指右边第三条】 Counting **per door and per direction** gained **29.1 percent** on its own, on 17 room-map instances. 【指公式】 Hand-tuned sizes were too tight at 8 and jammed at 32 or more; the formula gives **15 in** and **10 out**, as good as the best hand-tuned value. 【指左图】 With no control, **211** robots head for the door and **3** get through; with the quota, about **25**, at the knee, and **26** get through.",
-  "zh": "名额数的是所有**接了过门 6 的单、还没过门**的车；名额满了，下一台车就派**一单不用过门的**。【指右边第二条】第一版窗口把所有车一起数，只多了 **0.53%**。【指右边第三条】改成**按门、按方向**数，单独就多了 **29.1%**（17 个房间图实例）。【指公式】手调时 8 台太紧，32 台以上又会堵；公式给出**进 15 台、出 10 台**，和手调的最好值一样好。【指左图】不管门时 **211 台**车奔向门、只过 **3 台**；用名额后大约 25 台，正好在拐点上，能过 **26 台**。"
+  "en": "When a door's quota is full, the next robot gets **an order that does not need the door**. 【指右边第二条】 Our first window counted all robots together and gained only **0.53 percent**. 【指右边第三条】 Counting **per door and per direction** gained **29.1 percent** on its own, on 17 room-map instances. 【指公式】 Hand-tuned sizes were too tight at 8 and jammed at 32 or more; the formula gives **15 in** and **10 out**, as good as the best hand-tuned value. 【指左图】 With no control, **211** robots head for the door and **3** get through; with the quota, about **25**, at the knee, and **26** get through.",
+  "zh": "某道门的名额满了，下一台车就派**一单不用过这道门的**。【指右边第二条】第一版窗口把所有车一起数，只多了 **0.53%**。【指右边第三条】改成**按门、按方向**数，单独就多了 **29.1%**（17 个房间图实例）。【指公式】手调时 8 台太紧，32 台以上又会堵；公式给出**进 15 台、出 10 台**，和手调的最好值一样好。【指左图】不管门时 **211 台**车奔向门、只过 **3 台**；用名额后大约 25 台，正好在拐点上，能过 **26 台**。"
  },
  {
   "n": 13,
@@ -427,7 +432,7 @@
  {
   "n": 14,
   "speaker": 3,
-  "time": "0:40",
+  "time": "0:35",
   "title": "Scheduling 2: queue scheduling at the door",
   "figs": [
    "门利用率曲线（演讲专用：U(n) = 9n / (9(n−1) + 21)，h、s 为实测值）"
@@ -449,21 +454,21 @@
     "zh": "【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指曲线左端】每过一台就换，门只有 **43%** 的时间在过车；【指 n = 10】每次放 10 台是 **88%**。"
    },
    {
-    "en": "【指右边第三条】 Our first version capped each turn at **80 steps**, which caused extra switches, so we moved to **exhaustive service**: serve one queue **until it is empty**.",
-    "zh": "【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。"
+    "en": "【指右边第三条】 Our first version capped each turn at **80 steps** and switched too often, so we moved to **exhaustive service**: serve one queue **until it is empty**.",
+    "zh": "【指右边第三条】第一版每轮最多放 **80 步**，换向太勤，所以改成**穷尽服务**：一个队列**服务到走空**再换。"
    },
    {
     "en": "【指底部】 Theory calls this best when switching is costly, so we tested it here.",
     "zh": "【指底部】理论上换向代价大时这样最好，所以我们在这里做了实验检验。"
    }
   ],
-  "en": "The door is like a **server with two queues**, one per direction: which queue should it serve, and for how long? 【指公式】 Switching costs **21 ticks**, while robots in the same direction follow every **9**. 【指曲线左端】 Switching after every robot keeps the door busy only **43 percent** of the time; 【指 n = 10】 ten per turn gives **88 percent**. 【指右边第三条】 Our first version capped each turn at **80 steps**, which caused extra switches, so we moved to **exhaustive service**: serve one queue **until it is empty**. 【指底部】 Theory calls this best when switching is costly, so we tested it here.",
-  "zh": "门就像一个**有两个队列的服务台**，每个方向一个队列：先服务哪个队列、服务多久？【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指曲线左端】每过一台就换，门只有 **43%** 的时间在过车；【指 n = 10】每次放 10 台是 **88%**。【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。【指底部】理论上换向代价大时这样最好，所以我们在这里做了实验检验。"
+  "en": "The door is like a **server with two queues**, one per direction: which queue should it serve, and for how long? 【指公式】 Switching costs **21 ticks**, while robots in the same direction follow every **9**. 【指曲线左端】 Switching after every robot keeps the door busy only **43 percent** of the time; 【指 n = 10】 ten per turn gives **88 percent**. 【指右边第三条】 Our first version capped each turn at **80 steps** and switched too often, so we moved to **exhaustive service**: serve one queue **until it is empty**. 【指底部】 Theory calls this best when switching is costly, so we tested it here.",
+  "zh": "门就像一个**有两个队列的服务台**，每个方向一个队列：先服务哪个队列、服务多久？【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指曲线左端】每过一台就换，门只有 **43%** 的时间在过车；【指 n = 10】每次放 10 台是 **88%**。【指右边第三条】第一版每轮最多放 **80 步**，换向太勤，所以改成**穷尽服务**：一个队列**服务到走空**再换。【指底部】理论上换向代价大时这样最好，所以我们在这里做了实验检验。"
  },
  {
   "n": 15,
   "speaker": 3,
-  "time": "0:35",
+  "time": "0:30",
   "title": "Scheduling 3: a bug fix in the executor",
   "figs": [
    "图 12 执行器修复示意；执行器修复的实测（演讲专用：门 6 每 500 拍 22 → 26，关掉故障 45；正式评测单独修执行器 +11.1% / +11.6% / +8.5%）"
@@ -476,8 +481,8 @@
    "Fix alone: +11.1% / +11.6% / +8.5% orders (formal evaluation, 20 paired runs per size)",
    "Hand over to Speaker 4"
   ],
-  "en": "Our third change came from watching replays. Even with both rules, door 6 was **stuck at 22** robots per 500 ticks. 【指上排】 Tick by tick, we found that the official executor **kept a robot in a cell's queue after it left**, so the next robot waited a whole round. 【指右图】 **Three lines of code** fixed it: the door rose to **26**, and on its own the fix added **8.5 to 11.6 percent** more orders. Speaker 4 will now show the whole algorithm.",
-  "zh": "第三项改进来自看回放。两条规则都用上了，门 6 还是**卡在每 500 拍 22 台**。【指上排】一拍一拍查下来，发现官方执行器**在车离开一格后，那一格的排队名单里还留着它**，后面的车白等了一整轮。【指右图】改了 **3 行代码**：门回到每 500 拍 **26 台**，单独这一项就多完成 **8.5% 到 11.6%** 的订单。下面由讲者 4 讲整个算法。",
+  "en": "Our third change came from watching replays. Even with both rules, door 6 was **stuck at 22** robots per 500 ticks. 【指上排】 Tick by tick, we found that the official executor **kept a robot in a cell's queue after it left**, so the next robot waited a whole round. 【指右图】 **Three lines of code** fixed it: the door rose to **26**, and on its own the fix added **8.5 to 11.6 percent** more orders. Over to Speaker 4.",
+  "zh": "第三项改进来自看回放。两条规则都用上了，门 6 还是**卡在每 500 拍 22 台**。【指上排】一拍一拍查下来，发现官方执行器**在车离开一格后，那一格的排队名单里还留着它**，后面的车白等了一整轮。【指右图】改了 **3 行代码**：门回到每 500 拍 **26 台**，单独这一项就多完成 **8.5% 到 11.6%** 的订单。下面交给讲者 4。",
   "segs": [
    {
     "en": "Our third change came from watching replays. Even with both rules, door 6 was **stuck at 22** robots per 500 ticks.",
@@ -488,8 +493,8 @@
     "zh": "【指上排】一拍一拍查下来，发现官方执行器**在车离开一格后，那一格的排队名单里还留着它**，后面的车白等了一整轮。"
    },
    {
-    "en": "【指右图】 **Three lines of code** fixed it: the door rose to **26**, and on its own the fix added **8.5 to 11.6 percent** more orders. Speaker 4 will now show the whole algorithm.",
-    "zh": "【指右图】改了 **3 行代码**：门回到每 500 拍 **26 台**，单独这一项就多完成 **8.5% 到 11.6%** 的订单。下面由讲者 4 讲整个算法。"
+    "en": "【指右图】 **Three lines of code** fixed it: the door rose to **26**, and on its own the fix added **8.5 to 11.6 percent** more orders. Over to Speaker 4.",
+    "zh": "【指右图】改了 **3 行代码**：门回到每 500 拍 **26 台**，单独这一项就多完成 **8.5% 到 11.6%** 的订单。下面交给讲者 4。"
    }
   ]
  },
@@ -580,8 +585,8 @@
     "zh": "不过，新图也暴露了官方图上没有的**两个问题**，所以我们又加了**两个兜底**。"
    },
    {
-    "en": "【指左下卡片】 First, narrow spots that the door rule does not cover: a **global cap** from Little's law limits the robots holding orders, **138** on the official map. 【指左图第二栏】 Without it, one new map was **16.9 percent** lower.",
-    "zh": "【指左下卡片】第一，门口规则管不到的窄处：按 Little 定律加一个**全图上限**，限制接单的车数，官方图上是 **138 台**。【指左图第二栏】拿掉它，一张新图少了 **16.9%**。"
+    "en": "【指左下卡片】 First, narrow spots that the door rule does not cover: a **global cap**, again from rate × trip time, limits the robots holding orders: **138** on the official map. 【指左图第二栏】 Without it, one new map was **16.9 percent** lower.",
+    "zh": "【指左下卡片】第一，门口规则管不到的窄处：同样按“速率 × 路程时间”加一个**全图上限**，限制接单的车数，官方图上是 **138 台**。【指左图第二栏】拿掉它，一张新图少了 **16.9%**。"
    },
    {
     "en": "【指右下卡片】 Second, rare **deadlocks**: in one run, two doors one step apart locked each other, and orders fell from **1,114 to 700**. A **watchdog** lets a robot that has waited **300 ticks** at an idle door ignore the rule for one tick; we never remove a robot.",
@@ -592,8 +597,8 @@
     "zh": "【指左图第三栏】死锁很少见，所以在这些图上看门狗测不出作用；在更早一次、**15 个生成房间图实例**的测试里，它多了 **2.30%**。"
    }
   ],
-  "en": "Finally, to make sure DoorFlow is not tuned to this one door, we wrote a program that **places doors at random**, built **8 new room maps**, and checked **what else the algorithm needs**. 【指左图第一栏】 On each map we ran **199 and 249 robots**, **640 runs** in total. Compared with the same base, our method **won on every map**, by **86.9 percent** on average. But the new maps also showed **two problems** that the official map does not have, so we added **two safety nets**. 【指左下卡片】 First, narrow spots that the door rule does not cover: a **global cap** from Little's law limits the robots holding orders, **138** on the official map. 【指左图第二栏】 Without it, one new map was **16.9 percent** lower. 【指右下卡片】 Second, rare **deadlocks**: in one run, two doors one step apart locked each other, and orders fell from **1,114 to 700**. A **watchdog** lets a robot that has waited **300 ticks** at an idle door ignore the rule for one tick; we never remove a robot. 【指左图第三栏】 Deadlocks are rare, so on these maps the watchdog shows no measurable effect; in an earlier test on **15 generated room-map instances**, it added **2.30 percent**.",
-  "zh": "最后，为了确认 DoorFlow 不只是针对这一道门的优化，我们写了一个**随机放门**的程序，造了 **8 张新的房间图**，看看算法**还需要什么**。【指左图第一栏】每张图跑 **199 台和 249 台**两种车数，一共 **640 局**。和同一底座比，我们的方法**每张图都赢**，平均多 **86.9%**。不过，新图也暴露了官方图上没有的**两个问题**，所以我们又加了**两个兜底**。【指左下卡片】第一，门口规则管不到的窄处：按 Little 定律加一个**全图上限**，限制接单的车数，官方图上是 **138 台**。【指左图第二栏】拿掉它，一张新图少了 **16.9%**。【指右下卡片】第二，少见的**死锁**：有一局两道只隔一步的门互相锁住，完成数从 **1114 单掉到 700 单**。**看门狗**让在没人进的门口等满 **300 拍**的车，这一拍可以不守门口规则；我们从不拿掉车。【指左图第三栏】死锁很少见，所以在这些图上看门狗测不出作用；在更早一次、**15 个生成房间图实例**的测试里，它多了 **2.30%**。"
+  "en": "Finally, to make sure DoorFlow is not tuned to this one door, we wrote a program that **places doors at random**, built **8 new room maps**, and checked **what else the algorithm needs**. 【指左图第一栏】 On each map we ran **199 and 249 robots**, **640 runs** in total. Compared with the same base, our method **won on every map**, by **86.9 percent** on average. But the new maps also showed **two problems** that the official map does not have, so we added **two safety nets**. 【指左下卡片】 First, narrow spots that the door rule does not cover: a **global cap**, again from rate × trip time, limits the robots holding orders: **138** on the official map. 【指左图第二栏】 Without it, one new map was **16.9 percent** lower. 【指右下卡片】 Second, rare **deadlocks**: in one run, two doors one step apart locked each other, and orders fell from **1,114 to 700**. A **watchdog** lets a robot that has waited **300 ticks** at an idle door ignore the rule for one tick; we never remove a robot. 【指左图第三栏】 Deadlocks are rare, so on these maps the watchdog shows no measurable effect; in an earlier test on **15 generated room-map instances**, it added **2.30 percent**.",
+  "zh": "最后，为了确认 DoorFlow 不只是针对这一道门的优化，我们写了一个**随机放门**的程序，造了 **8 张新的房间图**，看看算法**还需要什么**。【指左图第一栏】每张图跑 **199 台和 249 台**两种车数，一共 **640 局**。和同一底座比，我们的方法**每张图都赢**，平均多 **86.9%**。不过，新图也暴露了官方图上没有的**两个问题**，所以我们又加了**两个兜底**。【指左下卡片】第一，门口规则管不到的窄处：同样按“速率 × 路程时间”加一个**全图上限**，限制接单的车数，官方图上是 **138 台**。【指左图第二栏】拿掉它，一张新图少了 **16.9%**。【指右下卡片】第二，少见的**死锁**：有一局两道只隔一步的门互相锁住，完成数从 **1114 单掉到 700 单**。**看门狗**让在没人进的门口等满 **300 拍**的车，这一拍可以不守门口规则；我们从不拿掉车。【指左图第三栏】死锁很少见，所以在这些图上看门狗测不出作用；在更早一次、**15 个生成房间图实例**的测试里，它多了 **2.30%**。"
  },
  {
   "n": 19,
