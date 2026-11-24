@@ -278,38 +278,34 @@
   "n": 10,
   "speaker": 3,
   "time": "1:00",
-  "title": "Scheduling 1: the logic of TCP's window",
+  "title": "Scheduling 1: a window for each door",
   "figs": [
-   "在途量与带宽时延积原理图（理论示意）"
+   "窗口大小原理图（从 Little 定律推出；理论示意，附门 6 的数字）"
   ],
   "hints": [
-   "TCP window = data on the way; Little's law: on the way = rate × trip time",
-   "Door max 26 / 500 ticks",
+   "Our measure: robots on the way to a door (hold an order through it, not crossed yet)",
+   "Window (quota) = how many orders may cross a door at once",
+   "Little's law: on the way = crossing rate × trip time",
    "Too few: door waits; too many: rate stuck at 26 → extra only queues",
-   "Best: rate × trip time with no queue = bandwidth-delay product = TCP's target window",
-   "Robots: past it, waiting robots block the other side → rate falls",
-   "Quota = bandwidth × delay"
+   "Best window = door rate × trip time with no queue (door 6 inward ≈ 15)",
+   "Robots: past it, waiting robots block the other side → rate falls"
   ],
   "segs": [
    {
-    "en": "How many robots should head for door 6 at once? TCP faces the same question with its **window**, the amount of data on the way. The logic is **Little's law**: what is on the way equals **rate times trip time**.",
-    "zh": "同时该有多少车奔向门 6？TCP 的**窗口**面对的是同一个问题：窗口就是路上的数据量。背后的逻辑是 **Little 定律**：路上的量 = **速率 × 路程时间**。"
+    "en": "How many robots should head for door 6 at once? We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. This number is our **window**: it decides **how many orders may cross the door at the same time**.",
+    "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。这个数就是我们的**窗口**，用它来决定**同时指派多少个要穿过这道门的任务**。"
    },
    {
-    "en": "【指左图上半】 The door passes at most **26 robots** every 500 ticks. With too few on the way, the door **waits**, and capacity is wasted. With too many, the rate cannot rise above 26, so the extra robots only make the trip longer: 【指左图下半】 they **queue**.",
-    "zh": "【指左图上半】门每 500 拍最多过 **26 台**。路上的车太少，门就**等车**，能力浪费；太多，速率也超不过 26，多出来的车只会把路程拉长：【指左图下半】它们在**排队**。"
+    "en": "How big should the window be? **Little's law** says robots on the way equal the **crossing rate times the trip time**. 【指左图上半】 With too few, the door **waits**; with too many, the rate stays at **26** per 500 ticks, and the extra robots only 【指左图下半】 **queue**.",
+    "zh": "窗口该多大？**Little 定律**说：路上的车数 = **过门速率 × 路程时间**。【指左图上半】车太少，门就**等车**；太多，速率也只有每 500 拍 **26 台**，多出来的车只会【指左图下半】**排队**。"
    },
    {
-    "en": "【指橙色虚线】 So the best number is **rate times the trip time with no queue**: the **bandwidth-delay product**, which is the window TCP aims for.",
-    "zh": "【指橙色虚线】所以最好的车数是**速率 × 不排队时的路程时间**，也就是**带宽时延积**，正是 TCP 窗口要瞄准的大小。"
-   },
-   {
-    "en": "【指右边最后一条】 For robots, going past it is worse than a queue: waiting robots **block the other side**, so the rate **falls**. That is why our quota is **bandwidth times delay**.",
-    "zh": "【指右边最后一条】对车来说，超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。所以我们的名额定为**带宽 × 时延**。"
+    "en": "【指橙色虚线】 So the best window is **the door's rate times the trip time with no queue**: about **15 robots** for door 6 inward. 【指右边最后一条】 Going past it is worse than a queue: waiting robots **block the other side**, so the rate **falls**.",
+    "zh": "【指橙色虚线】所以最好的窗口是**门的速率 × 不排队时的路程时间**：门 6 往里的方向大约 **15 台**。【指右边最后一条】超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。"
    }
   ],
-  "en": "How many robots should head for door 6 at once? TCP faces the same question with its **window**, the amount of data on the way. The logic is **Little's law**: what is on the way equals **rate times trip time**. 【指左图上半】 The door passes at most **26 robots** every 500 ticks. With too few on the way, the door **waits**, and capacity is wasted. With too many, the rate cannot rise above 26, so the extra robots only make the trip longer: 【指左图下半】 they **queue**. 【指橙色虚线】 So the best number is **rate times the trip time with no queue**: the **bandwidth-delay product**, which is the window TCP aims for. 【指右边最后一条】 For robots, going past it is worse than a queue: waiting robots **block the other side**, so the rate **falls**. That is why our quota is **bandwidth times delay**.",
-  "zh": "同时该有多少车奔向门 6？TCP 的**窗口**面对的是同一个问题：窗口就是路上的数据量。背后的逻辑是 **Little 定律**：路上的量 = **速率 × 路程时间**。【指左图上半】门每 500 拍最多过 **26 台**。路上的车太少，门就**等车**，能力浪费；太多，速率也超不过 26，多出来的车只会把路程拉长：【指左图下半】它们在**排队**。【指橙色虚线】所以最好的车数是**速率 × 不排队时的路程时间**，也就是**带宽时延积**，正是 TCP 窗口要瞄准的大小。【指右边最后一条】对车来说，超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。所以我们的名额定为**带宽 × 时延**。"
+  "en": "How many robots should head for door 6 at once? We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. This number is our **window**: it decides **how many orders may cross the door at the same time**. How big should the window be? **Little's law** says robots on the way equal the **crossing rate times the trip time**. 【指左图上半】 With too few, the door **waits**; with too many, the rate stays at **26** per 500 ticks, and the extra robots only 【指左图下半】 **queue**. 【指橙色虚线】 So the best window is **the door's rate times the trip time with no queue**: about **15 robots** for door 6 inward. 【指右边最后一条】 Going past it is worse than a queue: waiting robots **block the other side**, so the rate **falls**.",
+  "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。这个数就是我们的**窗口**，用它来决定**同时指派多少个要穿过这道门的任务**。窗口该多大？**Little 定律**说：路上的车数 = **过门速率 × 路程时间**。【指左图上半】车太少，门就**等车**；太多，速率也只有每 500 拍 **26 台**，多出来的车只会【指左图下半】**排队**。【指橙色虚线】所以最好的窗口是**门的速率 × 不排队时的路程时间**：门 6 往里的方向大约 **15 台**。【指右边最后一条】超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。"
  },
  {
   "n": 11,
@@ -321,8 +317,8 @@
   ],
   "hints": [
    "Goal: global regulation; a buffer size (quota) per door & direction",
-   "Reno / CUBIC: grow until loss; robots never lost → queue grows",
-   "BBR: max delivery rate × min RTT; min keeps a jam from raising its own limit",
+   "Grow until something breaks? robots never lost → no stop signal → queue grows",
+   "BBR: max delivery rate × min round trip; min keeps a jam from raising its own limit",
    "Our delay: real time (Little) vs shortest-path time; missed spots 2.2–2.9×",
    "BBR-style cap: big losses gone, small gain +0.08% → fixed quota; watchdog later"
   ],
@@ -332,8 +328,8 @@
     "zh": "我们的目标是**全局调控**：同时控制每一道门的过门车数，每道门、每个方向有一个**缓冲区大小**，也就是名额。这些上限该怎么定？"
    },
    {
-    "en": "Ordinary TCP, like **Reno or CUBIC**, grows its window **until a packet is lost**. Robots are never lost, so the queue just grows.",
-    "zh": "普通 TCP，比如 **Reno、CUBIC**，会一直开大窗口，**直到丢包**。车永远不会丢，所以队只会越排越长。"
+    "en": "We could let the window grow until something goes wrong, but robots are never lost, so there is **no clear stop signal**, and the queue just grows.",
+    "zh": "也可以让窗口一直变大、直到出问题才停；但车永远不会丢，**没有明确的“停”信号**，队只会越排越长。"
    },
    {
     "en": "【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit.",
@@ -348,8 +344,8 @@
     "zh": "在这些窄处试的 **BBR 式上限**消除了大的损失，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
    }
   ],
-  "en": "Our goal is **global regulation**: controlling the crossings at every door at once, with a **buffer size**, the quota, for each door and direction. How should we set these limits? Ordinary TCP, like **Reno or CUBIC**, grows its window **until a packet is lost**. Robots are never lost, so the queue just grows. 【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit. 【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes waiting. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model: robots were stuck there. A **BBR-style cap** on those spots removed the big losses, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
-  "zh": "我们的目标是**全局调控**：同时控制每一道门的过门车数，每道门、每个方向有一个**缓冲区大小**，也就是名额。这些上限该怎么定？普通 TCP，比如 **Reno、CUBIC**，会一直开大窗口，**直到丢包**。车永远不会丢，所以队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了等待。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**：那里有车卡住了。在这些窄处试的 **BBR 式上限**消除了大的损失，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
+  "en": "Our goal is **global regulation**: controlling the crossings at every door at once, with a **buffer size**, the quota, for each door and direction. How should we set these limits? We could let the window grow until something goes wrong, but robots are never lost, so there is **no clear stop signal**, and the queue just grows. 【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit. 【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes waiting. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model: robots were stuck there. A **BBR-style cap** on those spots removed the big losses, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
+  "zh": "我们的目标是**全局调控**：同时控制每一道门的过门车数，每道门、每个方向有一个**缓冲区大小**，也就是名额。这些上限该怎么定？也可以让窗口一直变大、直到出问题才停；但车永远不会丢，**没有明确的“停”信号**，队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了等待。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**：那里有车卡住了。在这些窄处试的 **BBR 式上限**消除了大的损失，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
  },
  {
   "n": 12,

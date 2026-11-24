@@ -1,5 +1,6 @@
 """Two figures for the deck's principle slides (run from the repo root):
-  figures/deck/fig_bdp_principle.png  -- Little's law and the bandwidth-delay product (theory sketch + where each method sits)
+  figures/deck/fig_bdp_principle.png  -- how big a door's window should be, from Little's law (theory sketch + door-6 numbers)
+  figures/deck/fig_quota_deck.png     -- per-door quota formula (same as figures/brief/b_f2_quota.png, retitled)
   figures/deck/fig_bbr_loop.png       -- BBR's control loop, mapped onto DoorFlow, with the measured delay ratios of round 50
   figures/deck/fig_door_util.png      -- door utilization formula (same as figures/brief/b_f3_door_rule.png, retitled)
 Numbers in fig_bbr_loop: 26 crossings / 500 ticks (13 per direction), 2.23, 138 (report sec. 6); real / model delay
@@ -17,52 +18,66 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.edgeco
 
 
 def bdp_principle(path):
-    C, T0, B = 1.0, 1.0, 1.15            # capacity, free trip time, buffer (in units of BDP)
-    bdp = C * T0
+    """How big should a door's window be? Derived from the problem with Little's law (theory sketch, no measured data)."""
+    C, T0 = 1.0, 1.0                     # door rate, trip time with no queue (units: the best window = 1)
+    best = C * T0
     N = np.linspace(0, 3.0, 600)
     X = np.minimum(N / T0, C)                       # Little: X = N / T as long as T = T0
     T = np.maximum(T0, N / C)                       # Little: T = N / X once X is capped at C
-    Xr = np.where(N <= bdp, N / T0, C * np.exp(-0.95 * (N - bdp)))   # robots: blocking pulls the rate down (sketch)
+    Xr = np.where(N <= best, N / T0, C * np.exp(-0.95 * (N - best)))   # robots: blocking pulls the rate down (sketch)
     fig = plt.figure(figsize=(7.4, 5.9), dpi=220)
     gs = fig.add_gridspec(2, 1, height_ratios=[1.15, 1], hspace=0.08, left=0.1, right=0.97, top=0.88, bottom=0.15)
-    a1, a2 = fig.add_subplot(gs[0]), fig.add_subplot(gs[1], sharex=None)
+    a1, a2 = fig.add_subplot(gs[0]), fig.add_subplot(gs[1])
     for ax in (a1, a2):
-        ax.axvspan(0, bdp, color=LIGHT, zorder=0)
-        ax.axvspan(bdp, bdp + B, color=PALE, zorder=0)
-        ax.axvspan(bdp + B, 3.0, color="#F6DDD9", zorder=0)
-        ax.axvline(bdp, color=ORG, ls="--", lw=1.6, zorder=2)
-        ax.axvline(bdp + B, color=GREY, ls=":", lw=1.4, zorder=2)
+        ax.axvspan(0, best, color=LIGHT, zorder=0)
+        ax.axvspan(best, 3.0, color=PALE, zorder=0)
+        ax.axvline(best, color=ORG, ls="--", lw=1.6, zorder=2)
         ax.set_xlim(0, 3.0)
         ax.spines[["top", "right"]].set_visible(False)
-    a1.plot(N[N <= bdp + B], X[N <= bdp + B], color=TEAL, lw=2.8)
+    a1.plot(N, X, color=TEAL, lw=2.8)
     a1.plot(N, Xr, color=RED, lw=2.4, ls=(0, (5, 2)))
-    a1.text(1.62, C + 0.05, "network link: $X=\\min(N/T_0,\\,C)$", color=TEAL, fontsize=9, ha="center")
+    a1.text(2.05, C + 0.05, "ideal door: $X=\\min(N/T_0,\\,C)$", color=TEAL, fontsize=9, ha="center")
     a1.set_ylim(0, 1.42); a1.set_yticks([0, C]); a1.set_yticklabels(["0", "$C$"])
-    a1.set_ylabel("delivery rate $X$")
-    a1.text(0.5 * bdp, 1.27, "door / link\nsometimes idle", ha="center", va="center", color=GREY, fontsize=9)
-    a1.text(bdp + B / 2, 1.27, "full: extra only\nwaits in a queue", ha="center", va="center", color=GREY, fontsize=9)
-    a1.text(bdp + B + (3 - bdp - B) / 2, 1.27, "buffer overflow:\nTCP loses packets", ha="center", va="center", color=GREY, fontsize=9)
+    a1.set_ylabel("robots crossing per tick, $X$")
+    a1.text(0.5 * best, 1.27, "too few on the way:\nthe door sometimes waits", ha="center", va="center", color=GREY, fontsize=9)
+    a1.text(best + (3 - best) / 2, 1.27, "too many: the door is full,\nextra robots only queue", ha="center", va="center", color=GREY, fontsize=9)
     a1.annotate("robots at a one-cell door (sketch):\nwaiting robots block the other side,\nso the rate falls", xy=(1.4, C * np.exp(-0.95 * 0.4)), xytext=(1.04, 0.2),
                 color=RED, fontsize=8.8, ha="left", va="center", arrowprops=dict(arrowstyle="-|>", color=RED, lw=1.0))
-    a1.scatter([bdp], [C], s=70, color=ORG, zorder=5, edgecolor="white", lw=1.2)
-    a1.annotate("optimal point (BBR)\n$N^{*}=C\\cdot T_0$", xy=(bdp, C), xytext=(0.03, 0.9), color=ORG, fontsize=9.5,
+    a1.scatter([best], [C], s=70, color=ORG, zorder=5, edgecolor="white", lw=1.2)
+    a1.annotate("best window\n$N^{*}=C\\cdot T_0$", xy=(best, C), xytext=(0.03, 0.9), color=ORG, fontsize=9.5,
                 fontweight="bold", arrowprops=dict(arrowstyle="-|>", color=ORG, lw=1.0))
     a1.tick_params(labelbottom=False)
-    a2.plot(N[N <= bdp + B], T[N <= bdp + B], color=TEAL, lw=2.8)
-    a2.scatter([bdp + B], [(bdp + B) / C], s=60, color=GREY, zorder=5, edgecolor="white", lw=1.2)
-    a2.annotate("loss-based TCP (Reno, CUBIC)\nsettles here: $N=C\\cdot T_0+B$", xy=(bdp + B, (bdp + B) / C), xytext=(0.98, 2.55),
+    a2.plot(N, T, color=TEAL, lw=2.8)
+    a2.annotate("past the window, extra robots\nonly add waiting time", xy=(2.3, 2.3), xytext=(1.15, 2.6),
                 color=GREY, fontsize=9, ha="left", arrowprops=dict(arrowstyle="-|>", color=GREY, lw=1.0))
+    a2.text(1.95, 0.42, "door 6, inward:  $C$ = 13 per 500 ticks,\n$T_0$ = 2.23 x 247 ticks  ->  $N^{*}$ = 14.3  ->  window 15",
+            fontsize=8.6, color=INK, ha="center", va="center",
+            bbox=dict(boxstyle="round,pad=0.35", fc="white", ec=ORG, lw=1.0))
     a2.set_ylim(0, 3.1); a2.set_yticks([0, T0]); a2.set_yticklabels(["0", "$T_0$"])
     a2.set_ylabel("trip time $T$")
-    a2.set_xticks([0, bdp, bdp + B]); a2.set_xticklabels(["0", "$C\\cdot T_0$\n(BDP)", "$C\\cdot T_0+B$"])
-    a2.set_xlabel("robots (or data) on the way, $N$")
-    fig.text(0.1, 0.955, "Little's law and the bandwidth-delay product", fontsize=12.5, fontweight="bold", color=INK)
-    fig.text(0.1, 0.918, "$N = X\\cdot T$,   $X=\\min(N/T_0,\\ C)$,   $T=\\max(T_0,\\ N/C)$   $\\Rightarrow$   best $N^{*}=C\\cdot T_0$",
+    a2.set_xticks([0, best]); a2.set_xticklabels(["0", "$C\\cdot T_0$"])
+    a2.set_xlabel("robots on the way: hold an order through the door, not crossed yet, $N$")
+    fig.text(0.1, 0.955, "How many robots should head for a door?", fontsize=12.5, fontweight="bold", color=INK)
+    fig.text(0.1, 0.918, "Little's law  $N = X\\cdot T$,   $X=\\min(N/T_0,\\ C)$,   $T=\\max(T_0,\\ N/C)$   $\\Rightarrow$   best window $N^{*}=C\\cdot T_0$",
              fontsize=10.5, color=INK)
-    fig.text(0.1, 0.012, "$C$: bottleneck rate (door 6: 26 per 500 ticks)   $T_0$: trip time with no queue   $B$: buffer   (theory sketch)",
+    fig.text(0.1, 0.012, "$C$: door rate per direction    $T_0$: trip time with no queue (breakdowns included)    theory sketch",
              fontsize=7.8, color=GREY, style="italic")
     fig.savefig(path, facecolor="white")
     plt.close(fig)
+
+
+def quota_fig(path):
+    """Deck copy of figures/brief/b_f2_quota.png (same formula and notes), titled without network terms."""
+    with plt.rc_context({"mathtext.fontset": "dejavuserif"}):
+        fig = plt.figure(figsize=(8, 2.3), dpi=200)
+        fig.text(0.03, 0.86, "Per-door quota (door rate x trip time)", fontsize=14, weight="bold", color="#1f2937")
+        fig.text(0.05, 0.52, r"$K = \lceil\, \alpha \, T \, \dfrac{C}{2} \,\rceil = \lceil\, 2.23 \times \dfrac{247}{500} \times 13 \,\rceil = \lceil 14.3 \rceil = 15$",
+                 fontsize=15, color="#111827", va="center")
+        for i, line in enumerate(["inbound T = 247 ticks -> 15 robots;  outbound T = 158 ticks -> 10 robots",
+                                  "T = travel time to the door;  C/2 = 13 robots per 500 ticks per direction;  alpha = 2.23 slowdown from breakdowns"]):
+            fig.text(0.05, 0.20 - i * 0.12, line, fontsize=9.5, color="#4b5563")
+        fig.savefig(path, facecolor="white", bbox_inches="tight", pad_inches=0.15)
+        plt.close(fig)
 
 
 def door_util(path):
@@ -148,3 +163,4 @@ if __name__ == "__main__":
     bdp_principle("figures/deck/fig_bdp_principle.png")
     bbr_loop("figures/deck/fig_bbr_loop.png")
     door_util("figures/deck/fig_door_util.png")
+    quota_fig("figures/deck/fig_quota_deck.png")

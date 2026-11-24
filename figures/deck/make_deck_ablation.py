@@ -1,6 +1,6 @@
 """Deck copy of figures/part3/p3_fig01_ablation.png (run from the repo root: python3 figures/deck/make_deck_ablation.py).
 Same data (figures/part3/rerun/ablation_room_4x4.jsonl, 600 runs) and the same paired bootstrap as figures/part3/make_figs.py
-fig_ablation(); only the bar labels are reworded without network terms (half-duplex, cell credit, PFC, admission)."""
+fig_ablation(); only the bar labels are reworded without network terms (half-duplex, cell credit, PFC, admission, bandwidth)."""
 import json, os, random, statistics as st
 import matplotlib
 matplotlib.use("Agg")
@@ -40,7 +40,7 @@ def boot(G, n=4000, seed=0):
 def main():
     rows = [json.loads(l) for l in open(ABL, encoding="utf-8") if l.strip()]
     by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
-    left = [("Door rule: one direction at a\ntime, serve a side until empty", "noDoor"), ("Per-door quota\n(bandwidth x delay)", "noQuota"),
+    left = [("Door rule: one direction at a\ntime, serve a side until empty", "noDoor"), ("Per-door quota\n(door rate x trip time)", "noQuota"),
             ("Executor fix: free a cell\nas soon as the robot leaves", "noSync"), ("Deadlock watchdog", "noWD"),
             ("Global cap\n(Little's law)", "noGlobal")]
     right = [("Door rule only", "onlyDoor"), ("Per-door quota only", "onlyQuota"), ("Global cap only", "onlyGlobal"),

@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v21.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v22.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -245,7 +245,7 @@ section(1);
     ["Later · rate & quotas", [
       ["Token bucket: −1.82%, −2.42%"], ["PFC pause on dispatch: −4.11%"], ["HTTP pipelining: +0.25%, worst −7.47%"], ["Looser global quota: −0.46%, −1.08%"],
       ["Longer execution window: −2.36%, −2.92%"], ["SWAN headroom: dev +1.69%, confirm −0.75%"], ["Quota from early measurement: −0.05%"],
-      ["Auto-bandwidth quotas: never triggered"], ["CoDel, DCTCP, ECN, DCQCN, BwE: skipped"]]],
+      ["Auto-bandwidth quotas: never triggered"], ["CoDel, ECN, DCQCN, BwE, …: skipped"]]],
     ["Later · rerouting", [
       ["BFD + LFA detour: −2.07%"], ["FRER backup doors: −6.04%, −9.88%"], ["SWAN / B4 strict priority: −1.25%, −1.31%"], ["Fortz–Thorup weights: −0.29%"],
       ["Retarget on arrival: −1.36%"], ["oFIB, no stepping back: −64.09%", 1], ["HN-SPF link costs: −25.88%", 1], ["CSPF detour limit: −20.98%, −8.70%"],
@@ -320,7 +320,7 @@ section(1);
   para(slide, "rerouting methods: **all were worse**. Only door 6 sets the ceiling, so the real question is **how many robots to send, and which side goes first**: **scheduling**. Our algorithm **DoorFlow** regulates the flow through every door, for the whole map.", M + 1.8, 5.05, 10.1, 1.7, 17, C.text1, C.text2, "middle");
 }
 
-// ---------- 10 the logic of TCP's window ----------
+// ---------- 10 a window for each door ----------
 {
   const s = S(10); const slide = content(s);
   addImg(slide, "bdp", M, 1.3, 6.9, 5.65, "left");
@@ -328,13 +328,14 @@ section(1);
   card(slide, x0, 1.4, w0, 0.95, C.accent6);
   para(slide, "**Question:** how many robots should head for door 6 at the same time?", x0 + 0.25, 1.4, w0 - 0.45, 0.95, 15, C.text1, C.text2, "middle");
   bullets(slide, [
-    "**TCP's window** = data on the way (sent, not yet confirmed).",
+    "**Our measure:** robots on the way to a door = hold an order through it, **not crossed yet**.",
+    "**Window:** at most this many orders through the door **at the same time**.",
     "**Little's law:** on the way = **rate × trip time**.",
     "**Too few:** the door waits; capacity is wasted.",
     "**Too many:** the rate is stuck at **26** per 500 ticks, so extra robots only **queue**.",
-    "**Best:** rate × trip time with no queue = the **bandwidth-delay product**, the window TCP aims for.",
+    "**Best window:** door rate × trip time **with no queue** (door 6 inward ≈ **15**).",
     "**Robots are worse than a queue:** waiting robots block the other side, so crossings **fall**.",
-    "**So:** our quota = **bandwidth × delay**.",
+    "**So:** every door gets a window of **rate × trip time**.",
   ], x0, 2.55, w0, 4.4, 13.5);
 }
 
@@ -346,7 +347,7 @@ section(1);
   card(slide, x0, 1.4, w0, 1.3, C.accent6);
   para(slide, "**Goal: global regulation.** Control the crossings at every door at once, with a **buffer size** (the quota) for each door and direction.", x0 + 0.2, 1.4, w0 - 0.35, 1.3, 13.5, C.text1, C.text2, "middle");
   bullets(slide, [
-    "**Reno / CUBIC:** grow the window until a packet is lost. Robots are never lost, so the queue just grows.",
+    "**Grow until something breaks?** Robots are never lost, so there is **no stop signal**; the queue just grows.",
     "**BBR:** bandwidth = **highest** delivery rate seen; delay = **shortest** round trip seen. A jam cannot raise its own limit.",
     "**Our delay:** real time (Little's law) vs **shortest-path time**. On spots our first model missed: **2.2–2.9×**, so robots were stuck there.",
     "**Tested:** a BBR-style cap on those spots. Big losses gone, but overall only **+0.08%** → kept the fixed quota; stuck robots → watchdog.",
@@ -364,7 +365,7 @@ section(1);
     "**Count** robots that hold a door-6 order but have not crossed yet, even far away. **Full:** give an order that does not cross.",
     "**v1:** one window for all robots: only **+0.53%**.",
     "**v2:** count **per door and direction**: **+29.1%** alone (17 room-map instances).",
-    "**Size:** hand-tuned, 8 was too tight and 32+ jammed → formula **bandwidth × delay**: **15 in, 10 out**, no worse than hand-tuned.",
+    "**Size:** hand-tuned, 8 was too tight and 32+ jammed → formula **door rate × trip time**: **15 in, 10 out**, no worse than hand-tuned.",
     "**Result:** no control, 211 head for the door and only **3** cross; with the quota, about 25 (the knee) and **26** cross.",
   ], 8.2, 1.4, 4.55, 5.5, 15);
 }
@@ -437,7 +438,7 @@ section(1);
     ["~         and free > 0"],
     ["      then give q to r;  L[d,s] += 1 for those doors;  free −= 1"],
     ["      else try r's next-cheapest order"],
-    ["  where Q[d,s] = ⌈ 2.23 × T[d,s] ÷ 500 × 13 ⌉", "bandwidth × delay"],
+    ["  where Q[d,s] = ⌈ 2.23 × T[d,s] ÷ 500 × 13 ⌉", "door rate × trip time"],
     [""],
     ["every tick, inside the planner (PIBT):", "2 · who moves first"],
     ["  for each door d:"],
