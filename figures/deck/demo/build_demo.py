@@ -18,11 +18,28 @@ REPO = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
 MAP = REPO / 'experiment-materials/网络协议方向/harness/data/pkg/maps/room/room-64-64-16.map'
 RG = REPO / 'experiment-materials/archive/tools/replay_report/region_graph_room64.json'
-WORK = Path(os.environ.get('DEMO_WORK', '/home/user/simbuild/demo'))
+WORK = Path(os.environ.get('DEMO_WORK', Path.home() / 'doorflow_demo' / 'runs'))   # where run_demo.py wrote the dumps
 RUNS = [('none', 'No door control'), ('doorflow', 'DoorFlow')]
 STUCK_TICKS, RADIUS, JAM_MIN, HTML_STEP, GIF_STEP = 12, 5, 8, 2, 25
-FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-FONTB = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+
+
+def _font_file(bold):
+    """DejaVu Sans from the system (Linux) or from matplotlib's own copy; None -> Pillow's built-in font."""
+    name = 'DejaVuSans-Bold.ttf' if bold else 'DejaVuSans.ttf'
+    cands = ['/usr/share/fonts/truetype/dejavu/' + name]
+    try:
+        import matplotlib
+        cands.append(os.path.join(os.path.dirname(matplotlib.__file__), 'mpl-data', 'fonts', 'ttf', name))
+    except ImportError:
+        pass
+    return next((c for c in cands if os.path.exists(c)), None)
+
+
+FONT, FONTB = _font_file(False), _font_file(True)
+
+
+def tfont(path, size):
+    return ImageFont.truetype(path, size) if path else ImageFont.load_default(size)
 
 
 def load_map():
@@ -156,10 +173,10 @@ def draw_panel(img, R, ti, ox, oy, cell, H, W, free, rg, heat, title):
         d.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=col + (255,))
     # door 6 label
     r6, c6 = [dd['cells'][0] for dd in rg['doors'] if dd['id'] == 6][0]
-    f = ImageFont.truetype(FONTB, int(cell * 2.0))
+    f = tfont(FONTB, int(cell * 2.0))
     d.text((ox + c6 * cell + cell * 1.6, oy + r6 * cell - cell * 0.9), 'door 6', font=f, fill=GOLD,
            stroke_width=max(2, cell // 2), stroke_fill=BG)
-    ft = ImageFont.truetype(FONTB, int(cell * 2.6))
+    ft = tfont(FONTB, int(cell * 2.6))
     d.text((ox, oy - cell * 5.2), title, font=ft, fill=(235, 240, 245))
 
 
@@ -181,14 +198,14 @@ def render(runs, H, W, free, rg, ticks_wanted, cell=6):
         for j, (k, name) in enumerate(RUNS):
             ox = gap + j * (pw + gap)
             draw_panel(img, runs[k], ti, ox, top, cell, H, W, free, rg, heat[k], name)
-            R = runs[k]; d = ImageDraw.Draw(img, 'RGBA'); f = ImageFont.truetype(FONT, 15); fb = ImageFont.truetype(FONTB, 15)
+            R = runs[k]; d = ImageDraw.Draw(img, 'RGBA'); f = tfont(FONT, 15); fb = tfont(FONTB, 15)
             ns = int(R['st'][ti].sum()); fin = int(R['fin'][ti])
             d.text((ox, top + ph + 16), f'orders finished {fin:>5}', font=fb, fill=(235, 240, 245))
             lab = 'stuck robots' if pw >= 400 else 'stuck'           # short label in the small GIF panels
             d.text((ox + pw - 4, top + ph + 16), f'{lab} {ns:>3}', font=fb, fill=(STUCK if ns >= 20 else (235, 240, 245)), anchor='ra')
-        d = ImageDraw.Draw(img); fb = ImageFont.truetype(FONTB, 15)
+        d = ImageDraw.Draw(img); fb = tfont(FONTB, 15)
         d.text((Wimg / 2, top + ph + 42), f'tick {int(tarr[ti]):>4} / 5000   ·   red = robot holding an order that has not moved for 12+ ticks; '
-               'glowing door = jam', font=ImageFont.truetype(FONT, 13), fill=(150, 165, 180), anchor='ma')
+               'glowing door = jam', font=tfont(FONT, 13), fill=(150, 165, 180), anchor='ma')
         frames.append(img.convert('RGB'))
     return frames
 
