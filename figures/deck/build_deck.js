@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v20.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v21.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -182,7 +182,7 @@ section(1);
   para(slide, "2024 champion's way of giving out orders, average of **60 runs**. **No errors, no collisions.**", M + 0.3, 5.0, 2.9, 1.6, 13);
   addImg(slide, "collapse", 4.4, 1.4, 8.35, 3.6);
   caption(slide, "Official room map, 200 / 250 / 300 robots, 20 runs per program", 4.5, 5.0, 8.2);
-  bullets(slide, ["We ran two existing programs: the **official starter program** and the **2024 champion's** way of giving out orders.", "**The longer it runs, the slower it gets**: every curve goes down.", "No errors, no collisions: so we decided to **start our optimization from this problem**."], 4.5, 5.45, 8.25, 1.5, 14);
+  bullets(slide, ["We ran two existing programs: the **official starter program** and the **2024 champion's** way of giving out orders.", "**The longer it runs, the slower it gets**: every curve goes down.", "No errors, so we decided to **start our optimization from this problem**."], 4.5, 5.45, 8.25, 1.5, 14);
 }
 
 // ---------- 4 jam ----------
@@ -190,13 +190,13 @@ section(1);
   const s = S(4); const slide = content(s);
   addImg(slide, "jam", M, 1.35, 5.7, 5.75, "left");
   const cards = [
-    ["97", "robots at tick 3,000 that still must go through **door 6** into the lower-left rooms: some wait at the door, the rest are on the way.", C.accent3],
-    ["38% → 86%", "easy orders are done first, so more and more of the **orders left need door 6**.", C.accent2],
-    ["3.4–7.0 vs 26", "robots meet **face to face** in the one-cell door. Per 500 ticks: **3.4–7.0** get through late in the run, **26** when they take turns. **More robots, fewer crossings.**", C.accent2],
+    ["1 week", "to write a **monitoring program** that replays the run **tick by tick**.", C.accent2, C.background2],
+    ["97", "robots at tick 3,000 still heading through **door 6**: as time goes on, **many robots jam at one door**.", C.accent3, C.background2],
+    ["?", "How did **earlier work** try to solve this?", C.accent1, C.accent6],
   ];
-  cards.forEach(([b, l, col], i) => {
+  cards.forEach(([b, l, col, fill], i) => {
     const y = 1.4 + i * 1.85;
-    card(slide, 6.9, y, 5.85, 1.7, C.background2);
+    card(slide, 6.9, y, 5.85, 1.7, fill);
     slide.addText(b, { x: 7.15, y: y + 0.08, w: 5.4, h: 0.6, fontSize: 30, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
     para(slide, l, 7.15, y + 0.72, 5.45, 0.92, 13);
   });
@@ -266,9 +266,18 @@ section(1);
   caption(slide, "Yellow = our early ideas; grey = existing mechanisms we tried later. Red = key attempts. Each result is vs the method at that time, on that round's test set (report, section 9). Skipped = stopped at a quick measurement.", M, 6.68, 12.1);
 }
 
-// ---------- 7 model + what makes robots special ----------
+// ---------- 7 congestion monitor ----------
 {
   const s = S(7); const slide = content(s);
+  addImg(slide, "monitor", M, 1.25, 12.15, 4.72);
+  caption(slide, "Congestion monitor at tick 3,000 (congestion_monitor.html). Same map, 250 robots, same seeds (9700 / 101), no door control, one run each; only the routing differs. Red dot = robot holding an order, not moved for 12+ ticks; glowing door = 8+ stuck robots within 5 steps.", M, 6.02, 12.15);
+  card(slide, M, 6.55, 12.15, 0.42, C.accent6);
+  para(slide, "**Door 6 is jammed 91–94% of the run under all three routings.** Orders finished: champion **609** · HN-SPF **435** · Fortz–Thorup **612**.", M + 0.2, 6.55, 11.8, 0.42, 13, C.text1, C.text2, "middle");
+}
+
+// ---------- 8 model + what makes robots special ----------
+{
+  const s = S(8); const slide = content(s);
   addImg(slide, "map", M, 1.35, 6.6, 3.3, "left");
   para(slide, "3,646 cells → **16 rooms (nodes)** and **31 doors (links)**. **Door 6 is a cut**: remove it, and the 4 lower-left rooms are cut off.", M, 4.72, 6.6, 0.55, 13);
   card(slide, M, 5.3, 6.6, 0.8, C.accent6);
@@ -290,9 +299,9 @@ section(1);
   para(slide, "**So a good algorithm** never drops a robot. It only decides **who goes and when**, and keeps the exits clear.", M + 0.25, 6.22, 11.7, 0.66, 15, C.text1, C.text2, "middle");
 }
 
-// ---------- 8 routing or scheduling ----------
+// ---------- 9 routing or scheduling ----------
 {
-  const s = S(8); const slide = content(s);
+  const s = S(9); const slide = content(s);
   para(slide, "Why did changing routes not help? The ceiling explains it:", M, 1.4, 6.3, 0.45, 15);
   const steps = [
     ["Lower-left share", "The lower-left rooms hold 906 of 3,614 room cells: 906 ÷ 3,614 = **0.2507**"],
@@ -311,9 +320,9 @@ section(1);
   para(slide, "rerouting methods: **all were worse**. Only door 6 sets the ceiling, so the real question is **how many robots to send, and which side goes first**: **scheduling**. Our algorithm **DoorFlow** regulates the flow through every door, for the whole map.", M + 1.8, 5.05, 10.1, 1.7, 17, C.text1, C.text2, "middle");
 }
 
-// ---------- 9 the logic of TCP's window ----------
+// ---------- 10 the logic of TCP's window ----------
 {
-  const s = S(9); const slide = content(s);
+  const s = S(10); const slide = content(s);
   addImg(slide, "bdp", M, 1.3, 6.9, 5.65, "left");
   const x0 = 7.75, w0 = 5.0;
   card(slide, x0, 1.4, w0, 0.95, C.accent6);
@@ -329,9 +338,9 @@ section(1);
   ], x0, 2.55, w0, 4.4, 13.5);
 }
 
-// ---------- 10 global regulation, like BBR ----------
+// ---------- 11 global regulation, like BBR ----------
 {
-  const s = S(10); const slide = content(s);
+  const s = S(11); const slide = content(s);
   addImg(slide, "bbrloop", M, 1.3, 7.0, 5.65, "left");
   const x0 = 7.85, w0 = 4.9;
   card(slide, x0, 1.4, w0, 1.3, C.accent6);
@@ -344,9 +353,9 @@ section(1);
   ], x0, 2.9, w0, 4.05, 13);
 }
 
-// ---------- 11 the quota, version by version ----------
+// ---------- 12 the quota, version by version ----------
 {
-  const s = S(11); const slide = content(s);
+  const s = S(12); const slide = content(s);
   addImg(slide, "knee", M, 1.35, 7.4, 3.3, "left");
   caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.4);
   card(slide, M, 5.05, 7.4, 1.85, C.background1);
@@ -360,9 +369,9 @@ section(1);
   ], 8.2, 1.4, 4.55, 5.5, 15);
 }
 
-// ---------- 12 one direction at a time ----------
+// ---------- 13 one direction at a time ----------
 {
-  const s = S(12); const slide = content(s);
+  const s = S(13); const slide = content(s);
   addImg(slide, "door", M, 1.3, 12.1, 3.55);
   const cards = [
     ["v1 · no effect", "Only stopped robots from entering against the flow. Robots on the other side still waited at the exit, so robots coming out had nowhere to go.", C.accent4],
@@ -377,9 +386,9 @@ section(1);
   });
 }
 
-// ---------- 13 queue scheduling at the door ----------
+// ---------- 14 queue scheduling at the door ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(14); const slide = content(s);
   card(slide, M, 1.4, 6.5, 0.95, C.accent6);
   para(slide, "**Door = a server with 2 queues**, one per direction (robots within 8 cells that want to cross). Which queue, and for how long?", M + 0.25, 1.4, 6.05, 0.95, 14, C.text1, C.text2, "middle");
   addImg(slide, "doorutil", M, 2.5, 6.5, 2.05);
@@ -401,9 +410,9 @@ section(1);
   para(slide, "**Theory vs here:** exhaustive service is best when switching is costly, if arrivals do not depend on the scheduler. Ours depend on the quota, so we tested it.", 7.7, 5.65, 4.85, 1.2, 13, C.text1, C.text2, "middle");
 }
 
-// ---------- 14 executor bug fix ----------
+// ---------- 15 executor bug fix ----------
 {
-  const s = S(14); const slide = content(s);
+  const s = S(15); const slide = content(s);
   addImg(slide, "exec", M, 1.35, 8.3, 4.0, "left");
   caption(slide, "Top: official executor (bug). Bottom: fixed executor (3-line patch).", M, 5.4, 8.2);
   card(slide, 9.15, 1.4, 3.6, 2.2, C.accent6);
@@ -414,9 +423,9 @@ section(1);
   para(slide, "**Found by following robots tick by tick in replays.** Next: the whole algorithm as code, and how we checked that it runs as we meant.", M + 0.25, 5.85, 7.85, 1.0, 14, C.text1, C.text2, "middle");
 }
 
-// ---------- 15 pseudocode ----------
+// ---------- 16 pseudocode ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(16); const slide = content(s);
   card(slide, M, 1.35, 9.0, 5.55, "16212B");
   // "~" = safety-net line (grey); text after "#" = comment
   code(slide, [
@@ -454,9 +463,9 @@ section(1);
   });
 }
 
-// ---------- 16 the hardest part + demo ----------
+// ---------- 17 the hardest part + demo ----------
 {
-  const s = S(16); const slide = content(s);
+  const s = S(17); const slide = content(s);
   const cards = [
     ["Rounds 1–8 were void", "A fixed planner seed and an unset variable: the same program, run **54 times**, gave the same result only **5 times**. After the fix, those early gains were not significant."],
     ["A +6.8% that was not real", "One version gained **6.8%**, but its mechanism picked **no door in 32 instances**. The gain came from somewhere else, so we did not keep it."],
@@ -469,14 +478,14 @@ section(1);
     para(slide, b, M + 0.22, y + 0.5, 4.6, 0.95, 12);
   });
   addImg(slide, "demo", 5.85, 1.4, 6.9, 4.07);
-  para(slide, "**Replay tool: every jam turns red automatically.** Official room map, 250 robots, one run. Red dot = robot holding an order that has not moved for 12+ ticks; glowing door = jam. Left: no door control, **609** orders. Right: DoorFlow, **1,130** orders.", 5.85, 5.52, 6.9, 0.8, 11.5, C.accent4, C.text2);
+  para(slide, "**The same congestion monitor, on our own code.** Official room map, 250 robots, one run. Red dot = robot holding an order that has not moved for 12+ ticks; glowing door = jam. Left: no door control, **609** orders. Right: DoorFlow, **1,130** orders.", 5.85, 5.52, 6.9, 0.8, 11.5, C.accent4, C.text2);
   card(slide, M, 6.38, 12.15, 0.55, C.accent6);
   para(slide, "**Our loop:** write the code → run it → replay it → check that the robots do **what the code means**.", M + 0.25, 6.38, 11.7, 0.55, 14, C.text1, C.text2, "middle");
 }
 
-// ---------- 17 random-door maps + safety nets ----------
+// ---------- 18 random-door maps + safety nets ----------
 {
-  const s = S(17); const slide = content(s);
+  const s = S(18); const slide = content(s);
   addImg(slide, "gen", M, 1.35, 7.6, 3.6, "left");
   card(slide, 8.45, 1.4, 4.3, 3.5, C.background2);
   para(slide, "**Worry:** our changes may only fit the official map and its doors. So we wrote a program that **places doors at random**.", 8.7, 1.5, 3.85, 1.05, 13);
@@ -494,9 +503,9 @@ section(1);
   });
 }
 
-// ---------- 18 results ----------
+// ---------- 19 results ----------
 {
-  const s = S(18); const slide = content(s);
+  const s = S(19); const slide = content(s);
   const st = [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only DoorFlow differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]];
   st.forEach(([b, l, col], i) => {
     const y = 1.5 + i * 1.65;
@@ -507,9 +516,9 @@ section(1);
   para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **DoorFlow (orange)**.", 4.6, 6.2, 8.1, 0.7, 13, C.accent4, C.text2);
 }
 
-// ---------- 19 what matters ----------
+// ---------- 20 what matters ----------
 {
-  const s = S(19); const slide = content(s);
+  const s = S(20); const slide = content(s);
   addImg(slide, "ablD", M, 1.35, 12.1, 3.9);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.3, 12);
   card(slide, M, 5.7, 12.15, 1.2, C.accent6);
@@ -517,9 +526,9 @@ section(1);
 }
 
 
-// ---------- 20 lessons ----------
+// ---------- 21 lessons ----------
 {
-  const s = S(20); const slide = content(s);
+  const s = S(21); const slide = content(s);
   const L = [
     ["Door 6 cannot be bypassed", "14 of 15 rerouting methods lowered results (HN-SPF −25.88%).", "Control **how many** robots go, not where they go."],
     ["Robots cannot be dropped, and take up cells", "Methods built on dropping or buffering do not carry over.", "Only decide **who goes and when**; keep exits clear."],
@@ -541,9 +550,9 @@ section(1);
 }
 
 
-// ---------- 21 conclusion ----------
+// ---------- 22 conclusion ----------
 {
-  const s = S(21);
+  const s = S(22);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const pts = [

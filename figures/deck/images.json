@@ -118,5 +118,10 @@
   "path": "figures/deck/demo/demo.gif",
   "w": 760,
   "h": 448
+ },
+ "monitor": {
+  "path": "figures/deck/demo/monitor_t3000.png",
+  "w": 3200,
+  "h": 1368
  }
 }

@@ -1,6 +1,10 @@
-"""Build the congestion demo from the two dumps written by run_demo.py (run from the repo root):
+"""Build the congestion monitor and the DoorFlow demo from the dumps written by run_demo.py (run from the repo root):
     python3 figures/deck/demo/build_demo.py
 Outputs (all in figures/deck/demo/):
+    congestion_monitor.html  interactive replay of three routing methods, all without door control (champion routing,
+                         HN-SPF link costs, Fortz-Thorup weights); every jam turns red automatically, and a side panel
+                         shows the share of the run each door is jammed -> the same doors jam whatever the routing
+    monitor_stats.json   the numbers behind it
     doorflow_demo.html   interactive replay, no door control vs DoorFlow, every jam turns red automatically
     demo.gif             the same side by side, for the slide (every 25 ticks; the first frame repeats tick 3000,
                          so a still export of the slide shows the jam, then the loop plays from tick 25)
@@ -19,7 +23,21 @@ HERE = Path(__file__).resolve().parent
 MAP = REPO / 'experiment-materials/网络协议方向/harness/data/pkg/maps/room/room-64-64-16.map'
 RG = REPO / 'experiment-materials/archive/tools/replay_report/region_graph_room64.json'
 WORK = Path(os.environ.get('DEMO_WORK', Path.home() / 'doorflow_demo' / 'runs'))   # where run_demo.py wrote the dumps
-RUNS = [('none', 'No door control'), ('doorflow', 'DoorFlow')]
+RUNS = [('none', 'No door control'), ('doorflow', 'DoorFlow')]              # the demo (GIF, still, doorflow_demo.html)
+FOOT = 'Simulated with the project\'s own simulator (official room map, 250 robots, seed 9700, planner seed 101).'
+VIEWS = {
+    'monitor': dict(out='congestion_monitor.html', stats='monitor_stats.json',
+                    title='<b>Congestion monitor</b> · where do jams happen?',
+                    sub='official room map · 250 robots · same seeds · no door control · only the routing differs',
+                    runs=[('none', 'Champion routing', 'guide paths priced by traffic (2024 champion)', 'champion', '#f0463c'),
+                          ('hnspf', 'HN-SPF link costs', 'capped, slowly changing costs (round 53, setting A)', 'HN-SPF', '#e39b2d'),
+                          ('teft', 'Fortz–Thorup weights', 'measured hot cells cost more (round 28)', 'Fortz–Thorup', '#b48cf2')]),
+    'demo': dict(out='doorflow_demo.html', stats=None,
+                 title='<b style="color:#e39b2d">DoorFlow</b> replay · every jam turns red automatically',
+                 sub='official room map · 250 robots · same seeds for both runs',
+                 runs=[('none', 'No door control', 'champion assignment + fixed executor', 'no control', '#f0463c'),
+                       ('doorflow', 'DoorFlow', 'quota + door rule + fixes + safety nets', 'DoorFlow', '#40c4d6')]),
+}
 STUCK_TICKS, RADIUS, JAM_MIN, HTML_STEP, GIF_STEP = 12, 5, 8, 2, 25
 
 
@@ -98,12 +116,13 @@ def crossings(loc, lab, rooms_pair, ticks):
     return cnt
 
 
-def analyse():
+def analyse(keys=None):
     H, W, free = load_map(); rg = json.loads(RG.read_text())
     zones = [bfs_zone(free, tuple(d['cells'][0]), RADIUS) for d in rg['doors']]
     lab = room_labels(free, rg); door6 = [d for d in rg['doors'] if d['id'] == 6][0]
     runs = {}
-    for key, name in RUNS:
+    for key in (keys or [k for k, _ in RUNS]):
+        name = key
         t, fin, loc, has = load_dump(WORK / key / 'pos.bin')
         st = stuck_mask(loc, has)
         sloc = np.where(st, loc, -1)
@@ -119,19 +138,37 @@ def analyse():
     return H, W, free, rg, runs
 
 
-def pack_html(H, W, free, rg, runs, out):
+def jam_share(R):
+    """share of the run (ticks) each door is jammed"""
+    return (R['jam'] >= JAM_MIN).mean(0)
+
+
+def pack_html(H, W, free, rg, runs, view):
     data = dict(H=H, W=W, free=''.join('1' if v else '0' for v in free.ravel()), step=HTML_STEP, stuckTicks=STUCK_TICKS,
                 radius=RADIUS, jamMin=JAM_MIN, doors=[dict(id=d['id'], r=d['cells'][0][0], c=d['cells'][0][1]) for d in rg['doors']],
-                rooms=[dict(id=r['id'], bbox=r['bbox']) for r in rg['rooms']], runs=[])
-    for key, name in RUNS:
+                rooms=[dict(id=r['id'], bbox=r['bbox']) for r in rg['rooms']], runs=[],
+                title=view['title'], sub=view['sub'], foot=FOOT)
+    if view['stats']:   # side panel: the doors that are jammed longest in any run, with every run's share
+        sh = np.array([jam_share(runs[k]) for k, *_ in view['runs']])
+        top = [j for j in np.argsort(-sh.min(0)) if sh[:, j].max() >= 0.3][:6]   # jammed in every run first
+        data['where'] = [dict(id=rg['doors'][j]['id'], share=[round(float(v), 3) for v in sh[:, j]]) for j in top]
+    for key, name, desc, tag, color in view['runs']:
         R = runs[key]; idx = np.arange(0, len(R['t']), HTML_STEP)
         word = (R['loc'][idx] & 0x0FFF) | (R['has'][idx].astype(np.int32) << 15) | (R['st'][idx].astype(np.int32) << 14)
-        data['runs'].append(dict(key=key, name=name, ticks=R['t'][idx].tolist(), fin=R['fin'][idx].tolist(),
+        data['runs'].append(dict(key=key, name=name, desc=desc, tag=tag, color=color, ticks=R['t'][idx].tolist(), fin=R['fin'][idx].tolist(),
                                  pos=base64.b64encode(word.astype('<u2').tobytes()).decode(),
                                  jam=base64.b64encode(np.minimum(R['jam'][idx], 255).astype('u1').tobytes()).decode(),
                                  per500=R['per500'], door6=R['x6'].tolist()))
     tpl = (HERE / 'viewer_template.html').read_text(encoding='utf8')
-    out.write_text(tpl.replace('/*__DATA__*/null', json.dumps(data, separators=(',', ':'))), encoding='utf8')
+    (HERE / view['out']).write_text(tpl.replace('/*__DATA__*/null', json.dumps(data, separators=(',', ':'))), encoding='utf8')
+    if view['stats']:
+        ids = [d['id'] for d in rg['doors']]
+        st = {k: dict(name=name, finished=int(runs[k]['fin'][-1]), stuck_at_3000=int(runs[k]['st'][int(np.searchsorted(runs[k]['t'], 3000))].sum()),
+                      door6_crossings_per_500=runs[k]['x6'].tolist(),
+                      jammed_share_by_door={str(i): round(float(v), 3) for i, v in zip(ids, jam_share(runs[k])) if v > 0})
+              for k, name, *_ in view['runs']}
+        (HERE / view['stats']).write_text(json.dumps(dict(rule=f'door jammed = at least {JAM_MIN} stuck robots within {RADIUS} steps; '
+                                                           f'stuck = holds an order and has not moved for {STUCK_TICKS}+ ticks', runs=st), indent=1))
 
 
 # ---------- GIF / PNG ----------
@@ -211,16 +248,21 @@ def render(runs, H, W, free, rg, ticks_wanted, cell=6):
 
 
 def main():
-    H, W, free, rg, runs = analyse()
-    pack_html(H, W, free, rg, runs, HERE / 'doorflow_demo.html')
+    keys = []
+    for v in VIEWS.values():
+        keys += [k for k, *_ in v['runs'] if k not in keys]
+    H, W, free, rg, runs = analyse(keys)
+    for v in VIEWS.values():
+        pack_html(H, W, free, rg, runs, v)
     still = render(runs, H, W, free, rg, list(range(10, 3001, 10)), cell=8)[-1]
     still.save(HERE / 'demo_t3000.png')
     frames = render(runs, H, W, free, rg, list(range(GIF_STEP, 5001, GIF_STEP)), cell=5)
     frames = [frames[3000 // GIF_STEP - 1]] + frames          # poster frame: tick 3000
     pal = [f.quantize(colors=48, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE) for f in frames]
     pal[0].save(HERE / 'demo.gif', save_all=True, append_images=pal[1:], duration=80, loop=0, optimize=True)
-    stats = {k: dict(name=R['name'], finished=int(R['fin'][-1]), orders_per_500=R['per500'], door6_crossings_per_500=R['x6'].tolist(),
-                     stuck_at_3000=int(R['st'][int(np.searchsorted(R['t'], 3000))].sum())) for k, R in runs.items()}
+    stats = {k: dict(name=name, finished=int(runs[k]['fin'][-1]), orders_per_500=runs[k]['per500'],
+                     door6_crossings_per_500=runs[k]['x6'].tolist(),
+                     stuck_at_3000=int(runs[k]['st'][int(np.searchsorted(runs[k]['t'], 3000))].sum())) for k, name in RUNS}
     (HERE / 'demo_stats.json').write_text(json.dumps(stats, indent=1))
     print(json.dumps(stats, indent=1))
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DoorFlow Replay</title>
+<title>Congestion Replay</title>
 <style>
   :root { --bg:#0b1118; --panel:#111a24; --line:#22313f; --ink:#e8eef4; --dim:#8a9bab; --teal:#40c4d6; --gold:#e39b2d; --red:#f0463c; }
   * { box-sizing:border-box; }
@@ -16,8 +16,14 @@
   .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--dim); font-size:12.5px; padding:0 24px 8px; }
   .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
   main { display:grid; grid-template-columns: 1fr 1fr 300px; gap:16px; padding:8px 24px 18px; align-items:start; }
+  .where { margin:0; padding:0; list-style:none; font-size:12px; }
+  .where li { display:grid; grid-template-columns:56px 1fr; gap:6px; align-items:center; padding:2px 2px; border-bottom:1px solid #1a2633; }
+  .where .bars { display:flex; flex-direction:column; gap:1px; }
+  .where .bar { height:6px; border-radius:3px; }
+  .where .sub { font-size:11px; }
+  .where .door { color:var(--ink); font-weight:700; }
   .card { background:linear-gradient(180deg, #121d29, #0f1821); border:1px solid var(--line); border-radius:14px; padding:12px; }
-  .ptitle { display:flex; justify-content:space-between; align-items:baseline; margin:2px 4px 8px; }
+  .ptitle { display:flex; flex-direction:column; gap:1px; margin:2px 4px 8px; }
   .ptitle h2 { margin:0; font-size:15px; }
   .ptitle span { color:var(--dim); font-size:12px; }
   canvas.map { width:100%; aspect-ratio:1/1; display:block; border-radius:10px; background:#0d151e; }
@@ -28,7 +34,7 @@
   .stat.alarm { border-color:#7a2a26; box-shadow:0 0 0 1px #7a2a26 inset, 0 0 18px rgba(240,70,60,.25); }
   .stat.alarm .v { color:var(--red); }
   .side h3 { margin:4px 2px 8px; font-size:14px; }
-  #chart { width:100%; height:150px; display:block; }
+  #chart { width:100%; height:130px; display:block; }
   #log { max-height:420px; overflow:auto; margin:0; padding:0; list-style:none; font-size:12.5px; }
   #log li { padding:6px 8px; border-radius:8px; cursor:pointer; display:flex; gap:8px; align-items:center; }
   #log li:hover { background:#16222e; }
@@ -47,8 +53,8 @@
 </head>
 <body>
 <header>
-  <h1><b>DoorFlow</b> replay · every jam turns red automatically</h1>
-  <span class="sub">official room map · 250 robots · same seeds for both runs</span>
+  <h1 id="ttl"></h1>
+  <span class="sub" id="sub"></span>
 </header>
 <div class="legend">
   <span><span class="dot" style="background:#5f6e7d"></span>no order</span>
@@ -57,13 +63,12 @@
   <span><span class="dot" style="background:transparent;border:2px solid var(--red)"></span>jammed door: <b id="lgJ"></b>+ stuck robots within <b id="lgR"></b> steps</span>
 </div>
 <main>
-  <section class="card" id="p0"></section>
-  <section class="card" id="p1"></section>
-  <aside class="card side" style="grid-row:span 2">
+  <aside class="card side" style="grid-row:span 2" id="side">
     <h3>Orders finished per 500 ticks</h3>
     <canvas id="chart"></canvas>
+    <div id="whereBox" style="display:none"><h3 style="margin-top:14px">Where jams happen <span class="sub">(share of the run each door is jammed)</span></h3><ul class="where" id="where"></ul></div>
     <h3 style="margin-top:14px">Jam log <span class="sub">(click to jump)</span></h3>
-    <ul id="log"></ul>
+    <ul id="log" style="max-height:200px"></ul>
   </aside>
   <div class="controls card">
     <button class="primary" id="play">Play</button>
@@ -83,12 +88,16 @@ function b64(b, T) { const s = atob(b), u = new Uint8Array(s.length); for (let i
 const H = D.H, W = D.W, free = Uint8Array.from(D.free, (c) => c === '1');
 $('lgT').textContent = D.stuckTicks; $('lgJ').textContent = D.jamMin; $('lgR').textContent = D.radius;
 const runs = D.runs.map((r) => { const F = r.ticks.length; const pos = b64(r.pos, 16); return { ...r, F, N: pos.length / F, pos, jam: b64(r.jam, 8) }; });
-const F = runs[0].F, ND = D.doors.length;
+const F = runs[0].F, ND = D.doors.length, NR = runs.length;
+$('ttl').innerHTML = D.title; $('sub').textContent = D.sub;
+document.querySelector('main').style.gridTemplateColumns = `repeat(${NR}, minmax(0, 1fr)) 300px`;
+document.querySelector('.controls').style.gridColumn = `1 / span ${NR}`;
 const door6 = D.doors.findIndex((d) => d.id === 6);
 
 // ---------- panels ----------
 runs.forEach((r, i) => {
-  $('p' + i).innerHTML = `<div class="ptitle"><h2>${r.name}</h2><span>${r.key === 'none' ? 'champion assignment + fixed executor' : 'quota + door rule + fixes + safety nets'}</span></div>
+  const sec = document.createElement('section'); sec.className = 'card'; sec.id = 'p' + i; $('side').before(sec);
+  sec.innerHTML = `<div class="ptitle"><h2 style="color:${r.color}">${r.name}</h2><span>${r.desc}</span></div>
     <canvas class="map" id="c${i}"></canvas>
     <div class="stats"><div class="stat"><div class="v" id="fin${i}">0</div><div class="k">orders finished</div></div>
     <div class="stat" id="stS${i}"><div class="v" id="st${i}">0</div><div class="k">robots stuck now</div></div>
@@ -133,7 +142,7 @@ function renderLog(f) {
   ul.innerHTML = shown.length ? '' : '<li style="cursor:default;color:var(--dim)">no jams yet</li>';
   for (const e of shown) {
     const li = document.createElement('li'); const r = runs[e.ri];
-    li.innerHTML = `<span class="tag ${r.key === 'none' ? '' : 'df'}">${r.key === 'none' ? 'no control' : 'DoorFlow'}</span>
+    li.innerHTML = `<span class="tag" style="background:${r.color}26;color:${r.color}">${r.tag}</span>
       <span>tick ${r.ticks[e.f]} · door ${D.doors[e.d].id} · up to <b>${e.peak}</b> stuck</span>`;
     li.onclick = () => { head = e.f; playing = false; $('play').textContent = 'Play'; };
     ul.appendChild(li);
@@ -150,12 +159,20 @@ function drawChart() {
   const cur = Math.min(n - 1, Math.floor((runs[0].ticks[Math.floor(head)] || 0) / 500));
   g.fillStyle = 'rgba(227,155,45,.12)'; g.fillRect(X(cur) - 6 * dpr, 6 * dpr, 12 * dpr, h - 24 * dpr);
   runs.forEach((r) => {
-    g.strokeStyle = r.key === 'none' ? '#f0463c' : '#40c4d6'; g.lineWidth = 2.4 * dpr; g.beginPath();
+    g.strokeStyle = r.color; g.lineWidth = 2.4 * dpr; g.beginPath();
     r.per500.forEach((v, i) => (i ? g.lineTo(X(i), Y(v)) : g.moveTo(X(i), Y(v)))); g.stroke();
     const li = runs.indexOf(r); g.fillStyle = g.strokeStyle; g.fillRect(40 * dpr, (10 + li * 14) * dpr, 14 * dpr, 3 * dpr);
     g.fillText(r.name, 60 * dpr, (14 + li * 14) * dpr);
   });
   g.fillStyle = '#8a9bab'; g.fillText('tick 0', X(0), h - 4 * dpr); g.fillText('5,000', X(n - 1) - 24 * dpr, h - 4 * dpr);
+}
+
+// ---------- where jams happen ----------
+if (D.where) {
+  $('whereBox').style.display = '';
+  $('where').innerHTML = D.where.map((w) => `<li><span class="door">door ${w.id}</span><span class="bars">${w.share.map((v, i) =>
+    `<span style="display:flex;align-items:center;gap:6px"><span class="bar" style="width:${Math.max(2, v * 150)}px;background:${runs[i].color}"></span><span class="sub">${Math.round(v * 100)}%</span></span>`).join('')}</span></li>`).join('');
+  $('where').insertAdjacentHTML('afterend', '<div class="sub" style="margin-top:4px">bars: one per run, in panel order</div>');
 }
 
 // ---------- drawing ----------
@@ -188,11 +205,8 @@ function draw(now) {
         g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, rad, 0, 7); g.fill();
       }
       g.fillStyle = v >= D.jamMin ? '#ff5a46' : '#7f93a7'; g.fillRect(dd.c * s, dd.r * s, s, s);
-      if ($('labels').checked && (d === door6 || v >= D.jamMin) && !placed.some((p) => Math.abs(p[0] - dd.c) + Math.abs(p[1] - dd.r) < 8)) {
-        placed.push([dd.c, dd.r]);
-        g.font = `bold ${Math.max(10, s * 1.7)}px system-ui`; g.fillStyle = d === door6 ? '#e39b2d' : '#ff9a8f';
-        g.fillText(`door ${dd.id}`, cx + s * 1.2, cy - s * 1.0);
-      }
+      if ($('labels').checked && (d === door6 || v >= D.jamMin) && !placed.some((p) => Math.abs(p[0] - dd.c) + Math.abs(p[1] - dd.r) < 8))
+        placed.push([dd.c, dd.r, dd.id, d === door6, cx, cy]);
     }
     let stuck = 0;
     for (let i = 0; i < r.N; i++) {
@@ -206,6 +220,11 @@ function draw(now) {
       g.fill();
     }
     g.shadowBlur = 0;
+    for (const [, , id, is6, cx, cy] of placed) {   // labels on top of the robots
+      g.font = `bold ${Math.max(11, s * 2.0)}px system-ui`; g.lineJoin = 'round';
+      g.lineWidth = Math.max(3, s * 0.6); g.strokeStyle = 'rgba(8,13,19,.95)'; g.strokeText(`door ${id}`, cx + s * 1.4, cy - s * 1.2);
+      g.fillStyle = is6 ? '#f2b64a' : '#ffd0c8'; g.fillText(`door ${id}`, cx + s * 1.4, cy - s * 1.2);
+    }
     $('fin' + ri).textContent = r.fin[f].toLocaleString();
     $('st' + ri).textContent = stuck; $('stS' + ri).classList.toggle('alarm', stuck >= 60);
     $('x' + ri).textContent = r.door6[Math.min(r.door6.length - 1, Math.floor(r.ticks[f] / 500))];
@@ -220,8 +239,8 @@ $('scrub').oninput = (e) => { head = +e.target.value; };
 $('play').onclick = () => { playing = !playing; if (head >= F - 1) head = 0; $('play').textContent = playing ? 'Pause' : 'Play'; };
 $('j3000').onclick = () => { head = runs[0].ticks.findIndex((t) => t >= 3000); playing = false; $('play').textContent = 'Play'; };
 document.addEventListener('keydown', (e) => { if (e.code === 'Space') { e.preventDefault(); $('play').click(); } if (e.code === 'ArrowRight') head = Math.min(F - 1, head + 25); if (e.code === 'ArrowLeft') head = Math.max(0, head - 25); });
-$('foot').textContent = `Final result: ${runs.map((r) => `${r.name} ${r.fin[F - 1].toLocaleString()} orders`).join(' · ')}. ` +
-  `Simulated with the project's own simulator (official room map, 250 robots, seed 9700, planner seed 101); one frame every ${D.step} ticks.`;
+$('foot').textContent = `Final result: ${runs.map((r) => `${r.name} ${r.fin[F - 1].toLocaleString()} orders`).join(' · ')}. ` + D.foot +
+  ` One frame every ${D.step} ticks.`;
 resize(); requestAnimationFrame(draw);
 </script>
 </body>

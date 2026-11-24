@@ -8,9 +8,11 @@
 #
 # 1. copies the project's simulator source (experiment-materials/网络协议方向/src/dev_src_p78) to <work>/sim, applies
 #    demo_dump.patch (it only writes every robot's cell at every tick) and builds it with g++ -- once, a few minutes;
-# 2. runs two 5,000-tick replays on the official room map with 250 robots, seed 9700, planner seed 101:
-#    "none" (no door control) and "doorflow" (the formal settings) -> <work>/runs/{none,doorflow}/pos.bin, about 20 s;
-# 3. rebuilds doorflow_demo.html, demo.gif, demo_t3000.png and demo_stats.json next to this script.
+# 2. runs four 5,000-tick replays on the official room map with 250 robots, seed 9700, planner seed 101:
+#    "none" (no door control), "doorflow" (the formal settings), and two routing variants without door control,
+#    "hnspf" (HN-SPF link costs) and "teft" (Fortz-Thorup weights) -> <work>/runs/<method>/pos.bin, under a minute;
+# 3. rebuilds congestion_monitor.html, monitor_stats.json, doorflow_demo.html, demo.gif, demo_t3000.png and
+#    demo_stats.json next to this script.
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$HERE/../../.." && pwd)"
@@ -35,9 +37,11 @@ else
   fi
 fi
 
-echo "[2/3] running the two replays (no door control, DoorFlow)"
+echo "[2/3] running the four replays (no door control, DoorFlow, HN-SPF, Fortz-Thorup)"
 DEMO_SIM="$SIM/build-linux/lifelong" DEMO_WORK="$WORK/runs" python3 "$HERE/run_demo.py"
 
-echo "[3/3] building the demo page"
+echo "[3/3] building the monitor and demo pages"
 DEMO_WORK="$WORK/runs" python3 "$HERE/build_demo.py" > "$WORK/demo_stats.txt"
-echo "done. Open this file in a browser:  $HERE/doorflow_demo.html"
+echo "done. Open these files in a browser:"
+echo "  $HERE/congestion_monitor.html   (where do jams happen? three routing methods, no door control)"
+echo "  $HERE/doorflow_demo.html        (no door control vs DoorFlow)"

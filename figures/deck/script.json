@@ -36,12 +36,12 @@
    "16 rooms, 31 doors, 1 cell wide, 200–300 robots",
    "Blue path: 8 doors"
   ],
-  "en": "First, the background. 【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**. 【指右边 1、2、3】 Every tick, the program decides **which robot takes which order, which way it goes, and whether it moves now**. 【指下方数字】 The official room map has **16 rooms and 31 doors**, most only **one cell wide**, and **200 to 300 robots**. 【指蓝色路线】 This one order passes **eight doors**.",
-  "zh": "先讲背景。【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。【指右边 1、2、3】每一拍，程序决定**哪台车接哪单、走哪条路、现在走不走**。【指下方数字】官方房间图有 **16 个房间、31 道门**，大多只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单要穿过 **8 道门**。",
+  "en": "【指左图】 The background: each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**. 【指右边 1、2、3】 Every tick, the program decides **which robot takes which order, which way it goes, and whether it moves now**. 【指下方数字】 The official room map has **16 rooms and 31 doors**, most only **one cell wide**, and **200 to 300 robots**. 【指蓝色路线】 This one order passes **eight doors**.",
+  "zh": "【指左图】背景是：每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。【指右边 1、2、3】每一拍，程序决定**哪台车接哪单、走哪条路、现在走不走**。【指下方数字】官方房间图有 **16 个房间、31 道门**，大多只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单要穿过 **8 道门**。",
   "segs": [
    {
-    "en": "First, the background. 【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**.",
-    "zh": "先讲背景。【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。"
+    "en": "【指左图】 The background: each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**.",
+    "zh": "【指左图】背景是：每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。"
    },
    {
     "en": "【指右边 1、2、3】 Every tick, the program decides **which robot takes which order, which way it goes, and whether it moves now**.",
@@ -65,47 +65,46 @@
    "Ran starter + 2024 champion",
    "Every curve falls",
    "127 → 37 (60 runs)",
-   "No errors, no collisions",
-   "We start optimizing from this problem",
-   "Hand over to Speaker 2"
+   "No errors",
+   "We start optimizing from this problem"
   ],
-  "en": "We first ran the official starter program and the 2024 champion's method. 【指三组曲线】 Both get **slower the longer they run**. 【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. The program reports **no errors or collisions**, so we decided to **start our optimization from this problem**. Speaker 2 will continue.",
-  "zh": "我们先跑了官方起始程序和 2024 届冠军的方法。【指三组曲线】两个都是**跑得越久，越慢**。【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且程序**没有报错、没有碰撞**，所以我们想**从这个问题着手去优化**。下面由讲者 2 来讲。",
+  "en": "We first ran the official starter program and the 2024 champion's method. 【指三组曲线】 Both get **slower the longer they run**. 【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. The program reports **no errors**, so **we decided to start our optimization from this problem**.",
+  "zh": "我们先跑了官方起始程序和 2024 届冠军的方法。【指三组曲线】两个都是**跑得越久，越慢**。【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且程序**没有报错**，**我们想从这个问题着手去优化**。",
   "segs": [
    {
     "en": "We first ran the official starter program and the 2024 champion's method. 【指三组曲线】 Both get **slower the longer they run**.",
     "zh": "我们先跑了官方起始程序和 2024 届冠军的方法。【指三组曲线】两个都是**跑得越久，越慢**。"
    },
    {
-    "en": "【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. The program reports **no errors or collisions**, so we decided to **start our optimization from this problem**. Speaker 2 will continue.",
-    "zh": "【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且程序**没有报错、没有碰撞**，所以我们想**从这个问题着手去优化**。下面由讲者 2 来讲。"
+    "en": "【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. The program reports **no errors**, so **we decided to start our optimization from this problem**.",
+    "zh": "【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且程序**没有报错**，**我们想从这个问题着手去优化**。"
    }
   ]
  },
  {
   "n": 4,
   "speaker": 2,
-  "time": "0:25",
+  "time": "0:20",
   "title": "Robots jam at one narrow door",
   "figs": [
    "图 3 第 3000 拍堵门截图"
   ],
   "hints": [
    "A week to write a monitoring program: replay tick by tick",
-   "Over time, many robots jam at one door (door 6)",
-   "Cards on the right: 97 robots; 38% → 86%; 3.4–7.0 vs 26 (for questions)",
-   "How did earlier work solve this?"
+   "Over time, many robots jam at one door (97 at tick 3,000 still heading through door 6)",
+   "How did earlier work solve this?",
+   "For questions: 38% → 86% of orders left need door 6; 3.4–7.0 vs 26 crossings per 500 ticks"
   ],
-  "en": "Thank you. To find out what was building up, we **spent a week writing a monitoring program** that lets us watch the replay **tick by tick**. 【指左图黑圈】 In the replays, we found that as time goes on, **many robots jam at one door**, here door 6. So how did earlier work try to solve this?",
-  "zh": "谢谢。为了找出在累积的是什么，我们**花了一周时间写了一个监测程序**，用来**一拍一拍**地看回放。【指左图黑圈】通过看回放，我们发现随着时间过去，**很多机器人会堵在一道门上**，这里是门 6。那么，前人是怎么优化这个问题的呢？",
+  "en": "To find out what was building up, we spent **a week writing a monitoring program** to watch the replay **tick by tick**. Watching the replays, we found that as time goes on, **many robots jam at one door**. So how did earlier work try to solve this?",
+  "zh": "为了找出在累积的是什么，我们**花了一周的时间写了一个监测程序**来**一拍一拍**地看回放。通过观看回放，我们发现随着时间的过去，**很多机器人会堵在一个门上**，那么前人是怎么优化这个问题的呢？",
   "segs": [
    {
-    "en": "Thank you. To find out what was building up, we **spent a week writing a monitoring program** that lets us watch the replay **tick by tick**.",
-    "zh": "谢谢。为了找出在累积的是什么，我们**花了一周时间写了一个监测程序**，用来**一拍一拍**地看回放。"
+    "en": "To find out what was building up, we spent **a week writing a monitoring program** to watch the replay **tick by tick**.",
+    "zh": "为了找出在累积的是什么，我们**花了一周的时间写了一个监测程序**来**一拍一拍**地看回放。"
    },
    {
-    "en": "【指左图黑圈】 In the replays, we found that as time goes on, **many robots jam at one door**, here door 6. So how did earlier work try to solve this?",
-    "zh": "【指左图黑圈】通过看回放，我们发现随着时间过去，**很多机器人会堵在一道门上**，这里是门 6。那么，前人是怎么优化这个问题的呢？"
+    "en": "Watching the replays, we found that as time goes on, **many robots jam at one door**. So how did earlier work try to solve this?",
+    "zh": "通过观看回放，我们发现随着时间的过去，**很多机器人会堵在一个门上**，那么前人是怎么优化这个问题的呢？"
    }
   ]
  },
@@ -122,7 +121,7 @@
    "Our question: a global scheduling algorithm?"
   ],
   "en": "【依次指四张卡】 Earlier methods fall into four groups. **Order assignment** gives robots close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread out. **Planners such as PIBT** decide which robot moves first, and avoid **deadlocks and collisions**. **Jam handling** keeps some robots idle, or sorts out robots that meet in a narrow passage. 【指底部黄框】 In all the methods we read, each one only fixes **one kind of congestion locally**. None starts from **the whole system** and weighs many factors to **avoid congestion when orders are given out**. So we wanted to try: is there a **global scheduling algorithm** that avoids congestion?",
-  "zh": "【依次指四张卡】前人的方法可以分成四类。**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走，避免**死锁和碰撞**；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。【指底部黄框】在我们读到的所有方法里，每一种都只是**单独在局部优化某种拥塞**，没有一种从**整个系统**出发、同时考虑多个因素，**在派单层面去避免拥塞**。所以我们想试一试：有没有一种**全局调度算法**能避免拥塞？",
+  "zh": "【依次指四张卡】前人的方法可以分成四类。**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走、避免**死锁碰撞**；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。【指底部黄框】在我们读到的所有方法里，每一种都只是**单独在局部优化某种拥塞**，没有一种从**整个系统**出发、同时考虑多个因素**在派单层面去避免拥塞**，所以我们想进行这个尝试，看看有没有一种**全局调度算法**去避免拥塞。",
   "segs": [
    {
     "en": "【依次指四张卡】 Earlier methods fall into four groups.",
@@ -130,47 +129,77 @@
    },
    {
     "en": "**Order assignment** gives robots close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread out. **Planners such as PIBT** decide which robot moves first, and avoid **deadlocks and collisions**. **Jam handling** keeps some robots idle, or sorts out robots that meet in a narrow passage.",
-    "zh": "**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走，避免**死锁和碰撞**；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。"
+    "zh": "**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走、避免**死锁碰撞**；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。"
    },
    {
     "en": "【指底部黄框】 In all the methods we read, each one only fixes **one kind of congestion locally**. None starts from **the whole system** and weighs many factors to **avoid congestion when orders are given out**. So we wanted to try: is there a **global scheduling algorithm** that avoids congestion?",
-    "zh": "【指底部黄框】在我们读到的所有方法里，每一种都只是**单独在局部优化某种拥塞**，没有一种从**整个系统**出发、同时考虑多个因素，**在派单层面去避免拥塞**。所以我们想试一试：有没有一种**全局调度算法**能避免拥塞？"
+    "zh": "【指底部黄框】在我们读到的所有方法里，每一种都只是**单独在局部优化某种拥塞**，没有一种从**整个系统**出发、同时考虑多个因素**在派单层面去避免拥塞**，所以我们想进行这个尝试，看看有没有一种**全局调度算法**去避免拥塞。"
    }
   ]
  },
  {
   "n": 6,
   "speaker": 2,
-  "time": "0:50",
+  "time": "0:40",
   "title": "Everything we tried: mostly small gains",
   "figs": [
    "全部尝试总表（幻灯片上，两个阶段提升不大或变差的版本，按组分六列，关键项标红；数字取自报告第九节）"
   ],
   "hints": [
-   "All versions we tried: early ideas (2 columns) + existing mechanisms tried later (4 columns)",
+   "All versions we tried: early ideas (2 columns) + existing mechanisms tried later (4 columns); key ones red",
    "Matching −1.9%; 4× planning −1%; detours +0.75% (random +1.07%); rerouting +1.18% short tests only",
-   "However we changed routes, jams stayed: HN-SPF −25.88%",
-   "Why? → estimate the overall flow mathematically → hand over to Speaker 3"
+   "Then: two more weeks writing a congestion monitor → next slide"
   ],
-  "en": "Our own first attempts also gave only **small gains**. 【指整张表】 Here are **all the versions we tried**, by group: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red. 【指第一、二列】 For example, optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests. 【指第五列红字】 However we changed the routes, the jam stayed; one method, **HN-SPF**, even lowered results by **25.88 percent**. Why? We analyzed these results and **estimated the overall flow mathematically**. Speaker 3 will show this analysis.",
-  "zh": "我们自己的尝试，提升也都**不大**。【指整张表】这里按组列出了我们**试过的所有版本**：前两列是最早的想法，后四列是后来试的现有机制。关键的几项标成了红色。【指第一、二列】比如，最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。【指第五列红字】我们发现，**不管怎么修改选路的算法，都避不开拥塞**，**HN-SPF** 甚至让结果少了 **25.88%**。为什么呢？我们后来对这些失败做了分析，**从数学层面去估计整体的流量**。下面由讲者 3 讲这个分析。",
+  "en": "Our own first attempts gave only **small gains**. 【指整张表】 This table lists **all of them**: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red. 【指第一、二列】 Optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests. Then we spent **another two weeks** writing a program that **monitors where every jam happens**, to look for a pattern.",
+  "zh": "我们自己最早的尝试，提升都**不大**。【指整张表】这张表把它们**全部列了出来**：前两列是最早的想法，后四列是后来试的现有机制，关键的几项标成了红色。【指第一、二列】最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。然后我们又**花了两周的时间写程序**，来**监测所有拥塞发生的位置**，看有没有规律。",
   "segs": [
    {
-    "en": "Our own first attempts also gave only **small gains**. 【指整张表】 Here are **all the versions we tried**, by group: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red.",
-    "zh": "我们自己的尝试，提升也都**不大**。【指整张表】这里按组列出了我们**试过的所有版本**：前两列是最早的想法，后四列是后来试的现有机制。关键的几项标成了红色。"
+    "en": "Our own first attempts gave only **small gains**. 【指整张表】 This table lists **all of them**: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red.",
+    "zh": "我们自己最早的尝试，提升都**不大**。【指整张表】这张表把它们**全部列了出来**：前两列是最早的想法，后四列是后来试的现有机制，关键的几项标成了红色。"
    },
    {
-    "en": "【指第一、二列】 For example, optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests.",
-    "zh": "【指第一、二列】比如，最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。"
+    "en": "【指第一、二列】 Optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests.",
+    "zh": "【指第一、二列】最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。"
    },
    {
-    "en": "【指第五列红字】 However we changed the routes, the jam stayed; one method, **HN-SPF**, even lowered results by **25.88 percent**. Why? We analyzed these results and **estimated the overall flow mathematically**. Speaker 3 will show this analysis.",
-    "zh": "【指第五列红字】我们发现，**不管怎么修改选路的算法，都避不开拥塞**，**HN-SPF** 甚至让结果少了 **25.88%**。为什么呢？我们后来对这些失败做了分析，**从数学层面去估计整体的流量**。下面由讲者 3 讲这个分析。"
+    "en": "Then we spent **another two weeks** writing a program that **monitors where every jam happens**, to look for a pattern.",
+    "zh": "然后我们又**花了两周的时间写程序**，来**监测所有拥塞发生的位置**，看有没有规律。"
    }
   ]
  },
  {
   "n": 7,
+  "speaker": 2,
+  "time": "0:20",
+  "title": "Where jams happen: our congestion monitor",
+  "figs": [
+   "拥塞监测程序截图（figures/deck/demo/congestion_monitor.html，第 3000 拍；官方房间图 250 台，种子 9700 / 101；三种选路各跑一局，都不控制门）"
+  ],
+  "hints": [
+   "Monitor marks every jam red; same map, robots, seeds; only the routing changes",
+   "Door 6 jammed 91–94% of the run under all three routings; doors 16–18 too",
+   "Orders: champion 609, HN-SPF 435, Fortz–Thorup 612 (one run each)",
+   "Why? Two weeks of analysis → hand over to Speaker 3"
+  ],
+  "segs": [
+   {
+    "en": "【指截图】 The monitor **marks every jam in red**. The map, the robots and the seeds are the same; **only the routing algorithm changes**.",
+    "zh": "【指截图】监测程序会把**每一处拥塞自动标成红色**。地图、车和种子都一样，**只换了选路的算法**。"
+   },
+   {
+    "en": "【指右边柱状条】 We found that **however we changed the routing algorithm**, jams kept happening **at certain places**.",
+    "zh": "【指右边柱状条】然后发现，好像**不管如何修改选路的算法**，都无法解决**会在某些地方发生拥塞**的问题。"
+   },
+   {
+    "en": "Why? We spent **two weeks** analyzing why these versions did not work.",
+    "zh": "为什么呢？我们**花了两周**来做为什么失败的分析。"
+   }
+  ],
+  "en": "【指截图】 The monitor **marks every jam in red**. The map, the robots and the seeds are the same; **only the routing algorithm changes**. 【指右边柱状条】 We found that **however we changed the routing algorithm**, jams kept happening **at certain places**. Why? We spent **two weeks** analyzing why these versions did not work.",
+  "zh": "【指截图】监测程序会把**每一处拥塞自动标成红色**。地图、车和种子都一样，**只换了选路的算法**。【指右边柱状条】然后发现，好像**不管如何修改选路的算法**，都无法解决**会在某些地方发生拥塞**的问题。为什么呢？我们**花了两周**来做为什么失败的分析。"
+ },
+ {
+  "n": 8,
   "speaker": 3,
   "time": "0:45",
   "title": "The model, and what makes robots special",
@@ -205,7 +234,7 @@
   ]
  },
  {
-  "n": 8,
+  "n": 9,
   "speaker": 3,
   "time": "0:50",
   "title": "Routing or scheduling? The ceiling decides",
@@ -246,7 +275,7 @@
   ]
  },
  {
-  "n": 9,
+  "n": 10,
   "speaker": 3,
   "time": "1:00",
   "title": "Scheduling 1: the logic of TCP's window",
@@ -283,7 +312,7 @@
   "zh": "同时该有多少车奔向门 6？TCP 的**窗口**面对的是同一个问题：窗口就是路上的数据量。背后的逻辑是 **Little 定律**：路上的量 = **速率 × 路程时间**。【指左图上半】门每 500 拍最多过 **26 台**。路上的车太少，门就**等车**，能力浪费；太多，速率也超不过 26，多出来的车只会把路程拉长：【指左图下半】它们在**排队**。【指橙色虚线】所以最好的车数是**速率 × 不排队时的路程时间**，也就是**带宽时延积**，正是 TCP 窗口要瞄准的大小。【指右边最后一条】对车来说，超过这个点比排队还糟：等着的车会**挡住对面**，速率反而**下降**。所以我们的名额定为**带宽 × 时延**。"
  },
  {
-  "n": 10,
+  "n": 11,
   "speaker": 3,
   "time": "1:15",
   "title": "Scheduling 1: global regulation, like BBR",
@@ -323,7 +352,7 @@
   "zh": "我们的目标是**全局调控**：同时控制每一道门的过门车数，每道门、每个方向有一个**缓冲区大小**，也就是名额。这些上限该怎么定？普通 TCP，比如 **Reno、CUBIC**，会一直开大窗口，**直到丢包**。车永远不会丢，所以队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了等待。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**：那里有车卡住了。在这些窄处试的 **BBR 式上限**消除了大的损失，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
  },
  {
-  "n": 11,
+  "n": 12,
   "speaker": 3,
   "time": "0:55",
   "title": "Scheduling 1: the quota, version by version",
@@ -360,9 +389,9 @@
   "zh": "名额数的是所有**接了过门 6 的单、还没过门**的车；名额满了，下一台车就派**一单不用过门的**。【指右边第二条】第一版窗口把所有车一起数，只多了 **0.53%**。【指右边第三条】改成**按门、按方向**数，单独就多了 **29.1%**（17 个房间图实例）。【指公式】手调时 8 台太紧，32 台以上又会堵，所以我们用公式推出大小：**2.23 × 247 ÷ 500 × 13 = 14.3**，得到**进 15 台、出 10 台**，和手调的最好值一样好。【指左图】不管门时 **211 台**车奔向门、只过 **3 台**；用名额后大约 25 台，正好在拐点上，能过 **26 台**。"
  },
  {
-  "n": 12,
+  "n": 13,
   "speaker": 3,
-  "time": "0:45",
+  "time": "0:40",
   "title": "Scheduling 2: one direction at a time",
   "figs": [
    "图 10 门口规则示意"
@@ -395,7 +424,7 @@
   "zh": "第二条规则是**门口规则**：一格宽的门**一次只走一个方向**。【指左下卡片】第一版只是不让车逆着方向进门：**没有效果**，因为对面的车还堵在出口，里面出来的车没地方去。【指上面三格图】所以第二版让对面的车**退出门口区**，被规则拦住的车排到**最低优先级**。【指中间卡片】单独用这一版就多了 **27.6%**。【指右下卡片】后来门口区定为 **4 格**；只退 **3 格**时，堵死的局从 **11 局增到 29 局**。"
  },
  {
-  "n": 13,
+  "n": 14,
   "speaker": 3,
   "time": "0:45",
   "title": "Scheduling 2: queue scheduling at the door",
@@ -431,7 +460,7 @@
   "zh": "再往细看，门是一个**有两个队列的服务台**，每个方向一个队列。先服务哪个队列、服务多久？【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指 43%】每过一台就换，门只有 **43%** 的时间在过车；【指 88%】每次放 10 台是 **88%**。【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。【指底部】理论上换向代价大时这样最好，但前提是车什么时候到和调度无关，所以我们用实验检验。"
  },
  {
-  "n": 14,
+  "n": 15,
   "speaker": 3,
   "time": "0:30",
   "title": "Scheduling 3: a bug fix in the executor",
@@ -463,7 +492,7 @@
   ]
  },
  {
-  "n": 15,
+  "n": 16,
   "speaker": 4,
   "time": "0:30",
   "title": "DoorFlow in pseudocode",
@@ -489,7 +518,7 @@
   "zh": "谢谢。这是 DoorFlow 的伪代码。【指上半】每个规划周期，先数奔向每道门、每个方向的车；只有这单要过的每道门都还有名额，才派这单。【指下半】每一拍，门口规则决定哪一边能走、让对面退开，被拦住的车排到最低优先级。【指灰色两行】灰色两行是两个兜底，来自随机门测试，等一下会讲。"
  },
  {
-  "n": 16,
+  "n": 17,
   "speaker": 4,
   "time": "0:45",
   "title": "The hardest part: does it run as we meant?",
@@ -501,7 +530,7 @@
    "Rounds 1–8 void: fixed seed + unset variable; 54 runs, only 5 identical",
    "+6.8% from a mechanism that never switched on (picked no door in 32 instances)",
    "Executor bug: only visible tick by tick",
-   "Replay tool: every jam turns red; 1,130 vs 609 orders in this run"
+   "Same congestion monitor on our own code: 1,130 vs 609 orders in this run"
   ],
   "segs": [
    {
@@ -513,15 +542,15 @@
     "zh": "【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。"
    },
    {
-    "en": "【指右边动图】 So we extended our replay tool so that **every jam turns red automatically**: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
-    "zh": "【指右边动图】所以我们把回放工具做得更好，**每处拥堵自动变红**：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
+    "en": "【指右边动图】 We used the same congestion monitor to check our own code: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
+    "zh": "【指右边动图】我们也用同一个拥塞监测程序检查自己的代码：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
    }
   ],
-  "en": "The pseudocode looks short. The hardest part was writing the real code, and then checking that the robots **really did what we meant**. This took most of our time. 【指左边三张卡】 For example, our first eight rounds were void: a fixed planner seed and an unset variable meant the same program, run **54 times**, gave the same result only **5 times**. One version gained **6.8 percent**, but its mechanism **never switched on**. 【指右边动图】 So we extended our replay tool so that **every jam turns red automatically**: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
-  "zh": "伪代码看起来很短。最难的是写出真正的代码，再检查车是不是**真的按我们的意思在走**。我们大部分时间都花在这里。【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。【指右边动图】所以我们把回放工具做得更好，**每处拥堵自动变红**：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
+  "en": "The pseudocode looks short. The hardest part was writing the real code, and then checking that the robots **really did what we meant**. This took most of our time. 【指左边三张卡】 For example, our first eight rounds were void: a fixed planner seed and an unset variable meant the same program, run **54 times**, gave the same result only **5 times**. One version gained **6.8 percent**, but its mechanism **never switched on**. 【指右边动图】 We used the same congestion monitor to check our own code: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
+  "zh": "伪代码看起来很短。最难的是写出真正的代码，再检查车是不是**真的按我们的意思在走**。我们大部分时间都花在这里。【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。【指右边动图】我们也用同一个拥塞监测程序检查自己的代码：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
  },
  {
-  "n": 17,
+  "n": 18,
   "speaker": 4,
   "time": "1:15",
   "title": "Does it only work on this map? Random doors",
@@ -565,7 +594,7 @@
   "zh": "最后，为了确认 DoorFlow 不只是针对这一道门的优化，我们写了一个**随机放门**的程序，造了 **8 张新的房间图**，看看算法**还需要什么**。【指左图第一栏】每张图跑 **199 台和 249 台**两种车数，一共 **640 局**。和同一底座比，我们的方法**每张图都赢**，平均多 **86.9%**。不过，新图也暴露了官方图上没有的**两个问题**，所以我们又加了**两个兜底**。【指左下卡片】第一，门口规则管不到的窄处：按 Little 定律加一个**全图上限**，限制接单的车数，官方图上是 **138 台**。【指左图第二栏】拿掉它，一张新图少了 **16.9%**。【指右下卡片】第二，少见的**死锁**：有一局两道只隔一步的门互相锁住，完成数从 **1114 单掉到 700 单**。**看门狗**让在没人进的门口等满 **300 拍**的车，这一拍可以不守门口规则；我们从不拿掉车。【指左图第三栏】死锁很少见，所以在这些图上看门狗测不出作用；在更早一次、**15 个生成房间图实例**的测试里，它多了 **2.30%**。"
  },
  {
-  "n": 18,
+  "n": 19,
   "speaker": 4,
   "time": "0:30",
   "title": "Results on the official room map",
@@ -601,7 +630,7 @@
   ]
  },
  {
-  "n": 19,
+  "n": 20,
   "speaker": 4,
   "time": "0:30",
   "title": "Which parts matter?",
@@ -632,7 +661,7 @@
   ]
  },
  {
-  "n": 20,
+  "n": 21,
   "speaker": 4,
   "time": "0:50",
   "title": "Lessons: why DoorFlow looks like this",
@@ -664,7 +693,7 @@
   ]
  },
  {
-  "n": 21,
+  "n": 22,
   "speaker": 4,
   "time": "0:40",
   "title": "Conclusion",

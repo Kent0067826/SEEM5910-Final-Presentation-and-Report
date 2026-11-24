@@ -1,4 +1,11 @@
-"""Run the two replays used by the demo (no door control vs DoorFlow) and dump every robot's cell at every tick.
+"""Run the replays used by the demo and the congestion monitor, and dump every robot's cell at every tick.
+  none      no door control (champion assignment + fixed executor)                      -> demo, monitor
+  doorflow  the formal settings (quota + door rule + fixes + safety nets)                 -> demo
+  hnspf     none + HN-SPF link costs (protocol round 53, setting A: ROBOT_HNSPF=2, ROBOT_HNSPF_STEP=1)  -> monitor
+  teft      none + Fortz-Thorup cell weights (protocol round 28: ROBOT_TE_FT=1)        -> monitor
+The two routing runs only change how guide paths are priced; like "none" they have no door control. They are new runs on
+this one map and seed, not the multi-map tests of rounds 28 and 53 (those were on top of the full method of the time).
+Usage: python3 figures/deck/demo/run_demo.py [method ...]   (default: all four)
 
 Easiest: run everything with one command from the repo root (Linux or Windows WSL / Ubuntu):
     bash figures/deck/demo/run_all.sh            # builds the simulator once, runs both replays, rebuilds the demo
@@ -25,6 +32,11 @@ NONE = ['ROBOT_BRIDGE_CREDIT', 'ROBOT_CUT2_CREDIT', 'ROBOT_BMAC', 'ROBOT_LMAC', 
 MAP, SEED, PSEED, TICKS = 'room250', 9700, 101, 5000
 
 
+METHODS = {'none': (True, {}), 'doorflow': (False, {}),
+           'hnspf': (True, {'ROBOT_HNSPF': '2', 'ROBOT_HNSPF_STEP': '1'}),
+           'teft': (True, {'ROBOT_TE_FT': '1'})}
+
+
 def run(method):
     d = WORK / method; d.mkdir(parents=True, exist_ok=True)
     f = H / 'data' / CFG[MAP]['mapfile']; tpl = json.loads(f.read_text(encoding='utf8'))
@@ -32,8 +44,10 @@ def run(method):
     tpl['delayConfig']['seed'] = SEED; tpl['teamSize'] = CFG[MAP]['team']
     (d / 'prob.json').write_text(json.dumps(tpl))
     env = dict(os.environ); env.update(COMMON); env.update(CFG[MAP]['env'])
-    if method == 'none':
+    strip, extra = METHODS[method]
+    if strip:
         for k in NONE: env.pop(k, None)
+    env.update(extra)
     env['ROBOT_PLANNER_SEED'] = str(PSEED); env['ROBOT_DUMP_POS'] = str(d / 'pos.bin')
     cmd = [PROG, '-i', 'prob.json', '-o', 'out.json', '-s', str(TICKS), '-a', '10', '-n', '1000', '-t', '150', '-x', '100',
            '-p', '30000', '-c', '3', '-d', '3']
@@ -50,7 +64,12 @@ if __name__ == '__main__':
     if not os.access(PROG, os.X_OK):
         sys.exit(f'simulator not found: {PROG}\nbuild it with  bash figures/deck/demo/run_all.sh  or set DEMO_SIM to its path')
     WORK.mkdir(parents=True, exist_ok=True)
-    with ThreadPoolExecutor(2) as ex:
-        rows = list(ex.map(run, ['none', 'doorflow']))
+    todo = sys.argv[1:] or list(METHODS)
+    bad = [m for m in todo if m not in METHODS]
+    if bad: sys.exit(f'unknown method(s) {bad}; choose from {list(METHODS)}')
+    with ThreadPoolExecutor(min(4, len(todo))) as ex:
+        rows = list(ex.map(run, todo))
     for r in rows: print(json.dumps(r, ensure_ascii=False))
-    (WORK / 'runs.json').write_text(json.dumps(rows, ensure_ascii=False, indent=1))
+    old = json.loads((WORK / 'runs.json').read_text()) if (WORK / 'runs.json').exists() else []
+    keep = [r for r in old if r['method'] not in todo]
+    (WORK / 'runs.json').write_text(json.dumps(keep + rows, ensure_ascii=False, indent=1))
