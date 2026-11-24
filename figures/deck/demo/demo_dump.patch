@@ -1,0 +1,32 @@
+--- src/CompetitionSystem.cpp
++++ src/CompetitionSystem.cpp
+@@ -7,6 +7,8 @@
+ #include <Logger.h>
+ #include <fstream>
+ #include <cstdlib>
++#include <cstdio>
++#include <cstdint>
+ #include <cstring>
+ #include <stdexcept>
+ 
+@@ -175,6 +177,20 @@
+             remaining_communication_time -= simulator_time_limit;
+             task_manager.update_tasks(curr_states, proposed_schedule, simulator.get_curr_timestep());
+             write_task_trend_snapshot(simulator.get_curr_timestep());
++            {   // demo dump (figures/deck/demo): per tick, finished count + each robot's cell, heading and whether it holds a task
++                static FILE* dump_f = nullptr; static bool dump_init = false;
++                if (!dump_init) { dump_init = true; if (const char* dp = std::getenv("ROBOT_DUMP_POS")) dump_f = std::fopen(dp, "wb"); }
++                if (dump_f) {
++                    const int32_t t = simulator.get_curr_timestep(), fin = task_manager.num_of_task_finish, n = (int32_t)curr_states.size();
++                    std::fwrite(&t, 4, 1, dump_f); std::fwrite(&fin, 4, 1, dump_f); std::fwrite(&n, 4, 1, dump_f);
++                    for (int32_t i = 0; i < n; ++i) {
++                        const int32_t loc = curr_states[i].location; const int8_t o = (int8_t)curr_states[i].orientation;
++                        const int8_t h = (i < (int32_t)env->curr_task_schedule.size() && env->curr_task_schedule[i] >= 0) ? 1 : 0;
++                        std::fwrite(&loc, 4, 1, dump_f); std::fwrite(&o, 1, 1, dump_f); std::fwrite(&h, 1, 1, dump_f);
++                    }
++                    if (t + 1 >= simulation_time) std::fflush(dump_f);
++                }
++            }
+         }
+         write_task_trend_snapshot(simulator.get_curr_timestep(), true);
+         simulator.flush_wait_trace();

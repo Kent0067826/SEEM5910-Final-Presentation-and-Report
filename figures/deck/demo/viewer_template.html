@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DoorFlow Replay</title>
+<style>
+  :root { --bg:#0b1118; --panel:#111a24; --line:#22313f; --ink:#e8eef4; --dim:#8a9bab; --teal:#40c4d6; --gold:#e39b2d; --red:#f0463c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:radial-gradient(1200px 600px at 50% -10%, #16283a 0%, var(--bg) 60%); color:var(--ink);
+         font:14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; min-height:100vh; }
+  header { padding:18px 24px 6px; display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; }
+  h1 { margin:0; font-size:20px; letter-spacing:.2px; }
+  h1 b { color:var(--gold); }
+  .sub { color:var(--dim); font-size:13px; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--dim); font-size:12.5px; padding:0 24px 8px; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
+  main { display:grid; grid-template-columns: 1fr 1fr 300px; gap:16px; padding:8px 24px 18px; align-items:start; }
+  .card { background:linear-gradient(180deg, #121d29, #0f1821); border:1px solid var(--line); border-radius:14px; padding:12px; }
+  .ptitle { display:flex; justify-content:space-between; align-items:baseline; margin:2px 4px 8px; }
+  .ptitle h2 { margin:0; font-size:15px; }
+  .ptitle span { color:var(--dim); font-size:12px; }
+  canvas.map { width:100%; aspect-ratio:1/1; display:block; border-radius:10px; background:#0d151e; }
+  .stats { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:10px; }
+  .stat { background:#0c141c; border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .stat .v { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .stat .k { color:var(--dim); font-size:11.5px; }
+  .stat.alarm { border-color:#7a2a26; box-shadow:0 0 0 1px #7a2a26 inset, 0 0 18px rgba(240,70,60,.25); }
+  .stat.alarm .v { color:var(--red); }
+  .side h3 { margin:4px 2px 8px; font-size:14px; }
+  #chart { width:100%; height:150px; display:block; }
+  #log { max-height:420px; overflow:auto; margin:0; padding:0; list-style:none; font-size:12.5px; }
+  #log li { padding:6px 8px; border-radius:8px; cursor:pointer; display:flex; gap:8px; align-items:center; }
+  #log li:hover { background:#16222e; }
+  #log .tag { font-size:11px; padding:1px 6px; border-radius:6px; background:#2a1716; color:#ff9a8f; white-space:nowrap; }
+  #log .tag.df { background:#12272a; color:#7fe0ec; }
+  .controls { grid-column:1 / span 2; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  button, select { background:#162231; color:var(--ink); border:1px solid #2a3b4d; border-radius:9px; padding:7px 12px; font:inherit; cursor:pointer; }
+  button:hover { border-color:var(--teal); }
+  button.primary { background:var(--teal); color:#06202a; border-color:var(--teal); font-weight:700; min-width:84px; }
+  input[type=range] { flex:1; min-width:180px; accent-color:var(--gold); }
+  #tick { font-variant-numeric:tabular-nums; min-width:110px; color:var(--gold); font-weight:700; }
+  label.tg { color:var(--dim); font-size:12.5px; user-select:none; }
+  footer { color:var(--dim); font-size:12px; padding:0 24px 22px; }
+  @media (max-width: 1100px) { main { grid-template-columns:1fr; } .controls { grid-column:auto; } }
+</style>
+</head>
+<body>
+<header>
+  <h1><b>DoorFlow</b> replay · every jam turns red automatically</h1>
+  <span class="sub">official room map · 250 robots · same seeds for both runs</span>
+</header>
+<div class="legend">
+  <span><span class="dot" style="background:#5f6e7d"></span>no order</span>
+  <span><span class="dot" style="background:var(--teal)"></span>moving with an order</span>
+  <span><span class="dot" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>stuck: holds an order, has not moved for <b id="lgT"></b>+ ticks</span>
+  <span><span class="dot" style="background:transparent;border:2px solid var(--red)"></span>jammed door: <b id="lgJ"></b>+ stuck robots within <b id="lgR"></b> steps</span>
+</div>
+<main>
+  <section class="card" id="p0"></section>
+  <section class="card" id="p1"></section>
+  <aside class="card side" style="grid-row:span 2">
+    <h3>Orders finished per 500 ticks</h3>
+    <canvas id="chart"></canvas>
+    <h3 style="margin-top:14px">Jam log <span class="sub">(click to jump)</span></h3>
+    <ul id="log"></ul>
+  </aside>
+  <div class="controls card">
+    <button class="primary" id="play">Play</button>
+    <select id="speed"><option value="1">1×</option><option value="2">2×</option><option value="4" selected>4×</option><option value="8">8×</option><option value="16">16×</option><option value="32">32×</option></select>
+    <input type="range" id="scrub" min="0" value="0">
+    <span id="tick">tick 0</span>
+    <button id="j3000">Jump to tick 3,000</button>
+    <label class="tg"><input type="checkbox" id="heat" checked> heat trail</label>
+    <label class="tg"><input type="checkbox" id="labels" checked> door labels</label>
+  </div>
+</main>
+<footer id="foot"></footer>
+<script>
+const D = /*__DATA__*/null;
+const $ = (id) => document.getElementById(id);
+function b64(b, T) { const s = atob(b), u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return T === 8 ? u : new Uint16Array(u.buffer); }
+const H = D.H, W = D.W, free = Uint8Array.from(D.free, (c) => c === '1');
+$('lgT').textContent = D.stuckTicks; $('lgJ').textContent = D.jamMin; $('lgR').textContent = D.radius;
+const runs = D.runs.map((r) => { const F = r.ticks.length; const pos = b64(r.pos, 16); return { ...r, F, N: pos.length / F, pos, jam: b64(r.jam, 8) }; });
+const F = runs[0].F, ND = D.doors.length;
+const door6 = D.doors.findIndex((d) => d.id === 6);
+
+// ---------- panels ----------
+runs.forEach((r, i) => {
+  $('p' + i).innerHTML = `<div class="ptitle"><h2>${r.name}</h2><span>${r.key === 'none' ? 'champion assignment + fixed executor' : 'quota + door rule + fixes + safety nets'}</span></div>
+    <canvas class="map" id="c${i}"></canvas>
+    <div class="stats"><div class="stat"><div class="v" id="fin${i}">0</div><div class="k">orders finished</div></div>
+    <div class="stat" id="stS${i}"><div class="v" id="st${i}">0</div><div class="k">robots stuck now</div></div>
+    <div class="stat"><div class="v" id="x${i}">0</div><div class="k">door 6 crossings / 500 ticks</div></div></div>`;
+  r.cv = $('c' + i); r.ctx = r.cv.getContext('2d'); r.heat = new Float32Array(H * W);
+});
+
+// static map layer
+function buildBase(size) {
+  const c = document.createElement('canvas'); c.width = c.height = size; const g = c.getContext('2d'); const s = size / W;
+  g.fillStyle = '#0d151e'; g.fillRect(0, 0, size, size);
+  for (let r = 0; r < H; r++) for (let q = 0; q < W; q++) {
+    g.fillStyle = free[r * W + q] ? ((Math.floor(r / 16) + Math.floor(q / 16)) % 2 ? '#152230' : '#132030') : '#3a4a5a';
+    g.fillRect(q * s, r * s, s + 0.5, s + 0.5);
+  }
+  return c;
+}
+let base = null, S = 0;
+function resize() {
+  const dpr = window.devicePixelRatio || 1; const w = runs[0].cv.clientWidth; S = Math.max(256, Math.round(w * dpr));
+  runs.forEach((r) => { r.cv.width = r.cv.height = S; }); base = buildBase(S);
+  const ch = $('chart'); ch.width = ch.clientWidth * dpr; ch.height = ch.clientHeight * dpr; drawChart();
+}
+window.addEventListener('resize', resize);
+
+// ---------- jam log ----------
+const events = [];
+runs.forEach((r, ri) => {
+  for (let d = 0; d < ND; d++) {
+    let on = false, start = 0, peak = 0;
+    for (let f = 0; f < F; f++) {
+      const v = r.jam[f * ND + d];
+      if (!on && v >= D.jamMin) { on = true; start = f; peak = v; }
+      else if (on) { peak = Math.max(peak, v); if (v < Math.max(1, D.jamMin - 2)) { on = false; if (f - start >= 3) events.push({ ri, d, f: start, end: f, peak }); } }
+    }
+    if (on && F - start >= 3) events.push({ ri, d, f: start, end: F - 1, peak });
+  }
+});
+events.sort((a, b) => a.f - b.f);
+function renderLog(f) {
+  const ul = $('log'); const shown = events.filter((e) => e.f <= f).slice(-60).reverse();
+  ul.innerHTML = shown.length ? '' : '<li style="cursor:default;color:var(--dim)">no jams yet</li>';
+  for (const e of shown) {
+    const li = document.createElement('li'); const r = runs[e.ri];
+    li.innerHTML = `<span class="tag ${r.key === 'none' ? '' : 'df'}">${r.key === 'none' ? 'no control' : 'DoorFlow'}</span>
+      <span>tick ${r.ticks[e.f]} · door ${D.doors[e.d].id} · up to <b>${e.peak}</b> stuck</span>`;
+    li.onclick = () => { head = e.f; playing = false; $('play').textContent = 'Play'; };
+    ul.appendChild(li);
+  }
+}
+
+// ---------- chart ----------
+function drawChart() {
+  const c = $('chart'), g = c.getContext('2d'), w = c.width, h = c.height, dpr = window.devicePixelRatio || 1;
+  g.clearRect(0, 0, w, h); const n = runs[0].per500.length; const mx = Math.max(...runs.flatMap((r) => r.per500)) * 1.1;
+  const X = (i) => 34 * dpr + (w - 44 * dpr) * i / (n - 1), Y = (v) => h - 18 * dpr - (h - 30 * dpr) * v / mx;
+  g.strokeStyle = '#22313f'; g.lineWidth = 1; g.font = `${10 * dpr}px system-ui`; g.fillStyle = '#8a9bab';
+  for (const v of [0, 50, 100]) { if (v > mx) continue; g.beginPath(); g.moveTo(X(0), Y(v)); g.lineTo(X(n - 1), Y(v)); g.stroke(); g.fillText(v, 4 * dpr, Y(v) + 3 * dpr); }
+  const cur = Math.min(n - 1, Math.floor((runs[0].ticks[Math.floor(head)] || 0) / 500));
+  g.fillStyle = 'rgba(227,155,45,.12)'; g.fillRect(X(cur) - 6 * dpr, 6 * dpr, 12 * dpr, h - 24 * dpr);
+  runs.forEach((r) => {
+    g.strokeStyle = r.key === 'none' ? '#f0463c' : '#40c4d6'; g.lineWidth = 2.4 * dpr; g.beginPath();
+    r.per500.forEach((v, i) => (i ? g.lineTo(X(i), Y(v)) : g.moveTo(X(i), Y(v)))); g.stroke();
+    const li = runs.indexOf(r); g.fillStyle = g.strokeStyle; g.fillRect(40 * dpr, (10 + li * 14) * dpr, 14 * dpr, 3 * dpr);
+    g.fillText(r.name, 60 * dpr, (14 + li * 14) * dpr);
+  });
+  g.fillStyle = '#8a9bab'; g.fillText('tick 0', X(0), h - 4 * dpr); g.fillText('5,000', X(n - 1) - 24 * dpr, h - 4 * dpr);
+}
+
+// ---------- drawing ----------
+let head = 0, playing = false, last = performance.now(), lastF = -1;
+function decayHeat(r, f0, f1) {
+  for (let f = f0; f <= f1; f++) {
+    for (let k = 0; k < r.heat.length; k++) r.heat[k] *= 0.94;
+    for (let i = 0; i < r.N; i++) { const w = r.pos[f * r.N + i]; if (w & 0x4000) r.heat[w & 0x0FFF] += 0.08; }
+  }
+}
+function draw(now) {
+  const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  if (playing) { head += dt * 30 * +$('speed').value / D.step; if (head >= F - 1) { head = F - 1; playing = false; $('play').textContent = 'Play'; } }
+  const f = Math.floor(head), a = head - f, f2 = Math.min(F - 1, f + 1);
+  if (f !== lastF) {
+    if (f < lastF || f - lastF > 60) runs.forEach((r) => { r.heat.fill(0); decayHeat(r, Math.max(0, f - 60), f); });
+    else runs.forEach((r) => decayHeat(r, lastF + 1, f));
+    lastF = f; $('scrub').value = f; renderLog(f); drawChart();
+  }
+  const s = S / W, pulse = 0.5 + 0.5 * Math.sin(now / 180);
+  runs.forEach((r, ri) => {
+    const g = r.ctx; g.drawImage(base, 0, 0);
+    if ($('heat').checked) for (let k = 0; k < r.heat.length; k++) { const v = r.heat[k]; if (v > 0.35) { g.fillStyle = `rgba(230,45,35,${Math.min(0.5, 0.12 + (v - 0.35) * 0.45)})`; g.fillRect((k % W) * s, Math.floor(k / W) * s, s + 0.5, s + 0.5); } }
+    const placed = [];
+    for (let d = 0; d < ND; d++) {
+      const v = r.jam[f * ND + d], dd = D.doors[d], cx = (dd.c + 0.5) * s, cy = (dd.r + 0.5) * s;
+      if (v >= D.jamMin) {
+        const rad = s * (2.5 + Math.min(v, 30) / 5) * (0.9 + 0.25 * pulse);
+        const gr = g.createRadialGradient(cx, cy, 0, cx, cy, rad); gr.addColorStop(0, 'rgba(255,60,45,.75)'); gr.addColorStop(1, 'rgba(255,60,45,0)');
+        g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, rad, 0, 7); g.fill();
+      }
+      g.fillStyle = v >= D.jamMin ? '#ff5a46' : '#7f93a7'; g.fillRect(dd.c * s, dd.r * s, s, s);
+      if ($('labels').checked && (d === door6 || v >= D.jamMin) && !placed.some((p) => Math.abs(p[0] - dd.c) + Math.abs(p[1] - dd.r) < 8)) {
+        placed.push([dd.c, dd.r]);
+        g.font = `bold ${Math.max(10, s * 1.7)}px system-ui`; g.fillStyle = d === door6 ? '#e39b2d' : '#ff9a8f';
+        g.fillText(`door ${dd.id}`, cx + s * 1.2, cy - s * 1.0);
+      }
+    }
+    let stuck = 0;
+    for (let i = 0; i < r.N; i++) {
+      const w1 = r.pos[f * r.N + i], w2 = r.pos[f2 * r.N + i];
+      const l1 = w1 & 0x0FFF, l2 = w2 & 0x0FFF; let x = l1 % W, y = Math.floor(l1 / W);
+      const x2 = l2 % W, y2 = Math.floor(l2 / W); if (Math.abs(x2 - x) + Math.abs(y2 - y) <= 2) { x += (x2 - x) * a; y += (y2 - y) * a; }
+      const st = w1 & 0x4000, has = w1 & 0x8000; if (st) stuck++;
+      g.beginPath(); g.arc((x + 0.5) * s, (y + 0.5) * s, s * (st ? 0.48 : 0.38), 0, 7);
+      if (st) { g.shadowColor = 'rgba(255,60,45,.9)'; g.shadowBlur = s * 1.6; g.fillStyle = '#f0463c'; }
+      else { g.shadowBlur = 0; g.fillStyle = has ? '#40c4d6' : '#5f6e7d'; }
+      g.fill();
+    }
+    g.shadowBlur = 0;
+    $('fin' + ri).textContent = r.fin[f].toLocaleString();
+    $('st' + ri).textContent = stuck; $('stS' + ri).classList.toggle('alarm', stuck >= 60);
+    $('x' + ri).textContent = r.door6[Math.min(r.door6.length - 1, Math.floor(r.ticks[f] / 500))];
+  });
+  $('tick').textContent = `tick ${runs[0].ticks[f].toLocaleString()}`;
+  requestAnimationFrame(draw);
+}
+
+// ---------- controls ----------
+$('scrub').max = F - 1;
+$('scrub').oninput = (e) => { head = +e.target.value; };
+$('play').onclick = () => { playing = !playing; if (head >= F - 1) head = 0; $('play').textContent = playing ? 'Pause' : 'Play'; };
+$('j3000').onclick = () => { head = runs[0].ticks.findIndex((t) => t >= 3000); playing = false; $('play').textContent = 'Play'; };
+document.addEventListener('keydown', (e) => { if (e.code === 'Space') { e.preventDefault(); $('play').click(); } if (e.code === 'ArrowRight') head = Math.min(F - 1, head + 25); if (e.code === 'ArrowLeft') head = Math.max(0, head - 25); });
+$('foot').textContent = `Final result: ${runs.map((r) => `${r.name} ${r.fin[F - 1].toLocaleString()} orders`).join(' · ')}. ` +
+  `Simulated with the project's own simulator (official room map, 250 robots, seed 9700, planner seed 101); one frame every ${D.step} ticks.`;
+resize(); requestAnimationFrame(draw);
+</script>
+</body>
+</html>

@@ -94,14 +94,29 @@
   "w": 1455,
   "h": 454
  },
- "tcp": {
-  "path": "figures/deck/tcp_bdp_concept.png",
-  "w": 1280,
-  "h": 920
+ "bdp": {
+  "path": "figures/deck/fig_bdp_principle.png",
+  "w": 1628,
+  "h": 1298
  },
- "bbr": {
-  "path": "figures/deck/bbr_concept.png",
-  "w": 1280,
-  "h": 880
+ "bbrloop": {
+  "path": "figures/deck/fig_bbr_loop.png",
+  "w": 1672,
+  "h": 1320
+ },
+ "doorutil": {
+  "path": "figures/deck/fig_door_util.png",
+  "w": 1442,
+  "h": 454
+ },
+ "ablD": {
+  "path": "figures/deck/fig_ablation_deck.png",
+  "w": 2378,
+  "h": 943
+ },
+ "demo": {
+  "path": "figures/deck/demo/demo.gif",
+  "w": 760,
+  "h": 448
  }
 }
