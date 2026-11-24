@@ -138,5 +138,15 @@
   "path": "figures/deck/fig_executor_deck.png",
   "w": 980,
   "h": 1000
+ },
+ "doorA": {
+  "path": "figures/deck/fig_door_rule_A.png",
+  "w": 1220,
+  "h": 945
+ },
+ "doorBC": {
+  "path": "figures/deck/fig_door_rule_BC.png",
+  "w": 1378,
+  "h": 945
  }
 }
