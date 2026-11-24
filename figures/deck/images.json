@@ -123,5 +123,10 @@
   "path": "figures/deck/demo/monitor_t3000.png",
   "w": 3200,
   "h": 1368
+ },
+ "doorD": {
+  "path": "figures/deck/fig_door_rule_deck.png",
+  "w": 2600,
+  "h": 1040
  }
 }

@@ -111,7 +111,7 @@
  {
   "n": 5,
   "speaker": 2,
-  "time": "0:45",
+  "time": "0:40",
   "title": "Prior work: four groups of methods",
   "figs": [],
   "hints": [
@@ -236,7 +236,7 @@
  {
   "n": 9,
   "speaker": 3,
-  "time": "0:50",
+  "time": "0:45",
   "title": "Routing or scheduling? The ceiling decides",
   "figs": [
    "图 7 天花板公式"
@@ -310,7 +310,7 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "1:10",
+  "time": "1:15",
   "title": "Scheduling 1: global regulation, like BBR",
   "figs": [
    "BBR 控制环与 DoorFlow 对照图（含第 50 轮实测时延比）"
@@ -387,16 +387,17 @@
  {
   "n": 13,
   "speaker": 3,
-  "time": "0:40",
+  "time": "1:00",
   "title": "Scheduling 2: one direction at a time",
   "figs": [
-   "图 10 门口规则示意"
+   "门口规则详图（演讲专用：缓冲区示意和换向规则；缓冲区大小扫描，12 个开发实例；门 6 每过一台 18.7 拍的分解，第 52 轮 669 次过门）"
   ],
   "hints": [
    "1-cell door: one direction at a time",
-   "v1 (round 7): block entering against the flow → no effect (other side still at the exit)",
-   "v2 (round 29): other side steps back out of the door area + lowest priority → +27.6% alone (17 room instances)",
-   "Round 33: area = 4 cells; 3 cells (rounds 54–57): deadlocked runs 11 → 29 → keep 4"
+   "v1 (round 7): block entry against the flow → no effect (other side still at the exit)",
+   "v2 (round 29): waiting side queues at the buffer edge + lowest priority → +27.6% alone (17 room-map instances)",
+   "Buffer sweep (12 dev instances, vs 4): 1 cell −9.0%, 2 −5.2%, 3 +0.2% (confirm −2.64%, deadlocks 11 → 29), 6 −4.2% → keep 4",
+   "18.7 ticks per crossing (round 52); breakdowns 4.8; 500 ÷ 18.7 ≈ 26.7 ≈ 26"
   ],
   "segs": [
    {
@@ -404,25 +405,29 @@
     "zh": "第二条规则是**门口规则**：一格宽的门**一次只走一个方向**。"
    },
    {
-    "en": "【指左下卡片】 Our first version only stopped robots from entering against the flow: **no effect**, because robots on the other side still waited right at the exit, so robots coming out had nowhere to go.",
-    "zh": "【指左下卡片】第一版只是不让车逆着方向进门：**没有效果**，因为对面的车还堵在出口，里面出来的车没地方去。"
+    "en": "【指底部第一格】 Our first version only blocked robots entering against the flow: **no effect**, because robots on the other side still waited at the exit.",
+    "zh": "【指底部第一格】第一版只是不让车逆着方向进门：**没有效果**，因为对面的车还堵在出口。"
    },
    {
-    "en": "【指上面三格图】 So in version two, robots on the other side **step back out of the door area**, and robots stopped by the rule get the **lowest priority**. 【指中间卡片】 Alone, this gained **27.6 percent**.",
-    "zh": "【指上面三格图】所以第二版让对面的车**退出门口区**，被规则拦住的车排到**最低优先级**。【指中间卡片】单独用这一版就多了 **27.6%**。"
+    "en": "【指左图】 So in version two, the waiting side **queues at the edge of a buffer** around the door, and robots held by the rule get the **lowest priority**. 【指底部第二格】 Alone, this gained **27.6 percent**.",
+    "zh": "【指左图】所以第二版让等着的一边**在门口缓冲区的边上排队**，被规则拦住的车排到**最低优先级**。【指底部第二格】单独用这一版就多了 **27.6%**。"
    },
    {
-    "en": "【指右下卡片】 Later we set the area to **4 cells**; with only **3**, deadlocked runs rose from **11 to 29**.",
-    "zh": "【指右下卡片】后来门口区定为 **4 格**；只退 **3 格**时，堵死的局从 **11 局增到 29 局**。"
+    "en": "【指右上图】 How big should the buffer be? We measured it: with **1 or 2 cells**, robots coming out get stuck in the door; with **6**, the queue blocks other doors; **4 cells** was best.",
+    "zh": "【指右上图】缓冲区该多大？我们实测过：只留 **1、2 格**，出门的车卡在门里；留 **6 格**，排队的车挡住别的门；**4 格**最好。"
+   },
+   {
+    "en": "【指右下条】 The buffer also guards against **random pauses**: of the **18.7 ticks** each robot needs at door 6, **4.8** are breakdowns, so waiting robots should not stand in the exit. And **500 ÷ 18.7 ≈ 26.7**: that is where the door's **26** comes from.",
+    "zh": "【指右下条】缓冲区也防**随机暂停**：门 6 每过一台要 **18.7 拍**，其中 **4.8 拍**是故障，所以等着的车不能站在出口上。而 **500 ÷ 18.7 ≈ 26.7**，这就是门每 500 拍过 **26 台**的来历。"
    }
   ],
-  "en": "Our second rule is the **door rule**: a one-cell door carries **one direction at a time**. 【指左下卡片】 Our first version only stopped robots from entering against the flow: **no effect**, because robots on the other side still waited right at the exit, so robots coming out had nowhere to go. 【指上面三格图】 So in version two, robots on the other side **step back out of the door area**, and robots stopped by the rule get the **lowest priority**. 【指中间卡片】 Alone, this gained **27.6 percent**. 【指右下卡片】 Later we set the area to **4 cells**; with only **3**, deadlocked runs rose from **11 to 29**.",
-  "zh": "第二条规则是**门口规则**：一格宽的门**一次只走一个方向**。【指左下卡片】第一版只是不让车逆着方向进门：**没有效果**，因为对面的车还堵在出口，里面出来的车没地方去。【指上面三格图】所以第二版让对面的车**退出门口区**，被规则拦住的车排到**最低优先级**。【指中间卡片】单独用这一版就多了 **27.6%**。【指右下卡片】后来门口区定为 **4 格**；只退 **3 格**时，堵死的局从 **11 局增到 29 局**。"
+  "en": "Our second rule is the **door rule**: a one-cell door carries **one direction at a time**. 【指底部第一格】 Our first version only blocked robots entering against the flow: **no effect**, because robots on the other side still waited at the exit. 【指左图】 So in version two, the waiting side **queues at the edge of a buffer** around the door, and robots held by the rule get the **lowest priority**. 【指底部第二格】 Alone, this gained **27.6 percent**. 【指右上图】 How big should the buffer be? We measured it: with **1 or 2 cells**, robots coming out get stuck in the door; with **6**, the queue blocks other doors; **4 cells** was best. 【指右下条】 The buffer also guards against **random pauses**: of the **18.7 ticks** each robot needs at door 6, **4.8** are breakdowns, so waiting robots should not stand in the exit. And **500 ÷ 18.7 ≈ 26.7**: that is where the door's **26** comes from.",
+  "zh": "第二条规则是**门口规则**：一格宽的门**一次只走一个方向**。【指底部第一格】第一版只是不让车逆着方向进门：**没有效果**，因为对面的车还堵在出口。【指左图】所以第二版让等着的一边**在门口缓冲区的边上排队**，被规则拦住的车排到**最低优先级**。【指底部第二格】单独用这一版就多了 **27.6%**。【指右上图】缓冲区该多大？我们实测过：只留 **1、2 格**，出门的车卡在门里；留 **6 格**，排队的车挡住别的门；**4 格**最好。【指右下条】缓冲区也防**随机暂停**：门 6 每过一台要 **18.7 拍**，其中 **4.8 拍**是故障，所以等着的车不能站在出口上。而 **500 ÷ 18.7 ≈ 26.7**，这就是门每 500 拍过 **26 台**的来历。"
  },
  {
   "n": 14,
   "speaker": 3,
-  "time": "0:45",
+  "time": "0:40",
   "title": "Scheduling 2: queue scheduling at the door",
   "figs": [
    "图 11 门利用率公式（演讲专用版：公式和数字相同，只把标题改成不带网络术语）"
@@ -448,12 +453,12 @@
     "zh": "【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。"
    },
    {
-    "en": "【指底部】 Theory calls this best when switching is costly, but assumes arrivals do not depend on the scheduler, so we tested it.",
-    "zh": "【指底部】理论上换向代价大时这样最好，但前提是车什么时候到和调度无关，所以我们用实验检验。"
+    "en": "【指底部】 Theory calls this best when switching is costly, so we tested it here.",
+    "zh": "【指底部】理论上换向代价大时这样最好，所以我们在这里做了实验检验。"
    }
   ],
-  "en": "Looking closer, the door is a **server with two queues**, one per direction. Which queue should it serve, and for how long? 【指公式】 Switching costs **21 ticks**, while robots in the same direction follow every **9**. 【指 43%】 Switching after every robot keeps the door busy only **43 percent** of the time; 【指 88%】 ten per turn gives **88 percent**. 【指右边第三条】 Our first version capped each turn at **80 steps**, which caused extra switches, so we moved to **exhaustive service**: serve one queue **until it is empty**. 【指底部】 Theory calls this best when switching is costly, but assumes arrivals do not depend on the scheduler, so we tested it.",
-  "zh": "再往细看，门是一个**有两个队列的服务台**，每个方向一个队列。先服务哪个队列、服务多久？【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指 43%】每过一台就换，门只有 **43%** 的时间在过车；【指 88%】每次放 10 台是 **88%**。【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。【指底部】理论上换向代价大时这样最好，但前提是车什么时候到和调度无关，所以我们用实验检验。"
+  "en": "Looking closer, the door is a **server with two queues**, one per direction. Which queue should it serve, and for how long? 【指公式】 Switching costs **21 ticks**, while robots in the same direction follow every **9**. 【指 43%】 Switching after every robot keeps the door busy only **43 percent** of the time; 【指 88%】 ten per turn gives **88 percent**. 【指右边第三条】 Our first version capped each turn at **80 steps**, which caused extra switches, so we moved to **exhaustive service**: serve one queue **until it is empty**. 【指底部】 Theory calls this best when switching is costly, so we tested it here.",
+  "zh": "再往细看，门是一个**有两个队列的服务台**，每个方向一个队列。先服务哪个队列、服务多久？【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指 43%】每过一台就换，门只有 **43%** 的时间在过车；【指 88%】每次放 10 台是 **88%**。【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。【指底部】理论上换向代价大时这样最好，所以我们在这里做了实验检验。"
  },
  {
   "n": 15,
@@ -592,7 +597,7 @@
  {
   "n": 19,
   "speaker": 4,
-  "time": "0:30",
+  "time": "0:25",
   "title": "Results on the official room map",
   "figs": [
    "图 14 逐级结果柱状图"
@@ -628,7 +633,7 @@
  {
   "n": 20,
   "speaker": 4,
-  "time": "0:30",
+  "time": "0:25",
   "title": "Which parts matter?",
   "figs": [
    "图 16 逐项拿掉与加上（演讲专用版：同一组 600 局数据，标签改成不带网络术语的说法）"

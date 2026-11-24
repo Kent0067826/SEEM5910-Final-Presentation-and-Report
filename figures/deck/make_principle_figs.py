@@ -1,6 +1,7 @@
 """Two figures for the deck's principle slides (run from the repo root):
   figures/deck/fig_bdp_principle.png  -- how big a door's window should be, from Little's law (theory sketch + door-6 numbers)
   figures/deck/fig_quota_deck.png     -- per-door quota formula (same as figures/brief/b_f2_quota.png, retitled)
+  figures/deck/fig_door_rule_deck.png -- door rule in detail: buffer geometry and switching rule, buffer-size sweep, 18.7-tick budget
   figures/deck/fig_bbr_loop.png       -- BBR's control loop, mapped onto DoorFlow, with the measured delay ratios of round 50
   figures/deck/fig_door_util.png      -- door utilization formula (same as figures/brief/b_f3_door_rule.png, retitled)
 Numbers in fig_bbr_loop: 26 crossings / 500 ticks (13 per direction), 2.23, 138 (report sec. 6); real / model delay
@@ -94,6 +95,85 @@ def door_util(path):
         plt.close(fig)
 
 
+def door_rule_deck(path):
+    """Door rule in detail (slide 13): buffer geometry + switching rule, buffer-size sweep, time budget of one crossing.
+    Sweep: 12 dev instances vs 4 cells (v58 appendix H, table after 'later in 12 dev instances'); 3 cells confirmation
+    -2.64% [-3.41, -1.83], deadlocked runs 11 -> 29 (rounds 54-57). Time budget: round 52 (wait-v42), official 250-robot
+    map, second half of 5 runs, 669 crossings of door 6: 18.7 ticks per crossing."""
+    from matplotlib.patches import Rectangle, Circle, Patch
+    from matplotlib.lines import Line2D
+    fig = plt.figure(figsize=(13.0, 5.2), dpi=200)
+    # ---- A: buffer geometry ----
+    ax = fig.add_axes([0.015, 0.25, 0.40, 0.63]); ax.set_aspect("equal"); ax.axis("off")
+    R, Cn, dr, dc = 9, 13, 4, 6
+    def dist(r, c): return abs(r - dr) + abs(c - dc)
+    for r in range(R):
+        for c in range(Cn):
+            x, y = c, R - 1 - r
+            if c == dc and r != dr: fc = "#3a4650"
+            elif c == dc: fc = "#1B2631"
+            elif dist(r, c) <= 4: fc = PALE
+            else: fc = "white"
+            ax.add_patch(Rectangle((x, y), 1, 1, fc=fc, ec="#d5dde2", lw=0.6))
+    for r in range(R):     # exit fan on the receiving (right) side: within 3 steps, kept clear
+        for c in range(dc + 1, Cn):
+            if dist(r, c) <= 3: ax.add_patch(Rectangle((c, R - 1 - r), 1, 1, fc="none", ec=TEAL, lw=0, hatch="////", alpha=0.4))
+    ax.add_patch(Rectangle((dc, R - 1 - dr), 1, 1, fc="none", ec="black", lw=2.2))
+    BL, OR_, GR = "#2a78d6", "#eb6834", "#b9b8b2"
+    def bot(r, c, col, mark=None):
+        ax.add_patch(Circle((c + 0.5, R - 1 - r + 0.5), 0.36, fc=col, ec="white", lw=1.0, zorder=5))
+        if mark: ax.text(c + 0.5, R - 1 - r + 0.5, mark, ha="center", va="center", fontsize=8.5, color="white", fontweight="bold", zorder=6)
+    for c in (2, 3, 4, 5): bot(dr, c, BL)                       # active side, back to back
+    bot(dr, dc, BL); ax.annotate("", xy=(dc + 2.3, R - 1 - dr + 0.5), xytext=(dc + 0.9, R - 1 - dr + 0.5), arrowprops=dict(arrowstyle="-|>", color=BL, lw=2))
+    bot(dr - 1, dc + 2, BL)                                      # exiting robot moving away
+    for (r, c) in [(dr, 11), (dr - 1, 10), (dr + 1, 10), (dr - 2, 11)]: bot(r, c, OR_)   # waiting side at the buffer edge
+    bot(dr + 2, 11, OR_, "II")                                   # a waiting robot in a random pause
+    for (r, c) in [(1, 1), (7, 1), (8, 12), (0, 9)]: bot(r, c, GR)
+    ax.set_xlim(-0.2, Cn + 0.2); ax.set_ylim(-0.2, R + 0.2)
+    fig.text(0.015, 0.925, "A  A one-cell door with a 4-cell buffer on each side", fontsize=10.5, fontweight="bold", color=INK)
+    hs = [Line2D([], [], marker="o", ls="", ms=8, mfc=BL, mec="white", label="active side: crossing back to back"),
+          Line2D([], [], marker="o", ls="", ms=8, mfc=OR_, mec="white", label="waiting side: queues at the buffer edge"),
+          Line2D([], [], marker="o", ls="", ms=8, mfc=OR_, mec="white", label="II = random pause, but not in the exit"),
+          Line2D([], [], marker="o", ls="", ms=8, mfc=GR, mec="white", label="not crossing this door"),
+          Patch(fc=PALE, ec="#d5dde2", label="4-cell buffer"),
+          Patch(fc="white", ec=TEAL, hatch="////", label="exit fan, kept clear (3 cells)")]
+    fig.legend(handles=hs, loc="lower left", bbox_to_anchor=(0.01, 0.105), ncol=2, fontsize=8.2, frameon=False, handletextpad=0.4, columnspacing=1.2)
+    fig.text(0.015, 0.06, "Rule:  serve side $s$;   wind down when $W_s(8)=0$ and $W_o(8)>0$;   switch when the door is empty and $A_s(4)=0$",
+             fontsize=9.6, color=INK)
+    fig.text(0.015, 0.018, "$W(8)$: crossers within 8 cells    $A(4)$: crossers inside the 4-cell buffer    robots held by the rule get the lowest priority",
+             fontsize=8.4, color=GREY)
+    # ---- B: buffer-size sweep ----
+    b = fig.add_axes([0.52, 0.58, 0.455, 0.31])
+    xs = [1, 2, 3, 4, 6]; m = [-9.0, -5.2, 0.2, 0.0, -4.2]; lo = [-10.0, -6.3, -0.6, 0.0, -5.5]; hi = [-8.0, -4.1, 1.1, 0.0, -2.8]
+    for x, v, l, h in zip(xs, m, lo, hi):
+        col = TEAL if x == 4 else (RED if v < -1 else GREY)
+        b.plot([x, x], [l, h], color=col, lw=1.4); b.scatter([x], [v], s=46 if x != 4 else 80, color=col, zorder=5, marker="o" if x != 4 else "*")
+    b.scatter([3], [-2.64], s=40, facecolor="white", edgecolor=RED, lw=1.5, zorder=6); b.plot([3, 3], [-3.41, -1.83], color=RED, lw=1.2, ls=":")
+    b.axhline(0, color=GREY, lw=0.8, ls=":"); b.set_xticks(xs); b.set_xticklabels([f"{x} cell" + ("s" if x > 1 else "") for x in xs], fontsize=8.5)
+    b.set_ylim(-11.5, 3.0); b.set_ylabel("change vs 4 cells (%)", fontsize=8.5); b.tick_params(labelsize=8)
+    b.spines[["top", "right"]].set_visible(False)
+    b.set_title("B  How big should the buffer be?  (12 dev instances, 95% intervals)", fontsize=10.5, fontweight="bold", color=INK, loc="left")
+    b.text(1.15, -10.9, "too close: robots coming out\nstay 7.6 ticks in the door", fontsize=7.8, color=RED, va="bottom")
+    b.text(5.95, -7.4, "too far: the queue\nblocks other doors", fontsize=7.8, color=RED, ha="right", va="top")
+    b.text(3.12, -2.35, "3 cells: +0.2% on dev maps, but -2.64% in\nconfirmation; deadlocked runs 11 → 29", fontsize=7.6, color=RED, va="top")
+    b.text(4.12, 0.9, "kept: 4 cells", fontsize=8.2, color=TEAL, fontweight="bold")
+    # ---- C: where one crossing's 18.7 ticks go ----
+    c = fig.add_axes([0.52, 0.04, 0.455, 0.36]); c.axis("off"); c.set_xlim(0, 18.7); c.set_ylim(0, 1)
+    segs = [("move\nthrough", 3.0, "#7fb8c4"), ("wait for\nexit", 1.5, "#a9c7cf"), ("break-\ndown", 1.0, RED), ("next robot\narrives", 4.1, "#7fb8c4"),
+            ("turn", 2.1, "#a9c7cf"), ("breakdown\nnear door", 3.8, RED), ("switch\nside", 2.2, ORG), ("other", 1.0, "#d5dde2")]
+    x0 = 0
+    for name, w, col in segs:
+        c.add_patch(Rectangle((x0, 0.33), w, 0.28, fc=col, ec="white", lw=1.2))
+        c.text(x0 + w / 2, 0.47, f"{w:g}", ha="center", va="center", fontsize=8.5, color="white" if col in (RED, ORG) else INK, fontweight="bold")
+        c.text(x0 + w / 2, 0.29, name, ha="center", va="top", fontsize=7.0, color=INK)
+        x0 += w
+    c.text(0, 0.99, "C  Where one robot's 18.7 ticks at door 6 go  (round 52, 669 crossings)", fontsize=10.5, fontweight="bold", color=INK, va="top")
+    c.text(0, 0.82, "random breakdowns: 1.0 + 3.8 = 4.8 ticks (26%)", fontsize=8.8, color=RED, va="center")
+    c.text(0, 0.72, "door rate: 500 / 18.7 = 26.7 robots per 500 ticks  (measured: 26)", fontsize=8.8, color=INK, va="center")
+    fig.savefig(path, facecolor="white")
+    plt.close(fig)
+
+
 def box(ax, x, y, w, h, title, body, fc, ec, tcol=INK):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.025", fc=fc, ec=ec, lw=1.4))
     ax.text(x + 0.018, y + h - 0.03, title, fontsize=9.6, fontweight="bold", color=tcol, va="top")
@@ -164,3 +244,4 @@ if __name__ == "__main__":
     bbr_loop("figures/deck/fig_bbr_loop.png")
     door_util("figures/deck/fig_door_util.png")
     quota_fig("figures/deck/fig_quota_deck.png")
+    door_rule_deck("figures/deck/fig_door_rule_deck.png")

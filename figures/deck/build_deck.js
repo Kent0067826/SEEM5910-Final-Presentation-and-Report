@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v23.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v24.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -373,17 +373,17 @@ section(1);
 // ---------- 13 one direction at a time ----------
 {
   const s = S(13); const slide = content(s);
-  addImg(slide, "door", M, 1.3, 12.1, 3.55);
+  addImg(slide, "doorD", M, 1.22, 12.15, 4.86);
   const cards = [
-    ["v1 · no effect", "Only stopped robots from entering against the flow. Robots on the other side still waited at the exit, so robots coming out had nowhere to go.", C.accent4],
-    ["v2 · +27.6% alone", "Robots on the other side **step back out of the door area**; robots stopped by the rule get the **lowest priority** (17 room-map instances).", C.accent2],
-    ["4 cells, not 3", "Later the door area was set to **4 cells**. With only 3, deadlocked runs rose from **11 to 29**, so we kept 4.", C.accent1],
+    ["v1 · no effect", "blocked entry against the flow only; robots still waited at the exit", C.accent4],
+    ["v2 · +27.6% alone", "waiting side queues at the **buffer edge**; held robots get the **lowest priority** (17 room-map instances)", C.accent2],
+    ["Buffer · 4 cells", "chosen by the sweep in **B**; with 3 cells, deadlocked runs rose from **11 to 29**", C.accent1],
   ];
   cards.forEach(([b, l, col], i) => {
     const x = M + i * 4.1;
-    card(slide, x, 5.0, 3.9, 1.85, C.background2);
-    slide.addText(b, { x: x + 0.25, y: 5.08, w: 3.5, h: 0.5, fontSize: 21, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-    para(slide, l, x + 0.25, 5.6, 3.5, 1.2, 12.5);
+    card(slide, x, 6.16, 3.95, 0.8, C.background2);
+    slide.addText(b, { x: x + 0.15, y: 6.19, w: 3.7, h: 0.3, fontSize: 12.5, bold: true, color: col, margin: 0, isTextBox: true });
+    para(slide, l, x + 0.15, 6.49, 3.7, 0.45, 10.5);
   });
 }
 
