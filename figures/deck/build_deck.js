@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v22.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v23.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -349,8 +349,8 @@ section(1);
   bullets(slide, [
     "**Grow until something breaks?** Robots are never lost, so there is **no stop signal**; the queue just grows.",
     "**BBR:** bandwidth = **highest** delivery rate seen; delay = **shortest** round trip seen. A jam cannot raise its own limit.",
-    "**Our delay:** real time (Little's law) vs **shortest-path time**. On spots our first model missed: **2.2–2.9×**, so robots were stuck there.",
-    "**Tested:** a BBR-style cap on those spots. Big losses gone, but overall only **+0.08%** → kept the fixed quota; stuck robots → watchdog.",
+    "**Our delay:** real time (Little's law) vs **shortest-path time**. On spots our first model missed: **2.2–2.9×**, so a fixed formula there would hold back doors that are not jammed.",
+    "**Tested:** a BBR-style cap there, which bites only when delay rises and crossings fall. Big losses gone, but overall only **+0.08%** → kept the fixed quota; stuck robots → watchdog.",
   ], x0, 2.9, w0, 4.05, 13);
 }
 

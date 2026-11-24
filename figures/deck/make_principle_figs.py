@@ -154,7 +154,7 @@ def bbr_loop(path):
     bx.set_xticks(range(3)); bx.set_xticklabels(labels, fontsize=7.2)
     bx.set_ylim(0, 3.4); bx.set_yticks([0, 1, 2, 3]); bx.tick_params(labelsize=7.2)
     bx.spines[["top", "right"]].set_visible(False)
-    bx.set_title("measured real / model delay (round 50)\n> 1 = robots waiting in a hidden queue", fontsize=7.9, color=INK, loc="left")
+    bx.set_title("measured real / model delay (round 50)\n> 1 = the model's time is too short there", fontsize=7.9, color=INK, loc="left")
     fig.savefig(path, facecolor="white")
     plt.close(fig)
 

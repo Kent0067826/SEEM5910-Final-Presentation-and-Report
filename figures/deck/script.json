@@ -310,7 +310,7 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "1:15",
+  "time": "1:10",
   "title": "Scheduling 1: global regulation, like BBR",
   "figs": [
    "BBR 控制环与 DoorFlow 对照图（含第 50 轮实测时延比）"
@@ -319,8 +319,8 @@
    "Goal: global regulation; a buffer size (quota) per door & direction",
    "Grow until something breaks? robots never lost → no stop signal → queue grows",
    "BBR: max delivery rate × min round trip; min keeps a jam from raising its own limit",
-   "Our delay: real time (Little) vs shortest-path time; missed spots 2.2–2.9×",
-   "BBR-style cap: big losses gone, small gain +0.08% → fixed quota; watchdog later"
+   "Our delay: real time (Little) vs shortest-path time; missed spots 2.2–2.9× → a fixed formula there holds back doors that are not jammed",
+   "BBR-style cap (round 51): bites only when delay rises and crossings fall; big losses gone, overall +0.08% [−0.32, +0.47] → fixed quota; watchdog later"
   ],
   "segs": [
    {
@@ -336,16 +336,16 @@
     "zh": "【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。"
    },
    {
-    "en": "【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes waiting. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model: robots were stuck there.",
-    "zh": "【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了等待。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**：那里有车卡住了。"
+    "en": "【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes everything else. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model, so a fixed formula there would **hold back doors that were not jammed**.",
+    "zh": "【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了其余的一切。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**，所以在那里用固定公式，会**卡住本来不堵的门**。"
    },
    {
-    "en": "A **BBR-style cap** on those spots removed the big losses, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
-    "zh": "在这些窄处试的 **BBR 式上限**消除了大的损失，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
+    "en": "So on those spots we tried a **BBR-style cap**, which only bites when the delay keeps rising and crossings fall. It removed the big losses where a door had collapsed, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
+    "zh": "所以在这些窄处，我们试了 **BBR 式上限**：只有时延一直变长、过门数下降时才收紧。它把门塌掉时的大损失补回来了，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
    }
   ],
-  "en": "Our goal is **global regulation**: controlling the crossings at every door at once, with a **buffer size**, the quota, for each door and direction. How should we set these limits? We could let the window grow until something goes wrong, but robots are never lost, so there is **no clear stop signal**, and the queue just grows. 【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit. 【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes waiting. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model: robots were stuck there. A **BBR-style cap** on those spots removed the big losses, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
-  "zh": "我们的目标是**全局调控**：同时控制每一道门的过门车数，每道门、每个方向有一个**缓冲区大小**，也就是名额。这些上限该怎么定？也可以让窗口一直变大、直到出问题才停；但车永远不会丢，**没有明确的“停”信号**，队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了等待。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**：那里有车卡住了。在这些窄处试的 **BBR 式上限**消除了大的损失，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
+  "en": "Our goal is **global regulation**: controlling the crossings at every door at once, with a **buffer size**, the quota, for each door and direction. How should we set these limits? We could let the window grow until something goes wrong, but robots are never lost, so there is **no clear stop signal**, and the queue just grows. 【指左图第 2 框】 **BBR** measures instead. Bandwidth is the **highest delivery rate** seen, since delivery is never faster than the true limit; delay is the **shortest round-trip time** seen, since a queue only adds delay. 【指右上橙框】 If the limit followed the current delay, a jam would raise its own limit. 【指下方对照表】 We estimate delay the same way: the **shortest-path time** is the delay with no queue, and the **real time**, from Little's law, includes everything else. 【指右下柱状图】 On spots our first model missed, the real time was **2.2 to 2.9 times** the model, so a fixed formula there would **hold back doors that were not jammed**. So on those spots we tried a **BBR-style cap**, which only bites when the delay keeps rising and crossings fall. It removed the big losses where a door had collapsed, but the overall gain was small, **0.08 percent**, so we kept the fixed quota; stuck robots are handled by a watchdog.",
+  "zh": "我们的目标是**全局调控**：同时控制每一道门的过门车数，每道门、每个方向有一个**缓冲区大小**，也就是名额。这些上限该怎么定？也可以让窗口一直变大、直到出问题才停；但车永远不会丢，**没有明确的“停”信号**，队只会越排越长。【指左图第 2 框】**BBR** 则是去测：带宽取看到过的**最大送达速率**，因为实际送达不会比真实上限快；时延取看到过的**最短往返时间**，因为排队只会增加时延。【指右上橙框】如果上限跟着当前时延走，堵车就会把自己的上限抬高。【指下方对照表】我们用同样的办法估计时延：**最短路时间**是不排队时的时延，用 Little 定律算出的**真实时间**包含了其余的一切。【指右下柱状图】在第一版模型漏掉的窄处，真实时间是模型的 **2.2 到 2.9 倍**，所以在那里用固定公式，会**卡住本来不堵的门**。所以在这些窄处，我们试了 **BBR 式上限**：只有时延一直变长、过门数下降时才收紧。它把门塌掉时的大损失补回来了，但总体提升不大，只有 **0.08%**，所以保留固定名额；卡住的车交给看门狗处理（后面讲）。"
  },
  {
   "n": 12,
@@ -548,7 +548,7 @@
  {
   "n": 18,
   "speaker": 4,
-  "time": "1:15",
+  "time": "1:20",
   "title": "Does it only work on this map? Random doors",
   "figs": [
    "换图测试图（8 张随机门房间图 × 2 种车数）"
