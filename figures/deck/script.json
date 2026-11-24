@@ -7,19 +7,18 @@
   "figs": [],
   "hints": [
    "LoRR 2026: warehouse-like map",
-   "Goal: finish as many orders as possible",
-   "Our new scheduling algorithm: DoorFlow"
+   "Goal: finish as many orders as possible"
   ],
-  "en": "Good afternoon, everyone. Our project is based on the **League of Robot Runners 2026** competition, or **LoRR** for short. On a warehouse-like map, robots must finish **as many orders as possible**. For this problem, we designed a new scheduling algorithm, **DoorFlow**.",
-  "zh": "大家下午好。我们的项目基于 **2026 年机器人跑者联赛（LoRR）**。在一张类似仓库的地图上，机器人要**完成尽可能多的订单**。针对这个问题，我们设计了一个新的调度算法：**DoorFlow**。",
+  "en": "Good afternoon, everyone. Our project is based on the **League of Robot Runners 2026** competition, or **LoRR** for short. On a warehouse-like map, robots must finish **as many orders as possible**.",
+  "zh": "大家下午好。我们的项目基于 **2026 年机器人跑者联赛（LoRR）**。在一张类似仓库的地图上，机器人要完成**尽可能多的订单**。",
   "segs": [
    {
     "en": "Good afternoon, everyone. Our project is based on the **League of Robot Runners 2026** competition, or **LoRR** for short.",
     "zh": "大家下午好。我们的项目基于 **2026 年机器人跑者联赛（LoRR）**。"
    },
    {
-    "en": "On a warehouse-like map, robots must finish **as many orders as possible**. For this problem, we designed a new scheduling algorithm, **DoorFlow**.",
-    "zh": "在一张类似仓库的地图上，机器人要**完成尽可能多的订单**。针对这个问题，我们设计了一个新的调度算法：**DoorFlow**。"
+    "en": "On a warehouse-like map, robots must finish **as many orders as possible**.",
+    "zh": "在一张类似仓库的地图上，机器人要完成**尽可能多的订单**。"
    }
   ]
  },
@@ -37,12 +36,12 @@
    "16 rooms, 31 doors, 1 cell wide, 200–300 robots",
    "Blue path: 8 doors"
   ],
-  "en": "【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**. 【指右边 1、2、3】 Every tick, the program decides **which robot takes which order, which way it goes, and whether it moves now**. 【指下方数字】 The official room map has **16 rooms and 31 doors**, most only **one cell wide**, and **200 to 300 robots**. 【指蓝色路线】 This one order passes **eight doors**.",
-  "zh": "【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。【指右边 1、2、3】每一拍，程序决定**哪台车接哪单、走哪条路、现在走不走**。【指下方数字】官方房间图有 **16 个房间、31 道门**，大多只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单要穿过 **8 道门**。",
+  "en": "First, the background. 【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**. 【指右边 1、2、3】 Every tick, the program decides **which robot takes which order, which way it goes, and whether it moves now**. 【指下方数字】 The official room map has **16 rooms and 31 doors**, most only **one cell wide**, and **200 to 300 robots**. 【指蓝色路线】 This one order passes **eight doors**.",
+  "zh": "先讲背景。【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。【指右边 1、2、3】每一拍，程序决定**哪台车接哪单、走哪条路、现在走不走**。【指下方数字】官方房间图有 **16 个房间、31 道门**，大多只有**一格宽**，车有 **200 到 300 台**。【指蓝色路线】这一单要穿过 **8 道门**。",
   "segs": [
    {
-    "en": "【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**.",
-    "zh": "【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。"
+    "en": "First, the background. 【指左图】 Each grey dot is a robot. Robots pick up and deliver orders for **5,000 ticks**, and the score is the **number of orders finished**.",
+    "zh": "先讲背景。【指左图】每个灰点是一台机器人。车在 **5000 拍**里不停取货送货，成绩是**完成的订单数**。"
    },
    {
     "en": "【指右边 1、2、3】 Every tick, the program decides **which robot takes which order, which way it goes, and whether it moves now**.",
@@ -67,183 +66,166 @@
    "Every curve falls",
    "127 → 37 (60 runs)",
    "No errors, no collisions",
-   "Something builds up over time",
+   "We start optimizing from this problem",
    "Hand over to Speaker 2"
   ],
-  "en": "We first ran the official starter program and the 2024 champion's method. 【指三组曲线】 Both get **slower the longer they run**. 【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. There are **no errors or collisions**, so something must be **building up**. Speaker 2 will explain.",
-  "zh": "我们先跑了官方起始程序和 2024 届冠军的方法。【指三组曲线】两个都是**跑得越久，越慢**。【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且**没有报错、没有碰撞**，所以一定有什么东西在**累积**。下面由讲者 2 来讲。",
+  "en": "We first ran the official starter program and the 2024 champion's method. 【指三组曲线】 Both get **slower the longer they run**. 【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. The program reports **no errors or collisions**, so we decided to **start our optimization from this problem**. Speaker 2 will continue.",
+  "zh": "我们先跑了官方起始程序和 2024 届冠军的方法。【指三组曲线】两个都是**跑得越久，越慢**。【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且程序**没有报错、没有碰撞**，所以我们想**从这个问题着手去优化**。下面由讲者 2 来讲。",
   "segs": [
    {
     "en": "We first ran the official starter program and the 2024 champion's method. 【指三组曲线】 Both get **slower the longer they run**.",
     "zh": "我们先跑了官方起始程序和 2024 届冠军的方法。【指三组曲线】两个都是**跑得越久，越慢**。"
    },
    {
-    "en": "【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. There are **no errors or collisions**, so something must be **building up**. Speaker 2 will explain.",
-    "zh": "【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且**没有报错、没有碰撞**，所以一定有什么东西在**累积**。下面由讲者 2 来讲。"
+    "en": "【指左边 127 和 37】 With the champion's method, orders per 500 ticks fall from **127 at the start to 37 at the end**, averaged over 60 runs. The program reports **no errors or collisions**, so we decided to **start our optimization from this problem**. Speaker 2 will continue.",
+    "zh": "【指左边 127 和 37】用冠军的方法，60 局平均，每 500 拍完成的单数从**开局 127 降到最后 37**。而且程序**没有报错、没有碰撞**，所以我们想**从这个问题着手去优化**。下面由讲者 2 来讲。"
    }
   ]
  },
  {
   "n": 4,
   "speaker": 2,
-  "time": "0:45",
+  "time": "0:25",
   "title": "Robots jam at one narrow door",
   "figs": [
    "图 3 第 3000 拍堵门截图"
   ],
   "hints": [
-   "Tick 3,000: 97 robots still have to cross door 6 inward (incl. not yet at the door)",
-   "Easy orders first → 38% → 86% must cross",
-   "Face to face in a 1-cell door",
-   "3.4–7.0 vs 26 per 500 ticks",
-   "More robots, fewer crossings"
+   "A week to write a monitoring program: replay tick by tick",
+   "Over time, many robots jam at one door (door 6)",
+   "Cards on the right: 97 robots; 38% → 86%; 3.4–7.0 vs 26 (for questions)",
+   "How did earlier work solve this?"
   ],
-  "en": "Thank you. To find out what was building up, we watched the replay tick by tick. 【指左图黑圈】 At tick 3,000, **97 robots** still need to pass **door 6** into the lower-left rooms; some are at the door, and the rest are on their way. 【指右边第二张卡】 Why? Easy orders are done first, so the share of orders that need this door grows from **38 percent to as high as 86 percent**. 【指第三张卡】 Robots then meet **face to face** in the one-cell door: late in the run, only **3.4 to 7** get through every 500 ticks, while an orderly door passes **26**. So **more robots means fewer crossings**.",
-  "zh": "谢谢。为了找出在累积的是什么，我们一拍一拍地看回放。【指左图黑圈】第 3000 拍，还有 **97 台**车要穿过**门 6** 进左下的房间：有的已经堵在门口，其余的还在路上。【指右边第二张卡】为什么？好做的单先做完，所以要过这道门的单所占的比例，从 **38% 涨到最高 86%**。【指第三张卡】于是车在一格宽的门口**面对面顶住**。后半程每 500 拍只能过 **3.4 到 7 台**，而门口有序时能过 **26 台**。所以**车越多，过得越少**。",
+  "en": "Thank you. To find out what was building up, we **spent a week writing a monitoring program** that lets us watch the replay **tick by tick**. 【指左图黑圈】 In the replays, we found that as time goes on, **many robots jam at one door**, here door 6. So how did earlier work try to solve this?",
+  "zh": "谢谢。为了找出在累积的是什么，我们**花了一周时间写了一个监测程序**，用来**一拍一拍**地看回放。【指左图黑圈】通过看回放，我们发现随着时间过去，**很多机器人会堵在一道门上**，这里是门 6。那么，前人是怎么优化这个问题的呢？",
   "segs": [
    {
-    "en": "Thank you. To find out what was building up, we watched the replay tick by tick.",
-    "zh": "谢谢。为了找出在累积的是什么，我们一拍一拍地看回放。"
+    "en": "Thank you. To find out what was building up, we **spent a week writing a monitoring program** that lets us watch the replay **tick by tick**.",
+    "zh": "谢谢。为了找出在累积的是什么，我们**花了一周时间写了一个监测程序**，用来**一拍一拍**地看回放。"
    },
    {
-    "en": "【指左图黑圈】 At tick 3,000, **97 robots** still need to pass **door 6** into the lower-left rooms; some are at the door, and the rest are on their way.",
-    "zh": "【指左图黑圈】第 3000 拍，还有 **97 台**车要穿过**门 6** 进左下的房间：有的已经堵在门口，其余的还在路上。"
-   },
-   {
-    "en": "【指右边第二张卡】 Why? Easy orders are done first, so the share of orders that need this door grows from **38 percent to as high as 86 percent**.",
-    "zh": "【指右边第二张卡】为什么？好做的单先做完，所以要过这道门的单所占的比例，从 **38% 涨到最高 86%**。"
-   },
-   {
-    "en": "【指第三张卡】 Robots then meet **face to face** in the one-cell door: late in the run, only **3.4 to 7** get through every 500 ticks, while an orderly door passes **26**. So **more robots means fewer crossings**.",
-    "zh": "【指第三张卡】于是车在一格宽的门口**面对面顶住**。后半程每 500 拍只能过 **3.4 到 7 台**，而门口有序时能过 **26 台**。所以**车越多，过得越少**。"
+    "en": "【指左图黑圈】 In the replays, we found that as time goes on, **many robots jam at one door**, here door 6. So how did earlier work try to solve this?",
+    "zh": "【指左图黑圈】通过看回放，我们发现随着时间过去，**很多机器人会堵在一道门上**，这里是门 6。那么，前人是怎么优化这个问题的呢？"
    }
   ]
  },
  {
   "n": 5,
   "speaker": 2,
-  "time": "0:35",
+  "time": "0:45",
   "title": "Prior work: four groups of methods",
   "figs": [],
   "hints": [
-   "4 groups: assignment / route guidance / planners (PIBT) / jam handling",
-   "Each improves its own step",
-   "None looks at the whole system with many factors together"
+   "4 groups: assignment / route guidance / planners (PIBT: deadlocks & collisions) / jam handling",
+   "Each fixes one kind of congestion locally",
+   "None avoids congestion at assignment level, whole system",
+   "Our question: a global scheduling algorithm?"
   ],
-  "en": "【依次指四张卡】 Earlier methods fall into four groups. **Order assignment** gives robots close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread out. **Planners such as PIBT** decide which robot moves first and avoid collisions. **Jam handling** keeps some robots idle, or sorts out robots that meet in a narrow passage. 【指底部黄框】 In the methods we read, each one improves **its own step**, but none looks at **the whole system** and weighs **many factors together**.",
-  "zh": "【依次指四张卡】前人的方法可以分成四类。**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走、避免碰撞；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。【指底部黄框】在我们读到的方法里，每一种都只优化**自己那一步**，没有一种从**整个系统**出发、**同时考虑多个因素**。",
+  "en": "【依次指四张卡】 Earlier methods fall into four groups. **Order assignment** gives robots close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread out. **Planners such as PIBT** decide which robot moves first, and avoid **deadlocks and collisions**. **Jam handling** keeps some robots idle, or sorts out robots that meet in a narrow passage. 【指底部黄框】 In all the methods we read, each one only fixes **one kind of congestion locally**. None starts from **the whole system** and weighs many factors to **avoid congestion when orders are given out**. So we wanted to try: is there a **global scheduling algorithm** that avoids congestion?",
+  "zh": "【依次指四张卡】前人的方法可以分成四类。**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走，避免**死锁和碰撞**；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。【指底部黄框】在我们读到的所有方法里，每一种都只是**单独在局部优化某种拥塞**，没有一种从**整个系统**出发、同时考虑多个因素，**在派单层面去避免拥塞**。所以我们想试一试：有没有一种**全局调度算法**能避免拥塞？",
   "segs": [
    {
     "en": "【依次指四张卡】 Earlier methods fall into four groups.",
     "zh": "【依次指四张卡】前人的方法可以分成四类。"
    },
    {
-    "en": "**Order assignment** gives robots close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread out. **Planners such as PIBT** decide which robot moves first and avoid collisions. **Jam handling** keeps some robots idle, or sorts out robots that meet in a narrow passage.",
-    "zh": "**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走、避免碰撞；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。"
+    "en": "**Order assignment** gives robots close, cheap orders. **Route guidance** makes busy roads cost more, so robots spread out. **Planners such as PIBT** decide which robot moves first, and avoid **deadlocks and collisions**. **Jam handling** keeps some robots idle, or sorts out robots that meet in a narrow passage.",
+    "zh": "**派单**给车分近的、便宜的单；**选路**让拥挤的路代价更高，把车分散开；**PIBT 这类规划**决定哪台车先走，避免**死锁和碰撞**；**拥堵处理**让一部分车闲着，或者处理在窄道里碰上的车。"
    },
    {
-    "en": "【指底部黄框】 In the methods we read, each one improves **its own step**, but none looks at **the whole system** and weighs **many factors together**.",
-    "zh": "【指底部黄框】在我们读到的方法里，每一种都只优化**自己那一步**，没有一种从**整个系统**出发、**同时考虑多个因素**。"
+    "en": "【指底部黄框】 In all the methods we read, each one only fixes **one kind of congestion locally**. None starts from **the whole system** and weighs many factors to **avoid congestion when orders are given out**. So we wanted to try: is there a **global scheduling algorithm** that avoids congestion?",
+    "zh": "【指底部黄框】在我们读到的所有方法里，每一种都只是**单独在局部优化某种拥塞**，没有一种从**整个系统**出发、同时考虑多个因素，**在派单层面去避免拥塞**。所以我们想试一试：有没有一种**全局调度算法**能避免拥塞？"
    }
   ]
  },
  {
   "n": 6,
   "speaker": 2,
-  "time": "0:45",
-  "title": "From small gains to DoorFlow",
+  "time": "0:50",
+  "title": "Everything we tried: mostly small gains",
   "figs": [
-   "无（文字和卡片；数字取自第 26–27 轮）"
+   "全部尝试总表（幻灯片上，两个阶段提升不大或变差的版本，按组分六列，关键项标红；数字取自报告第九节）"
   ],
   "hints": [
-   "First attempts: one step at a time, small gains",
+   "All versions we tried: early ideas (2 columns) + existing mechanisms tried later (4 columns)",
    "Matching −1.9%; 4× planning −1%; detours +0.75% (random +1.07%); rerouting +1.18% short tests only",
-   "Lesson: nobody controlled how many go to a door, or which side first",
-   "DoorFlow: regulate the flow through every door, whole map",
-   "Hypothesis → hand over to Speaker 3"
+   "However we changed routes, jams stayed: HN-SPF −25.88%",
+   "Why? → estimate the overall flow mathematically → hand over to Speaker 3"
   ],
-  "en": "Our own first attempts also improved one step at a time, and the gains were small. 【指左边四行】 Optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests. 【指右上】 The lesson: none of them controlled **how many robots head for the same door**, or **which side goes first**. 【指右下】 So we designed **DoorFlow**, which regulates the flow through every door for the whole map. 【指底部深色框】 Our hypothesis: this finishes more orders. Speaker 3 will explain the model and the tests.",
-  "zh": "我们自己最早的尝试，也是一次只改进一步，提升都不大。【指左边四行】最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。【指右上】教训是：没有一项去管**多少车奔向同一道门**、**哪边先走**。【指右下】所以我们设计了 **DoorFlow**：从全图出发，调控每道门的流量。【指底部深色框】我们的猜想是：这样能完成更多订单。下面由讲者 3 讲模型和检验。",
+  "en": "Our own first attempts also gave only **small gains**. 【指整张表】 Here are **all the versions we tried**, by group: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red. 【指第一、二列】 For example, optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests. 【指第五列红字】 However we changed the routes, the jam stayed; one method, **HN-SPF**, even lowered results by **25.88 percent**. Why? We analyzed these results and **estimated the overall flow mathematically**. Speaker 3 will show this analysis.",
+  "zh": "我们自己的尝试，提升也都**不大**。【指整张表】这里按组列出了我们**试过的所有版本**：前两列是最早的想法，后四列是后来试的现有机制。关键的几项标成了红色。【指第一、二列】比如，最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。【指第五列红字】我们发现，**不管怎么修改选路的算法，都避不开拥塞**，**HN-SPF** 甚至让结果少了 **25.88%**。为什么呢？我们后来对这些失败做了分析，**从数学层面去估计整体的流量**。下面由讲者 3 讲这个分析。",
   "segs": [
    {
-    "en": "Our own first attempts also improved one step at a time, and the gains were small.",
-    "zh": "我们自己最早的尝试，也是一次只改进一步，提升都不大。"
+    "en": "Our own first attempts also gave only **small gains**. 【指整张表】 Here are **all the versions we tried**, by group: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red.",
+    "zh": "我们自己的尝试，提升也都**不大**。【指整张表】这里按组列出了我们**试过的所有版本**：前两列是最早的想法，后四列是后来试的现有机制。关键的几项标成了红色。"
    },
    {
-    "en": "【指左边四行】 Optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests.",
-    "zh": "【指左边四行】最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。"
+    "en": "【指第一、二列】 For example, optimal matching lowered results by **1.9 percent**, and four times more planning time by **1 percent**. Detours around broken robots gained **0.75 percent**, less than a random change. Rerouting by live traffic helped only in short tests.",
+    "zh": "【指第一、二列】比如，最优匹配让结果少了 **1.9%**，规划时间加到 4 倍少了 **1%**；绕开故障车多 **0.75%**，还不如随机扰动；按实时路况换路，只在短测试里有用。"
    },
    {
-    "en": "【指右上】 The lesson: none of them controlled **how many robots head for the same door**, or **which side goes first**.",
-    "zh": "【指右上】教训是：没有一项去管**多少车奔向同一道门**、**哪边先走**。"
-   },
-   {
-    "en": "【指右下】 So we designed **DoorFlow**, which regulates the flow through every door for the whole map.",
-    "zh": "【指右下】所以我们设计了 **DoorFlow**：从全图出发，调控每道门的流量。"
-   },
-   {
-    "en": "【指底部深色框】 Our hypothesis: this finishes more orders. Speaker 3 will explain the model and the tests.",
-    "zh": "【指底部深色框】我们的猜想是：这样能完成更多订单。下面由讲者 3 讲模型和检验。"
+    "en": "【指第五列红字】 However we changed the routes, the jam stayed; one method, **HN-SPF**, even lowered results by **25.88 percent**. Why? We analyzed these results and **estimated the overall flow mathematically**. Speaker 3 will show this analysis.",
+    "zh": "【指第五列红字】我们发现，**不管怎么修改选路的算法，都避不开拥塞**，**HN-SPF** 甚至让结果少了 **25.88%**。为什么呢？我们后来对这些失败做了分析，**从数学层面去估计整体的流量**。下面由讲者 3 讲这个分析。"
    }
   ]
  },
  {
   "n": 7,
   "speaker": 3,
-  "time": "0:40",
+  "time": "0:45",
   "title": "The model, and what makes robots special",
   "figs": [
    "图 4 地图压成网络"
   ],
   "hints": [
-   "16 rooms = nodes, 31 doors = links; door 6 is a cut",
-   "Near a door: stand still 4.2× → act at the doors",
+   "To analyze: a model; 16 rooms = nodes, 31 doors = links; door 6 is a cut",
+   "Near a door: stand still 4.2× → the problem is at the doors",
    "4 properties: cannot drop; waiting takes a cell; fixed fleet; face to face",
    "So: never drop a robot; decide who goes and when; keep exits clear"
   ],
-  "en": "Thank you. First, the model. 【指左图】 The **16 rooms are nodes** and the **31 doors are links**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off. 【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so DoorFlow acts **at the doors**. 【指右边四点】 Four properties shape the algorithm: robots **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**. 【指底部】 So DoorFlow never drops a robot; it only decides **who goes and when**, and keeps exits clear.",
-  "zh": "谢谢。先讲模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以 DoorFlow **在门口**下功夫。【指右边四点】四个特点决定了算法的样子：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。【指底部】所以 DoorFlow 从不丢掉车，只决定**谁走、什么时候走**，并让出口保持畅通。",
+  "en": "Thank you. To analyze this, we first built a model. 【指左图】 The **16 rooms are nodes** and the **31 doors are links**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off. 【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so the problem is **at the doors**. 【指右边四点】 Four properties of robots matter: they **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**. 【指底部】 So a good algorithm can never drop a robot; it can only decide **who goes and when**, and keep exits clear.",
+  "zh": "谢谢。为了分析，我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以问题出在**门口**。【指右边四点】车有四个要紧的特点：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。【指底部】所以好的算法不能丢掉车，只能决定**谁走、什么时候走**，并让出口保持畅通。",
   "segs": [
    {
-    "en": "Thank you. First, the model. 【指左图】 The **16 rooms are nodes** and the **31 doors are links**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off.",
-    "zh": "谢谢。先讲模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。"
+    "en": "Thank you. To analyze this, we first built a model. 【指左图】 The **16 rooms are nodes** and the **31 doors are links**; 【指红线门 6】 **door 6 is a cut**: without it, the four lower-left rooms are cut off.",
+    "zh": "谢谢。为了分析，我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。"
    },
    {
-    "en": "【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so DoorFlow acts **at the doors**.",
-    "zh": "【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以 DoorFlow **在门口**下功夫。"
+    "en": "【指黄框】 Near a door, robots stand still **4.2 times** as long as they move, so the problem is **at the doors**.",
+    "zh": "【指黄框】在门附近，车停着的时间是走的 **4.2 倍**，所以问题出在**门口**。"
    },
    {
-    "en": "【指右边四点】 Four properties shape the algorithm: robots **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**.",
-    "zh": "【指右边四点】四个特点决定了算法的样子：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。"
+    "en": "【指右边四点】 Four properties of robots matter: they **cannot be dropped**, a waiting robot **takes up a cell**, the fleet is **fixed**, and jams come from meeting **face to face**.",
+    "zh": "【指右边四点】车有四个要紧的特点：车**不能丢**；等着的车**占着格子**；车数**固定**；堵车是因为**面对面顶住**。"
    },
    {
-    "en": "【指底部】 So DoorFlow never drops a robot; it only decides **who goes and when**, and keeps exits clear.",
-    "zh": "【指底部】所以 DoorFlow 从不丢掉车，只决定**谁走、什么时候走**，并让出口保持畅通。"
+    "en": "【指底部】 So a good algorithm can never drop a robot; it can only decide **who goes and when**, and keep exits clear.",
+    "zh": "【指底部】所以好的算法不能丢掉车，只能决定**谁走、什么时候走**，并让出口保持畅通。"
    }
   ]
  },
  {
   "n": 8,
   "speaker": 3,
-  "time": "0:45",
+  "time": "0:50",
   "title": "Routing or scheduling? The ceiling decides",
   "figs": [
    "图 7 天花板公式"
   ],
   "hints": [
-   "Could better routes fix it? No",
+   "Why did rerouting not help?",
    "906 / 3,614 = 25%",
    "2 × 0.25 × 0.75 = 37.6% (task file 38.5%)",
    "26 ÷ 0.376 ≈ 69, whatever the routes",
-   "11 rerouting methods tried later: all worse",
-   "So: scheduling (how many, which side first)"
+   "11 rerouting methods: all worse",
+   "So: scheduling → our algorithm DoorFlow"
   ],
-  "en": "Could better routes fix the jam instead? A simple calculation says no. 【指 1】 The lower-left rooms hold **906 of the 3,614** room cells, which is **25 percent**. 【指 2】 An order needs door 6 when its two ends are on different sides: **2 times 0.25 times 0.75, or 37.6 percent** of orders; the task file gives 38.5. 【指 3 和公式】 Door 6 passes **26 robots** every 500 ticks, so the map can finish at most **26 divided by 0.376, about 69 orders**, whatever routes robots take. 【指底部 11】 Indeed, **all 11 rerouting methods** we tested **did worse**. So the real question is scheduling: **how many robots to send, and which side goes first**.",
-  "zh": "换更好的路线能不能解决堵车？一个简单的计算说明不能。【指 1】左下房间占 3614 个房间格里的 **906 个**，也就是 906 ÷ 3614 = **25%**。【指 2】一单两头落在门的两侧，就要过门 6：**2 × 0.25 × 0.75 = 37.6%**；任务文件里是 38.5%。【指 3 和公式】门 6 每 500 拍过 **26 台**，所以不管车怎么走，整张图最多完成 **26 ÷ 0.376 ≈ 69 单**。【指底部 11】我们测的 **11 种换路办法确实全部变差**。所以真正的问题是调度：**派多少车、哪边先走**。",
+  "en": "So why did changing routes not help? A simple calculation explains it. 【指 1】 The lower-left rooms hold **906 of the 3,614** room cells, which is **25 percent**. 【指 2】 An order needs door 6 when its two ends are on different sides: **2 times 0.25 times 0.75, or 37.6 percent** of orders; the task file gives 38.5. 【指 3 和公式】 Door 6 passes **26 robots** every 500 ticks, so the map can finish at most **26 divided by 0.376, about 69 orders**, whatever routes robots take. 【指底部】 So the real question is scheduling: **how many robots to send, and which side goes first**. This is the idea of our algorithm, **DoorFlow**: regulate the flow through every door, for the whole map.",
+  "zh": "那为什么改路线没有用？一个简单的计算就能说明。【指 1】左下房间占 3614 个房间格里的 **906 个**，也就是 906 ÷ 3614 = **25%**。【指 2】一单两头落在门的两侧，就要过门 6：**2 × 0.25 × 0.75 = 37.6%**；任务文件里是 38.5%。【指 3 和公式】门 6 每 500 拍过 **26 台**，所以不管车怎么走，整张图最多完成 **26 ÷ 0.376 ≈ 69 单**。【指底部】所以真正的问题是调度：**派多少车、哪边先走**。这就是我们的算法 **DoorFlow** 的想法：从全图出发，调控每道门的流量。",
   "segs": [
    {
-    "en": "Could better routes fix the jam instead? A simple calculation says no.",
-    "zh": "换更好的路线能不能解决堵车？一个简单的计算说明不能。"
+    "en": "So why did changing routes not help? A simple calculation explains it.",
+    "zh": "那为什么改路线没有用？一个简单的计算就能说明。"
    },
    {
     "en": "【指 1】 The lower-left rooms hold **906 of the 3,614** room cells, which is **25 percent**.",
@@ -258,8 +240,8 @@
     "zh": "【指 3 和公式】门 6 每 500 拍过 **26 台**，所以不管车怎么走，整张图最多完成 **26 ÷ 0.376 ≈ 69 单**。"
    },
    {
-    "en": "【指底部 11】 Indeed, **all 11 rerouting methods** we tested **did worse**. So the real question is scheduling: **how many robots to send, and which side goes first**.",
-    "zh": "【指底部 11】我们测的 **11 种换路办法确实全部变差**。所以真正的问题是调度：**派多少车、哪边先走**。"
+    "en": "【指底部】 So the real question is scheduling: **how many robots to send, and which side goes first**. This is the idea of our algorithm, **DoorFlow**: regulate the flow through every door, for the whole map.",
+    "zh": "【指底部】所以真正的问题是调度：**派多少车、哪边先走**。这就是我们的算法 **DoorFlow** 的想法：从全图出发，调控每道门的流量。"
    }
   ]
  },
@@ -441,11 +423,11 @@
     "zh": "【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。"
    },
    {
-    "en": "【指底部】 Theory calls this best when switching is costly, but it assumes arrivals do not depend on the scheduler, so we tested it.",
+    "en": "【指底部】 Theory calls this best when switching is costly, but assumes arrivals do not depend on the scheduler, so we tested it.",
     "zh": "【指底部】理论上换向代价大时这样最好，但前提是车什么时候到和调度无关，所以我们用实验检验。"
    }
   ],
-  "en": "Looking closer, the door is a **server with two queues**, one per direction. Which queue should it serve, and for how long? 【指公式】 Switching costs **21 ticks**, while robots in the same direction follow every **9**. 【指 43%】 Switching after every robot keeps the door busy only **43 percent** of the time; 【指 88%】 ten per turn gives **88 percent**. 【指右边第三条】 Our first version capped each turn at **80 steps**, which caused extra switches, so we moved to **exhaustive service**: serve one queue **until it is empty**. 【指底部】 Theory calls this best when switching is costly, but it assumes arrivals do not depend on the scheduler, so we tested it.",
+  "en": "Looking closer, the door is a **server with two queues**, one per direction. Which queue should it serve, and for how long? 【指公式】 Switching costs **21 ticks**, while robots in the same direction follow every **9**. 【指 43%】 Switching after every robot keeps the door busy only **43 percent** of the time; 【指 88%】 ten per turn gives **88 percent**. 【指右边第三条】 Our first version capped each turn at **80 steps**, which caused extra switches, so we moved to **exhaustive service**: serve one queue **until it is empty**. 【指底部】 Theory calls this best when switching is costly, but assumes arrivals do not depend on the scheduler, so we tested it.",
   "zh": "再往细看，门是一个**有两个队列的服务台**，每个方向一个队列。先服务哪个队列、服务多久？【指公式】换方向要 **21 拍**，同方向每 **9 拍**就能跟过一台。【指 43%】每过一台就换，门只有 **43%** 的时间在过车；【指 88%】每次放 10 台是 **88%**。【指右边第三条】第一版每轮最多放 **80 步**，结果多换了不少次方向，所以改成**穷尽服务**：一个队列**服务到走空**再换。【指底部】理论上换向代价大时这样最好，但前提是车什么时候到和调度无关，所以我们用实验检验。"
  },
  {
@@ -531,17 +513,17 @@
     "zh": "【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。"
    },
    {
-    "en": "【指右边动图】 So we built a replay tool that **turns every jam red automatically**: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
-    "zh": "【指右边动图】所以我们做了一个回放工具，**每处拥堵自动变红**：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
+    "en": "【指右边动图】 So we extended our replay tool so that **every jam turns red automatically**: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
+    "zh": "【指右边动图】所以我们把回放工具做得更好，**每处拥堵自动变红**：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
    }
   ],
-  "en": "The pseudocode looks short. The hardest part was writing the real code, and then checking that the robots **really did what we meant**. This took most of our time. 【指左边三张卡】 For example, our first eight rounds were void: a fixed planner seed and an unset variable meant the same program, run **54 times**, gave the same result only **5 times**. One version gained **6.8 percent**, but its mechanism **never switched on**. 【指右边动图】 So we built a replay tool that **turns every jam red automatically**: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
-  "zh": "伪代码看起来很短。最难的是写出真正的代码，再检查车是不是**真的按我们的意思在走**。我们大部分时间都花在这里。【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。【指右边动图】所以我们做了一个回放工具，**每处拥堵自动变红**：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
+  "en": "The pseudocode looks short. The hardest part was writing the real code, and then checking that the robots **really did what we meant**. This took most of our time. 【指左边三张卡】 For example, our first eight rounds were void: a fixed planner seed and an unset variable meant the same program, run **54 times**, gave the same result only **5 times**. One version gained **6.8 percent**, but its mechanism **never switched on**. 【指右边动图】 So we extended our replay tool so that **every jam turns red automatically**: without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** in this run.",
+  "zh": "伪代码看起来很短。最难的是写出真正的代码，再检查车是不是**真的按我们的意思在走**。我们大部分时间都花在这里。【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。【指右边动图】所以我们把回放工具做得更好，**每处拥堵自动变红**：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。"
  },
  {
   "n": 17,
   "speaker": 4,
-  "time": "1:30",
+  "time": "1:15",
   "title": "Does it only work on this map? Random doors",
   "figs": [
    "换图测试图（8 张随机门房间图 × 2 种车数）"
@@ -652,32 +634,32 @@
  {
   "n": 20,
   "speaker": 4,
-  "time": "0:40",
-  "title": "Many other versions gave only small gains",
+  "time": "0:50",
+  "title": "Lessons: why DoorFlow looks like this",
   "figs": [
-   "其他版本总表（幻灯片上，两个阶段提升不大或变差的版本，按组分六列，关键项标红；数字取自报告第九节）"
+   "五条经验卡片（幻灯片上；数字取自报告第九节）"
   ],
   "hints": [
-   "Many other versions: mostly small gains, some lower",
-   "Phase-1 ideas + 68 of 69 existing mechanisms (phase 2)",
-   "Red: HN-SPF −25.88%; throttle after jam −7 to −15 pts; capacity 49 → −17.2%",
-   "Red: credit flow −2.74% (saved waiting ≠ crossings); no step back −64%; fixed timetable −5.0 / −6.4%",
-   "Reasons: door 6 cannot be bypassed; robots cannot be dropped; 38 of 69 stopped early → DoorFlow"
+   "Lessons from all versions on slide 6",
+   "Door 6 cannot be bypassed: 14 of 15 rerouting lower → control how many, not where",
+   "Cannot drop, take cells → only decide who goes and when",
+   "Waiting less ≠ crossing more: credit flow −2.74% → judge by orders finished",
+   "Few maps only (7 of 69) → confirm on new maps; measure first (38 of 69 stopped before code)"
   ],
-  "en": "Besides these, we tried **many** other versions; most gave **small gains**, and some lowered the results. 【指整张图】 Here they all are, with the key ones in red: our first-phase ideas, and **68 of the 69** existing mechanisms from the second phase. 【指红字】 For example, rerouting with **HN-SPF** was **25.88 percent** lower, and **hop-by-hop credit flow** was **2.74 percent** lower: robots waited less, but that **did not turn into more crossings**. 【指底部五张卡】 The reasons repeat: door 6 cannot be bypassed, and robots cannot be dropped. Step by step, these versions led us to DoorFlow.",
-  "zh": "除此之外，我们还试了**非常多**别的版本，大多**提升不大**，有的还变差。【指整张图】这里全部列出来了，关键的标成红色：第一阶段的想法，加上第二阶段 **69 种**现有机制里的 **68 种**。【指红字】比如用 **HN-SPF** 换路，结果少了 **25.88%**；**逐跳信用流控**少了 **2.74%**：车等得少了，但**没有变成多过门**。【指底部五张卡】原因总是那几条：门 6 绕不开，车不能丢。这些版本一步步把我们引到了 DoorFlow。",
+  "en": "Looking back at all the versions on slide 6, five lessons explain **why DoorFlow ended up this way**. 【指第一张卡】 Door 6 cannot be bypassed: **14 of 15** rerouting methods lowered results, so we control **how many robots go**, not where. 【指第二张卡】 Robots cannot be dropped and take up cells, so methods built on dropping or buffering do not carry over; we only decide **who goes and when**. 【指第三张卡】 Waiting less is not crossing more: **hop-by-hop credit flow** cut waiting but lowered results by **2.74 percent**, so we judge every change by orders finished. 【指第四、五张卡】 Gains on a few maps do not count, so we confirm on new maps; and we **measure the possible gain first**: 38 of 69 ideas stopped there, before any code.",
+  "zh": "回头看第 6 页的所有版本，有五条经验解释了 **DoorFlow 为什么是现在这个样子**。【指第一张卡】门 6 绕不开：15 种换路办法里 **14 种**都变差，所以我们管**派多少车**，不管走哪条路。【指第二张卡】车不能丢、还占着格子，所以靠丢包或缓冲的办法用不上；我们只决定**谁走、什么时候走**。【指第三张卡】等得少不等于过得多：**逐跳信用流控**让车等得少了，结果却少了 **2.74%**，所以每项改动都按完成的单数来判断。【指第四、五张卡】只在少数图上有提升不算数，所以要换新图确认；而且**先量能省多少**：69 种里有 38 种量完就停了，没写代码。",
   "segs": [
    {
-    "en": "Besides these, we tried **many** other versions; most gave **small gains**, and some lowered the results. 【指整张图】 Here they all are, with the key ones in red: our first-phase ideas, and **68 of the 69** existing mechanisms from the second phase.",
-    "zh": "除此之外，我们还试了**非常多**别的版本，大多**提升不大**，有的还变差。【指整张图】这里全部列出来了，关键的标成红色：第一阶段的想法，加上第二阶段 **69 种**现有机制里的 **68 种**。"
+    "en": "Looking back at all the versions on slide 6, five lessons explain **why DoorFlow ended up this way**.",
+    "zh": "回头看第 6 页的所有版本，有五条经验解释了 **DoorFlow 为什么是现在这个样子**。"
    },
    {
-    "en": "【指红字】 For example, rerouting with **HN-SPF** was **25.88 percent** lower, and **hop-by-hop credit flow** was **2.74 percent** lower: robots waited less, but that **did not turn into more crossings**.",
-    "zh": "【指红字】比如用 **HN-SPF** 换路，结果少了 **25.88%**；**逐跳信用流控**少了 **2.74%**：车等得少了，但**没有变成多过门**。"
+    "en": "【指第一张卡】 Door 6 cannot be bypassed: **14 of 15** rerouting methods lowered results, so we control **how many robots go**, not where. 【指第二张卡】 Robots cannot be dropped and take up cells, so methods built on dropping or buffering do not carry over; we only decide **who goes and when**.",
+    "zh": "【指第一张卡】门 6 绕不开：15 种换路办法里 **14 种**都变差，所以我们管**派多少车**，不管走哪条路。【指第二张卡】车不能丢、还占着格子，所以靠丢包或缓冲的办法用不上；我们只决定**谁走、什么时候走**。"
    },
    {
-    "en": "【指底部五张卡】 The reasons repeat: door 6 cannot be bypassed, and robots cannot be dropped. Step by step, these versions led us to DoorFlow.",
-    "zh": "【指底部五张卡】原因总是那几条：门 6 绕不开，车不能丢。这些版本一步步把我们引到了 DoorFlow。"
+    "en": "【指第三张卡】 Waiting less is not crossing more: **hop-by-hop credit flow** cut waiting but lowered results by **2.74 percent**, so we judge every change by orders finished. 【指第四、五张卡】 Gains on a few maps do not count, so we confirm on new maps; and we **measure the possible gain first**: 38 of 69 ideas stopped there, before any code.",
+    "zh": "【指第三张卡】等得少不等于过得多：**逐跳信用流控**让车等得少了，结果却少了 **2.74%**，所以每项改动都按完成的单数来判断。【指第四、五张卡】只在少数图上有提升不算数，所以要换新图确认；而且**先量能省多少**：69 种里有 38 种量完就停了，没写代码。"
    }
   ]
  },
