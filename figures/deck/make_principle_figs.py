@@ -1,6 +1,7 @@
 """Two figures for the deck's principle slides (run from the repo root):
   figures/deck/fig_bdp_principle.png  -- how big a door's window should be, from Little's law (theory sketch + door-6 numbers)
   figures/deck/fig_quota_deck.png     -- per-door quota formula (same as figures/brief/b_f2_quota.png, retitled)
+  figures/deck/fig_door_util_curve.png -- door utilization U(n) as a curve (slide 14)
   figures/deck/fig_door_rule_deck.png -- door rule in detail: buffer geometry and switching rule, buffer-size sweep, 18.7-tick budget
   figures/deck/fig_bbr_loop.png       -- BBR's control loop, mapped onto DoorFlow, with the measured delay ratios of round 50
   figures/deck/fig_door_util.png      -- door utilization formula (same as figures/brief/b_f3_door_rule.png, retitled)
@@ -93,6 +94,34 @@ def door_util(path):
             fig.text(0.05, 0.20 - i * 0.12, line, fontsize=9.5, color="#4b5563")
         fig.savefig(path, facecolor="white", bbox_inches="tight", pad_inches=0.15)
         plt.close(fig)
+
+
+def door_util_curve(path):
+    """Slide 14: door utilization U(n) = n h / ((n - 1) h + s), h = 9, s = 21 (both measured, round 40), as a curve."""
+    h, s = 9, 21
+    n = np.arange(1, 31)
+    U = n * h / ((n - 1) * h + s)
+    fig, ax = plt.subplots(figsize=(6.6, 4.3), dpi=220)
+    fig.subplots_adjust(left=0.12, right=0.97, top=0.80, bottom=0.14)
+    ax.fill_between(n, U * 100, 100, color=PALE, zorder=0)
+    ax.plot(n, U * 100, color=TEAL, lw=2.8, marker="o", ms=3.5)
+    for k, lab, dx, dy in [(1, "1 robot per turn: 9 / 21 = 43%", 2.0, -6), (10, "10 per turn: 90 / 102 = 88%", 2.5, -10)]:
+        u = k * h / ((k - 1) * h + s) * 100
+        ax.scatter([k], [u], s=70, color=ORG, zorder=5, edgecolor="white", lw=1.2)
+        ax.annotate(lab, xy=(k, u), xytext=(k + dx, u + dy), fontsize=9.5, color=INK, fontweight="bold",
+                    arrowprops=dict(arrowstyle="-|>", color=ORG, lw=1.0))
+    ax.text(2.4, 96.2, "shaded: time lost to switching\n(each switch costs 21 - 9 = 12 extra ticks)", fontsize=8.8, color=ORG, ha="left", va="center")
+    ax.annotate("exhaustive service: serve one side\nuntil it is empty → n grows with the queue", xy=(26, 26 * h / (25 * h + s) * 100),
+                xytext=(14.5, 55), fontsize=9, color=TEAL, ha="left", arrowprops=dict(arrowstyle="-|>", color=TEAL, lw=1.0))
+    ax.set_xlim(0, 31); ax.set_ylim(30, 104)
+    ax.set_xlabel("robots let through per turn, $n$", fontsize=10); ax.set_ylabel("share of time the door is passing robots (%)", fontsize=9.5)
+    ax.spines[["top", "right"]].set_visible(False); ax.tick_params(labelsize=9)
+    fig.text(0.02, 0.94, "Door utilization: one direction at a time, served in turns", fontsize=12, fontweight="bold", color=INK)
+    with plt.rc_context({"mathtext.fontset": "dejavuserif"}):
+        fig.text(0.02, 0.865, r"$U(n)=\dfrac{n\,h}{(n-1)\,h+s}=\dfrac{9n}{9(n-1)+21}$", fontsize=10.5, color=INK)
+        fig.text(0.47, 0.875, "$h$ = 9 ticks between two robots\n$s$ = 21 ticks to switch direction (both measured)", fontsize=9, color=GREY, va="center")
+    fig.savefig(path, facecolor="white")
+    plt.close(fig)
 
 
 def door_rule_deck(path):
@@ -245,3 +274,4 @@ if __name__ == "__main__":
     door_util("figures/deck/fig_door_util.png")
     quota_fig("figures/deck/fig_quota_deck.png")
     door_rule_deck("figures/deck/fig_door_rule_deck.png")
+    door_util_curve("figures/deck/fig_door_util_curve.png")

@@ -128,5 +128,15 @@
   "path": "figures/deck/fig_door_rule_deck.png",
   "w": 2600,
   "h": 1040
+ },
+ "utilC": {
+  "path": "figures/deck/fig_door_util_curve.png",
+  "w": 1452,
+  "h": 946
+ },
+ "execD": {
+  "path": "figures/deck/fig_executor_deck.png",
+  "w": 980,
+  "h": 1000
  }
 }

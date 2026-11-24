@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 ABL = os.path.join(ROOT, "figures", "part3", "rerun", "ablation_room_4x4.jsonl")
 OUT = os.path.join(ROOT, "figures", "deck", "fig_ablation_deck.png")
+R52B = os.path.join(ROOT, "experiment-materials", "archive", "workspace", "batches", "r52b-baseline", "rows.jsonl")
+OUT_EXEC = os.path.join(ROOT, "figures", "deck", "fig_executor_deck.png")
 plt.rcParams["font.family"] = "DejaVu Sans"
 plt.rcParams["savefig.dpi"] = 200
 INK, INK2, MUTED, GRID, SURF = "#0b0b0b", "#52514e", "#8a8984", "#e4e3df", "#ffffff"
@@ -76,5 +78,29 @@ def main():
     print(out)
 
 
+def executor():
+    """Deck copy of figures/part3/p3_fig07_executor_data.png with larger text, stacked for a narrow column. Same numbers:
+    22 / 26 / 45 robots through door 6 per 500 ticks (read-through notes, wait-v27, rounds 36-37) and the paired gain of the
+    fixed executor over the champion assignment in the formal evaluation (r52b-baseline rows, N2F vs N2, 20 runs per size)."""
+    rows = [json.loads(l) for l in open(R52B, encoding="utf-8") if l.strip()]
+    by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
+    gains = [100 * st.mean(g) for g in paired(by, "N2F", "N2", OFFICIAL)]
+    fig, (a1, a2) = plt.subplots(2, 1, figsize=(4.9, 5.0), dpi=220)
+    fig.subplots_adjust(left=0.13, right=0.98, top=0.90, bottom=0.08, hspace=0.75)
+    v = [22, 26, 45]
+    a1.bar(["before\nthe fix", "after the fix", "after the fix,\nbreakdowns off"], v, color=[GRAY, BLUE, "#1baf7a"], width=0.55)
+    for i, x in enumerate(v): a1.text(i, x + 1.2, f"{x}", ha="center", fontsize=11, color=INK, fontweight="bold")
+    a1.set_ylim(0, 54); a1.set_title("Robots through door 6 per 500 ticks (rounds 36-37)", fontsize=10.5, color=INK, loc="left")
+    a2.bar(["200 robots", "250 robots", "300 robots"], gains, color=BLUE, width=0.5)
+    for i, g in enumerate(gains): a2.text(i, g + 0.4, f"{g:+.1f}%", ha="center", fontsize=11, color=INK, fontweight="bold")
+    a2.set_ylim(0, 15); a2.set_title(f"Fixing only the executor: orders, mean {st.mean(gains):+.1f}%\n(official room map, 20 paired runs per size)", fontsize=10.5, color=INK, loc="left")
+    for ax in (a1, a2):
+        style(ax); ax.tick_params(labelsize=9.5)
+    fig.savefig(OUT_EXEC, facecolor=SURF)
+    plt.close(fig)
+    print("executor gains", [round(g, 1) for g in gains], round(st.mean(gains), 1))
+
+
 if __name__ == "__main__":
     main()
+    executor()
