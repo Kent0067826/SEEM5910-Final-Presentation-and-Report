@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DoorFlow Live</title>
+<style>
+  :root { --bg:#0b1118; --panel:#111a24; --line:#22313f; --ink:#e8eef4; --dim:#8a9bab; --teal:#40c4d6; --gold:#e39b2d; --red:#f0463c; --green:#4cc38a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:radial-gradient(1200px 600px at 50% -10%, #16283a 0%, var(--bg) 60%); color:var(--ink);
+         font:14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; min-height:100vh; }
+  header { padding:16px 24px 4px; display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; }
+  h1 { margin:0; font-size:20px; letter-spacing:.2px; }
+  h1 b { color:var(--gold); }
+  .grow { flex:1; }
+  .sub { color:var(--dim); font-size:12.5px; }
+  .pill { font-size:12.5px; font-weight:700; padding:4px 11px; border-radius:999px; background:#16222e; border:1px solid #2a3b4d; white-space:nowrap; }
+  .pill.run { color:#7fe0ec; border-color:#1f5a63; } .pill.done { color:var(--green); border-color:#245a40; }
+  .pill.build { color:var(--gold); border-color:#6b4a17; } .pill.err { color:#ff9a8f; border-color:#7a2a26; background:#2a1716; }
+  .pill.run::before, .pill.build::before { content:""; display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px;
+         background:currentColor; animation:blink 1s infinite; vertical-align:0; }
+  @keyframes blink { 50% { opacity:.25; } }
+  .paths { padding:0 24px 6px; }
+  .paths code { color:#c9d6e2; background:#101a24; padding:1px 6px; border-radius:6px; }
+  .err { margin:6px 24px 4px; border:1px solid #7a2a26; background:#1d1112; border-radius:12px; padding:10px 14px; }
+  .err .errh { color:#ff9a8f; font-weight:700; margin-bottom:6px; }
+  .err pre { margin:0; max-height:260px; overflow:auto; font:12.5px/1.4 ui-monospace, Consolas, monospace; color:#ffd5d0; white-space:pre-wrap; }
+  .toast { margin:6px 24px 0; color:#7fe0ec; font-size:13px; min-height:18px; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--dim); font-size:12.5px; padding:4px 24px 8px; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
+  main { display:grid; grid-template-columns: 1fr 1fr 320px; gap:16px; padding:8px 24px 18px; align-items:start; }
+  .card { background:linear-gradient(180deg, #121d29, #0f1821); border:1px solid var(--line); border-radius:14px; padding:12px; }
+  .ptitle { display:flex; justify-content:space-between; align-items:baseline; margin:2px 4px 8px; gap:10px; }
+  .ptitle h2 { margin:0; font-size:15px; } .ptitle span { color:var(--dim); font-size:12px; text-align:right; }
+  .pnote { color:#ff9a8f; font-size:12.5px; margin:0 4px 6px; min-height:0; }
+  canvas.map { width:100%; aspect-ratio:1/1; display:block; border-radius:10px; background:#0d151e; }
+  .stats { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:10px; }
+  .stat { background:#0c141c; border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+  .stat .v { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .stat .k { color:var(--dim); font-size:11.5px; }
+  .stat.alarm { border-color:#7a2a26; box-shadow:0 0 0 1px #7a2a26 inset, 0 0 18px rgba(240,70,60,.25); }
+  .stat.alarm .v { color:var(--red); }
+  .side h3 { margin:12px 2px 8px; font-size:14px; } .side h3:first-child { margin-top:2px; }
+  #result { font-size:13px; } #result .big { font-size:20px; font-weight:800; font-variant-numeric:tabular-nums; }
+  #result .row { display:flex; justify-content:space-between; gap:8px; padding:3px 2px; }
+  .up { color:var(--green); } .down { color:var(--red); }
+  #chart { width:100%; height:150px; display:block; }
+  #log { max-height:220px; overflow:auto; margin:0; padding:0; list-style:none; font-size:12.5px; }
+  #log li { padding:5px 8px; border-radius:8px; cursor:pointer; display:flex; gap:8px; align-items:center; }
+  #log li:hover { background:#16222e; }
+  .tag { font-size:11px; padding:1px 6px; border-radius:6px; background:#2a1716; color:#ff9a8f; white-space:nowrap; }
+  .tag.df { background:#12272a; color:#7fe0ec; }
+  ul.plain { margin:0; padding-left:18px; color:#c9d6e2; font-size:12.5px; } ul.plain li { margin:3px 0; }
+  ul.plain code { color:var(--gold); }
+  details { font-size:12.5px; color:var(--dim); margin-top:10px; } details pre { white-space:pre-wrap; color:#c9d6e2; font:12px/1.4 ui-monospace, Consolas, monospace; }
+  .controls { grid-column:1 / span 2; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  button, select { background:#162231; color:var(--ink); border:1px solid #2a3b4d; border-radius:9px; padding:7px 12px; font:inherit; cursor:pointer; }
+  button:hover { border-color:var(--teal); }
+  button.primary { background:var(--teal); color:#06202a; border-color:var(--teal); font-weight:700; min-width:84px; }
+  input[type=range] { flex:1; min-width:180px; accent-color:var(--gold); }
+  #tick { font-variant-numeric:tabular-nums; min-width:150px; color:var(--gold); font-weight:700; }
+  label.tg { color:var(--dim); font-size:12.5px; user-select:none; }
+  footer { color:var(--dim); font-size:12px; padding:0 24px 22px; }
+  @media (max-width: 1150px) { main { grid-template-columns:1fr; } .controls { grid-column:auto; } }
+</style>
+</head>
+<body>
+<header>
+  <h1><b>DoorFlow</b> live · edit the code, save, watch</h1>
+  <span id="pill" class="pill">connecting…</span>
+  <span class="sub" id="cond"></span>
+  <span class="grow"></span>
+  <button id="rerun" title="run both simulations again">Rerun</button>
+  <button id="openCode" title="open the folder with the simulator code">Open code folder</button>
+  <button id="openSettings" title="seeds, fleet size, ticks, DoorFlow switches">Open settings.json</button>
+</header>
+<div class="paths sub" id="paths"></div>
+<div class="err" id="err" hidden><div class="errh" id="errh"></div><pre id="errt"></pre></div>
+<div class="toast" id="toast"></div>
+<div class="legend">
+  <span><span class="dot" style="background:#5f6e7d"></span>no order</span>
+  <span><span class="dot" style="background:var(--teal)"></span>moving with an order</span>
+  <span><span class="dot" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>stuck: holds an order, has not moved for <b id="lgT"></b>+ ticks</span>
+  <span><span class="dot" style="background:transparent;border:2px solid var(--red)"></span>jammed door: <b id="lgJ"></b>+ stuck robots within <b id="lgR"></b> steps</span>
+</div>
+<main>
+  <section class="card" id="p0"></section>
+  <section class="card" id="p1"></section>
+  <aside class="card side" style="grid-row:span 2">
+    <h3>Result</h3>
+    <div id="result"><span class="sub">waiting for the first run…</span></div>
+    <h3>Orders finished per 500 ticks</h3>
+    <canvas id="chart"></canvas>
+    <h3>Jam log <span class="sub">(click to jump)</span></h3>
+    <ul id="log"></ul>
+    <h3>Where is what in the code</h3>
+    <ul class="plain">
+      <li>Quota (who gets an order): <code>default_planner/nms_scheduler.cpp</code>, <code>window_control.cpp</code></li>
+      <li>Door rule and deadlock watchdog: <code>default_planner/netmac.cpp</code></li>
+      <li>Executor fix: <code>default_planner/default_executor.cpp</code></li>
+      <li>Numbers and switches (no compiling): <code>settings.json</code> → <code>"overrides"</code></li>
+    </ul>
+    <details><summary>Settings in use (right-hand run)</summary><pre id="envs"></pre></details>
+    <h3>Recent runs</h3>
+    <ul class="plain" id="hist"></ul>
+  </aside>
+  <div class="controls card">
+    <button class="primary" id="play">Pause</button>
+    <select id="speed" title="playback speed">
+      <option value="50">50 ticks/s</option><option value="100">100 ticks/s</option><option value="200" selected>200 ticks/s</option>
+      <option value="400">400 ticks/s</option><option value="800">800 ticks/s</option><option value="0">as fast as computed</option>
+    </select>
+    <input type="range" id="scrub" min="0" max="0" value="0">
+    <span id="tick">tick 0</span>
+    <button id="j3000">Jump to tick 3,000</button>
+    <label class="tg"><input type="checkbox" id="heat" checked> heat trail</label>
+    <label class="tg"><input type="checkbox" id="labels" checked> door labels</label>
+  </div>
+</main>
+<footer id="foot">Both runs use the code in your work folder and the same seeds. Left: DoorFlow switched off (champion assignment + fixed executor). Right: DoorFlow with settings.json.</footer>
+<script>
+const $ = (id) => document.getElementById(id);
+const DEF = [{ key: 'none', name: 'No door control', sub: 'same code, DoorFlow switched off' },
+             { key: 'doorflow', name: 'DoorFlow (your code)', sub: 'quota + door rule + fixes + safety nets' }];
+let G = null, H = 0, W = 0, free = null, lab = null, cellDoors = null, ND = 0, door6 = -1, pairA = -1, pairB = -1;
+let runs = [], gen = -1, status = null, events = [], head = 0, playing = true, lastF = -1, base = null, S = 0, last = performance.now();
+const fmt = (v) => (v == null ? '–' : Number(v).toLocaleString('en-US'));
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const pct = (a, b) => (b ? (a / b - 1) * 100 : 0);
+
+// ---------- static map ----------
+async function loadStatic() {
+  G = await (await fetch('/api/static', { cache: 'no-store' })).json();
+  H = G.H; W = G.W; free = Uint8Array.from(G.free, (c) => c === '1'); lab = Int16Array.from(G.lab); ND = G.doors.length;
+  cellDoors = new Array(H * W).fill(null); for (const k in G.cellDoors) cellDoors[+k] = G.cellDoors[k];
+  door6 = G.doors.findIndex((d) => d.id === 6); [pairA, pairB] = G.doors[door6].rooms;
+  $('lgT').textContent = G.stuckTicks; $('lgJ').textContent = G.jamMin; $('lgR').textContent = G.radius;
+  DEF.forEach((d, i) => {
+    $('p' + i).innerHTML = `<div class="ptitle"><h2>${d.name}</h2><span>${d.sub}</span></div><div class="pnote" id="note${i}"></div>
+      <canvas class="map" id="c${i}"></canvas>
+      <div class="stats"><div class="stat"><div class="v" id="fin${i}">0</div><div class="k">orders finished</div></div>
+      <div class="stat" id="stS${i}"><div class="v" id="st${i}">0</div><div class="k">robots stuck now</div></div>
+      <div class="stat"><div class="v" id="x${i}">0</div><div class="k">door 6 crossings, this 500-tick window</div></div></div>`;
+  });
+  resize();
+}
+function buildBase(size) {
+  const c = document.createElement('canvas'); c.width = c.height = size; const g = c.getContext('2d'); const s = size / W;
+  g.fillStyle = '#0d151e'; g.fillRect(0, 0, size, size);
+  for (let r = 0; r < H; r++) for (let q = 0; q < W; q++) {
+    g.fillStyle = free[r * W + q] ? ((Math.floor(r / 16) + Math.floor(q / 16)) % 2 ? '#152230' : '#132030') : '#3a4a5a';
+    g.fillRect(q * s, r * s, s + 0.5, s + 0.5);
+  }
+  return c;
+}
+function resize() {
+  if (!G) return;
+  const dpr = window.devicePixelRatio || 1; S = Math.max(256, Math.round($('c0').clientWidth * dpr));
+  for (let i = 0; i < 2; i++) { $('c' + i).width = $('c' + i).height = S; }
+  base = buildBase(S); const ch = $('chart'); ch.width = ch.clientWidth * dpr; ch.height = ch.clientHeight * dpr; lastF = -1;
+}
+window.addEventListener('resize', resize);
+
+// ---------- one run's data, parsed while it is computed ----------
+function newRun(def, N, T, i) {
+  return { ...def, i, N, T, F: 0, tick: new Int32Array(T), fin: new Int32Array(T), pos: new Uint16Array(T * N), jam: new Uint8Array(T * ND),
+    x6: new Int32Array(Math.ceil(T / 500) + 1), prev: new Int32Array(N).fill(-1), still: new Int32Array(N), lastLab: new Int32Array(N).fill(-1),
+    jamOn: new Uint8Array(ND), jamStart: new Int32Array(ND), jamPeak: new Uint8Array(ND), jamEv: new Array(ND).fill(null), heat: new Float32Array(H * W),
+    done: false, rc: null, finished: null, fetching: false, cv: $('c' + i), ctx: $('c' + i).getContext('2d') };
+}
+function ingest(r, buf) {
+  const dv = new DataView(buf), rec = 12 + 6 * r.N; let o = 0;
+  while (o + rec <= buf.byteLength && r.F < r.T) {
+    const f = r.F, t = dv.getInt32(o, true), fin = dv.getInt32(o + 4, true), n = dv.getInt32(o + 8, true); o += 12;
+    r.tick[f] = t; r.fin[f] = fin; const jam = r.jam.subarray(f * ND, (f + 1) * ND);
+    for (let i = 0; i < n; i++, o += 6) {
+      const loc = dv.getInt32(o, true), has = dv.getInt8(o + 5) ? 1 : 0;
+      r.still[i] = f > 0 && loc === r.prev[i] ? r.still[i] + 1 : 0; r.prev[i] = loc;
+      const st = has && r.still[i] >= G.stuckTicks;
+      r.pos[f * r.N + i] = (loc & 0x0fff) | (st ? 0x4000 : 0) | (has ? 0x8000 : 0);
+      if (st && cellDoors[loc]) for (const d of cellDoors[loc]) if (jam[d] < 255) jam[d]++;
+      const cur = lab[loc];
+      if (cur >= 0) {
+        const p = r.lastLab[i];
+        if (f > 0 && p >= 0 && p !== cur && ((p === pairA && cur === pairB) || (p === pairB && cur === pairA))) r.x6[Math.floor((t - 1) / 500)]++;
+        r.lastLab[i] = cur;
+      }
+    }
+    for (let d = 0; d < ND; d++) {   // jam log: jammed from jamMin stuck robots until it drops below jamMin - 2; listed after 6 ticks
+      const v = jam[d];
+      if (!r.jamOn[d]) { if (v >= G.jamMin) { r.jamOn[d] = 1; r.jamStart[d] = f; r.jamPeak[d] = v; r.jamEv[d] = null; } continue; }
+      r.jamPeak[d] = Math.max(r.jamPeak[d], v);
+      if (!r.jamEv[d] && f - r.jamStart[d] >= 6) { r.jamEv[d] = { ri: r.i, d, f: r.jamStart[d], peak: 0 }; events.push(r.jamEv[d]); }
+      if (r.jamEv[d]) r.jamEv[d].peak = r.jamPeak[d];
+      if (v < Math.max(1, G.jamMin - 2)) { r.jamOn[d] = 0; r.jamEv[d] = null; }
+    }
+    r.F++;
+  }
+}
+function per500(r, upto) {
+  const out = []; const n = upto == null ? r.F : upto;
+  for (let k = 0; k * 500 < n; k++) { const e = Math.min(n - 1, k * 500 + 499); out.push(r.fin[e] - (k ? r.fin[k * 500 - 1] : 0)); }
+  return out;
+}
+
+// ---------- server polling ----------
+function setPill(text, cls) { const p = $('pill'); p.textContent = text; p.className = 'pill ' + (cls || ''); }
+async function poll() {
+  try { status = await (await fetch('/api/status', { cache: 'no-store' })).json(); }
+  catch (e) { setPill('live.py is not running', 'err'); return; }
+  const s = status, run = s.run;
+  $('paths').innerHTML = `Edit the code in <code>${esc(s.sim)}</code> · settings: <code>${esc(s.settings)}</code>` +
+    (s.gxx ? ` · compiler: <code>${esc(s.gxx)}</code>` : '');
+  if (run && run.gen !== gen) reset(run);
+  const F = runs.length ? Math.min(...runs.map((r) => r.F)) : 0;
+  if (s.phase === 'building') setPill(s.total ? `Compiling ${s.compiled}/${s.total}${s.current ? ' · ' + s.current : ''}` : 'Checking the code…', 'build');
+  else if (s.phase === 'error') setPill(s.msg === 'g++ not found' ? 'g++ not found' : (s.msg || 'error'), 'err');
+  else if (s.phase === 'running') setPill(`Running · computed tick ${fmt(F)} / ${fmt(run ? run.ticks : 0)}`, 'run');
+  else if (s.phase === 'done') setPill('Finished · watching your files for changes', 'done');
+  else setPill(s.phase);
+  let eh = '', et = '';
+  if (s.phase === 'error') {
+    eh = s.msg === 'compile error' ? 'Compile error. Fix the code and save: it rebuilds by itself. The last good run stays on screen.'
+       : s.msg === 'g++ not found' ? 'No C++ compiler found' : 'Problem: ' + s.msg;
+    et = s.errors;
+  }
+  if (run) for (const k of Object.keys(run.runs)) { const x = run.runs[k]; if (x.done && x.rc !== 0) { eh = eh || 'A simulation stopped with an error'; et += `\n[${k}] exit code ${x.rc}\n${x.stderr || ''}`; } }
+  $('err').hidden = !eh; $('errh').textContent = eh; $('errt').textContent = et.trim();
+  if (run) {
+    $('cond').textContent = `${run.instance} · ${run.team} robots · seed ${run.seed} · planner seed ${run.planner_seed} · ${fmt(run.ticks)} ticks · run ${run.gen}`;
+    runs.forEach((r) => { const x = run.runs[r.key]; if (x) { r.done = x.done; r.rc = x.rc; r.finished = x.finished; r.seconds = x.seconds; } });
+    const dfe = run.env.doorflow, ne = run.env.none, off = Object.keys(dfe).filter((k) => !(k in ne));
+    $('envs').textContent = Object.keys(dfe).sort().map((k) => `${k} = ${dfe[k]}`).join('\n') +
+      `\n\nswitched off on the left: ${off.join(', ')}` + (Object.keys(run.overrides).length ? `\noverrides from settings.json: ${JSON.stringify(run.overrides)}` : '');
+  }
+  $('hist').innerHTML = (s.history || []).map((h) => `<li>run ${h.gen} · ${new Date(h.at * 1000).toLocaleTimeString()} · ${esc(h.why)}</li>`).join('') || '<li>none yet</li>';
+  renderResult();
+}
+function reset(run) {
+  gen = run.gen; events = []; head = 0; lastF = -1; playing = true; $('play').textContent = 'Pause';
+  runs = DEF.map((d, i) => newRun(d, run.team, run.ticks, i));
+  $('toast').textContent = `Run ${run.gen} started · ${run.why}`;
+  setTimeout(() => { if (gen === run.gen) $('toast').textContent = ''; }, 6000);
+}
+async function pump() {
+  if (!status || !status.run) return;
+  for (const r of runs) {
+    const x = status.run.runs[r.key]; if (!x || r.fetching || x.frames <= r.F) continue;
+    r.fetching = true; const g0 = gen;
+    try {
+      const res = await fetch(`/api/data?gen=${g0}&key=${r.key}&off=${r.F * (12 + 6 * r.N)}`, { cache: 'no-store' });
+      if (res.ok && g0 === gen) ingest(r, await res.arrayBuffer());
+    } catch (e) { /* next round */ } finally { r.fetching = false; }
+  }
+}
+
+// ---------- side panel ----------
+function refOK() { const run = status && status.run, c = G && G.refCond; return run && G.ref && run.instance === c.instance && run.seed === c.seed && run.planner_seed === c.planner_seed && run.ticks === c.ticks; }
+function renderResult() {
+  if (runs.length < 2 || !runs[0].F || !runs[1].F) return;
+  const [a, b] = runs, allDone = a.done && b.done && a.finished != null && b.finished != null;
+  const k = Math.min(a.F, b.F) - 1;   // results so far = the last tick both runs have computed (not the playback position)
+  const fa = allDone ? a.finished : a.fin[k], fb = allDone ? b.finished : b.fin[k], d = pct(fb, fa);
+  let h = `<div class="row"><span>${allDone ? `Final · ${fmt(a.T)} ticks` : `Computed so far · tick ${fmt(a.tick[k])}`}</span>
+    <span class="sub">${allDone ? `took ${a.seconds} s / ${b.seconds} s` : 'computing…'}</span></div>
+    <div class="row"><span>No door control</span><span class="big">${fmt(fa)}</span></div>
+    <div class="row"><span>DoorFlow (your code)</span><span class="big">${fmt(fb)} <span class="${d >= 0 ? 'up' : 'down'}" style="font-size:14px">${d >= 0 ? '+' : ''}${d.toFixed(1)}%</span></span></div>`;
+  if (refOK() && allDone) {
+    const o = G.ref.doorflow.finished, dd = pct(fb, o);
+    h += `<div class="row"><span>Original DoorFlow (repo)</span><span>${fmt(o)} → yours <b class="${dd >= 0 ? 'up' : 'down'}">${dd >= 0 ? '+' : ''}${dd.toFixed(1)}%</b></span></div>`;
+  }
+  $('result').innerHTML = h;
+}
+function renderLog(f) {
+  const ul = $('log'); const shown = events.filter((e) => e.f <= f).sort((x, y) => x.f - y.f).slice(-60).reverse();
+  ul.innerHTML = shown.length ? '' : '<li style="cursor:default;color:var(--dim)">no jams yet</li>';
+  for (const e of shown) {
+    const r = runs[e.ri]; if (!r) continue;
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="tag ${r.key === 'none' ? '' : 'df'}">${r.key === 'none' ? 'no control' : 'DoorFlow'}</span>
+      <span>tick ${fmt(r.tick[e.f])} · door ${G.doors[e.d].id} · up to <b>${e.peak}</b> stuck</span>`;
+    li.onclick = () => { head = e.f; playing = false; $('play').textContent = 'Play'; };
+    ul.appendChild(li);
+  }
+}
+function drawChart(f) {
+  const c = $('chart'), g = c.getContext('2d'), w = c.width, h = c.height, dpr = window.devicePixelRatio || 1;
+  g.clearRect(0, 0, w, h); if (!runs.length) return;
+  const T = runs[0].T, n = Math.ceil(T / 500); const series = runs.map((r) => per500(r));
+  const ref = refOK() ? [G.ref.none.orders_per_500, G.ref.doorflow.orders_per_500] : null;
+  const mx = Math.max(60, ...series.flat(), ...(ref ? ref.flat() : [])) * 1.12;
+  const X = (i) => 30 * dpr + (w - 40 * dpr) * i / Math.max(1, n - 1), Y = (v) => h - 18 * dpr - (h - 40 * dpr) * v / mx;
+  g.strokeStyle = '#22313f'; g.lineWidth = 1; g.font = `${10 * dpr}px system-ui`; g.fillStyle = '#8a9bab';
+  for (const v of [0, 50, 100, 150, 200]) { if (v > mx) continue; g.beginPath(); g.moveTo(X(0), Y(v)); g.lineTo(X(n - 1), Y(v)); g.stroke(); g.fillText(v, 2 * dpr, Y(v) + 3 * dpr); }
+  const cols = ['#f0463c', '#40c4d6'];
+  if (ref) ref.forEach((s, i) => { g.setLineDash([4 * dpr, 4 * dpr]); g.strokeStyle = cols[i] + '88'; g.lineWidth = 1.4 * dpr; g.beginPath(); s.forEach((v, k) => (k ? g.lineTo(X(k), Y(v)) : g.moveTo(X(k), Y(v)))); g.stroke(); });
+  g.setLineDash([]);
+  series.forEach((s, i) => { g.strokeStyle = cols[i]; g.lineWidth = 2.4 * dpr; g.beginPath(); s.forEach((v, k) => (k ? g.lineTo(X(k), Y(v)) : g.moveTo(X(k), Y(v)))); g.stroke(); });
+  const cur = Math.floor(((runs[0].tick[f] || 1) - 1) / 500); g.fillStyle = 'rgba(227,155,45,.12)'; g.fillRect(X(cur) - 6 * dpr, 20 * dpr, 12 * dpr, h - 38 * dpr);
+  const leg = [['no door control', cols[0]], ['DoorFlow (yours)', cols[1]]].concat(ref ? [['dashed: original code', '#8a9bab']] : []);
+  let lx = 30 * dpr; for (const [t, cl] of leg) { g.fillStyle = cl; g.fillRect(lx, 7 * dpr, 12 * dpr, 3 * dpr); g.fillStyle = '#c9d6e2'; g.fillText(t, lx + 16 * dpr, 12 * dpr); lx += (g.measureText(t).width + 30 * dpr); }
+  g.fillStyle = '#8a9bab'; g.fillText('tick 0', X(0), h - 4 * dpr); g.fillText(fmt(T), X(n - 1) - 26 * dpr, h - 4 * dpr);
+}
+
+// ---------- drawing ----------
+function heatStep(r, f0, f1) {
+  for (let f = f0; f <= f1; f++) {
+    for (let k = 0; k < r.heat.length; k++) r.heat[k] *= 0.97;
+    for (let i = 0; i < r.N; i++) { const w = r.pos[f * r.N + i]; if (w & 0x4000) r.heat[w & 0x0fff] += 0.04; }
+  }
+}
+function draw(now) {
+  const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  if (G && runs.length) {
+    const live = runs.filter((r) => !(r.done && r.rc !== 0 && r.F < 2));
+    const F = live.length ? Math.min(...live.map((r) => r.F)) : 0;
+    if (F > 0) {
+      const sp = +$('speed').value;
+      if (playing) head = sp === 0 ? F - 1 : head + dt * sp;
+      const allDone = runs.every((r) => r.done);
+      if (head >= F - 1) { head = F - 1; if (allDone && playing && F > 1) { playing = false; $('play').textContent = 'Replay'; } }
+      const f = Math.max(0, Math.floor(head)), a = head - f, f2 = Math.min(F - 1, f + 1);
+      if (f !== lastF) {
+        if (f < lastF || f - lastF > 120 || lastF < 0) live.forEach((r) => { r.heat.fill(0); heatStep(r, Math.max(0, f - 120), f); });
+        else live.forEach((r) => heatStep(r, lastF + 1, f));
+        lastF = f; $('scrub').max = F - 1; $('scrub').value = f; renderLog(f); drawChart(f);
+      }
+      const s = S / W, pulse = 0.5 + 0.5 * Math.sin(now / 180);
+      runs.forEach((r) => {
+        const g = r.ctx; g.drawImage(base, 0, 0);
+        $('note' + r.i).textContent = r.done && r.rc !== 0 ? `this run stopped with exit code ${r.rc} (see the red box above)` : '';
+        if (r.F <= f) return;
+        if ($('heat').checked) for (let k = 0; k < r.heat.length; k++) { const v = r.heat[k]; if (v > 0.35) { g.fillStyle = `rgba(230,45,35,${Math.min(0.5, 0.12 + (v - 0.35) * 0.45)})`; g.fillRect((k % W) * s, Math.floor(k / W) * s, s + 0.5, s + 0.5); } }
+        const placed = [];
+        for (let d = 0; d < ND; d++) {
+          const v = r.jam[f * ND + d], dd = G.doors[d], cx = (dd.c + 0.5) * s, cy = (dd.r + 0.5) * s;
+          if (v >= G.jamMin) {
+            const rad = s * (2.5 + Math.min(v, 30) / 5) * (0.9 + 0.25 * pulse);
+            const gr = g.createRadialGradient(cx, cy, 0, cx, cy, rad); gr.addColorStop(0, 'rgba(255,60,45,.75)'); gr.addColorStop(1, 'rgba(255,60,45,0)');
+            g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, rad, 0, 7); g.fill();
+          }
+          g.fillStyle = v >= G.jamMin ? '#ff5a46' : '#7f93a7'; g.fillRect(dd.c * s, dd.r * s, s, s);
+          if ($('labels').checked && (d === door6 || v >= G.jamMin) && !placed.some((p) => Math.abs(p[0] - dd.c) + Math.abs(p[1] - dd.r) < 8)) placed.push([dd.c, dd.r, dd.id, d === door6, cx, cy]);
+        }
+        let stuck = 0; const ff2 = Math.min(r.F - 1, f2);
+        for (let i = 0; i < r.N; i++) {
+          const w1 = r.pos[f * r.N + i], w2 = r.pos[ff2 * r.N + i], l1 = w1 & 0x0fff, l2 = w2 & 0x0fff;
+          let x = l1 % W, y = Math.floor(l1 / W); const x2 = l2 % W, y2 = Math.floor(l2 / W);
+          if (Math.abs(x2 - x) + Math.abs(y2 - y) <= 2) { x += (x2 - x) * a; y += (y2 - y) * a; }
+          const st = w1 & 0x4000, has = w1 & 0x8000; if (st) stuck++;
+          g.beginPath(); g.arc((x + 0.5) * s, (y + 0.5) * s, s * (st ? 0.48 : 0.38), 0, 7);
+          if (st) { g.shadowColor = 'rgba(255,60,45,.9)'; g.shadowBlur = s * 1.6; g.fillStyle = '#f0463c'; } else { g.shadowBlur = 0; g.fillStyle = has ? '#40c4d6' : '#5f6e7d'; }
+          g.fill();
+        }
+        g.shadowBlur = 0;
+        g.font = `bold ${Math.max(11, s * 1.8)}px system-ui`; g.lineJoin = 'round';
+        for (const [, , id, is6, cx, cy] of placed) {   // labels last, so robots never cover them
+          g.lineWidth = Math.max(3, s * 0.6); g.strokeStyle = 'rgba(8,12,18,.92)'; g.strokeText(`door ${id}`, cx + s * 1.2, cy - s);
+          g.fillStyle = is6 ? '#f0b04a' : '#ffb3aa'; g.fillText(`door ${id}`, cx + s * 1.2, cy - s);
+        }
+        $('fin' + r.i).textContent = fmt(r.fin[f]); $('st' + r.i).textContent = stuck; $('stS' + r.i).classList.toggle('alarm', stuck >= 60);
+        $('x' + r.i).textContent = r.x6[Math.floor((r.tick[f] - 1) / 500)];
+      });
+      $('tick').textContent = `tick ${fmt(runs[0].tick[f])} / ${fmt(runs[0].T)}`;
+    }
+  }
+  requestAnimationFrame(draw);
+}
+
+// ---------- controls ----------
+$('scrub').oninput = (e) => { head = +e.target.value; playing = false; $('play').textContent = 'Play'; };
+$('play').onclick = () => {
+  const F = runs.length ? Math.min(...runs.map((r) => r.F)) : 0;
+  if (!playing && head >= F - 1 && runs.every((r) => r.done)) head = 0;
+  playing = !playing; $('play').textContent = playing ? 'Pause' : 'Play';
+};
+$('j3000').onclick = () => { if (!runs.length) return; const i = runs[0].tick.findIndex((t) => t >= 3000); if (i >= 0 && i < Math.min(...runs.map((r) => r.F))) { head = i; playing = false; $('play').textContent = 'Play'; } };
+$('rerun').onclick = () => fetch('/api/rerun', { method: 'POST' });
+async function openIt(what) { const r = await (await fetch('/api/open?what=' + what, { method: 'POST' })).json(); if (!r.ok) alert('Please open this yourself:\n' + r.path); }
+$('openCode').onclick = () => openIt('code'); $('openSettings').onclick = () => openIt('settings');
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'SELECT') return;
+  if (e.code === 'Space') { e.preventDefault(); $('play').click(); }
+  if (e.code === 'ArrowRight') { head += 50; playing = false; $('play').textContent = 'Play'; }
+  if (e.code === 'ArrowLeft') { head = Math.max(0, head - 50); playing = false; $('play').textContent = 'Play'; }
+});
+loadStatic().then(() => { poll(); setInterval(poll, 400); setInterval(pump, 120); requestAnimationFrame(draw); });
+</script>
+</body>
+</html>
