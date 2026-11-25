@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v57.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v58.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -322,16 +322,9 @@ section(1);
   readPanel(slide, s, say(s), 7.8, 1.3, 4.95, 5.65, { max: 20, center: true });
 }
 
-// ---------- 9 why only about 26 robots per 500 ticks at door 6 (breakdown of the 18.7 ticks) ----------
+// ---------- 9 what makes our robots different ----------
 {
   const s = S(9); const slide = content(s);
-  addImg(slide, "doorC", M, 1.25, 12.15, 2.55);
-  readPanel(slide, s, say(s), M, 3.95, 12.15, 3.0, { max: 20, pad: 0.15, em: 0.46 });
-}
-
-// ---------- 10 what makes our robots different ----------
-{
-  const s = S(10); const slide = content(s);
   const X = [M, M + 4.05, M + 8.15], CW = [3.95, 4.0, 4.0], rh = 0.44, y0 = 1.72;
   ["Our robots", "Computer networks", "Road traffic"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: 1.3, w: CW[j] - 0.15, h: 0.36, fontSize: 15, bold: true, color: j ? C.text1 : C.accent3, margin: 0, isTextBox: true, valign: "bottom" }));
@@ -356,11 +349,18 @@ section(1);
   readPanel(slide, s, oneP(say(s)), M, 5.0, 12.15, 1.95, { max: 18, pad: 0.15 });
 }
 
-// ---------- 11 a quota for each door ----------
+// ---------- 10 a quota for each door ----------
 {
-  const s = S(11); const slide = content(s);
+  const s = S(10); const slide = content(s);
   addImg(slide, "bdp", M, 1.3, 6.3, 5.65, "left");
   readPanel(slide, s, say(s), 7.1, 1.3, 5.65, 5.65, { max: 20, center: true });
+}
+
+// ---------- 11 why only about 26 robots per 500 ticks at door 6 (breakdown of the 18.7 ticks) ----------
+{
+  const s = S(11); const slide = content(s);
+  addImg(slide, "doorC", M, 1.25, 12.15, 2.55);
+  readPanel(slide, s, say(s), M, 3.95, 12.15, 3.0, { max: 20, pad: 0.15, em: 0.46 });
 }
 
 // ---------- 12 door 6's quota, number by number ----------
@@ -370,7 +370,7 @@ section(1);
   ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
-    ["**Ticks per robot**, each way: door rate\n500 ÷ 18.7 ≈ 26 (slide 9) ÷ 2 = 13 per 500", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
+    ["**Ticks per robot**, each way: door rate\n500 ÷ 18.7 ≈ 26 (slide 11) ÷ 2 = 13 per 500", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
     ["**Free trip** = 25 to the pickup\n+ average from every far-side cell", "to pickup 25 + to door 222 = **247**", "to pickup 25 + to door 133 = **158**"],
     ["**Slowdown** = real ÷ free trip\nmedian of 224 timed trips", "× **2.23**", "× **2.23**"],
     ["**Real trip** = slowdown × free trip", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
@@ -393,9 +393,7 @@ section(1);
   const s = S(13); const slide = content(s);
   addImg(slide, "knee", M, 1.3, 6.4, 5.1, "left");
   caption(slide, "Each dot = one 500-tick period, one measured run each.", M, 6.5, 6.4);
-  readPanel(slide, s, say(s), 7.2, 1.3, 5.55, 3.95, { max: 18 });   // the sizes (8, 32, formula) are in the text, so the table only compares how to count
-  tried(slide, [["One quota for all robots", "+0.53%"], ["One quota **per door and direction**", "**+29.1%** ✓", 1]],
-        7.2, 5.4, 5.55, 1.5, "What we tried", 13, 0.6);
+  readPanel(slide, s, say(s), 7.2, 1.3, 5.55, 5.6, { max: 19, center: true });
 }
 
 // ---------- 14 fixed quota from averages, or adjusted live: three live alternatives rerun ----------
