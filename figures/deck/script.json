@@ -1175,16 +1175,13 @@
  {
   "n": 18,
   "speaker": 4,
-  "time": "0:36",
+  "time": "0:20",
   "title": "The hardest part: does it run as we meant?",
   "figs": [
    "回放演示动图（每处拥堵自动变红；本项目模拟器，种子 9700 / 101）"
   ],
   "hints": [
-   "Pseudocode is short; hardest: real code doing what we meant → most of our time",
-   "Rounds 1–8 void: fixed seed + unset variable; 54 runs, only 5 identical",
-   "+6.8% from a mechanism that never switched on (picked no door in 32 instances)",
-   "Executor bug: only visible tick by tick",
+   "Pseudocode is short; hardest: real code doing what we meant",
    "Same congestion monitor on our own code: 1,130 vs 609 orders in this run"
   ],
   "segs": [
@@ -1194,41 +1191,15 @@
     "key": "Hardest: real code where the robots **really do what we meant**"
    },
    {
-    "en": "【指左边三张卡】 {For example,} our first eight rounds were void: {a fixed planner seed and an unset variable meant} the same program, run **54 times**, gave the same result only **5 times**. One version gained **6.8 percent**, but its mechanism **never switched on**.",
-    "zh": "【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。",
-    "key": [
-     "First eight rounds void: same program, **run 54 times**, same result only **5 times**",
-     "**+6.8%**, but the mechanism **never switched on**"
-    ]
-   },
-   {
     "en": "【指右边动图】 {Same monitor, our own code:} without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** {in this run}.",
     "zh": "【指右边动图】同一个监测程序看我们自己的代码：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。",
     "key": "Same monitor on **our own code**: no door control → red around door 6; DoorFlow → **the door keeps flowing**"
    }
   ],
-  "en": "{The pseudocode looks short.} The hardest part was writing the real code, and then checking that the robots **really did what we meant**. 【指左边三张卡】 {For example,} our first eight rounds were void: {a fixed planner seed and an unset variable meant} the same program, run **54 times**, gave the same result only **5 times**. One version gained **6.8 percent**, but its mechanism **never switched on**. 【指右边动图】 {Same monitor, our own code:} without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** {in this run}.",
-  "zh": "伪代码看起来很短。最难的是写出真正的代码，再检查车是不是**真的按我们的意思在走**。【指左边三张卡】比如前 8 轮结果全部作废：规划器种子写死、一个变量没初始化，同一个程序跑 **54 次**只有 **5 次**结果相同。有一版多了 **6.8%**，但它的机制**根本没启动**。【指右边动图】同一个监测程序看我们自己的代码：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。",
-  "foot": "Counted in our log: round 9 rebuilt one program 54 times, 5 identical results; +6.8% (rounds 66–71) came from a mechanism that picked no door in 32 instances (round 72). 609 / 1,130: measured, one run each (official map, 250 robots, seeds 9700 / 101); the panels show tick 3,000.",
+  "en": "{The pseudocode looks short.} The hardest part was writing the real code, and then checking that the robots **really did what we meant**. 【指右边动图】 {Same monitor, our own code:} without door control, red spreads around door 6; with DoorFlow, the door keeps flowing, **1,130 orders instead of 609** {in this run}.",
+  "zh": "伪代码看起来很短。最难的是写出真正的代码，再检查车是不是**真的按我们的意思在走**。【指右边动图】同一个监测程序看我们自己的代码：不管门时，门 6 周围一片红；用 DoorFlow，门一直在流动，这一局 **1130 单对 609 单**。",
+  "foot": "609 / 1,130: measured, one run each (official map, 250 robots, seeds 9700 / 101); the panels show tick 3,000.",
   "src": [
-   [
-    "8 轮",
-    "作废的前 8 轮",
-    "数出来的（第 9 轮查出评测错误）",
-    "报告全文第九节尝试表；`experiment-materials/网络协议方向/报告源/通读/第1-75轮_通读笔记.md`、`协议方向_通读笔记.md`"
-   ],
-   [
-    "54 次 / 5 次",
-    "同一程序重编 54 次，只有 5 次结果相同",
-    "实测（第 9 轮）",
-    "报告全文第九节尝试表；`experiment-materials/网络协议方向/报告源/通读/第1-75轮_通读笔记.md`、`协议方向_通读笔记.md`"
-   ],
-   [
-    "6.8%",
-    "按区域选门的准入（RG5）当时的确认结果",
-    "多局统计（第 66–71 轮）；第 72 轮查出它在 32 个实例上一道门也没选",
-    "报告全文第九节尝试表；`experiment-materials/网络协议方向/报告源/通读/第1-75轮_通读笔记.md`、`协议方向_通读笔记.md`"
-   ],
    [
     "609 / 1130",
     "回放这一局的完成数",
