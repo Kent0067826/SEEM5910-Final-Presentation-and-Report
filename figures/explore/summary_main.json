@@ -1,6 +1,6 @@
 {
  "set": "main",
- "runs": 780,
+ "runs": 900,
  "errors": 0,
  "variants": {
   "DF": {
@@ -674,6 +674,110 @@
     "share_of_time_window_full": [
      0.639,
      0.581
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "WD150": {
+   "n": 60,
+   "change_pct": -0.77,
+   "ci95_pct": [
+    -1.77,
+    0.22
+   ],
+   "better": 24,
+   "worse": 35,
+   "equal": 1,
+   "worst_pct": -12.71,
+   "best_pct": 7.3,
+   "per_map": {
+    "room200": {
+     "orders": 1024.7,
+     "doorflow": 1036.5,
+     "change_pct": -1.14,
+     "better": 4
+    },
+    "room250": {
+     "orders": 1106.3,
+     "doorflow": 1104.5,
+     "change_pct": 0.22,
+     "better": 10
+    },
+    "room300": {
+     "orders": 1158.9,
+     "doorflow": 1175.3,
+     "change_pct": -1.39,
+     "better": 10
+    }
+   },
+   "door6": {
+    "crossings_per_run": 243.767,
+    "stuck_near_door_mean": 3.855,
+    "share_of_time_8plus_stuck": 0.095,
+    "counted_on_the_way": [
+     9.332,
+     13.457
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.641,
+     0.566
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "WD600": {
+   "n": 60,
+   "change_pct": -0.55,
+   "ci95_pct": [
+    -1.29,
+    0.06
+   ],
+   "better": 11,
+   "worse": 16,
+   "equal": 33,
+   "worst_pct": -13.14,
+   "best_pct": 5.05,
+   "per_map": {
+    "room200": {
+     "orders": 1032.2,
+     "doorflow": 1036.5,
+     "change_pct": -0.42,
+     "better": 3
+    },
+    "room250": {
+     "orders": 1104.8,
+     "doorflow": 1104.5,
+     "change_pct": 0.03,
+     "better": 4
+    },
+    "room300": {
+     "orders": 1161.1,
+     "doorflow": 1175.3,
+     "change_pct": -1.26,
+     "better": 4
+    }
+   },
+   "door6": {
+    "crossings_per_run": 245.217,
+    "stuck_near_door_mean": 4.001,
+    "share_of_time_8plus_stuck": 0.1,
+    "counted_on_the_way": [
+     9.327,
+     13.534
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.638,
+     0.573
     ],
     "new_rule_refused_per_run": 0.0,
     "new_rule_admitted_per_run": 0.0
