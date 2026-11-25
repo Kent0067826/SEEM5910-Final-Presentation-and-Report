@@ -1,0 +1,74 @@
+{
+ "pairs": 420,
+ "corr_crossings_vs_orders": 0.625,
+ "orders_per_extra_crossing": 1.62,
+ "runs_with_more_crossings": 169,
+ "mean_order_change_when_more_crossings": 5.0,
+ "mean_order_change_when_fewer_crossings": -27.2,
+ "per_variant": {
+  "A100": {
+   "door6_crossings": 248.7,
+   "window_full_share": [
+    0.642,
+    0.568
+   ],
+   "stuck_near_door": 3.81
+  },
+  "A200": {
+   "door6_crossings": 246.6,
+   "window_full_share": [
+    0.633,
+    0.572
+   ],
+   "stuck_near_door": 3.86
+  },
+  "B150": {
+   "door6_crossings": 245.8,
+   "window_full_share": [
+    0.657,
+    0.569
+   ],
+   "stuck_near_door": 3.7
+  },
+  "B300": {
+   "door6_crossings": 241.9,
+   "window_full_share": [
+    0.66,
+    0.556
+   ],
+   "stuck_near_door": 3.41
+  },
+  "CFAR": {
+   "door6_crossings": 247.1,
+   "window_full_share": [
+    0.624,
+    0.574
+   ],
+   "stuck_near_door": 3.79
+  },
+  "CNEAR": {
+   "door6_crossings": 243.8,
+   "window_full_share": [
+    0.635,
+    0.571
+   ],
+   "stuck_near_door": 3.86
+  },
+  "DALPHA": {
+   "door6_crossings": 240.2,
+   "window_full_share": [
+    0.621,
+    0.602
+   ],
+   "stuck_near_door": 3.57
+  },
+  "DF": {
+   "door6_crossings": 247.5,
+   "window_full_share": [
+    0.634,
+    0.574
+   ],
+   "stuck_near_door": 3.85
+  }
+ }
+}
