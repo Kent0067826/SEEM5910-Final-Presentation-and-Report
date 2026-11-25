@@ -1,4 +1,4 @@
-// Build the 15-minute, 4-speaker deck (21 slides + 2 backup slides): DoorFlow. Every slide shows its own English speech (read-along panel).
+// Build the 15-minute, 4-speaker deck (22 slides + 1 backup slide): DoorFlow. Every slide shows its own English speech (read-along panel).
 // Run from the repo root:  NODE_PATH=<dir with pptxgenjs> node figures/deck/build_deck.js
 const path = require("path");
 const fs = require("fs");
@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v51.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v52.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -324,13 +324,20 @@ section(1);
 // ---------- 8 model + ceiling ----------
 {
   const s = S(8); const slide = content(s);
-  addImg(slide, "map", M, 1.3, 5.0, 5.6);   // the formulas are written as text on the right, so no separate formula image
-  readPanel(slide, s, say(s), 5.8, 1.3, 6.95, 5.65, { max: 20, center: true, em: 0.46 });
+  addImg(slide, "map", M, 1.3, 7.0, 5.6);   // the formulas are written as text on the right, so no separate formula image
+  readPanel(slide, s, say(s), 7.8, 1.3, 4.95, 5.65, { max: 20, center: true });
 }
 
-// ---------- 9 what makes our robots different ----------
+// ---------- 9 why only about 26 robots per 500 ticks at door 6 (breakdown of the 18.7 ticks) ----------
 {
   const s = S(9); const slide = content(s);
+  addImg(slide, "doorC", M, 1.25, 12.15, 2.55);
+  readPanel(slide, s, say(s), M, 3.95, 12.15, 3.0, { max: 20, pad: 0.15, em: 0.46 });
+}
+
+// ---------- 10 what makes our robots different ----------
+{
+  const s = S(10); const slide = content(s);
   const X = [M, M + 4.05, M + 8.15], CW = [3.95, 4.0, 4.0], rh = 0.44, y0 = 1.72;
   ["Our robots", "Computer networks", "Road traffic"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: 1.3, w: CW[j] - 0.15, h: 0.36, fontSize: 15, bold: true, color: j ? C.text1 : C.accent3, margin: 0, isTextBox: true, valign: "bottom" }));
@@ -355,21 +362,21 @@ section(1);
   readPanel(slide, s, oneP(say(s)), M, 5.0, 12.15, 1.95, { max: 18, pad: 0.15 });
 }
 
-// ---------- 10 a quota for each door ----------
+// ---------- 11 a quota for each door ----------
 {
-  const s = S(10); const slide = content(s);
+  const s = S(11); const slide = content(s);
   addImg(slide, "bdp", M, 1.3, 6.3, 5.65, "left");
   readPanel(slide, s, say(s), 7.1, 1.3, 5.65, 5.65, { max: 20, center: true });
 }
 
-// ---------- 11 door 6's quota, number by number ----------
+// ---------- 12 door 6's quota, number by number ----------
 {
-  const s = S(11); const slide = content(s);
+  const s = S(12); const slide = content(s);
   const X = [M, M + 4.7, M + 8.45], CW = [4.6, 3.65, 3.7], y0 = 1.3, rh = 0.7;   // the table, then one line saying how the rows chain
   ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
-    ["**Ticks per robot**, each way: door rate\n500 ÷ 18.7 ≈ 26 (slide 8) ÷ 2 = 13 per 500", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
+    ["**Ticks per robot**, each way: door rate\n500 ÷ 18.7 ≈ 26 (slide 9) ÷ 2 = 13 per 500", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
     ["**Free trip** = 25 to the pickup\n+ average from every far-side cell", "to pickup 25 + to door 222 = **247**", "to pickup 25 + to door 133 = **158**"],
     ["**Slowdown** = real ÷ free trip\nmedian of 224 timed trips", "× **2.23**", "× **2.23**"],
     ["**Real trip** = slowdown × free trip", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
@@ -387,9 +394,9 @@ section(1);
   caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, yEnd + 0.95, 12.15);
 }
 
-// ---------- 12 one quota per door, sized by formula: what we tried ----------
+// ---------- 13 one quota per door, sized by formula: what we tried ----------
 {
-  const s = S(12); const slide = content(s);
+  const s = S(13); const slide = content(s);
   addImg(slide, "knee", M, 1.3, 6.4, 5.1, "left");
   caption(slide, "Each dot = one 500-tick period, one measured run each.", M, 6.5, 6.4);
   readPanel(slide, s, say(s), 7.2, 1.3, 5.55, 3.95, { max: 18 });   // the sizes (8, 32, formula) are in the text, so the table only compares how to count
@@ -397,16 +404,16 @@ section(1);
         7.2, 5.4, 5.55, 1.5, "What we tried", 13, 0.6);
 }
 
-// ---------- 13 fixed quota from averages, or adjusted live: three live alternatives rerun ----------
+// ---------- 14 fixed quota from averages, or adjusted live: three live alternatives rerun ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(14); const slide = content(s);
   addImg(slide, "live", M, 1.25, 7.55, 5.72, "left");
   readPanel(slide, s, say(s), 8.3, 1.3, 4.45, 5.62, { max: 20, center: true });
 }
 
-// ---------- 14 one direction at a time (panel A) ----------
+// ---------- 15 one direction at a time (panel A) ----------
 {
-  const s = S(14); const slide = content(s);
+  const s = S(15); const slide = content(s);
   addImg(slide, "doorA", M, 1.3, 6.6, 4.95, "left");
   slide.addText("Switch: when no robot of this side is within 8 cells and the other side waits, stop letting this side in; once the door and this side's 4-cell buffer are empty, switch.", { x: M, y: 6.3, w: 6.6, h: 0.62, fontSize: 10.5, italic: true, color: C.accent4, margin: 0, isTextBox: true, valign: "top" });
   readPanel(slide, s, say(s), 7.45, 1.3, 5.3, 3.3, { max: 22, center: true });
@@ -415,25 +422,25 @@ section(1);
   para(slide, "this rule alone, on **17 room-map instances**", 7.7, 5.85, 4.8, 0.9, 15);
 }
 
-// ---------- 15 when should the door switch sides (formula curve + what we tried) ----------
+// ---------- 16 when should the door switch sides (formula curve + what we tried) ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(16); const slide = content(s);
   addImg(slide, "utilC", M, 1.25, 7.6, 3.55);
   tried(slide, [["Fixed timetable", "−5.0%, −6.4%"], ["At most 80 steps per turn", "−1.1%"], ["**Serve one side until it is empty**", "**best** ✓", 1]],
         M, 4.85, 7.6, 2.05, "What we tried for switching", 13.5);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
 }
 
-// ---------- 16 how big should the buffer be (panel B + what we tried) ----------
+// ---------- 17 how big should the buffer be (panel B + what we tried) ----------
 {
-  const s = S(16); const slide = content(s);
+  const s = S(17); const slide = content(s);
   addImg(slide, "doorB", M, 1.3, 12.15, 3.75);
   readPanel(slide, s, say(s), M + 1.2, 5.3, 9.75, 1.6, { max: 22, center: true });
 }
 
-// ---------- 17 pseudocode ----------
+// ---------- 18 pseudocode ----------
 {
-  const s = S(17); const slide = content(s);
+  const s = S(18); const slide = content(s);
   card(slide, M, 1.35, 12.15, 5.55, "16212B");
   // "~" = safety-net line (grey); text after "#" = comment
   code(slide, [
@@ -456,63 +463,56 @@ section(1);
   ], M + 0.3, 1.6, 11.6, 5.2, 13);
 }
 
-// ---------- 18 the hardest part + demo ----------
+// ---------- 19 the hardest part + demo ----------
 {
-  const s = S(18); const slide = content(s);
+  const s = S(19); const slide = content(s);
   readPanel(slide, s, say(s), M, 1.3, 5.0, 5.65, { max: 20, center: true });
   addImg(slide, "demo", 5.85, 1.3, 6.9, 4.07);
   para(slide, "One run each: no door control **609** orders · DoorFlow **1,130** orders.", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
 }
 
-// ---------- 19 results ----------
+// ---------- 20 results ----------
 {
-  const s = S(19); const slide = content(s);
+  const s = S(20); const slide = content(s);
   slide.addText("+140.5%", { x: M, y: 2.2, w: 3.6, h: 1.0, fontSize: 48, bold: true, color: C.accent3, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
   para(slide, "more orders than the official starter program", M, 3.3, 3.5, 0.8, 16);
   para(slide, "= mean of **(DoorFlow ÷ starter − 1)** over the **60** same-seed pairs", M, 4.2, 3.5, 0.9, 14);
   addImg(slide, "results", 4.3, 1.3, 8.45, 5.6);   // nothing else to read: the speech is said, the numbers are here
 }
 
-// ---------- 20 what matters ----------
+// ---------- 21 what matters ----------
 {
-  const s = S(20); const slide = content(s);
+  const s = S(21); const slide = content(s);
   addImg(slide, "ablD", M, 1.3, 12.15, 4.35);
   readPanel(slide, s, say(s), M + 1.5, 5.8, 9.15, 1.12, { max: 20, pad: 0.12, fill: C.accent6, center: true });
 }
 
-// ---------- 21 conclusion ----------
+// ---------- 22 conclusion ----------
 {
-  const s = S(21);
+  const s = S(22);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const t = say(s);   // four points, then thanks ("To conclude." is said, not shown)
-  t.slice(0, 4).forEach((p, i) => {
+  t.slice(0, t.length - 1).forEach((p, i) => {
     const y = 2.95 + i * 0.92;
     numCircle(slide, M, y + 0.12, i + 1, 0.5, C.accent1);
     const sz = fitSize([p], 11.4, 0.82, 18, 12);
     slide.addText(md(p, C.background1, C.accent1), { x: M + 0.75, y, w: 11.4, h: 0.82, fontSize: sz, valign: "middle", margin: 0, isTextBox: true });
     FIT.push([s.n, sz]);
   });
-  slide.addText(t[4], { x: 5.6, y: 6.62, w: 7.1, h: 0.5, fontSize: 20, bold: true, color: C.accent1, align: "right", margin: 0, isTextBox: true });
+  slide.addText(t[t.length - 1], { x: 5.6, y: 6.62, w: 7.1, h: 0.5, fontSize: 20, bold: true, color: C.accent1, align: "right", margin: 0, isTextBox: true });
   notes(slide, s);
 }
 
-// ---------- 22 backup: how long does the door take (measured) ----------
+// ---------- 23 backup: how long does the door take (measured) ----------
 {
-  const s = S(22); const slide = content(s);
+  const s = S(23); const slide = content(s);
   addImg(slide, "timing", M, 1.35, 7.6, 3.2, "left");
   [["1,255", "crossings of door 6 timed\nin 5 runs, 250 robots"], ["10 ticks", "median gap, same direction\n(mostly 6 or 9 = 2 or 3 moves)"], ["34 ticks", "median gap when the door\nswitches direction"]].forEach(([b, l], i) => {
     const x = M + i * 2.55;
     card(slide, x, 4.85, 2.45, 2.05, C.accent6);
     bigStat(slide, x + 0.18, 4.92, 2.15, b, l, i === 2 ? C.accent3 : C.accent2, 28);
   });
-  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
-}
-
-// ---------- 23 backup: where one crossing's 18.7 ticks go (panel C) ----------
-{
-  const s = S(23); const slide = content(s);
-  addImg(slide, "doorC", M, 1.4, 7.6, 3.6, "left");
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
 }
 
