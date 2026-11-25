@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v54.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v55.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -254,10 +254,7 @@ section(1);
 {
   const s = S(4); const slide = content(s);
   addImg(slide, "jam", M, 1.3, 5.6, 5.65, "left");
-  readPanel(slide, s, say(s), 6.65, 1.3, 6.1, 2.6, { max: 22, center: true });
-  card(slide, 6.65, 4.2, 6.1, 2.7, C.accent6);   // the 97 robots are in the figure's own note, so only one number card
-  slide.addText("1 week", { x: 6.95, y: 4.4, w: 5.5, h: 0.9, fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-  para(slide, "to build the monitor", 6.95, 5.4, 5.5, 1.2, 18);
+  readPanel(slide, s, say(s), 6.65, 1.3, 6.1, 5.6, { max: 24, center: true });
 }
 
 // ---------- 5 prior work ----------
