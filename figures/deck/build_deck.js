@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v46.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v47.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -324,8 +324,8 @@ section(1);
 // ---------- 8 model + ceiling ----------
 {
   const s = S(8); const slide = content(s);
-  addImg(slide, "map", M, 1.3, 6.3, 5.6);   // the formulas are written as text on the right, so no separate formula image
-  readPanel(slide, s, say(s), 7.15, 1.3, 5.6, 5.65, { max: 20, center: true });
+  addImg(slide, "map", M, 1.3, 5.0, 5.6);   // the formulas are written as text on the right, so no separate formula image
+  readPanel(slide, s, say(s), 5.8, 1.3, 6.95, 5.65, { max: 20, center: true, em: 0.46 });
 }
 
 // ---------- 9 what makes our robots different ----------
@@ -369,17 +369,17 @@ section(1);
   ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
-    ["**Door rate**, each way\n26 (measured) ÷ 2 = 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
-    ["**Free trip** = 25 to the pickup\n+ average from every far-side cell", "25 + 222 = **247** ticks", "25 + 133 = **158** ticks"],
+    ["**Ticks per robot**, each way\n26 robots ÷ 2 directions = 13 per 500 ticks", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
+    ["**Free trip** = 25 to the pickup\n+ average from every far-side cell", "to pickup 25 + to door 222 = **247**", "to pickup 25 + to door 133 = **158**"],
     ["**Slowdown** = real ÷ free trip\nmedian of 224 timed trips", "× **2.23**", "× **2.23**"],
-    ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
-    ["**Quota**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
+    ["**Real trip** = slowdown × free trip", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
+    ["**Quota** = real trip ÷ ticks per robot,\nrounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
   ];
   rows.forEach((row, i) => {
     const y = y0 + 0.45 + i * (rh + 0.06);
     row.forEach((txt, j) => {
       card(slide, X[j], y, CW[j], rh, j === 0 ? C.background2 : C.accent6);
-      para(slide, txt, X[j] + 0.15, y, CW[j] - 0.25, rh, j === 0 ? 16 : 18, C.text1, j ? C.accent2 : C.text2, "middle");
+      para(slide, txt, X[j] + 0.15, y, CW[j] - 0.25, rh, j === 0 ? 14 : 16, C.text1, j ? C.accent2 : C.text2, "middle");
     });
   });
   const yEnd = y0 + 0.45 + 5 * (rh + 0.06);
@@ -390,11 +390,11 @@ section(1);
 // ---------- 12 one quota per door, sized by formula: what we tried ----------
 {
   const s = S(12); const slide = content(s);
-  addImg(slide, "knee", M, 1.3, 7.5, 5.1, "left");
-  caption(slide, "Each dot = one 500-tick period, one measured run each.", M, 6.5, 7.5);
-  readPanel(slide, s, say(s), 8.35, 1.3, 4.4, 3.95, { max: 18 });   // the sizes (8, 32, formula) are in the text, so the table only compares how to count
+  addImg(slide, "knee", M, 1.3, 6.4, 5.1, "left");
+  caption(slide, "Each dot = one 500-tick period, one measured run each.", M, 6.5, 6.4);
+  readPanel(slide, s, say(s), 7.2, 1.3, 5.55, 3.95, { max: 18 });   // the sizes (8, 32, formula) are in the text, so the table only compares how to count
   tried(slide, [["One quota for all robots", "+0.53%"], ["One quota **per door and direction**", "**+29.1%** ✓", 1]],
-        8.35, 5.4, 4.4, 1.5, "What we tried", 12.5, 0.6);
+        7.2, 5.4, 5.55, 1.5, "What we tried", 13, 0.6);
 }
 
 // ---------- 13 fixed quota from averages, or adjusted live: three live alternatives rerun ----------
@@ -445,7 +445,7 @@ section(1);
     ["~         and free > 0"],
     ["      then give q to r;  L[d,s] += 1 for those doors;  free −= 1"],
     ["      else try r's next-cheapest order"],
-    ["  where Q[d,s] = ⌈ 2.23 × T[d,s] ÷ 500 × 13 ⌉", "door rate × trip time"],
+    ["  where Q[d,s] = ⌈ 2.23 × T[d,s] ÷ 500 × 13 ⌉", "slowdown × free trip × robots per tick"],
     [""],
     ["every tick, inside the planner:", "2 · who moves first"],
     ["  for each door d:"],
