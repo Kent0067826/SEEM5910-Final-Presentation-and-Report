@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v53.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v54.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -274,41 +274,38 @@ section(1);
 {
   const s = S(6); const slide = content(s);
   // [text, key?] ; numbers from report section 9 (both tables)
-  const cols = [
-    ["Early ideas · dispatch & quotas", [
-      ["Early quotas & prices: +0.53% on top of the champion"], ["Hungarian matching: −1.9%"], ["Pin broken robots: −2.3%, −4.9%"], ["4× planning compute: −1%"],
-      ["Throttle after a jam is seen: −7 to −15 points on room maps", 1], ["20 small tweaks: none reliable"], ["AIMD quota: worse than fixed"],
-      ["Quota = physical capacity 49: −17.2% (300 robots)", 1], ["Per-link quotas: −1.28%, −1.13%, −4.28%"], ["Quotas for missed cuts: −1.12%, −2.78%"],
-      ["BBR-style cap: +0.08%"], ["Region gate: +6.8%, but picked no door"]]],
-    ["Early ideas · routes & door rules", [
-      ["Early backpressure, backoff, pricing: void (evaluation bug)"], ["Reroute by live occupancy: +1.18% at 1,200 ticks only"], ["Detours: +0.75% (random control +1.07%)"],
-      ["Load balancing: −5.2%, −3.76%, −0.06%"], ["Segment routing: −39.2% to −55.4%"], ["Fix a deadlock between two door rules: confirm +0.11%"],
-      ["Max 80 steps per side: −0.90%"], ["Step back 3 cells: −2.64%, deadlocked runs 11 → 29"], ["Self-computed global cap: −0.27%"],
-      ["Yield past broken robots: one run 1,130 → 351"]]],
-    ["Later · door order", [
-      ["NAV reservation: +0.20%, worst −7.60%"], ["EF priority for crossers: −0.74%"], ["Token-ring early release: +0.55%, −0.50%"],
-      ["802.1Qbv timetable switching: −4.98%, −6.43%", 1], ["VOQ: +1.07%, mostly from 2 maps"],
-      ["TXOP, iSLIP, fast reroute, MPLS, RSVP-TE, PCE, hop-by-hop admission: skipped"]]],
-    ["Later · rate & quotas", [
-      ["Token bucket: −1.82%, −2.42%"], ["PFC pause on dispatch: −4.11%"], ["HTTP pipelining: +0.25%, worst −7.47%"], ["Looser global quota: −0.46%, −1.08%"],
-      ["Longer execution window: −2.36%, −2.92%"], ["SWAN headroom: dev +1.69%, confirm −0.75%"], ["Quota from early measurement: −0.05%"],
+  const cols = [   // grouped by what the attempt changes, not by when it was tried
+    ["Giving out orders", [
+      ["Quotas & prices: +0.53% on top of the champion"], ["Hungarian matching: −1.9%"], ["Pin broken robots: −2.3%, −4.9%"], ["4× planning compute: −1%"],
+      ["20 small tweaks: none reliable"], ["Region gate: +6.8%, but picked no door"], ["HTTP pipelining: +0.25%, worst −7.47%"], ["PFC pause on dispatch: −4.11%"],
+      ["Predictive follow-up: −1.24%"]]],
+    ["Quotas & rate", [
+      ["Throttle after a jam is seen: −7 to −15 points on room maps", 1], ["AIMD quota: worse than fixed"], ["Quota = physical capacity 49: −17.2% (300 robots)", 1],
+      ["Per-link quotas: −1.28%, −1.13%, −4.28%"], ["Quotas for missed cuts: −1.12%, −2.78%"], ["BBR-style cap: +0.08%"], ["Self-computed global cap: −0.27%"],
+      ["Token bucket: −1.82%, −2.42%"], ["Looser global quota: −0.46%, −1.08%"], ["SWAN headroom: dev +1.69%, confirm −0.75%"], ["Quota from early measurement: −0.05%"],
       ["Auto-bandwidth quotas: never triggered"], ["CoDel, ECN, DCQCN, BwE, …: skipped"]]],
-    ["Later · rerouting", [
-      ["BFD + LFA detour: −2.07%"], ["FRER backup doors: −6.04%, −9.88%"], ["SWAN / B4 strict priority: −1.25%, −1.31%"], ["Fortz–Thorup weights: −0.29%"],
-      ["Retarget on arrival: −1.36%"], ["oFIB, no stepping back: −64.09%", 1], ["HN-SPF link costs: −25.88%", 1], ["CSPF detour limit: −20.98%, −8.70%"],
-      ["BGP damping: +0.20%, rarely triggered"], ["Two lanes in wide doors: +0.20%; one deadlock 1,114 → 700"], ["Anycast, flowlets, deflection, …: skipped"]]],
-    ["Later · queues & deadlock", [
-      ["Hop-by-hop credit flow: −2.74%", 1], ["RED early drop: −0.47%, −0.69%"], ["Predictive follow-up: −1.24%"], ["More door schedulers (SDN): −0.06%, −0.13%"],
-      ["Turn before the door: −1.32%, −2.09%"], ["Duato escape channel: +0.02%"], ["Watchdog re-timing: +0.13%"], ["4-mechanism combo: +1.65%, mostly 1 map"],
+    ["Routes", [
+      ["Backpressure, backoff, pricing: void (evaluation bug)"], ["Reroute by live occupancy: +1.18% at 1,200 ticks only"], ["Detours: +0.75% (random control +1.07%)"],
+      ["Load balancing: −5.2%, −3.76%, −0.06%"], ["Segment routing: −39.2% to −55.4%"], ["BFD + LFA detour: −2.07%"], ["FRER backup doors: −6.04%, −9.88%"],
+      ["SWAN / B4 strict priority: −1.25%, −1.31%"], ["Fortz–Thorup weights: −0.29%"], ["Retarget on arrival: −1.36%"], ["oFIB, no stepping back: −64.09%", 1],
+      ["HN-SPF link costs: −25.88%", 1], ["CSPF detour limit: −20.98%, −8.70%"], ["BGP damping: +0.20%, rarely triggered"], ["Anycast, flowlets, deflection, …: skipped"]]],
+    ["Door rules & door order", [
+      ["Fix a deadlock between two door rules: confirm +0.11%"], ["Max 80 steps per side: −0.90%"], ["Step back 3 cells: −2.64%, deadlocked runs 11 → 29"],
+      ["NAV reservation: +0.20%, worst −7.60%"], ["EF priority for crossers: −0.74%"], ["Token-ring early release: +0.55%, −0.50%"],
+      ["802.1Qbv timetable switching: −4.98%, −6.43%", 1], ["VOQ: +1.07%, mostly from 2 maps"], ["Two lanes in wide doors: +0.20%; one deadlock 1,114 → 700"],
+      ["Turn before the door: −1.32%, −2.09%"], ["TXOP, iSLIP, fast reroute, MPLS, RSVP-TE, PCE, hop-by-hop admission: skipped"]]],
+    ["Queues & deadlock", [
+      ["Hop-by-hop credit flow: −2.74%", 1], ["RED early drop: −0.47%, −0.69%"], ["More door schedulers (SDN): −0.06%, −0.13%"], ["Duato escape channel: +0.02%"],
+      ["Watchdog re-timing: +0.13%"], ["Yield past broken robots: one run 1,130 → 351"], ["Longer execution window: −2.36%, −2.92%"], ["4-mechanism combo: +1.65%, mostly 1 map"],
       ["Wormhole, cut-through, cycle breaking, …: skipped"]]],
   ];
-  const cw = 1.95, gap = 0.09;
+  const cw = 2.37, gap = 0.08;
   cols.forEach(([head, items], i) => {
     const x = M + i * (cw + gap);
-    card(slide, x, 1.3, cw, 4.32, i < 2 ? C.accent6 : C.background2);
-    slide.addText(head, { x: x + 0.1, y: 1.36, w: cw - 0.2, h: 0.42, fontSize: 10.5, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "top" });
+    card(slide, x, 1.3, cw, 4.32, C.background2);
+    slide.addText(head, { x: x + 0.1, y: 1.36, w: cw - 0.2, h: 0.32, fontSize: 11, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "top" });
     const runs = items.map(([txt, key], j) => ({ text: txt, options: { color: key ? C.accent3 : C.text1, bold: !!key, breakLine: j < items.length - 1, paraSpaceAfter: 3 } }));
-    slide.addText(runs, { x: x + 0.1, y: 1.8, w: cw - 0.18, h: 3.78, fontSize: 8.2, valign: "top", margin: 0, isTextBox: true });
+    slide.addText(runs, { x: x + 0.1, y: 1.7, w: cw - 0.18, h: 3.88, fontSize: 9.4, valign: "top", margin: 0, isTextBox: true });
   });
   readPanel(slide, s, oneP(say(s)), M, 5.72, 12.15, 1.22, { max: 18, pad: 0.12 });
 }

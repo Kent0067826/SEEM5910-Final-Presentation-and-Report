@@ -291,19 +291,19 @@
   "time": "0:23",
   "title": "Everything we tried: mostly small gains",
   "figs": [
-   "全部尝试总表（幻灯片上，两个阶段提升不大或变差的版本，按组分六列，关键项标红；数字取自报告第九节）"
+   "全部尝试总表（幻灯片上，按改的是什么分五列：派单、名额和速率、路线、门口规则和放行顺序、排队和死锁；关键项标红；数字取自报告第九节）"
   ],
   "hints": [
-   "All versions we tried: early ideas (2 columns) + existing mechanisms tried later (4 columns); key ones red",
+   "All versions we tried, grouped by what they change; key ones red",
    "Then: two more weeks writing a congestion monitor → next slide"
   ],
-  "en": "Our own first attempts gave only **small gains**. 【指整张表】 {This table lists all of them: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red.} {Then} we spent **another two weeks** writing a program that **monitors where every jam happens**{, to look for a pattern}.",
-  "zh": "我们自己最早的尝试，提升都**不大**。【指整张表】这张表把它们**全部列了出来**：前两列是最早的想法，后四列是后来试的现有机制，关键的几项标成了红色。然后我们又**花了两周的时间写程序**，来**监测所有拥塞发生的位置**，看有没有规律。",
+  "en": "Our own first attempts gave only **small gains**. 【指整张表】 {This table lists all of them, grouped by what they change. The key ones are in red.} {Then} we spent **another two weeks** writing a program that **monitors where every jam happens**{, to look for a pattern}.",
+  "zh": "我们自己的尝试，提升都**不大**。【指整张表】这张表把它们全部列了出来，按改的是什么分组，关键的几项标成了红色。然后我们又**花了两周的时间写程序**，来**监测所有拥塞发生的位置**，看有没有规律。",
   "segs": [
    {
-    "en": "Our own first attempts gave only **small gains**. 【指整张表】 {This table lists all of them: the first two columns are our early ideas, and the other four are existing mechanisms we tried later. The key ones are in red.}",
-    "zh": "我们自己最早的尝试，提升都**不大**。【指整张表】这张表把它们**全部列了出来**：前两列是最早的想法，后四列是后来试的现有机制，关键的几项标成了红色。",
-    "key": "**All** our attempts: early ideas (yellow), existing mechanisms tried later (grey); **key ones in red**"
+    "en": "Our own first attempts gave only **small gains**. 【指整张表】 {This table lists all of them, grouped by what they change. The key ones are in red.}",
+    "zh": "我们自己的尝试，提升都**不大**。【指整张表】这张表把它们全部列了出来，按改的是什么分组，关键的几项标成了红色。",
+    "key": "**All** our attempts, grouped by what they change; **key ones in red**"
    },
    {
     "en": "{Then} we spent **another two weeks** writing a program that **monitors where every jam happens**{, to look for a pattern}.",
