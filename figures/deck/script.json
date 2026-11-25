@@ -1322,77 +1322,6 @@
  {
   "n": 21,
   "speaker": 4,
-  "time": "0:48",
-  "title": "Lessons: why DoorFlow looks like this",
-  "figs": [
-   "五条经验卡片（幻灯片上；数字取自报告第九节）"
-  ],
-  "hints": [
-   "Lessons from all versions on slide 6",
-   "Door 6 cannot be bypassed: 14 of 15 rerouting lower → control how many, not where",
-   "Cannot drop, take cells → only decide who goes and when",
-   "Waiting less ≠ crossing more: credit flow −2.74% → judge by orders finished",
-   "Few maps only (7 of 69) → confirm on new maps; measure first (38 of 69 stopped before code)"
-  ],
-  "en": "{Looking back at slide 6,} five lessons explain **why DoorFlow looks like this**. 【指第一张卡】 Door 6 cannot be bypassed: **14 of 15** rerouting methods lowered results, so we control **how many robots go**, not where. 【指第二张卡】 Robots cannot be dropped and take up cells, so dropping or buffering methods do not carry over: we only decide **who goes and when**. 【指第三张卡】 Waiting less is not crossing more: **hop-by-hop credit flow** cut waiting but lowered results by **2.74 percent**, so we judge every change by orders finished. 【指第四张卡】 Gains on a few maps do not count: **7 of 69** ideas failed on new maps, so we confirm on new maps. 【指第五张卡】 {And} we **measure the possible gain first**: **38 of 69** ideas stopped there, before any code.",
-  "zh": "回头看第 6 页，五条经验解释了 **DoorFlow 为什么是这个样子**。【指第一张卡】门 6 绕不开：15 种换路办法里 **14 种**都变差，所以我们管**派多少车**，不管走哪条路。【指第二张卡】车不能丢、还占着格子，所以靠“丢掉”或“先存起来”的办法都用不上；我们只决定**谁走、什么时候走**。【指第三张卡】等得少不等于过得多：**逐跳信用流控**让车等得少了，结果却少了 **2.74%**，所以每项改动都按完成的单数来判断。【指第四张卡】只在少数图上有提升不算数：69 种里有 **7 种**换新图就不行，所以要换新图确认。【指第五张卡】而且**先量能省多少**：69 种里有 **38 种**量完就停了，没写代码。",
-  "segs": [
-   {
-    "en": "{Looking back at slide 6,} five lessons explain **why DoorFlow looks like this**.",
-    "zh": "回头看第 6 页，五条经验解释了 **DoorFlow 为什么是这个样子**。",
-    "key": []
-   },
-   {
-    "en": "【指第一张卡】 Door 6 cannot be bypassed: **14 of 15** rerouting methods lowered results, so we control **how many robots go**, not where.",
-    "zh": "【指第一张卡】门 6 绕不开：15 种换路办法里 **14 种**都变差，所以我们管**派多少车**，不管走哪条路。",
-    "key": "Door 6 cannot be bypassed: **14 of 15** rerouting lowered results → control **how many robots go**, not where"
-   },
-   {
-    "en": "【指第二张卡】 Robots cannot be dropped and take up cells, so dropping or buffering methods do not carry over: we only decide **who goes and when**.",
-    "zh": "【指第二张卡】车不能丢、还占着格子，所以靠“丢掉”或“先存起来”的办法都用不上；我们只决定**谁走、什么时候走**。",
-    "key": "Cannot be dropped, take up cells → decide only **who goes and when**"
-   },
-   {
-    "en": "【指第三张卡】 Waiting less is not crossing more: **hop-by-hop credit flow** cut waiting but lowered results by **2.74 percent**, so we judge every change by orders finished.",
-    "zh": "【指第三张卡】等得少不等于过得多：**逐跳信用流控**让车等得少了，结果却少了 **2.74%**，所以每项改动都按完成的单数来判断。",
-    "key": "Waiting less is not crossing more: **credit flow −2.74%** → judge by **orders finished**"
-   },
-   {
-    "en": "【指第四张卡】 Gains on a few maps do not count: **7 of 69** ideas failed on new maps, so we confirm on new maps.",
-    "zh": "【指第四张卡】只在少数图上有提升不算数：69 种里有 **7 种**换新图就不行，所以要换新图确认。",
-    "key": "Gains on a few maps do not count: **7 of 69** failed on new maps → **confirm on new maps**"
-   },
-   {
-    "en": "【指第五张卡】 {And} we **measure the possible gain first**: **38 of 69** ideas stopped there, before any code.",
-    "zh": "【指第五张卡】而且**先量能省多少**：69 种里有 **38 种**量完就停了，没写代码。",
-    "key": "**Measure the possible gain first**: **38 of 69** stopped before any code"
-   }
-  ],
-  "foot": "Counted in our log (report, section 9): 15 rerouting methods, 14 worse; 69 network ideas: 38 stopped at measuring, 23 failed development, 7 failed on new maps, 1 kept. −2.74%: statistics, paired runs (round P22).",
-  "src": [
-   [
-    "14 / 15",
-    "换路办法里变差的个数",
-    "数出来的",
-    "报告全文图 20"
-   ],
-   [
-    "2.74%",
-    "逐跳信用流控少完成",
-    "多局统计（协议方向 P22），最差 −9.07%",
-    "报告全文第九节尝试表；`experiment-materials/网络协议方向/报告源/通读/第1-75轮_通读笔记.md`、`协议方向_通读笔记.md`"
-   ],
-   [
-    "7 / 69、38 / 69",
-    "过了开发但换新图不行的；先量就停的",
-    "数出来的：协议方向 69 种机制 = 38 + 23 + 7 + 1",
-    "报告全文图 19；`rounds/p72/inventory_p72.json`"
-   ]
-  ]
- },
- {
-  "n": 22,
-  "speaker": 4,
   "time": "0:40",
   "title": "Conclusion",
   "figs": [],
@@ -1512,7 +1441,7 @@
   ],
   "en": "We ran **5 simulations** and timed all **1,255 crossings** of door 6. 【指左图】 Same direction: the next robot usually comes **6 or 9 ticks** later, **2 or 3 moves**, as the competition sets **3 ticks** per move; median **10 ticks**. 【指右图】 After a switch, the first robot comes a median of **34 ticks** later: the door and the 4-cell buffer must empty first. {So} each switch costs about **34 − 10 = 24 extra ticks**.",
   "zh": "我们跑了 **5 局仿真**，记下门 6 全部 **1255 次过门**的时间。【指左图】同一个方向：下一台车通常隔 **6 拍或 9 拍**，也就是 **2 步或 3 步**，因为比赛设定走一步要 **3 拍**；中位数 **10 拍**。【指右图】换方向后，第一台车的中位数要隔 **34 拍**：门和 4 格缓冲区要先清空。所以每换一次方向，大约多花 **34 − 10 = 24 拍**。",
-  "n": 23
+  "n": 22
  },
  {
   "title": "Backup 2: where one crossing's 18.7 ticks go",
@@ -1565,6 +1494,6 @@
   ],
   "en": "Round 52 timed **669 crossings** of door 6: on average one robot every **18.7 ticks**, both directions together, so about **26.7 robots** per 500 ticks. About **half** is the pipeline itself: moving through, the next robot arriving, turning. **Breakdowns** near the door take **4.8 ticks** (26 percent); switching sides **2.2**. The 10 ticks on slide 15 is a different measure: the **median** gap in **one direction**.",
   "zh": "第 52 轮给门 6 的 **669 次过门**逐拍计时：两个方向合起来平均每 **18.7 拍**过一台，也就是每 500 拍约 **26.7 台**。大约**一半**是流水线本身：过门、下一台走过来、转身。门口的**故障**占 **4.8 拍**（26%），换方向占 **2.2 拍**。第 15 页的 10 拍是另一种口径：**同方向**间隔的**中位数**。",
-  "n": 24
+  "n": 23
  }
 ]

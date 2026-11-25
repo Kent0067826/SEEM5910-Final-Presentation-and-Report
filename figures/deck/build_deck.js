@@ -1,4 +1,4 @@
-// Build the 15-minute, 4-speaker deck (22 slides + 2 backup slides): DoorFlow. Every slide shows its own English speech (read-along panel).
+// Build the 15-minute, 4-speaker deck (21 slides + 2 backup slides): DoorFlow. Every slide shows its own English speech (read-along panel).
 // Run from the repo root:  NODE_PATH=<dir with pptxgenjs> node figures/deck/build_deck.js
 const path = require("path");
 const fs = require("fs");
@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v50.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v51.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -480,19 +480,9 @@ section(1);
   readPanel(slide, s, say(s), M + 1.5, 5.8, 9.15, 1.12, { max: 20, pad: 0.12, fill: C.accent6, center: true });
 }
 
-// ---------- 21 lessons ----------
+// ---------- 21 conclusion ----------
 {
-  const s = S(21); const slide = content(s);
-  for (let i = 0; i < 5; i++) {   // one card per lesson (the title already says what they are)
-    const row = i < 3 ? 0 : 1, col = row ? i - 3 : i;
-    const x = M + col * 4.1 + (row ? 2.05 : 0), y = 1.4 + row * 2.8;
-    readPanel(slide, s, keyOf(s, i + 1), x, y, 3.95, 2.6, { max: 20, fill: C.background2, valign: "middle", shrink: false });
-  }
-}
-
-// ---------- 22 conclusion ----------
-{
-  const s = S(22);
+  const s = S(21);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const t = say(s);   // four points, then thanks ("To conclude." is said, not shown)
@@ -507,9 +497,9 @@ section(1);
   notes(slide, s);
 }
 
-// ---------- 23 backup: how long does the door take (measured) ----------
+// ---------- 22 backup: how long does the door take (measured) ----------
 {
-  const s = S(23); const slide = content(s);
+  const s = S(22); const slide = content(s);
   addImg(slide, "timing", M, 1.35, 7.6, 3.2, "left");
   [["1,255", "crossings of door 6 timed\nin 5 runs, 250 robots"], ["10 ticks", "median gap, same direction\n(mostly 6 or 9 = 2 or 3 moves)"], ["34 ticks", "median gap when the door\nswitches direction"]].forEach(([b, l], i) => {
     const x = M + i * 2.55;
@@ -519,9 +509,9 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
 }
 
-// ---------- 24 backup: where one crossing's 18.7 ticks go (panel C) ----------
+// ---------- 23 backup: where one crossing's 18.7 ticks go (panel C) ----------
 {
-  const s = S(24); const slide = content(s);
+  const s = S(23); const slide = content(s);
   addImg(slide, "doorC", M, 1.4, 7.6, 3.6, "left");
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
 }
