@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v42.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v43.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -94,7 +94,7 @@ function notes(slide, s) {
 }
 // grey origin line at the bottom: where this slide's numbers come from (script.json "foot")
 function foot(slide, s, color = C.accent4) {
-  if (!s.foot) return;
+  return;   // v43: no small print on the slides; the origin line stays in the speaker notes and the Word tables
   slide.addText(s.foot, { x: M, y: 6.99, w: 11.6, h: 0.44, fontSize: 8.5, color, margin: 0, isTextBox: true, valign: "top", objectName: "origin-line" });
 }
 function content(s) {
@@ -218,7 +218,6 @@ section(1);
   slide.addText("SEEM5910 Final Presentation\nLeague of Robot Runners (LoRR) 2026 · official room map", { x: M, y: 4.0, w: 7.3, h: 0.9, fontSize: 18, color: C.accent5, margin: 0, isTextBox: true });
   readPanel(slide, s, say(s), M + 0.2, 5.0, 7.1, 1.45, { fill: null, color: C.background1, bold: C.accent1, max: 18 });
   slide.addText("15 minutes", { x: M, y: 6.45, w: 6, h: 0.4, fontSize: 14, color: C.accent1, bold: true, margin: 0, isTextBox: true });
-  slide.addText(s.foot, { x: M, y: 6.92, w: 7.3, h: 0.45, fontSize: 9, color: "A9BCC6", margin: 0, isTextBox: true, valign: "top" });
   card(slide, 8.2, 0.75, 4.55, 6.0, C.background1);
   addImg(slide, "bg", 8.3, 0.85, 4.35, 5.8);
   notes(slide, s);
@@ -370,8 +369,8 @@ section(1);
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
     ["**Door rate**, each way\n26 (measured) ÷ 2 = 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
-    ["**Free trip** to the door\naverage over every cell (map)", "**247** ticks", "**158** ticks"],
-    ["**Slowdown**\nmeasured (no breakdowns: × 1.33)", "× **2.23**", "× **2.23**"],
+    ["**Free trip** = 25 to the pickup\n+ average from every far-side cell", "25 + 222 = **247** ticks", "25 + 133 = **158** ticks"],
+    ["**Slowdown** = real ÷ free trip\nmedian of 224 timed trips", "× **2.23**", "× **2.23**"],
     ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
     ["**Quota**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
   ];
@@ -383,7 +382,7 @@ section(1);
     });
   });
   const yEnd = y0 + 0.45 + 5 * (rh + 0.06);
-  readPanel(slide, s, say(s), M, yEnd + 0.08, 12.15, 0.75, { max: 18, pad: 0.12 });
+  readPanel(slide, s, say(s), M, yEnd + 0.08, 12.15, 0.75, { max: 20, pad: 0.12 });
   caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, yEnd + 0.95, 12.15);
 }
 
@@ -392,10 +391,9 @@ section(1);
   const s = S(12); const slide = content(s);
   addImg(slide, "knee", M, 1.3, 7.5, 5.1, "left");
   caption(slide, "Each dot = one 500-tick period, one measured run each.", M, 6.5, 7.5);
-  readPanel(slide, s, say(s), 8.35, 1.3, 4.4, 2.85, { max: 18 });
-  tried(slide, [["One quota for all robots", "+0.53%"], ["One quota **per door and direction**", "**+29.1%** ✓", 1],
-                ["Size by hand: 8 / 32 or more", "too tight / jams"], ["Size by formula: **15 in, 10 out**", "**as good as the best by hand** ✓", 1]],
-        8.35, 4.2, 4.4, 2.7, "What we tried", 12, 0.52);
+  readPanel(slide, s, say(s), 8.35, 1.3, 4.4, 3.95, { max: 18 });   // the sizes (8, 32, formula) are in the text, so the table only compares how to count
+  tried(slide, [["One quota for all robots", "+0.53%"], ["One quota **per door and direction**", "**+29.1%** ✓", 1]],
+        8.35, 5.4, 4.4, 1.5, "What we tried", 12.5, 0.6);
 }
 
 // ---------- 13 fixed quota from averages, or adjusted live: three live alternatives rerun ----------
@@ -533,7 +531,6 @@ section(1);
     FIT.push([s.n, sz]);
   });
   slide.addText(t[4], { x: 5.6, y: 6.62, w: 7.1, h: 0.5, fontSize: 20, bold: true, color: C.accent1, align: "right", margin: 0, isTextBox: true });
-  slide.addText(s.foot, { x: M, y: 7.08, w: 8, h: 0.3, fontSize: 9, color: "A9BCC6", margin: 0, isTextBox: true, valign: "top" });
   notes(slide, s);
 }
 
