@@ -43,7 +43,7 @@ def main():
     by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
     left = [("Door rule: one direction at a\ntime, serve a side until empty", "noDoor"), ("Per-door quota\n(door rate x trip time)", "noQuota"),
             ("Deadlock watchdog", "noWD"),
-            ("Global cap\n(whole-map window)", "noGlobal")]
+            ("Global cap\n(whole-map quota)", "noGlobal")]
     right = [("Door rule only", "onlyDoor"), ("Per-door quota only", "onlyQuota"), ("Global cap only", "onlyGlobal"),
              ("Everything on\n(full DoorFlow)", "FULL")]
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 4.3))

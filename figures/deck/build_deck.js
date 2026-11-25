@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v39.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v40.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -245,7 +245,7 @@ section(1);
   slide.addText("orders per 500 ticks at the start", { x: M + 0.3, y: 2.4, w: 2.9, h: 0.5, fontSize: 14, color: C.text1, margin: 0, isTextBox: true });
   slide.addText("37", { x: M + 0.3, y: 3.1, w: 2.8, h: 0.9, fontSize: 54, bold: true, color: C.accent3, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
   slide.addText("at the end of the run", { x: M + 0.3, y: 4.0, w: 2.9, h: 0.5, fontSize: 14, color: C.text1, margin: 0, isTextBox: true });
-  para(slide, "2024 champion's way of giving out orders · **60 runs** · **no errors, no collisions**", M + 0.3, 4.8, 2.9, 1.6, 13);
+  para(slide, "2024 champion's way of giving out orders · **60 runs**", M + 0.3, 4.8, 2.9, 1.6, 13);
   addImg(slide, "collapse", 4.3, 1.25, 8.45, 3.6);
   readPanel(slide, s, say(s), 4.3, 5.0, 8.45, 1.9, { max: 20, pad: 0.15, center: true });
 }
@@ -257,7 +257,7 @@ section(1);
   readPanel(slide, s, say(s), 6.65, 1.3, 6.1, 2.6, { max: 22, center: true });
   card(slide, 6.65, 4.2, 6.1, 2.7, C.accent6);   // the 97 robots are in the figure's own note, so only one number card
   slide.addText("1 week", { x: 6.95, y: 4.4, w: 5.5, h: 0.9, fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-  para(slide, "to write the **monitoring program** that replays the run **tick by tick**", 6.95, 5.4, 5.5, 1.2, 18);
+  para(slide, "to build the monitor", 6.95, 5.4, 5.5, 1.2, 18);
 }
 
 // ---------- 5 prior work ----------
@@ -276,9 +276,9 @@ section(1);
   // [text, key?] ; numbers from report section 9 (both tables)
   const cols = [
     ["Early ideas · dispatch & quotas", [
-      ["Early windows & prices: +0.53% on top of the champion"], ["Hungarian matching: −1.9%"], ["Pin broken robots: −2.3%, −4.9%"], ["4× planning compute: −1%"],
+      ["Early quotas & prices: +0.53% on top of the champion"], ["Hungarian matching: −1.9%"], ["Pin broken robots: −2.3%, −4.9%"], ["4× planning compute: −1%"],
       ["Throttle after a jam is seen: −7 to −15 points on room maps", 1], ["20 small tweaks: none reliable"], ["AIMD quota: worse than fixed"],
-      ["Quota = physical capacity 49: −17.2% (300 robots)", 1], ["Per-link windows: −1.28%, −1.13%, −4.28%"], ["Quotas for missed cuts: −1.12%, −2.78%"],
+      ["Quota = physical capacity 49: −17.2% (300 robots)", 1], ["Per-link quotas: −1.28%, −1.13%, −4.28%"], ["Quotas for missed cuts: −1.12%, −2.78%"],
       ["BBR-style cap: +0.08%"], ["Region gate: +6.8%, but picked no door"]]],
     ["Early ideas · routes & door rules", [
       ["Early backpressure, backoff, pricing: void (evaluation bug)"], ["Reroute by live occupancy: +1.18% at 1,200 ticks only"], ["Detours: +0.75% (random control +1.07%)"],
@@ -316,9 +316,9 @@ section(1);
 // ---------- 7 congestion monitor ----------
 {
   const s = S(7); const slide = content(s);
-  addImg(slide, "monitor", M, 1.25, 12.15, 4.35);
-  caption(slide, "Panels at tick 3,000: orders finished so far · robots stuck now · door-6 crossings in the next 500 ticks. Bars: share of the run each door was jammed.", M, 5.63, 12.15);
-  readPanel(slide, s, say(s), M, 5.98, 12.15, 0.95, { max: 18, pad: 0.12 });
+  addImg(slide, "monitor", M, 1.25, 12.15, 3.85);
+  caption(slide, "Panels at tick 3,000: orders finished so far · robots stuck now · door-6 crossings in the next 500 ticks. Bars: share of the run each door was jammed.", M, 5.13, 12.15);
+  readPanel(slide, s, say(s), M, 5.5, 12.15, 1.42, { max: 18, pad: 0.12 });
 }
 
 // ---------- 8 model + ceiling ----------
@@ -356,17 +356,17 @@ section(1);
   readPanel(slide, s, oneP(say(s)), M, 5.0, 12.15, 1.95, { max: 18, pad: 0.15 });
 }
 
-// ---------- 10 a window for each door ----------
+// ---------- 10 a quota for each door ----------
 {
   const s = S(10); const slide = content(s);
   addImg(slide, "bdp", M, 1.3, 6.3, 5.65, "left");
   readPanel(slide, s, say(s), 7.1, 1.3, 5.65, 5.65, { max: 20, center: true });
 }
 
-// ---------- 11 door 6's window, number by number ----------
+// ---------- 11 door 6's quota, number by number ----------
 {
   const s = S(11); const slide = content(s);
-  const X = [M, M + 4.7, M + 8.45], CW = [4.6, 3.65, 3.7], y0 = 1.3, rh = 0.8;   // no text panel: everything said is in the table
+  const X = [M, M + 4.7, M + 8.45], CW = [4.6, 3.65, 3.7], y0 = 1.3, rh = 0.7;   // the table, then one line saying how the rows chain
   ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
@@ -374,7 +374,7 @@ section(1);
     ["**Free trip** to the door\naverage over every cell (map)", "**247** ticks", "**158** ticks"],
     ["**Slowdown**\nmeasured (no breakdowns: × 1.33)", "× **2.23**", "× **2.23**"],
     ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
-    ["**Window**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
+    ["**Quota**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
   ];
   rows.forEach((row, i) => {
     const y = y0 + 0.45 + i * (rh + 0.06);
@@ -383,21 +383,23 @@ section(1);
       para(slide, txt, X[j] + 0.15, y, CW[j] - 0.25, rh, j === 0 ? 16 : 18, C.text1, j ? C.accent2 : C.text2, "middle");
     });
   });
-  caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, y0 + 0.45 + 5 * (rh + 0.06) + 0.08, 12.15);
+  const yEnd = y0 + 0.45 + 5 * (rh + 0.06);
+  readPanel(slide, s, say(s), M, yEnd + 0.08, 12.15, 0.75, { max: 18, pad: 0.12 });
+  caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, yEnd + 0.95, 12.15);
 }
 
-// ---------- 12 one window per door, sized by formula: what we tried ----------
+// ---------- 12 one quota per door, sized by formula: what we tried ----------
 {
   const s = S(12); const slide = content(s);
   addImg(slide, "knee", M, 1.3, 7.5, 5.1, "left");
-  caption(slide, "Each dot = one 500-tick window, one measured run each.", M, 6.5, 7.5);
-  readPanel(slide, s, say(s), 8.35, 1.3, 4.4, 1.6, { max: 20 });
-  tried(slide, [["One window for all robots", "+0.53%"], ["One window **per door and direction**", "**+29.1%** ✓", 1],
+  caption(slide, "Each dot = one 500-tick period, one measured run each.", M, 6.5, 7.5);
+  readPanel(slide, s, say(s), 8.35, 1.3, 4.4, 2.85, { max: 18 });
+  tried(slide, [["One quota for all robots", "+0.53%"], ["One quota **per door and direction**", "**+29.1%** ✓", 1],
                 ["Size by hand: 8 / 32 or more", "too tight / jams"], ["Size by formula: **15 in, 10 out**", "**as good as the best by hand** ✓", 1]],
-        8.35, 3.05, 4.4, 3.85, "What we tried", 13, 0.52);
+        8.35, 4.2, 4.4, 2.7, "What we tried", 12, 0.52);
 }
 
-// ---------- 13 why a fixed window from averages: three live alternatives rerun ----------
+// ---------- 13 fixed quota from averages, or adjusted live: three live alternatives rerun ----------
 {
   const s = S(13); const slide = content(s);
   addImg(slide, "live", M, 1.25, 7.55, 5.72, "left");
@@ -465,7 +467,7 @@ section(1);
   const s = S(18); const slide = content(s);
   readPanel(slide, s, say(s), M, 1.3, 5.0, 5.65, { max: 20, center: true });
   addImg(slide, "demo", 5.85, 1.3, 6.9, 4.07);
-  para(slide, "**The same congestion monitor, on our own code.** No door control: **609** orders · DoorFlow: **1,130** orders (one run each).", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
+  para(slide, "One run each: no door control **609** orders · DoorFlow **1,130** orders.", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
 }
 
 // ---------- 19 random-door maps ----------
@@ -503,8 +505,8 @@ section(1);
 // ---------- 22 what matters ----------
 {
   const s = S(22); const slide = content(s);
-  addImg(slide, "ablD", M, 1.3, 12.15, 4.6);
-  readPanel(slide, s, say(s), M + 1.5, 6.05, 9.15, 0.85, { max: 22, pad: 0.12, fill: C.accent6, center: true });
+  addImg(slide, "ablD", M, 1.3, 12.15, 4.35);
+  readPanel(slide, s, say(s), M + 1.5, 5.8, 9.15, 1.12, { max: 20, pad: 0.12, fill: C.accent6, center: true });
 }
 
 // ---------- 23 lessons ----------

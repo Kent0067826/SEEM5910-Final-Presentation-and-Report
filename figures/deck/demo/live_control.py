@@ -109,9 +109,9 @@ def plot(got, res):
     INK, GREY, TEAL, ORG, RED, BLUE, PUR = '#1B2631', '#5D6D7E', '#0F6E7E', '#E39B2D', '#C0392B', '#2a78d6', '#7B5EA7'
     COL = {'DF': TEAL, 'JAM': RED, 'LATCH': ORG, 'AIMD': PUR, 'PHYS': BLUE}
     win = res['variants']['PHYS']['window_in']
-    LAB = {'DF': 'DoorFlow: fixed window from averages', 'JAM': 'Limit only while a jam is seen',
-           'LATCH': 'Limit from the first jam on', 'AIMD': 'Adjust the window by measured delay',
-           'PHYS': f'Window from physical capacity ({win} in)'}
+    LAB = {'DF': 'DoorFlow: fixed quota from averages', 'JAM': 'Limit only while a jam is seen',
+           'LATCH': 'Limit from the first jam on', 'AIMD': 'Adjust the quota by measured delay',
+           'PHYS': f'Quota from physical capacity ({win} in)'}
     fig = plt.figure(figsize=(7.6, 6.0), dpi=220)
     a1 = fig.add_subplot(fig.add_gridspec(1, 1, left=0.12, right=0.975, top=0.765, bottom=0.53)[0])
     a2 = fig.add_subplot(fig.add_gridspec(1, 1, left=0.42, right=0.975, top=0.39, bottom=0.11)[0])
@@ -138,11 +138,18 @@ def plot(got, res):
     a2.set_xlabel('orders finished vs DoorFlow (%), same seeds; black line = 95% interval', fontsize=9.2, color=GREY)
     a2.set_title('Each alternative vs DoorFlow: 60 paired runs (200 / 250 / 300 robots, 20 seed pairs each)', fontsize=10.5, color=INK, loc='left', x=-0.66)
     a2.spines[['top', 'right']].set_visible(False); a2.tick_params(labelsize=9)
-    fig.suptitle('Live alternatives to the fixed window, rerun on the official room map', fontsize=12, color=INK, x=0.02, ha='left', fontweight='bold')
+    fig.suptitle('Live alternatives to the fixed quota, rerun on the official room map', fontsize=12, color=INK, x=0.02, ha='left', fontweight='bold')
     fig.text(0.02, 0.012, f"{res['runs']} runs of 5,000 ticks, {res['errors']} errors. Script: figures/deck/demo/live_control.py (planner patch live_window.patch).",
              fontsize=8, color=GREY, style='italic')
     fig.savefig(REPO / 'figures/deck/fig_live_control.png', facecolor='white'); plt.close(fig)
 
 
+def plot_only():
+    """redraw the figure from live_control.json: reruns only the four runs of the example panel (room250, 11700 / 145)"""
+    res = json.loads((HERE / 'live_control.json').read_text())
+    got = {(j[0], j[1], j[2], j[3]): run(j) for j in [('room250', v, 11700, 145) for v in ('DF', 'JAM', 'AIMD', 'PHYS')]}
+    plot(got, res)
+
+
 if __name__ == '__main__':
-    t0 = time.time(); main(); print('seconds', round(time.time() - t0, 1))
+    t0 = time.time(); (plot_only if sys.argv[1:] == ['plot'] else main)(); print('seconds', round(time.time() - t0, 1))

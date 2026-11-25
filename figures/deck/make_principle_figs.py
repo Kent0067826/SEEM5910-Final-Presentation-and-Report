@@ -1,5 +1,5 @@
 """Two figures for the deck's principle slides (run from the repo root):
-  figures/deck/fig_bdp_principle.png  -- how big a door's window should be, from Little's law (theory sketch + door-6 numbers)
+  figures/deck/fig_bdp_principle.png  -- how big a door's quota should be, from Little's law (theory sketch + door-6 numbers)
   figures/deck/fig_quota_deck.png     -- per-door quota formula (same as figures/brief/b_f2_quota.png, retitled)
   figures/deck/fig_door_util_curve.png -- door utilization U(n) as a curve (slide 14)
   figures/deck/fig_door_rule_deck.png -- door rule in detail: buffer geometry and switching rule, buffer-size sweep, 18.7-tick budget
@@ -20,8 +20,8 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.edgeco
 
 
 def bdp_principle(path):
-    """How big should a door's window be? Derived from the counting rule N = X * T (known as Little's law; theory sketch, no measured data)."""
-    C, T0 = 1.0, 1.0                     # door rate, trip time with no queue (units: the best window = 1)
+    """How big should a door's quota be? Derived from the counting rule N = X * T (known as Little's law; theory sketch, no measured data)."""
+    C, T0 = 1.0, 1.0                     # door rate, trip time with no queue (units: the best quota = 1)
     best = C * T0
     N = np.linspace(0, 3.0, 600)
     X = np.minimum(N / T0, C)                       # Little: X = N / T as long as T = T0
@@ -46,13 +46,13 @@ def bdp_principle(path):
     a1.annotate("robots at a one-cell door (sketch):\nwaiting robots block the other side,\nso the rate falls", xy=(1.4, C * np.exp(-0.95 * 0.4)), xytext=(1.04, 0.2),
                 color=RED, fontsize=8.8, ha="left", va="center", arrowprops=dict(arrowstyle="-|>", color=RED, lw=1.0))
     a1.scatter([best], [C], s=70, color=ORG, zorder=5, edgecolor="white", lw=1.2)
-    a1.annotate("best window\n$N^{*}=C\\cdot T_0$", xy=(best, C), xytext=(0.03, 0.9), color=ORG, fontsize=9.5,
+    a1.annotate("best quota\n$N^{*}=C\\cdot T_0$", xy=(best, C), xytext=(0.03, 0.9), color=ORG, fontsize=9.5,
                 fontweight="bold", arrowprops=dict(arrowstyle="-|>", color=ORG, lw=1.0))
     a1.tick_params(labelbottom=False)
     a2.plot(N, T, color=TEAL, lw=2.8)
-    a2.annotate("past the window, extra robots\nonly add waiting time", xy=(2.3, 2.3), xytext=(1.15, 2.6),
+    a2.annotate("past the best quota, extra robots\nonly add waiting time", xy=(2.3, 2.3), xytext=(1.15, 2.6),
                 color=GREY, fontsize=9, ha="left", arrowprops=dict(arrowstyle="-|>", color=GREY, lw=1.0))
-    a2.text(1.95, 0.42, "door 6, inward:  $C$ = 13 per 500 ticks,\n$T_0$ = 2.23 x 247 ticks  ->  $N^{*}$ = 14.3  ->  window 15",
+    a2.text(1.95, 0.42, "door 6, inward:  $C$ = 13 per 500 ticks,\n$T_0$ = 2.23 x 247 ticks  ->  $N^{*}$ = 14.3  ->  quota 15",
             fontsize=8.6, color=INK, ha="center", va="center",
             bbox=dict(boxstyle="round,pad=0.35", fc="white", ec=ORG, lw=1.0))
     a2.set_ylim(0, 3.1); a2.set_yticks([0, T0]); a2.set_yticklabels(["0", "$T_0$"])
