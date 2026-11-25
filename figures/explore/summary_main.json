@@ -1,0 +1,423 @@
+{
+ "set": "main",
+ "runs": 480,
+ "errors": 0,
+ "variants": {
+  "DF": {
+   "n": 60,
+   "change_pct": 0.0,
+   "ci95_pct": [
+    0.0,
+    0.0
+   ],
+   "better": 0,
+   "worse": 0,
+   "equal": 60,
+   "worst_pct": 0.0,
+   "best_pct": 0.0,
+   "per_map": {
+    "room200": {
+     "orders": 1036.5,
+     "doorflow": 1036.5,
+     "change_pct": 0.0,
+     "better": 0
+    },
+    "room250": {
+     "orders": 1104.5,
+     "doorflow": 1104.5,
+     "change_pct": 0.0,
+     "better": 0
+    },
+    "room300": {
+     "orders": 1175.3,
+     "doorflow": 1175.3,
+     "change_pct": 0.0,
+     "better": 0
+    }
+   },
+   "door6": {
+    "crossings_per_run": 247.5,
+    "stuck_near_door_mean": 3.851,
+    "share_of_time_8plus_stuck": 0.093,
+    "counted_on_the_way": [
+     9.311,
+     13.548
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.634,
+     0.574
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "A100": {
+   "n": 60,
+   "change_pct": 0.07,
+   "ci95_pct": [
+    -0.77,
+    0.92
+   ],
+   "better": 30,
+   "worse": 29,
+   "equal": 1,
+   "worst_pct": -11.84,
+   "best_pct": 9.43,
+   "per_map": {
+    "room200": {
+     "orders": 1027.6,
+     "doorflow": 1036.5,
+     "change_pct": -0.85,
+     "better": 9
+    },
+    "room250": {
+     "orders": 1112.0,
+     "doorflow": 1104.5,
+     "change_pct": 0.71,
+     "better": 9
+    },
+    "room300": {
+     "orders": 1178.7,
+     "doorflow": 1175.3,
+     "change_pct": 0.35,
+     "better": 12
+    }
+   },
+   "door6": {
+    "crossings_per_run": 248.65,
+    "stuck_near_door_mean": 3.81,
+    "share_of_time_8plus_stuck": 0.085,
+    "counted_on_the_way": [
+     9.362,
+     13.5
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.642,
+     0.568
+    ],
+    "new_rule_refused_per_run": 92.783,
+    "new_rule_admitted_per_run": 304.167
+   }
+  },
+  "A200": {
+   "n": 60,
+   "change_pct": -0.2,
+   "ci95_pct": [
+    -1.1,
+    0.63
+   ],
+   "better": 29,
+   "worse": 31,
+   "equal": 0,
+   "worst_pct": -11.73,
+   "best_pct": 11.06,
+   "per_map": {
+    "room200": {
+     "orders": 1033.9,
+     "doorflow": 1036.5,
+     "change_pct": -0.24,
+     "better": 11
+    },
+    "room250": {
+     "orders": 1101.2,
+     "doorflow": 1104.5,
+     "change_pct": -0.28,
+     "better": 8
+    },
+    "room300": {
+     "orders": 1173.2,
+     "doorflow": 1175.3,
+     "change_pct": -0.09,
+     "better": 10
+    }
+   },
+   "door6": {
+    "crossings_per_run": 246.55,
+    "stuck_near_door_mean": 3.864,
+    "share_of_time_8plus_stuck": 0.087,
+    "counted_on_the_way": [
+     9.298,
+     13.545
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.633,
+     0.572
+    ],
+    "new_rule_refused_per_run": 61.4,
+    "new_rule_admitted_per_run": 303.45
+   }
+  },
+  "B150": {
+   "n": 60,
+   "change_pct": -1.41,
+   "ci95_pct": [
+    -2.9,
+    0.07
+   ],
+   "better": 22,
+   "worse": 38,
+   "equal": 0,
+   "worst_pct": -18.64,
+   "best_pct": 14.57,
+   "per_map": {
+    "room200": {
+     "orders": 1020.4,
+     "doorflow": 1036.5,
+     "change_pct": -1.56,
+     "better": 6
+    },
+    "room250": {
+     "orders": 1096.4,
+     "doorflow": 1104.5,
+     "change_pct": -0.65,
+     "better": 7
+    },
+    "room300": {
+     "orders": 1148.7,
+     "doorflow": 1175.3,
+     "change_pct": -2.02,
+     "better": 9
+    }
+   },
+   "door6": {
+    "crossings_per_run": 245.817,
+    "stuck_near_door_mean": 3.704,
+    "share_of_time_8plus_stuck": 0.085,
+    "counted_on_the_way": [
+     9.317,
+     13.444
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.657,
+     0.569
+    ],
+    "new_rule_refused_per_run": 1413.967,
+    "new_rule_admitted_per_run": 330.233
+   }
+  },
+  "B300": {
+   "n": 60,
+   "change_pct": -2.43,
+   "ci95_pct": [
+    -4.14,
+    -0.81
+   ],
+   "better": 18,
+   "worse": 42,
+   "equal": 0,
+   "worst_pct": -31.97,
+   "best_pct": 14.13,
+   "per_map": {
+    "room200": {
+     "orders": 1006.0,
+     "doorflow": 1036.5,
+     "change_pct": -2.95,
+     "better": 3
+    },
+    "room250": {
+     "orders": 1105.9,
+     "doorflow": 1104.5,
+     "change_pct": 0.19,
+     "better": 9
+    },
+    "room300": {
+     "orders": 1119.2,
+     "doorflow": 1175.3,
+     "change_pct": -4.53,
+     "better": 6
+    }
+   },
+   "door6": {
+    "crossings_per_run": 241.9,
+    "stuck_near_door_mean": 3.409,
+    "share_of_time_8plus_stuck": 0.071,
+    "counted_on_the_way": [
+     9.385,
+     13.346
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.66,
+     0.556
+    ],
+    "new_rule_refused_per_run": 9478.417,
+    "new_rule_admitted_per_run": 341.833
+   }
+  },
+  "CFAR": {
+   "n": 60,
+   "change_pct": -0.77,
+   "ci95_pct": [
+    -1.86,
+    0.09
+   ],
+   "better": 19,
+   "worse": 22,
+   "equal": 19,
+   "worst_pct": -24.73,
+   "best_pct": 6.17,
+   "per_map": {
+    "room200": {
+     "orders": 1007.5,
+     "doorflow": 1036.5,
+     "change_pct": -2.81,
+     "better": 6
+    },
+    "room250": {
+     "orders": 1110.2,
+     "doorflow": 1104.5,
+     "change_pct": 0.54,
+     "better": 11
+    },
+    "room300": {
+     "orders": 1175.0,
+     "doorflow": 1175.3,
+     "change_pct": -0.03,
+     "better": 2
+    }
+   },
+   "door6": {
+    "crossings_per_run": 247.117,
+    "stuck_near_door_mean": 3.789,
+    "share_of_time_8plus_stuck": 0.089,
+    "counted_on_the_way": [
+     9.245,
+     13.543
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.624,
+     0.574
+    ],
+    "new_rule_refused_per_run": 2188.883,
+    "new_rule_admitted_per_run": 304.483
+   }
+  },
+  "CNEAR": {
+   "n": 60,
+   "change_pct": -0.33,
+   "ci95_pct": [
+    -0.89,
+    0.32
+   ],
+   "better": 21,
+   "worse": 32,
+   "equal": 7,
+   "worst_pct": -5.7,
+   "best_pct": 10.69,
+   "per_map": {
+    "room200": {
+     "orders": 1032.2,
+     "doorflow": 1036.5,
+     "change_pct": -0.41,
+     "better": 8
+    },
+    "room250": {
+     "orders": 1106.4,
+     "doorflow": 1104.5,
+     "change_pct": 0.21,
+     "better": 8
+    },
+    "room300": {
+     "orders": 1166.2,
+     "doorflow": 1175.3,
+     "change_pct": -0.77,
+     "better": 5
+    }
+   },
+   "door6": {
+    "crossings_per_run": 243.783,
+    "stuck_near_door_mean": 3.864,
+    "share_of_time_8plus_stuck": 0.091,
+    "counted_on_the_way": [
+     9.296,
+     13.497
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.635,
+     0.571
+    ],
+    "new_rule_refused_per_run": 476.3,
+    "new_rule_admitted_per_run": 295.117
+   }
+  },
+  "DALPHA": {
+   "n": 60,
+   "change_pct": -1.96,
+   "ci95_pct": [
+    -3.26,
+    -0.73
+   ],
+   "better": 22,
+   "worse": 38,
+   "equal": 0,
+   "worst_pct": -18.06,
+   "best_pct": 9.0,
+   "per_map": {
+    "room200": {
+     "orders": 1020.5,
+     "doorflow": 1036.5,
+     "change_pct": -1.54,
+     "better": 5
+    },
+    "room250": {
+     "orders": 1088.2,
+     "doorflow": 1104.5,
+     "change_pct": -1.45,
+     "better": 10
+    },
+    "room300": {
+     "orders": 1140.2,
+     "doorflow": 1175.3,
+     "change_pct": -2.88,
+     "better": 7
+    }
+   },
+   "door6": {
+    "crossings_per_run": 240.15,
+    "stuck_near_door_mean": 3.567,
+    "share_of_time_8plus_stuck": 0.078,
+    "counted_on_the_way": [
+     8.875,
+     12.361
+    ],
+    "window": [
+     9,
+     13
+    ],
+    "share_of_time_window_full": [
+     0.621,
+     0.602
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  }
+ }
+}
