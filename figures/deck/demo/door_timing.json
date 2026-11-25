@@ -1,0 +1,60 @@
+{
+ "runs": [
+  {
+   "seed": 9700,
+   "planner_seed": 101,
+   "map": "room250",
+   "ticks": 5000,
+   "orders": 1130
+  },
+  {
+   "seed": 9701,
+   "planner_seed": 101,
+   "map": "room250",
+   "ticks": 5000,
+   "orders": 1123
+  },
+  {
+   "seed": 9702,
+   "planner_seed": 101,
+   "map": "room250",
+   "ticks": 5000,
+   "orders": 1110
+  },
+  {
+   "seed": 9703,
+   "planner_seed": 101,
+   "map": "room250",
+   "ticks": 5000,
+   "orders": 1077
+  },
+  {
+   "seed": 9704,
+   "planner_seed": 101,
+   "map": "room250",
+   "ticks": 5000,
+   "orders": 1152
+  }
+ ],
+ "door6_crossings": 1255,
+ "same_direction_gap": {
+  "n": 1120,
+  "median": 10.0,
+  "min": 6,
+  "p25": 9.0,
+  "p75": 26.0
+ },
+ "switch_gap": {
+  "n": 130,
+  "median": 34.0,
+  "min": 12,
+  "p25": 21.0,
+  "p75": 45.5
+ },
+ "robots_per_turn": 9.3,
+ "move_time": {
+  "fastest": 3,
+  "most_common": 3,
+  "share_most_common": 0.671
+ }
+}

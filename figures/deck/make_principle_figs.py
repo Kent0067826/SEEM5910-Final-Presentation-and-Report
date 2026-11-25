@@ -99,29 +99,32 @@ def door_util(path):
 
 
 def door_util_curve(path):
-    """Slide 14: door utilization U(n) = n h / ((n - 1) h + s), h = 9, s = 21 (both measured, round 40), as a curve."""
-    h, s = 9, 21
+    """Door utilization U(n) = n h / ((n - 1) h + s) with h and s measured in 5 DoorFlow runs (demo/door_timing.json:
+    medians of the same-direction gap and of the switch gap at door 6), as a curve; marks the measured robots per turn."""
+    import json, os
+    m = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "demo", "door_timing.json")))
+    h, s, nbar = m["same_direction_gap"]["median"], m["switch_gap"]["median"], m["robots_per_turn"]
+    f = lambda k: k * h / ((k - 1) * h + s) * 100
     n = np.arange(1, 31)
-    U = n * h / ((n - 1) * h + s)
     fig, ax = plt.subplots(figsize=(6.6, 4.3), dpi=220)
     fig.subplots_adjust(left=0.12, right=0.97, top=0.80, bottom=0.14)
-    ax.fill_between(n, U * 100, 100, color=PALE, zorder=0)
-    ax.plot(n, U * 100, color=TEAL, lw=2.8, marker="o", ms=3.5)
-    for k, lab, dx, dy in [(1, "1 robot per turn: 9 / 21 = 43%", 2.0, -6), (10, "10 per turn: 90 / 102 = 88%", 2.5, -10)]:
-        u = k * h / ((k - 1) * h + s) * 100
-        ax.scatter([k], [u], s=70, color=ORG, zorder=5, edgecolor="white", lw=1.2)
-        ax.annotate(lab, xy=(k, u), xytext=(k + dx, u + dy), fontsize=9.5, color=INK, fontweight="bold",
+    ax.fill_between(n, f(n), 100, color=PALE, zorder=0)
+    ax.plot(n, f(n), color=TEAL, lw=2.8, marker="o", ms=3.5)
+    for k, lab, dx, dy in [(1, f"1 robot per turn: {h:g} / {s:g} = {f(1):.0f}%", 2.0, -4),
+                           (10, f"10 per turn: {10 * h:g} / {s + 9 * h:g} = {f(10):.0f}%", 2.5, -12)]:
+        ax.scatter([k], [f(k)], s=70, color=ORG, zorder=5, edgecolor="white", lw=1.2)
+        ax.annotate(lab, xy=(k, f(k)), xytext=(k + dx, f(k) + dy), fontsize=9.5, color=INK, fontweight="bold",
                     arrowprops=dict(arrowstyle="-|>", color=ORG, lw=1.0))
-    ax.text(2.4, 96.2, "shaded: time lost to switching\n(each switch costs 21 - 9 = 12 extra ticks)", fontsize=8.8, color=ORG, ha="left", va="center")
-    ax.annotate("exhaustive service: serve one side\nuntil it is empty → n grows with the queue", xy=(26, 26 * h / (25 * h + s) * 100),
-                xytext=(14.5, 55), fontsize=9, color=TEAL, ha="left", arrowprops=dict(arrowstyle="-|>", color=TEAL, lw=1.0))
-    ax.set_xlim(0, 31); ax.set_ylim(30, 104)
-    ax.set_xlabel("robots let through per turn, $n$", fontsize=10); ax.set_ylabel("share of time the door is passing robots (%)", fontsize=9.5)
+    ax.axvline(nbar, color=GREY, ls=":", lw=1.2)
+    ax.text(nbar + 0.4, 36, f"measured: {nbar:g} robots\nper turn on average", fontsize=8.8, color=GREY, va="bottom")
+    ax.text(10.6, 97.6, f"shaded: time lost to switching ({s - h:g} extra ticks per switch)", fontsize=8.6, color=ORG, ha="left", va="center")
+    ax.set_xlim(0, 31); ax.set_ylim(20, 104)
+    ax.set_xlabel("robots let through per turn, $n$", fontsize=10); ax.set_ylabel("door speed, share of its top speed (%)", fontsize=9.5)
     ax.spines[["top", "right"]].set_visible(False); ax.tick_params(labelsize=9)
-    fig.text(0.02, 0.94, "Door utilization: one direction at a time, served in turns", fontsize=12, fontweight="bold", color=INK)
+    fig.text(0.02, 0.94, "Door speed: one direction at a time, served in turns", fontsize=12, fontweight="bold", color=INK)
     with plt.rc_context({"mathtext.fontset": "dejavuserif"}):
-        fig.text(0.02, 0.865, r"$U(n)=\dfrac{n\,h}{(n-1)\,h+s}=\dfrac{9n}{9(n-1)+21}$", fontsize=10.5, color=INK)
-        fig.text(0.47, 0.875, "$h$ = 9 ticks between two robots\n$s$ = 21 ticks to switch direction (both measured)", fontsize=9, color=GREY, va="center")
+        fig.text(0.02, 0.865, r"$U(n)=\dfrac{n\,h}{(n-1)\,h+s}=\dfrac{%gn}{%g(n-1)+%g}$" % (h, h, s), fontsize=10.5, color=INK)
+        fig.text(0.50, 0.875, f"$h$ = {h:g} ticks to the next robot, same direction\n$s$ = {s:g} ticks to switch direction (medians, 5 runs)", fontsize=9, color=GREY, va="center")
     fig.savefig(path, facecolor="white")
     plt.close(fig)
 

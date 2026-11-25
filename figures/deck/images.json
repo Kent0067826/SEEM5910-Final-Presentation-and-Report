@@ -134,11 +134,6 @@
   "w": 1452,
   "h": 946
  },
- "execD": {
-  "path": "figures/deck/fig_executor_deck.png",
-  "w": 980,
-  "h": 1000
- },
  "doorA": {
   "path": "figures/deck/fig_door_rule_A.png",
   "w": 1220,
@@ -148,5 +143,20 @@
   "path": "figures/deck/fig_door_rule_BC.png",
   "w": 1378,
   "h": 945
+ },
+ "timing": {
+  "path": "figures/deck/fig_door_timing.png",
+  "w": 1804,
+  "h": 858
+ },
+ "narrow": {
+  "path": "figures/deck/fig_narrow_spots.png",
+  "w": 2040,
+  "h": 1080
+ },
+ "results": {
+  "path": "figures/deck/fig_results_deck.png",
+  "w": 1574,
+  "h": 893
  }
 }

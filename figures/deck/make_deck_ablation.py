@@ -10,7 +10,6 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 ABL = os.path.join(ROOT, "figures", "part3", "rerun", "ablation_room_4x4.jsonl")
 OUT = os.path.join(ROOT, "figures", "deck", "fig_ablation_deck.png")
 R52B = os.path.join(ROOT, "experiment-materials", "archive", "workspace", "batches", "r52b-baseline", "rows.jsonl")
-OUT_EXEC = os.path.join(ROOT, "figures", "deck", "fig_executor_deck.png")
 plt.rcParams["font.family"] = "DejaVu Sans"
 plt.rcParams["savefig.dpi"] = 200
 INK, INK2, MUTED, GRID, SURF = "#0b0b0b", "#52514e", "#8a8984", "#e4e3df", "#ffffff"
@@ -43,7 +42,7 @@ def main():
     rows = [json.loads(l) for l in open(ABL, encoding="utf-8") if l.strip()]
     by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
     left = [("Door rule: one direction at a\ntime, serve a side until empty", "noDoor"), ("Per-door quota\n(door rate x trip time)", "noQuota"),
-            ("Executor fix: free a cell\nas soon as the robot leaves", "noSync"), ("Deadlock watchdog", "noWD"),
+            ("Deadlock watchdog", "noWD"),
             ("Global cap\n(rate x trip time)", "noGlobal")]
     right = [("Door rule only", "onlyDoor"), ("Per-door quota only", "onlyQuota"), ("Global cap only", "onlyGlobal"),
              ("Everything on\n(full DoorFlow)", "FULL")]
@@ -51,7 +50,7 @@ def main():
     out = {}
     for ax, items, title, base, col in [
             (a1, left, "Remove one part from the full method", "FULL", ORANGE),
-            (a2, right, "Add only this part to the base\n(champion assignment + fixed executor)", "NONE", BLUE)]:
+            (a2, right, "Add only this part to the base program", "NONE", BLUE)]:
         ys = list(range(len(items)))[::-1]
         for y, (name, k) in zip(ys, items):
             m, lo, hi = (100 * x for x in boot(paired(by, k, base, OFFICIAL)))
@@ -78,29 +77,38 @@ def main():
     print(out)
 
 
-def executor():
-    """Deck copy of figures/part3/p3_fig07_executor_data.png with larger text, stacked for a narrow column. Same numbers:
-    22 / 26 / 45 robots through door 6 per 500 ticks (read-through notes, wait-v27, rounds 36-37) and the paired gain of the
-    fixed executor over the champion assignment in the formal evaluation (r52b-baseline rows, N2F vs N2, 20 runs per size)."""
+def results():
+    """Results slide: official starter program vs DoorFlow on the official room map, from the formal evaluation
+    (r52b-baseline rows: DEF = official starter, LCAP = DoorFlow; 20 runs per robot count, paired by seed).
+    The average gain is the mean of the 60 paired run ratios (the report's +140.5%)."""
     rows = [json.loads(l) for l in open(R52B, encoding="utf-8") if l.strip()]
-    by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
-    gains = [100 * st.mean(g) for g in paired(by, "N2F", "N2", OFFICIAL)]
-    fig, (a1, a2) = plt.subplots(2, 1, figsize=(4.9, 5.0), dpi=220)
-    fig.subplots_adjust(left=0.13, right=0.98, top=0.90, bottom=0.08, hspace=0.75)
-    v = [22, 26, 45]
-    a1.bar(["before\nthe fix", "after the fix", "after the fix,\nbreakdowns off"], v, color=[GRAY, BLUE, "#1baf7a"], width=0.55)
-    for i, x in enumerate(v): a1.text(i, x + 1.2, f"{x}", ha="center", fontsize=11, color=INK, fontweight="bold")
-    a1.set_ylim(0, 54); a1.set_title("Robots through door 6 per 500 ticks (rounds 36-37)", fontsize=10.5, color=INK, loc="left")
-    a2.bar(["200 robots", "250 robots", "300 robots"], gains, color=BLUE, width=0.5)
-    for i, g in enumerate(gains): a2.text(i, g + 0.4, f"{g:+.1f}%", ha="center", fontsize=11, color=INK, fontweight="bold")
-    a2.set_ylim(0, 15); a2.set_title(f"Fixing only the executor: orders, mean {st.mean(gains):+.1f}%\n(official room map, 20 paired runs per size)", fontsize=10.5, color=INK, loc="left")
-    for ax in (a1, a2):
-        style(ax); ax.tick_params(labelsize=9.5)
-    fig.savefig(OUT_EXEC, facecolor=SURF)
+    acc, pair = {}, {}
+    for r in rows:
+        if r["map"] in OFFICIAL and r["method"] in ("DEF", "LCAP"):
+            acc.setdefault((r["map"], r["method"]), []).append(r["completed"])
+            pair.setdefault((r["map"], r["seed"], r["pseed"]), {})[r["method"]] = r["completed"]
+    ratios = [v["LCAP"] / v["DEF"] for v in pair.values() if len(v) == 2]
+    avg = (st.mean(ratios) - 1) * 100
+    fig, ax = plt.subplots(figsize=(8.2, 4.0))
+    w = 0.36
+    for i, mp in enumerate(OFFICIAL):
+        a, b = st.mean(acc[(mp, "DEF")]), st.mean(acc[(mp, "LCAP")])
+        ax.bar(i - w / 2, a, width=w * 0.95, color=GRAY, label="official starter program" if i == 0 else None)
+        ax.bar(i + w / 2, b, width=w * 0.95, color=ORANGE, label="DoorFlow (ours)" if i == 0 else None)
+        ax.text(i - w / 2, a + 15, f"{a:.0f}", ha="center", fontsize=10, color=INK)
+        ax.text(i + w / 2, b + 15, f"{b:.0f}", ha="center", fontsize=10, color=INK, fontweight="bold")
+        ax.text(i, b + 105, f"+{(b / a - 1) * 100:.0f}%", ha="center", fontsize=11.5, color=ORANGE, fontweight="bold")
+    ax.set_xticks(range(3)); ax.set_xticklabels([f"{m[4:]} robots" for m in OFFICIAL], fontsize=10.5)
+    ax.set_ylabel("orders finished per run (5,000 ticks)", fontsize=9.5, color=INK2)
+    ax.set_ylim(0, 1420)
+    ax.legend(fontsize=9.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.09), ncol=2)
+    ax.set_title(f"Official room map, 20 runs per bar: on average +{avg:.1f}% over {len(ratios)} paired runs", fontsize=11, color=INK)
+    style(ax)
+    fig.savefig(os.path.join(ROOT, "figures", "deck", "fig_results_deck.png"), dpi=220, bbox_inches="tight", facecolor=SURF)
     plt.close(fig)
-    print("executor gains", [round(g, 1) for g in gains], round(st.mean(gains), 1))
+    print("results", {m: (round(st.mean(acc[(m, 'DEF')]), 1), round(st.mean(acc[(m, 'LCAP')]), 1)) for m in OFFICIAL}, "avg", round(avg, 1), len(ratios))
 
 
 if __name__ == "__main__":
     main()
-    executor()
+    results()

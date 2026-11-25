@@ -1,4 +1,4 @@
-// Build the 15-minute, 4-speaker deck (24 slides): DoorFlow. Every slide shows its own English speech (read-along panel).
+// Build the 15-minute, 4-speaker deck (23 slides): DoorFlow. Every slide shows its own English speech (read-along panel).
 // Run from the repo root:  NODE_PATH=<dir with pptxgenjs> node figures/deck/build_deck.js
 const path = require("path");
 const fs = require("fs");
@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v27.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v28.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -86,7 +86,7 @@ function body(slide, items, x, y, w, h, size = 16) {
   slide.addText(runs, { x, y, w, h, fontSize: size, color: C.text1, valign: "top", margin: 0, isTextBox: true });
 }
 function notes(slide, s) {
-  const clean = (t) => t.replace(/\*\*/g, "");
+  const clean = (t) => t.replace(/\*\*/g, "").replace(/[{}]/g, "");
   const hints = s.hints.map((h) => "- " + h).join("\n");
   const body = s.segs.map((g) => `${clean(g.en)}\n中：${clean(g.zh)}`).join("\n\n");
   slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n提示 / Cues:\n${hints}\n\nScript（英文一段，下面跟中文）:\n\n${body}`);
@@ -135,9 +135,11 @@ function code(slide, rows, x, y, w, h, size = 12) {
   slide.addText(runs, { x, y, w, h, fontSize: size, fontFace: "Consolas", valign: "top", margin: 0, isTextBox: true, lineSpacingMultiple: 1.32 });
 }
 
-// ---------- read-along text: each slide shows its own speech from script.json (cues 【…】 removed) ----------
-const cue = (t) => t.replace(/【[^】]*】\s*/g, "").replace(/\s+([,.;:!?])/g, "$1").replace(/\s{2,}/g, " ").trim();
-const say = (s, idx) => (idx || s.segs.map((_, i) => i)).map((i) => cue(s.segs[i].en));
+// ---------- read-along text: most of each slide's speech from script.json ----------
+// 【…】 = pointing cue, {…} = linking words the speaker says from memory; both are left off the slide.
+const cue = (t) => t.replace(/【[^】]*】\s*/g, "").replace(/\{[^}]*\}\s*/g, "").replace(/\s+([,.;:!?])/g, "$1").replace(/\s{2,}/g, " ").trim()
+  .replace(/^(\**)([a-z])/, (m, a, b) => a + b.toUpperCase()).replace(/([.!?]\s+)(\**)([a-z])/g, (m, a, b, c) => a + b + c.toUpperCase());
+const say = (s, idx) => (idx || s.segs.map((_, i) => i)).map((i) => cue(s.segs[i].en)).filter((p) => p);
 const oneP = (a) => [a.join(" ")];
 function estLines(t, w, sz) {   // greedy word wrap, Calibri ~0.52 em per character (conservative)
   const cpl = Math.max(8, Math.floor((w * 72 * 0.93) / (sz * 0.52)));
@@ -174,6 +176,10 @@ function readPanel(slide, s, paras, x, y, w, h, o = {}) {
   slide.addText(runs, { x: tx, y: y + pd, w: iw, h: ih, fontSize: sz, valign, margin: 0, isTextBox: true, objectName: "read-text" });
   FIT.push([s.n, sz]);
   return sz;
+}
+function bigStat(slide, x, y, w, big, label, col = C.accent2, size = 34) {
+  slide.addText(big, { x, y, w, h: 0.7, fontSize: size, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
+  para(slide, label, x, y + 0.74, w, 0.7, 13);
 }
 
 // ---------- 1 title ----------
@@ -337,16 +343,9 @@ section(1);
   readPanel(slide, s, say(s), 7.1, 1.3, 5.65, 5.65, { max: 18 });
 }
 
-// ---------- 11 global regulation, like BBR ----------
+// ---------- 11 the quota for each door ----------
 {
   const s = S(11); const slide = content(s);
-  addImg(slide, "bbrloop", M, 1.3, 6.4, 5.65, "left");
-  readPanel(slide, s, say(s), 7.2, 1.3, 5.55, 5.65, { max: 18 });
-}
-
-// ---------- 12 the quota ----------
-{
-  const s = S(12); const slide = content(s);
   addImg(slide, "knee", M, 1.3, 7.3, 3.35, "left");
   caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.3);
   card(slide, M, 5.05, 7.3, 1.85, C.background1);
@@ -354,9 +353,9 @@ section(1);
   readPanel(slide, s, say(s), 8.1, 1.3, 4.65, 5.65, { max: 18 });
 }
 
-// ---------- 13 one direction at a time (panel A) ----------
+// ---------- 12 one direction at a time (panel A) ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(12); const slide = content(s);
   addImg(slide, "doorA", M, 1.3, 6.6, 4.95, "left");
   slide.addText("Rule: serve one side; when no robot of this side is within 8 cells and the other side waits, stop letting this side in; once the door and this side's 4-cell buffer are empty, switch. Robots held by the rule get the lowest priority.", { x: M, y: 6.3, w: 6.6, h: 0.62, fontSize: 10.5, italic: true, color: C.accent4, margin: 0, isTextBox: true, valign: "top" });
   readPanel(slide, s, say(s), 7.45, 1.3, 5.3, 3.3, { max: 20 });
@@ -365,32 +364,35 @@ section(1);
   para(slide, "this rule alone, on **17 room-map instances**", 7.7, 5.85, 4.8, 0.9, 15);
 }
 
-// ---------- 14 how big should the buffer be (panels B, C) ----------
+// ---------- 13 how long does the door take (measured) ----------
 {
-  const s = S(14); const slide = content(s);
-  addImg(slide, "doorBC", M, 1.3, 7.1, 5.65, "left");
-  readPanel(slide, s, say(s), 7.95, 1.3, 4.8, 5.65, { max: 18 });
+  const s = S(13); const slide = content(s);
+  addImg(slide, "timing", M, 1.35, 7.6, 3.2, "left");
+  [["1,255", "crossings of door 6 timed\nin 5 runs, 250 robots"], ["10 ticks", "median gap, same direction\n(mostly 6 or 9 = 2 or 3 moves)"], ["34 ticks", "median gap when the door\nswitches direction"]].forEach(([b, l], i) => {
+    const x = M + i * 2.55;
+    card(slide, x, 4.85, 2.45, 2.05, C.accent6);
+    bigStat(slide, x + 0.18, 4.92, 2.15, b, l, i === 2 ? C.accent3 : C.accent2, 28);
+  });
+  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18 });
 }
 
-// ---------- 15 queue scheduling at the door ----------
+// ---------- 14 serve one side until it is empty ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(14); const slide = content(s);
   addImg(slide, "utilC", M, 1.3, 6.6, 5.65);
   readPanel(slide, s, say(s), 7.4, 1.3, 5.35, 5.65, { max: 18 });
 }
 
-// ---------- 16 executor bug fix ----------
+// ---------- 15 how big should the buffer be (panels B, C) ----------
 {
-  const s = S(16); const slide = content(s);
-  addImg(slide, "exec", M, 1.3, 7.4, 3.45, "left");
-  caption(slide, "Top: official executor (bug). Bottom: fixed executor (3-line patch).", M, 4.8, 7.4);
-  addImg(slide, "execD", 8.2, 1.25, 4.55, 3.95);
-  readPanel(slide, s, oneP(say(s)), M, 5.3, 12.15, 1.62, { max: 18, pad: 0.15 });
+  const s = S(15); const slide = content(s);
+  addImg(slide, "doorBC", M, 1.3, 7.1, 5.65, "left");
+  readPanel(slide, s, say(s), 7.95, 1.3, 4.8, 5.65, { max: 18 });
 }
 
-// ---------- 17 pseudocode ----------
+// ---------- 16 pseudocode ----------
 {
-  const s = S(17); const slide = content(s);
+  const s = S(16); const slide = content(s);
   card(slide, M, 1.35, 8.4, 5.55, "16212B");
   // "~" = safety-net line (grey); text after "#" = comment
   code(slide, [
@@ -418,17 +420,17 @@ section(1);
   readPanel(slide, s, say(s), 9.15, 1.35, 3.6, 5.55, { max: 17 });
 }
 
-// ---------- 18 the hardest part + demo ----------
+// ---------- 17 the hardest part + demo ----------
 {
-  const s = S(18); const slide = content(s);
+  const s = S(17); const slide = content(s);
   readPanel(slide, s, say(s), M, 1.3, 5.0, 5.65, { max: 18 });
   addImg(slide, "demo", 5.85, 1.3, 6.9, 4.07);
   para(slide, "**The same congestion monitor, on our own code.** Official room map, 250 robots, one run. Red dot = robot holding an order that has not moved for 12+ ticks; glowing door = jam. Left: no door control, **609** orders. Right: DoorFlow, **1,130** orders.", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
 }
 
-// ---------- 19 random-door maps ----------
+// ---------- 18 random-door maps ----------
 {
-  const s = S(19); const slide = content(s);
+  const s = S(18); const slide = content(s);
   addImg(slide, "gen", M, 1.3, 7.6, 3.6, "left");
   card(slide, M, 5.05, 7.6, 1.85, C.accent6);
   slide.addText("+86.9%", { x: M + 0.3, y: 5.2, w: 3.0, h: 0.9, fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
@@ -436,44 +438,40 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 19 });
 }
 
-// ---------- 20 two safety nets ----------
+// ---------- 19 two safety nets (narrow doorways) ----------
 {
-  const s = S(20); const slide = content(s);
-  addImg(slide, "gen", M, 1.3, 7.6, 3.6, "left");
-  [["Safety net 1 · Global cap", "**Rate × trip time:** 1.76 × 69.2 ÷ 500 × 2.23 × 255 = 138.5 → **138** robots hold orders at most (official map)."],
+  const s = S(19); const slide = content(s);
+  addImg(slide, "narrow", M, 1.3, 7.6, 4.05, "left");
+  [["Safety net 1 · Global cap", "Robots holding orders ≤ **rate × trip time**: **138** on the official map, **177** on this map."],
    ["Safety net 2 · Watchdog", "Waited **300 ticks** and nobody entered its door → skip the door rule for one tick. **Never drop a robot.**"]].forEach(([a, b], i) => {
     const x = M + i * 3.85;
-    card(slide, x, 5.05, 3.75, 1.85, C.accent6);
-    slide.addText(a, { x: x + 0.2, y: 5.12, w: 3.4, h: 0.4, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    para(slide, b, x + 0.2, 5.55, 3.4, 1.3, 12.5);
+    card(slide, x, 5.45, 3.75, 1.45, C.accent6);
+    slide.addText(a, { x: x + 0.2, y: 5.5, w: 3.4, h: 0.38, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true });
+    para(slide, b, x + 0.2, 5.9, 3.4, 0.95, 12.5);
   });
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18 });
 }
 
-// ---------- 21 results ----------
+// ---------- 20 results ----------
 {
-  const s = S(21); const slide = content(s);
-  [["+140.5%", "vs official starter program", C.accent2], ["+76.5%", "vs same assignment + fixed executor: only DoorFlow differs (fairest)", C.accent3], ["618 → 1,106", "orders per run, 250 robots", C.accent2]].forEach(([b, l, col], i) => {
-    const y = 1.3 + i * 1.38;
-    slide.addText(b, { x: M, y, w: 3.7, h: 0.62, fontSize: 30, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
-    slide.addText(l, { x: M, y: y + 0.65, w: 3.7, h: 0.65, fontSize: 13, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
-  });
-  addImg(slide, "ladder", 4.5, 1.3, 8.25, 3.62);
-  para(slide, "Official room map, 3 fleet sizes × **20 runs**. Each group adds one step: starter → champion's assignment → fixed executor → **DoorFlow (orange)**.", 4.6, 4.95, 8.1, 0.5, 11, C.accent4, C.text2);
-  readPanel(slide, s, oneP(say(s)), M, 5.52, 12.15, 1.4, { max: 18, pad: 0.15 });
+  const s = S(20); const slide = content(s);
+  bigStat(slide, M, 1.5, 3.4, "+140.5%", "more orders than the official starter program", C.accent3, 40);
+  bigStat(slide, M, 3.1, 3.4, "60 runs", "official room map: 200 / 250 / 300 robots, 20 runs each", C.accent2, 34);
+  addImg(slide, "results", 4.3, 1.3, 8.45, 4.2);
+  readPanel(slide, s, oneP(say(s)), M, 5.65, 12.15, 1.28, { max: 20, pad: 0.15 });
 }
 
-// ---------- 22 what matters ----------
+// ---------- 21 what matters ----------
 {
-  const s = S(22); const slide = content(s);
+  const s = S(21); const slide = content(s);
   addImg(slide, "ablD", M, 1.3, 12.15, 3.85);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.18, 12);
   readPanel(slide, s, oneP(say(s)), M, 5.6, 12.15, 1.32, { max: 18, pad: 0.15 });
 }
 
-// ---------- 23 lessons ----------
+// ---------- 22 lessons ----------
 {
-  const s = S(23); const slide = content(s);
+  const s = S(22); const slide = content(s);
   const t = say(s);   // intro + one sentence per card
   para(slide, t[0], M, 1.3, 12.15, 0.45, 17);
   for (let i = 0; i < 5; i++) {
@@ -484,16 +482,14 @@ section(1);
   caption(slide, "From all versions on slide 6; numbers from report, section 9.", M, 6.9, 11);
 }
 
-// ---------- 24 conclusion ----------
+// ---------- 23 conclusion ----------
 {
-  const s = S(24);
+  const s = S(23);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
-  const t = say(s);   // seg 0 = "To conclude." + point 1; segs 1-3 = points 2-4; seg 4 = thanks
-  const pts = [t[0].replace(/^To conclude\.\s*/, ""), t[1], t[2], t[3]];
-  slide.addText("To conclude.", { x: M, y: 2.75, w: 6, h: 0.35, fontSize: 15, italic: true, color: C.accent5, margin: 0, isTextBox: true });
-  pts.forEach((p, i) => {
-    const y = 3.15 + i * 0.88;
+  const t = say(s);   // four points, then thanks ("To conclude." is said, not shown)
+  t.slice(0, 4).forEach((p, i) => {
+    const y = 2.95 + i * 0.92;
     numCircle(slide, M, y + 0.12, i + 1, 0.5, C.accent1);
     const sz = fitSize([p], 11.4, 0.82, 18, 12);
     slide.addText(md(p, C.background1, C.accent1), { x: M + 0.75, y, w: 11.4, h: 0.82, fontSize: sz, valign: "middle", margin: 0, isTextBox: true });
