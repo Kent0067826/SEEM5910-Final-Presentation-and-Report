@@ -1,0 +1,75 @@
+--- default_planner/window_control.cpp
++++ default_planner/window_control.cpp
+@@ -394,6 +394,41 @@
+         }
+     }
+ }
++// ETA experiment (deck, speaker 3): ROBOT_ETA_H=H -- a robot counts toward a single-door cut only while its estimated time
++// to that door is <= H ticks (alpha x 3 ticks per step x grid steps: walking distance to the door on the leg that crosses,
++// Manhattan distance for the legs before); the cap becomes min(K, ceil(H x c1 / 2)). ROBOT_BOTHDIR=1: the two directions of a
++// single-door cut share one cap K_in + K_out.
++double eta_H = 0; int both_dir = 0; bool eta_ready = false; std::vector<std::vector<int>> eta_dd; int eta_C = 1;
++void eta_init(SharedEnvironment* env) {
++    eta_ready = true; eta_H = std::getenv("ROBOT_ETA_H") ? std::atof(std::getenv("ROBOT_ETA_H")) : 0;
++    both_dir = std::getenv("ROBOT_BOTHDIR") ? std::atoi(std::getenv("ROBOT_BOTHDIR")) : 0;
++    const int n = int(env->map.size()), C = env->cols; eta_C = C; eta_dd.assign(std::min(br_n1, int(br_cells.size())), {});
++    if (eta_H <= 0) return;
++    for (size_t b = 0; b < eta_dd.size(); ++b) { std::vector<int>& d = eta_dd[b]; d.assign(n, 1000000); std::vector<int> q; size_t h = 0;
++        for (int c : br_cells[b]) { d[c] = 0; q.push_back(c); }
++        while (h < q.size()) { const int v = q[h++]; const int r = v / C, c = v % C;
++            const int nb[4] = { c + 1 < C ? v + 1 : -1, c > 0 ? v - 1 : -1, r + 1 < n / C ? v + C : -1, r > 0 ? v - C : -1 };
++            for (int u : nb) if (u >= 0 && !env->map[u] && d[u] > d[v] + 1) { d[u] = d[v] + 1; q.push_back(u); } } }
++    std::fprintf(stderr, "[eta] H=%g both=%d cuts=%zu\n", eta_H, both_dir, eta_dd.size());
++}
++double eta_of(int b, int start, const std::vector<int>& L, int from, int s) {
++    if (start < 0) return 0; int prev = start, ps = br_side[b][start]; double acc = 0;
++    for (int i = std::max(0, from); i < int(L.size()); ++i) { const int v = L[i], sv = br_side[b][v];
++        if (sv >= 0 && ps >= 0 && sv != ps && sv == s) return net_alpha * 3.0 * (acc + eta_dd[b][prev]);
++        acc += std::abs(prev / eta_C - v / eta_C) + std::abs(prev % eta_C - v % eta_C); prev = v; if (sv >= 0) ps = sv; }
++    return 1e18;
++}
++void eta_filter(int start, const std::vector<int>& L, int from) {
++    if (eta_H <= 0) return; std::vector<std::pair<int,int>> keep;
++    for (auto& bs : br_tmp) if (bs.first >= int(eta_dd.size()) || eta_of(bs.first, start, L, from, bs.second) <= eta_H) keep.push_back(bs);
++    br_tmp.swap(keep);
++}
++int eta_K(int b, int K) { if (eta_H > 0 && b < int(eta_dd.size()) && K > 0) return std::min(K, int(std::ceil(eta_H * net_c1 / 2.0 - 1e-9))); return K; }
++bool eta_over(int b, int s, int K) {
++    if (both_dir && b < br_n1 && b < int(br_Ks.size()) && br_load[b].size() == 2 && br_Ks[b].size() == 2)
++        return br_load[b][0] + br_load[b][1] + 1 > br_Ks[b][0] + br_Ks[b][1];
++    return br_load[b][s] + 1 > K;
++}
+ // free-flow delay (ticks) to the cut cells, averaged over the cells of every other side, plus leg 1 (as in the ROBOT_NET block)
+ std::vector<double> cut_tfree(SharedEnvironment* env, const std::vector<int>& cells, const std::vector<int>& side, int nparts) {
+     const int n = int(env->map.size()), C = env->cols; const int DRo[4] = {1, C, -1, -C};
+@@ -1210,7 +1245,8 @@
+             br_counted[i].clear();
+             auto it = env->task_pool.find(env->curr_task_schedule[i]);
+             if (it == env->task_pool.end()) continue;
+-            br_route(env->system_states[i].location, it->second.locations, it->second.idx_next_loc, br_tmp); br_count(i);
++            if (!eta_ready) eta_init(env);
++            br_route(env->system_states[i].location, it->second.locations, it->second.idx_next_loc, br_tmp); eta_filter(env->system_states[i].location, it->second.locations, it->second.idx_next_loc); br_count(i);
+         }
+         if (rg_bbr && rg_first >= 0 && !bb_wx.empty()) {   // v36: completed crossings of the region-graph cuts; close a window every bb_win ticks
+             for (int i = 0; i < int(cm_prev.size()) && i < int(br_counted.size()); ++i) { const int loc = env->system_states[i].location; if (loc < 0) continue;
+@@ -1374,9 +1410,9 @@
+                 if (j < int(bb_cap.size()) && bb_cap[j][bs.second] > 0 && br_load[bs.first][bs.second] + 1 > bb_cap[j][bs.second]) { ++bb_denied; ++br_denied; ++denied; return false; }
+                 continue; }
+             if (lv_mode == 1 && bs.first < int(lv_on.size()) && !lv_on[bs.first]) continue;   // live window: off until a jam is seen
+-            const int K = ((net_on && bs.first < int(br_Ks.size())) ? br_Ks[bs.first][bs.second] : (bs.first < int(br_Kb.size()) ? br_Kb[bs.first] : br_K)) + ab_K(bs.first, bs.second); if (K > 0 && br_load[bs.first][bs.second] + 1 > K && pipe_d > 0 && bs.first < br_n1) { ++pipe_seen;   // p16: pipeline one more request into an idle pipe
++            const int K = eta_K(bs.first, ((net_on && bs.first < int(br_Ks.size())) ? br_Ks[bs.first][bs.second] : (bs.first < int(br_Kb.size()) ? br_Kb[bs.first] : br_K)) + ab_K(bs.first, bs.second)); if (K > 0 && br_load[bs.first][bs.second] + 1 > K && pipe_d > 0 && bs.first < br_n1) { ++pipe_seen;   // p16: pipeline one more request into an idle pipe
+                 if (br_load[bs.first][bs.second] + 1 <= K + pipe_d && DefaultPlanner::NetMac::pipe_idle(bs.first, bs.second)) { ++pipe_used; goto pipe_ok; } }
+-            if (K > 0 && br_load[bs.first][bs.second] + 1 > K) { if (ab_on && bs.first < int(ab_deny.size()) && bs.second < int(ab_deny[bs.first].size())) ab_deny[bs.first][bs.second] = env->system_timestep; ++br_denied; ++denied; if (!c2_K.empty() && bs.first >= br_n1) ++c2_deny[bs.first - br_n1]; if (lv_mode == 2 && bs.first < int(lv_deny.size()) && bs.second < int(lv_deny[bs.first].size())) ++lv_deny[bs.first][bs.second]; return false; }
++            if (K > 0 && eta_over(bs.first, bs.second, K)) { if (ab_on && bs.first < int(ab_deny.size()) && bs.second < int(ab_deny[bs.first].size())) ab_deny[bs.first][bs.second] = env->system_timestep; ++br_denied; ++denied; if (!c2_K.empty() && bs.first >= br_n1) ++c2_deny[bs.first - br_n1]; if (lv_mode == 2 && bs.first < int(lv_deny.size()) && bs.second < int(lv_deny[bs.first].size())) ++lv_deny[bs.first][bs.second]; return false; }
+             pipe_ok:
+             if (tb_cbs > 0 && tb_cut(bs.first) && bs.first < int(tb_tok.size()) && !tb_paid.count(task) && tb_tok[bs.first][bs.second] < 1.0 - 1e-9) { ++tb_denied; ++denied; return false; }   // p05: no token
+             if (cd_pct > 0 && bs.first < int(cd_q.size()) && bs.second < int(cd_q[bs.first].size()) && br_load[bs.first][bs.second] + 1 > int(cd_q[bs.first][bs.second].W)) { ++cd_denied; ++denied; return false; }   // p06: ECN window
+@@ -1434,7 +1470,7 @@
+     LinkCredit::assigned(agent, task, env);
+     if ((br_K > 0 || br_K2 > 0) && !br_side.empty() && !LinkCredit::replaces_cuts()) {
+         br_uncount(agent); const auto& T = env->task_pool.at(task);
+-        br_route(env->system_states.at(agent).location, T.locations, T.idx_next_loc, br_tmp);
++        br_route(env->system_states.at(agent).location, T.locations, T.idx_next_loc, br_tmp); eta_filter(env->system_states.at(agent).location, T.locations, T.idx_next_loc);
+         if (!br_tmp.empty()) ++br_admitted; br_count(agent);
+         if ((tb_cbs > 0 || tb_log) && !tb_paid.count(task)) { bool any = false;   // p05: first admission of a crossing task pays
+             for (auto& bs : br_tmp) if (tb_cut(bs.first) && bs.first < int(tb_tok.size())) { any = true;
