@@ -1,0 +1,176 @@
+{
+ "alpha": {
+  "room200": [
+   [
+    0,
+    0,
+    2.182
+   ],
+   [
+    0,
+    1,
+    2.009
+   ],
+   [
+    1,
+    0,
+    2.264
+   ],
+   [
+    1,
+    1,
+    2.053
+   ]
+  ],
+  "room250": [
+   [
+    0,
+    0,
+    2.248
+   ],
+   [
+    0,
+    1,
+    2.037
+   ],
+   [
+    1,
+    0,
+    2.597
+   ],
+   [
+    1,
+    1,
+    2.159
+   ]
+  ],
+  "room300": [
+   [
+    0,
+    0,
+    2.416
+   ],
+   [
+    0,
+    1,
+    2.027
+   ],
+   [
+    1,
+    0,
+    2.738
+   ],
+   [
+    1,
+    1,
+    2.326
+   ]
+  ]
+ },
+ "detail": {
+  "room200": {
+   "0,0": {
+    "T_free": 158,
+    "K_doorflow": 10,
+    "crossings": 651,
+    "mean_ticks_to_cross": 344.8,
+    "alpha": 2.182,
+    "K_new": 9
+   },
+   "0,1": {
+    "T_free": 247,
+    "K_doorflow": 15,
+    "crossings": 638,
+    "mean_ticks_to_cross": 496.3,
+    "alpha": 2.009,
+    "K_new": 13
+   },
+   "1,0": {
+    "T_free": 63,
+    "K_doorflow": 4,
+    "crossings": 357,
+    "mean_ticks_to_cross": 142.6,
+    "alpha": 2.264,
+    "K_new": 4
+   },
+   "1,1": {
+    "T_free": 199,
+    "K_doorflow": 12,
+    "crossings": 397,
+    "mean_ticks_to_cross": 408.6,
+    "alpha": 2.053,
+    "K_new": 11
+   }
+  },
+  "room250": {
+   "0,0": {
+    "T_free": 158,
+    "K_doorflow": 10,
+    "crossings": 622,
+    "mean_ticks_to_cross": 355.1,
+    "alpha": 2.248,
+    "K_new": 10
+   },
+   "0,1": {
+    "T_free": 247,
+    "K_doorflow": 15,
+    "crossings": 627,
+    "mean_ticks_to_cross": 503.3,
+    "alpha": 2.037,
+    "K_new": 14
+   },
+   "1,0": {
+    "T_free": 63,
+    "K_doorflow": 4,
+    "crossings": 382,
+    "mean_ticks_to_cross": 163.6,
+    "alpha": 2.597,
+    "K_new": 5
+   },
+   "1,1": {
+    "T_free": 199,
+    "K_doorflow": 12,
+    "crossings": 432,
+    "mean_ticks_to_cross": 429.5,
+    "alpha": 2.159,
+    "K_new": 12
+   }
+  },
+  "room300": {
+   "0,0": {
+    "T_free": 158,
+    "K_doorflow": 10,
+    "crossings": 568,
+    "mean_ticks_to_cross": 381.7,
+    "alpha": 2.416,
+    "K_new": 10
+   },
+   "0,1": {
+    "T_free": 247,
+    "K_doorflow": 15,
+    "crossings": 592,
+    "mean_ticks_to_cross": 500.6,
+    "alpha": 2.027,
+    "K_new": 14
+   },
+   "1,0": {
+    "T_free": 63,
+    "K_doorflow": 4,
+    "crossings": 401,
+    "mean_ticks_to_cross": 172.5,
+    "alpha": 2.738,
+    "K_new": 5
+   },
+   "1,1": {
+    "T_free": 199,
+    "K_doorflow": 12,
+    "crossings": 470,
+    "mean_ticks_to_cross": 462.9,
+    "alpha": 2.326,
+    "K_new": 13
+   }
+  }
+ },
+ "seeds": "task 11720-11724 x planner 147, DoorFlow, 5,000 ticks",
+ "c1": 0.052
+}
