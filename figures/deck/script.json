@@ -315,32 +315,36 @@
    "门 6 窗口的推算表（幻灯片上直接画的；复算脚本 figures/deck/demo/door6_numbers.py，结果在 door6_numbers.json）"
   ],
   "hints": [
-   "Rate: measured 26 / 500 ticks; split 620 in / 635 out → 13 each way → 38.5 ticks per robot",
-   "Free trip: 25 to pickup (measured: median 21, mean 28) + mean shortest path from far-side cells, 3 ticks per move/turn → 247 / 158",
-   "2.23 measured (round 40); breakdowns alone 1.25 (2.5/tick × 20 ticks = 50 of 250 stopped); rest = waiting for others",
+   "Rate: counted in runs, 26 / 500 ticks; 620 in / 635 out → 13 each way → 38.5 ticks per robot",
+   "Orders random → average: shortest time from every far-side cell (3 ticks per step/turn) + 25 to pickup → 247 / 158",
+   "2.23 measured (round 40: order → door, 224 cases); breakdowns off: 1.33 → breakdowns cause most of the extra time",
    "2.23 × 247 ≈ 551 → 551 ÷ 38.5 ≈ 14.3 → 15; 2.23 × 158 ≈ 352 → 9.2 → 10",
-   "Planner prints T_free 247 / 158, K 15 / 10 (ROBOT_BRIDGE_TRACE)"
+   "Set in advance: only 15 / 10; counted live every round. Planner prints 247 / 158, 15 / 10"
   ],
   "segs": [
    {
-    "en": "{Where do door 6's numbers come from?} 【指第一行】 The door rate is **measured**: 26 robots per 500 ticks, split evenly, **620 in and 635 out** in our runs, so **13 each way**, one every **500 ÷ 13 ≈ 38.5 ticks**.",
-    "zh": "门 6 的这些数是怎么来的？【指第一行】过门速率是**实测**的：每 500 拍 26 台，两个方向各一半，我们的仿真里**进 620 台、出 635 台**，所以每个方向 **13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。"
+    "en": "{Where do door 6's numbers come from?} 【指第一行】 The door rate is **measured** by counting crossings: **26 robots** per 500 ticks, half each way (**620 in, 635 out**), so **13 each way**: one every **500 ÷ 13 ≈ 38.5 ticks**.",
+    "zh": "门 6 的这些数是怎么来的？【指第一行】过门速率是**实测**的：在仿真里数过门的车，每 500 拍 **26 台**，两个方向各一半（**进 620 台、出 635 台**），所以每个方向 **13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。"
    },
    {
-    "en": "【指第二行】 The free trip is **computed from the map**: about 25 ticks to reach the pickup, plus the average shortest path from every far-side cell to the door, at 3 ticks per move or turn: **247 ticks** inward, **158** outward.",
-    "zh": "【指第二行】空路的路程是**从地图算出来**的：先走约 25 拍到取货点，再加上从门另一侧每一格到门口的最短路平均值（走一步或转一次都是 3 拍）：进左下 **247 拍**，出左下 **158 拍**。"
+    "en": "【指第二行】 Orders appear at random, so we **average**: the shortest time from **every cell** on the far side to the door, at 3 ticks per step or turn, plus about 25 ticks to the pickup: **247 ticks** inward, **158** outward.",
+    "zh": "【指第二行】任务是随机出现的，所以用**平均值**：程序把门另一侧**每一格**到门口的最短时间都算出来（走一步或转一次都是 3 拍），取平均，再加上走到取货点的约 25 拍：进左下 **247 拍**，出左下 **158 拍**。"
    },
    {
-    "en": "【指第三行】 Real trips took **2.23 times** as long; we measured that. Breakdowns explain only **1.25 times** of it: about **50 of 250** robots, 20 percent, are stopped at any moment. The rest is **waiting for other robots**.",
-    "zh": "【指第三行】实际路程是空路的 **2.23 倍**，这是实测的。故障只能解释其中的 **1.25 倍**：任何时候 250 台里约有 **50 台**（20%）停着。其余的慢是**在等别的车**。"
+    "en": "【指第三行】 Real trips took **2.23 times** as long, timed from getting the order to reaching the door; with breakdowns turned off, only **1.33 times**. {So} breakdowns cause most of the extra time.",
+    "zh": "【指第三行】实际路程是空路的 **2.23 倍**，这是给车计时测的，从接单一直到走到门口；把故障关掉再测，只有 **1.33 倍**。所以多出来的时间大部分是故障造成的。"
    },
    {
     "en": "【指最后两行】 {So} the real trip is **2.23 × 247 ≈ 551 ticks**, and the window is **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **352 ÷ 38.5 ≈ 9.2**, so **10**.",
     "zh": "【指最后两行】所以实际路程是 **2.23 × 247 ≈ 551 拍**，窗口 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **352 ÷ 38.5 ≈ 9.2**，得 **10**。"
+   },
+   {
+    "en": "【指表下方】 Only these limits are set in advance; the **counting** happens live, every round.",
+    "zh": "【指表下方】提前算好的只有这两个上限；**数车**是实时的，每一轮都数。"
    }
   ],
-  "en": "{Where do door 6's numbers come from?} 【指第一行】 The door rate is **measured**: 26 robots per 500 ticks, split evenly, **620 in and 635 out** in our runs, so **13 each way**, one every **500 ÷ 13 ≈ 38.5 ticks**. 【指第二行】 The free trip is **computed from the map**: about 25 ticks to reach the pickup, plus the average shortest path from every far-side cell to the door, at 3 ticks per move or turn: **247 ticks** inward, **158** outward. 【指第三行】 Real trips took **2.23 times** as long; we measured that. Breakdowns explain only **1.25 times** of it: about **50 of 250** robots, 20 percent, are stopped at any moment. The rest is **waiting for other robots**. 【指最后两行】 {So} the real trip is **2.23 × 247 ≈ 551 ticks**, and the window is **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **352 ÷ 38.5 ≈ 9.2**, so **10**.",
-  "zh": "门 6 的这些数是怎么来的？【指第一行】过门速率是**实测**的：每 500 拍 26 台，两个方向各一半，我们的仿真里**进 620 台、出 635 台**，所以每个方向 **13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。【指第二行】空路的路程是**从地图算出来**的：先走约 25 拍到取货点，再加上从门另一侧每一格到门口的最短路平均值（走一步或转一次都是 3 拍）：进左下 **247 拍**，出左下 **158 拍**。【指第三行】实际路程是空路的 **2.23 倍**，这是实测的。故障只能解释其中的 **1.25 倍**：任何时候 250 台里约有 **50 台**（20%）停着。其余的慢是**在等别的车**。【指最后两行】所以实际路程是 **2.23 × 247 ≈ 551 拍**，窗口 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **352 ÷ 38.5 ≈ 9.2**，得 **10**。"
+  "en": "{Where do door 6's numbers come from?} 【指第一行】 The door rate is **measured** by counting crossings: **26 robots** per 500 ticks, half each way (**620 in, 635 out**), so **13 each way**: one every **500 ÷ 13 ≈ 38.5 ticks**. 【指第二行】 Orders appear at random, so we **average**: the shortest time from **every cell** on the far side to the door, at 3 ticks per step or turn, plus about 25 ticks to the pickup: **247 ticks** inward, **158** outward. 【指第三行】 Real trips took **2.23 times** as long, timed from getting the order to reaching the door; with breakdowns turned off, only **1.33 times**. {So} breakdowns cause most of the extra time. 【指最后两行】 {So} the real trip is **2.23 × 247 ≈ 551 ticks**, and the window is **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **352 ÷ 38.5 ≈ 9.2**, so **10**. 【指表下方】 Only these limits are set in advance; the **counting** happens live, every round.",
+  "zh": "门 6 的这些数是怎么来的？【指第一行】过门速率是**实测**的：在仿真里数过门的车，每 500 拍 **26 台**，两个方向各一半（**进 620 台、出 635 台**），所以每个方向 **13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。【指第二行】任务是随机出现的，所以用**平均值**：程序把门另一侧**每一格**到门口的最短时间都算出来（走一步或转一次都是 3 拍），取平均，再加上走到取货点的约 25 拍：进左下 **247 拍**，出左下 **158 拍**。【指第三行】实际路程是空路的 **2.23 倍**，这是给车计时测的，从接单一直到走到门口；把故障关掉再测，只有 **1.33 倍**。所以多出来的时间大部分是故障造成的。【指最后两行】所以实际路程是 **2.23 × 247 ≈ 551 拍**，窗口 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **352 ÷ 38.5 ≈ 9.2**，得 **10**。【指表下方】提前算好的只有这两个上限；**数车**是实时的，每一轮都数。"
  },
  {
   "n": 12,

@@ -8,6 +8,9 @@
    tick = N x pDelay, each lasting (min+max)/2 on average, so the share of robots stopped at any time is pDelay x mean
    duration, and a trip that needs T free ticks takes T / (1 - share) -- the slowdown from breakdowns alone.
 3. Door rate measured in the 5 timing runs (door_timing.py): crossings per 500 ticks, and how they split by direction.
+4. The slowdown 2.23, from the round-40 measurement (experiment-materials/archive/workspace/netmodel_r41/model_data/
+   latency_pairs.json): for every cut door and direction, the measured mean time from getting an order that crosses the door
+   to reaching it, divided by the free-flow time; median over the runs with breakdowns, and over the same test without.
 Writes figures/deck/demo/door6_numbers.json.  Usage (repo root):  python3 figures/deck/demo/door6_numbers.py"""
 import heapq, json, os, sys
 from pathlib import Path
@@ -74,6 +77,12 @@ def main():
         tt, fin, loc, has = bd.load_dump(dt.WORK / str(s) / 'pos.bin')
         ev = dt.events(loc, lab, a, b); ticks += len(tt)
         for _, d in ev: nin, nout = (nin + 1, nout) if d == 0 else (nin, nout + 1)
+    lp = json.loads((HERE.parents[2] / 'experiment-materials/archive/workspace/netmodel_r41/model_data/latency_pairs.json').read_text())
+    def med(nd):
+        r = sorted(p['T_meas'] / p['T_free'] for p in lp if p['method'] == 'C24CF' and p['inst'].endswith('_nd') == nd and p['T_meas'])
+        return len(r), round(float(np.median(r)), 2)
+    (n_f, m_f), (n_nf, m_nf) = med(False), med(True)
+    d6 = {p['inst'] + ' ' + p['side']: [round(p['T_free'], 1), round(p['T_meas'], 1)] for p in lp if p['doors'] == [6] and p['method'] == 'C24CF'}
     lower_left_room = a if (comp[tuple(np.argwhere(lab.reshape(H, W) == a)[0])] == small) else b
     res = dict(
         free_trip=dict(model='reverse Dijkstra over (cell, heading), move or 90-degree turn = 3 ticks, mean over all free cells of a side',
@@ -81,7 +90,11 @@ def main():
                        T_inward=round(LEG1 + mean_big, 1), T_outward=round(LEG1 + mean_small, 1), cells_far=sizes and int(((comp >= 0) & (comp != small)).sum()),
                        cells_lower_left=sizes[small], planner_uses=dict(inward=247, outward=158)),
         breakdowns=dict(config=dc, robots=250, new_per_tick=250 * dc['pDelay'], mean_duration=mean_dur, share_stopped=round(share, 3),
-                        slowdown_alone=round(1 / (1 - share), 3), measured_alpha=2.23),
+                        own_stops_slowdown=round(1 / (1 - share), 3)),
+        slowdown=dict(source='round 40, champion assignment (C24CF): measured mean time order -> door / free-flow time, per cut door and direction',
+                      median_with_breakdowns=m_f, cases_with=n_f, median_without_breakdowns=m_nf, cases_without=n_nf,
+                      share_of_extra_time_from_breakdowns=round((m_f - m_nf) / (m_f - 1), 2),
+                      door6_free_vs_measured=d6, planner_uses=2.23),
         door_rate=dict(runs=len(dt.SEEDS), ticks=int(ticks), crossings=nin + nout, per_500=round((nin + nout) / ticks * 500, 1),
                        into_lower_left=nin if lower_left_room == b else nout, out_of_lower_left=nout if lower_left_room == b else nin,
                        planner_uses_per_500=26))

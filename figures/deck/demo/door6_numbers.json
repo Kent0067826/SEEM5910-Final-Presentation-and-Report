@@ -28,8 +28,74 @@
   "new_per_tick": 2.5,
   "mean_duration": 20.0,
   "share_stopped": 0.2,
-  "slowdown_alone": 1.25,
-  "measured_alpha": 2.23
+  "own_stops_slowdown": 1.25
+ },
+ "slowdown": {
+  "source": "round 40, champion assignment (C24CF): measured mean time order -> door / free-flow time, per cut door and direction",
+  "median_with_breakdowns": 2.23,
+  "cases_with": 224,
+  "median_without_breakdowns": 1.33,
+  "cases_without": 54,
+  "share_of_extra_time_from_breakdowns": 0.73,
+  "door6_free_vs_measured": {
+   "room200 in": [
+    250.2,
+    557.3
+   ],
+   "room200 out": [
+    162.9,
+    409.6
+   ],
+   "room250 in": [
+    250.2,
+    583.2
+   ],
+   "room250 out": [
+    162.9,
+    415.0
+   ],
+   "room300 in": [
+    250.2,
+    585.8
+   ],
+   "room300 out": [
+    162.9,
+    447.3
+   ],
+   "roomQ_254 in": [
+    277.2,
+    367.3
+   ],
+   "roomQ_254 out": [
+    69.8,
+    109.7
+   ],
+   "room200_nd in": [
+    250.2,
+    353.1
+   ],
+   "room200_nd out": [
+    162.9,
+    255.1
+   ],
+   "room250_nd in": [
+    250.2,
+    345.8
+   ],
+   "room250_nd out": [
+    162.9,
+    262.0
+   ],
+   "room300_nd in": [
+    250.2,
+    348.0
+   ],
+   "room300_nd out": [
+    162.9,
+    255.6
+   ]
+  },
+  "planner_uses": 2.23
  },
  "door_rate": {
   "runs": 5,

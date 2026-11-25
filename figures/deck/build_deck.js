@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v30.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v31.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -351,8 +351,8 @@ section(1);
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
     ["**Door rate**, each way\nmeasured: 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
-    ["**Free trip** to the door\ncomputed from the map", "**247** ticks", "**158** ticks"],
-    ["**Slowdown**\nmeasured (breakdowns alone × 1.25)", "× **2.23**", "× **2.23**"],
+    ["**Free trip** to the door\naverage over every cell (map)", "**247** ticks", "**158** ticks"],
+    ["**Slowdown**\nmeasured (no breakdowns: × 1.33)", "× **2.23**", "× **2.23**"],
     ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
     ["**Window**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
   ];
@@ -363,8 +363,8 @@ section(1);
       para(slide, txt, X[j] + 0.12, y, CW[j] - 0.2, rh, j === 0 ? 13 : 13.5, C.text1, j ? C.accent2 : C.text2, "middle");
     });
   });
-  caption(slide, "The planner prints the same values for door 6 (free trip 247 / 158, window 15 / 10). Recompute: figures/deck/demo/door6_numbers.py", M, y0 + 0.45 + 5 * (rh + 0.06) + 0.05, 7.35);
-  readPanel(slide, s, say(s), 8.15, 1.3, 4.6, 5.62, { max: 18 });
+  caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, y0 + 0.45 + 5 * (rh + 0.06) + 0.05, 7.35);
+  readPanel(slide, s, say(s), 8.15, 1.3, 4.6, 5.62, { max: 18, em: 0.47 });   // the render left a quarter of the panel empty at 0.52
 }
 
 // ---------- 12 the quota for each door ----------
