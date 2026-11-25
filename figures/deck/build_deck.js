@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v40.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v41.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -324,8 +324,7 @@ section(1);
 // ---------- 8 model + ceiling ----------
 {
   const s = S(8); const slide = content(s);
-  addImg(slide, "map", M, 1.3, 6.3, 3.1, "left");
-  addImg(slide, "bound", M, 4.55, 6.3, 2.35, "left");
+  addImg(slide, "map", M, 1.3, 6.3, 5.6);   // the formulas are written as text on the right, so no separate formula image
   readPanel(slide, s, say(s), 7.15, 1.3, 5.6, 5.65, { max: 20, center: true });
 }
 
@@ -370,7 +369,7 @@ section(1);
   ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
-    ["**Door rate**, each way\nmeasured: 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
+    ["**Door rate**, each way\n26 (measured) ÷ 2 = 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
     ["**Free trip** to the door\naverage over every cell (map)", "**247** ticks", "**158** ticks"],
     ["**Slowdown**\nmeasured (no breakdowns: × 1.33)", "× **2.23**", "× **2.23**"],
     ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
@@ -484,7 +483,7 @@ section(1);
 {
   const s = S(20); const slide = content(s);
   addImg(slide, "narrow", M, 1.3, 7.6, 4.05, "left");
-  [["Safety net 1 · Global cap", "Official map: **1.76 × 69.2 ÷ 500 × 2.23 × 255 ≈ 138.5 → 138**\n69.2: most orders per 500 ticks · 255: free ticks per order (25 + 230) · 1.76: from a sweep"],
+  [["Safety net 1 · Global cap", "**69.2**: most orders per 500 ticks (slide 8) · **2.23 × 255**: real ticks per order (25 + 230 free ticks, × 2.23) · **1.76**: where results stopped rising in a sweep"],
    ["Safety net 2 · Watchdog", "Waited **300 ticks** and nobody entered its door → skip the door rule for one tick. **Never drop a robot.**"]].forEach(([a, b], i) => {
     const x = M + i * 3.85;
     card(slide, x, 5.45, 3.75, 1.45, C.accent6);
@@ -499,6 +498,7 @@ section(1);
   const s = S(21); const slide = content(s);
   slide.addText("+140.5%", { x: M, y: 2.2, w: 3.6, h: 1.0, fontSize: 48, bold: true, color: C.accent3, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
   para(slide, "more orders than the official starter program", M, 3.3, 3.5, 0.8, 16);
+  para(slide, "= mean of **(DoorFlow ÷ starter − 1)** over the **60** same-seed pairs", M, 4.2, 3.5, 0.9, 14);
   addImg(slide, "results", 4.3, 1.3, 8.45, 5.6);   // nothing else to read: the speech is said, the numbers are here
 }
 

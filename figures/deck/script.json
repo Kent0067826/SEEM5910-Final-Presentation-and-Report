@@ -413,7 +413,7 @@
   "time": "0:59",
   "title": "Why did changing routes not help?",
   "figs": [
-   "图 4 地图压成网络；图 7 天花板公式"
+   "图 4 地图压成网络（公式直接写在右边文字里）"
   ],
   "hints": [
    "Model: 16 rooms = nodes, 31 doors = edges; door 6 is a cut",
@@ -438,12 +438,12 @@
    {
     "en": "【指右 2】 {With random pickups and deliveries,} an order crosses door 6 when its two ends are on different sides: **2 × 0.2507 × 0.7493 ≈ 37.6 percent**; {counting} the task file gives 38.5.",
     "zh": "【指右 2】取货点和送货点随机落下时，一单两头在门的两侧才要过门 6，概率是 **2 × 0.2507 × 0.7493 ≈ 37.6%**；数任务文件得到 38.5%。",
-    "key": "Random pickup and delivery → crosses door 6 if the two ends are on different sides · task file: **38.5%**"
+    "key": "Two ends on different sides: **2 × 0.2507 × 0.7493 ≈ 37.6%** · task file: **38.5%**"
    },
    {
     "en": "【指公式】 Door 6 passes about **26 robots** per 500 ticks. {So} the map can finish at most **26 ÷ 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
     "zh": "【指公式】门 6 每 500 拍大约过 **26 台**，所以**不管车怎么走**，整张图每 500 拍最多完成 **26 ÷ 0.376 ≈ 69 单**。",
-    "key": "Door 6: about **26 robots** per 500 ticks (measured) → a ceiling **whatever the routes**"
+    "key": "**26 ÷ 0.376 ≈ 69 orders** per 500 ticks (26 = door 6's measured rate) → ceiling **whatever the routes**"
    },
    {
     "en": "{That is why} **14 of 15** rerouting methods we tried lowered results. {The real question is} **how many robots to send, and which side goes first**: **scheduling**.",
@@ -454,7 +454,7 @@
     ]
    }
   ],
-  "foot": "Counted on the map: 906 of 3,614 room cells (3,646 with the 32 door cells). Probability: 2 × 0.2507 × 0.7493. Counted in the task file: 530 of 1,375 orders (38.5%). Door 6 measured four times: 24.7 (round 40), 25.1 (5 new runs), 25.7 (replay), 26.7 (round 52: 500 ÷ 18.7); the program uses 26. 69: formula 26 ÷ 0.376 (linear program: 69.2). 14 of 15: counted in our log (report Fig. 20).",
+  "foot": "Counted on the map: 906 of 3,614 room cells (3,646 with the 32 door cells). Probability: 2 × 0.2507 × 0.7493. Counted in the task file: 530 of 1,375 orders (38.5%). Door 6 measured four times: 24.7 (round 40), 25.1 (5 new runs), 25.7 (replay), 26.7 (round 52: 500 ÷ 18.7); the program uses 26. 69: formula 26 ÷ 0.376 ≈ 69.1 (linear program: 69.2). 14 of 15: counted in our log (report Fig. 20).",
   "src": [
    [
     "16 个点、31 条线",
@@ -619,7 +619,7 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "0:37",
+  "time": "0:39",
   "title": "Scheduling 1: door 6's quota, number by number",
   "figs": [
    "门 6 名额的推算表（幻灯片上直接画的；复算脚本 figures/deck/demo/door6_numbers.py，结果在 door6_numbers.json）"
@@ -632,9 +632,9 @@
   ],
   "segs": [
    {
-    "en": "【指第一行】 {For door 6: about 26 robots per 500 ticks, half each way, so} **13 each way**: one every **500 ÷ 13 ≈ 38.5 ticks**.",
-    "zh": "【指第一行】门 6：每 500 拍大约过 **26 台**，两个方向各一半，所以每个方向 **13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。",
-    "key": "Rate → ticks per robot · free trip × slowdown = real trip · real trip ÷ ticks per robot = **quota**"
+    "en": "【指第一行】 {For door 6: about 26 robots per 500 ticks, half each way:} **26 ÷ 2 = 13** each way, so one every **500 ÷ 13 ≈ 38.5 ticks**.",
+    "zh": "【指第一行】门 6：每 500 拍大约过 26 台，两个方向各一半：**26 ÷ 2 = 13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。",
+    "key": "Quota = ⌈ slowdown × free trip ÷ ticks per robot ⌉ = **⌈2.23 × 247 ÷ (500 ÷ 13)⌉ = ⌈14.3⌉ = 15**"
    },
    {
     "en": "【指第二行】 On a free map, the trip to the door takes **247 ticks** inward and **158** outward{, averaged over every cell, since orders are random}.",
@@ -652,8 +652,8 @@
     "key": []
    }
   ],
-  "en": "【指第一行】 {For door 6: about 26 robots per 500 ticks, half each way, so} **13 each way**: one every **500 ÷ 13 ≈ 38.5 ticks**. 【指第二行】 On a free map, the trip to the door takes **247 ticks** inward and **158** outward{, averaged over every cell, since orders are random}. 【指第三行】 Measured trips took **2.23 times** as long{, mostly because of breakdowns}. 【指最后两行】 {So} the real trip is **2.23 × 247 ≈ 551 ticks**, and the quota is **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **2.23 × 158 ÷ 38.5 ≈ 9.2**, so **10**.",
-  "zh": "【指第一行】门 6：每 500 拍大约过 **26 台**，两个方向各一半，所以每个方向 **13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。【指第二行】在空地图上，走到门口要 **247 拍**（进左下）和 **158 拍**（出左下）；任务是随机的，所以对每一格取平均。【指第三行】实测的路程是空路的 **2.23 倍**，多出来的大部分是故障造成的。【指最后两行】所以实际路程是 **2.23 × 247 ≈ 551 拍**，名额 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **2.23 × 158 ÷ 38.5 ≈ 9.2**，得 **10**。",
+  "en": "【指第一行】 {For door 6: about 26 robots per 500 ticks, half each way:} **26 ÷ 2 = 13** each way, so one every **500 ÷ 13 ≈ 38.5 ticks**. 【指第二行】 On a free map, the trip to the door takes **247 ticks** inward and **158** outward{, averaged over every cell, since orders are random}. 【指第三行】 Measured trips took **2.23 times** as long{, mostly because of breakdowns}. 【指最后两行】 {So} the real trip is **2.23 × 247 ≈ 551 ticks**, and the quota is **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **2.23 × 158 ÷ 38.5 ≈ 9.2**, so **10**.",
+  "zh": "【指第一行】门 6：每 500 拍大约过 26 台，两个方向各一半：**26 ÷ 2 = 13 台**，也就是**每 500 ÷ 13 ≈ 38.5 拍一台**。【指第二行】在空地图上，走到门口要 **247 拍**（进左下）和 **158 拍**（出左下）；任务是随机的，所以对每一格取平均。【指第三行】实测的路程是空路的 **2.23 倍**，多出来的大部分是故障造成的。【指最后两行】所以实际路程是 **2.23 × 247 ≈ 551 拍**，名额 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **2.23 × 158 ÷ 38.5 ≈ 9.2**，得 **10**。",
   "foot": "Measured: door rate (program value 26; 5 new runs: 620 in, 635 out); 2.23 = median of 224 timed cases with breakdowns, 1.33 = median of 54 without (round 40). Computed from the map: 247 / 158 = 25 ticks to the pickup (measured: median 21, mean 28) + average shortest time to the door. Formula: the last two rows.",
   "src": [
    [
@@ -746,7 +746,7 @@
    {
     "en": "{For the size,} 8 by hand was too tight and 32 or more jammed; the formula gave **15 in and 10 out**, as good as the best hand-tuned value{, so we use the formula}.",
     "zh": "名额大小：手调 8 台太紧，32 台以上又会堵；公式给出**进 15 台、出 10 台**，和手调的最好值一样好，所以用公式。",
-    "key": "→ size by **formula**, not by hand"
+    "key": "→ size by **formula**: **⌈2.23 × 247 ÷ 38.5⌉ = 15** in, **⌈2.23 × 158 ÷ 38.5⌉ = 10** out"
    },
    {
     "en": "【指上图】 {Why does it work? In one run each:} with no control, **211** robots head for door 6 and only **3** get through per 500 ticks; with the quota, about **25** head there and **26** get through.",
@@ -805,7 +805,7 @@
  {
   "n": 13,
   "speaker": 3,
-  "time": "0:35",
+  "time": "0:36",
   "title": "Scheduling 1: fixed, or adjusted live?",
   "figs": [
    "边看边调的三种做法重跑对比（演讲专用：`demo/live_control.py`，官方房间图 200 / 250 / 300 台 × 20 对种子，每种做法 60 局，和同种子的 DoorFlow 比；上图是一局里往左下去的车数，下图是 60 局的平均差别）"
@@ -813,7 +813,7 @@
   "hints": [
    "Tried 3 live ideas on DoorFlow, 60 paired runs each",
    "After a jam is seen −1.1%; by measured delay −3.3% (quota swung 8–41); physical capacity −7.5% → fixed is best",
-   "Why: by the time a jam shows, the last ~550 ticks of robots are on the way; the average trip is stable; counting is live"
+   "Too late: robots sent in the last trip, 2.23 × 247 ≈ 550 ticks, are already on the way"
   ],
   "segs": [
    {
@@ -827,16 +827,16 @@
     "key": "→ **Fixed quota was best**"
    },
    {
-    "en": "{Why?} When a jam is seen, the robots sent during the last trip, about **550 ticks**, are already on the way. {And} the quota only needs the **average** trip, which is stable; the robots on the way are still **counted live**, every round.",
-    "zh": "为什么？等看到堵时，过去一趟路程（约 **550 拍**）里派出去的车都已经在路上了。而且名额只需要**平均**路程，平均数是稳定的；路上的车仍然是**实时**数的，每一轮都数。",
+    "en": "{Why?} When a jam is seen, the robots sent during the last trip, **2.23 × 247 ≈ 550 ticks**, are already on the way. {And} the quota only needs the **average** trip, which is stable; the robots on the way are still **counted live**, every round.",
+    "zh": "为什么？等看到堵时，过去一趟路程（**2.23 × 247 ≈ 550 拍**）里派出去的车都已经在路上了。而且名额只需要**平均**路程，平均数是稳定的；路上的车仍然是**实时**数的，每一轮都数。",
     "key": [
-     "Jam seen → robots sent during the last trip (**550 ticks**) already on the way",
+     "Jam seen → robots sent during the last trip (**2.23 × 247 ≈ 550 ticks**) already on the way",
      "Quota needs only the **average** trip, which is stable; robots **counted live**, every round"
     ]
    }
   ],
-  "en": "{Could the quota adjust itself live?} We tried three ways on DoorFlow, **60 paired runs** each. 【指下图】 Limiting only after a jam is seen: **−1.1 percent**. Adjusting by measured delay: **−3.3 percent**. Using the door's physical capacity: **−7.5 percent**. {So} the **fixed quota was best**. {Why?} When a jam is seen, the robots sent during the last trip, about **550 ticks**, are already on the way. {And} the quota only needs the **average** trip, which is stable; the robots on the way are still **counted live**, every round.",
-  "zh": "名额能不能边看边调？我们在 DoorFlow 上试了三种做法，每种 **60 局**，和同种子的 DoorFlow 成对比较。【指下图】只在看到堵了才限：**−1.1%**；按测到的延迟自动加减：**−3.3%**；按门的物理容量算：**−7.5%**。所以**固定名额最好**。为什么？等看到堵时，过去一趟路程（约 **550 拍**）里派出去的车都已经在路上了。而且名额只需要**平均**路程，平均数是稳定的；路上的车仍然是**实时**数的，每一轮都数。",
+  "en": "{Could the quota adjust itself live?} We tried three ways on DoorFlow, **60 paired runs** each. 【指下图】 Limiting only after a jam is seen: **−1.1 percent**. Adjusting by measured delay: **−3.3 percent**. Using the door's physical capacity: **−7.5 percent**. {So} the **fixed quota was best**. {Why?} When a jam is seen, the robots sent during the last trip, **2.23 × 247 ≈ 550 ticks**, are already on the way. {And} the quota only needs the **average** trip, which is stable; the robots on the way are still **counted live**, every round.",
+  "zh": "名额能不能边看边调？我们在 DoorFlow 上试了三种做法，每种 **60 局**，和同种子的 DoorFlow 成对比较。【指下图】只在看到堵了才限：**−1.1%**；按测到的延迟自动加减：**−3.3%**；按门的物理容量算：**−7.5%**。所以**固定名额最好**。为什么？等看到堵时，过去一趟路程（**2.23 × 247 ≈ 550 拍**）里派出去的车都已经在路上了。而且名额只需要**平均**路程，平均数是稳定的；路上的车仍然是**实时**数的，每一轮都数。",
   "foot": "Statistics: each idea ran on the same 60 seed pairs as DoorFlow (official map, 200 / 250 / 300 robots × 20); % = mean change in orders finished, black line = 95% interval; worse runs counted. 550 = real trip from slide 11. 49 = most a one-cell door can pass per 500 ticks switching sides; 26 = measured.",
   "src": [
    [
@@ -937,15 +937,15 @@
  {
   "n": 15,
   "speaker": 3,
-  "time": "0:52",
+  "time": "0:57",
   "title": "Scheduling 2: when should the door switch sides?",
   "figs": [
    "门速度曲线（演讲专用：U(n) = nh / ((n−1)h + s)，h = 10、s = 34 用 5 局实测的中位数）；试过的换向规则对比表（幻灯片上直接画的）"
   ],
   "hints": [
    "Tried: fixed timetable −5.0%, −6.4%; ≤ 80 steps per turn −1.1%; until empty = best",
-   "Timed 1,255 crossings: same direction ≈ 10 ticks; after a switch ≈ 34 (door + buffer must empty)",
-   "Turn of n: 34 + 10(n − 1) vs 10n → n = 1: 10 ÷ 34 = 29%; n = 10: 100 ÷ 124 = 81%; measured ≈ 9.3 per turn",
+   "Same direction ≈ 10 ticks, after a switch ≈ 34 → 34 − 10 = 24 extra per switch",
+   "n = 1: 10 ÷ 34 = 29%; n = 10: 100 ÷ (34 + 90) = 81%; measured ≈ 9.3 per turn",
    "Timing histograms: backup slide 1"
   ],
   "segs": [
@@ -955,21 +955,21 @@
     "key": "Tried **three switching rules** (table)"
    },
    {
-    "en": "{Why?} We timed **1,255 crossings** of door 6: in the same direction, the next robot comes after about **10 ticks**; after a switch, the first one needs about **34**{, because the door and the buffer must empty first}.",
-    "zh": "为什么？我们给门 6 的 **1255 次过门**计时：同一个方向，下一台大约隔 **10 拍**；换方向后，第一台要隔大约 **34 拍**，因为门和缓冲区要先清空。",
-    "key": "Why? **1,255 crossings** timed: a switch costs far more than one robot"
+    "en": "{Why?} We timed **1,255 crossings** of door 6: in the same direction, the next robot comes after about **10 ticks**; after a switch, the first one needs about **34**{, because the door and the buffer must empty first}. {So} each switch costs **34 − 10 = 24 extra ticks**.",
+    "zh": "为什么？我们给门 6 的 **1255 次过门**计时：同一个方向，下一台大约隔 **10 拍**；换方向后，第一台要隔大约 **34 拍**，因为门和缓冲区要先清空。所以每换一次方向多花 **34 − 10 = 24 拍**。",
+    "key": "**1,255 crossings** timed: same direction **10 ticks**, after a switch **34** → each switch costs **34 − 10 = 24 extra ticks**"
    },
    {
-    "en": "【指公式】 {So} a turn of **n** robots takes **34 + 10 × (n − 1)** ticks instead of **10 × n**. 【指曲线左端】 One robot per turn uses only **10 ÷ 34 = 29 percent** of the door's top speed; 【指 n = 10】 ten per turn, **100 ÷ 124 = 81 percent**. {Serving until empty let about 9 robots through per turn.}",
-    "zh": "【指公式】所以一轮放 **n** 台要 **34 + 10 × (n − 1)** 拍，而不换向只要 **10 × n** 拍。【指曲线左端】每轮只放 1 台，门只用到最快速度的 **10 ÷ 34 = 29%**；【指 n = 10】每轮放 10 台，用到 **100 ÷ 124 = 81%**。走空再换平均每轮放大约 **9 台**。",
+    "en": "【指公式】 {So} a turn of **n** robots takes **34 + 10 × (n − 1)** ticks instead of **10 × n**. 【指曲线左端】 One robot per turn uses only **10 ÷ 34 = 29 percent** of the door's top speed; 【指 n = 10】 ten per turn, **100 ÷ (34 + 90) = 81 percent**. {Serving until empty let about 9 robots through per turn.}",
+    "zh": "【指公式】所以一轮放 **n** 台要 **34 + 10 × (n − 1)** 拍，而不换向只要 **10 × n** 拍。【指曲线左端】每轮只放 1 台，门只用到最快速度的 **10 ÷ 34 = 29%**；【指 n = 10】每轮放 10 台，用到 **100 ÷ (34 + 90) = 81%**。走空再换平均每轮放大约 **9 台**。",
     "key": [
      "Turn of **n**: **34 + 10 × (n − 1)** ticks, instead of **10 × n**",
-     "→ more robots per turn, **less time lost to switching**"
+     "1 per turn: **10 ÷ 34 = 29%** · 10 per turn: **100 ÷ (34 + 90) = 81%** → serve **until empty**"
     ]
    }
   ],
-  "en": "{When should the door switch sides? We tried three rules:} a **fixed timetable** lost **5.0 and 6.4 percent**; **at most 80 steps** per turn lost **1.1 percent**; **serving one side until it is empty** was best. {Why?} We timed **1,255 crossings** of door 6: in the same direction, the next robot comes after about **10 ticks**; after a switch, the first one needs about **34**{, because the door and the buffer must empty first}. 【指公式】 {So} a turn of **n** robots takes **34 + 10 × (n − 1)** ticks instead of **10 × n**. 【指曲线左端】 One robot per turn uses only **10 ÷ 34 = 29 percent** of the door's top speed; 【指 n = 10】 ten per turn, **100 ÷ 124 = 81 percent**. {Serving until empty let about 9 robots through per turn.}",
-  "zh": "门什么时候换方向？我们试了三种规则：**按固定时间表**换，少了 **5.0% 和 6.4%**；**每轮最多放 80 步**，少了 **1.1%**；**一边走空再换**最好。为什么？我们给门 6 的 **1255 次过门**计时：同一个方向，下一台大约隔 **10 拍**；换方向后，第一台要隔大约 **34 拍**，因为门和缓冲区要先清空。【指公式】所以一轮放 **n** 台要 **34 + 10 × (n − 1)** 拍，而不换向只要 **10 × n** 拍。【指曲线左端】每轮只放 1 台，门只用到最快速度的 **10 ÷ 34 = 29%**；【指 n = 10】每轮放 10 台，用到 **100 ÷ 124 = 81%**。走空再换平均每轮放大约 **9 台**。",
+  "en": "{When should the door switch sides? We tried three rules:} a **fixed timetable** lost **5.0 and 6.4 percent**; **at most 80 steps** per turn lost **1.1 percent**; **serving one side until it is empty** was best. {Why?} We timed **1,255 crossings** of door 6: in the same direction, the next robot comes after about **10 ticks**; after a switch, the first one needs about **34**{, because the door and the buffer must empty first}. {So} each switch costs **34 − 10 = 24 extra ticks**. 【指公式】 {So} a turn of **n** robots takes **34 + 10 × (n − 1)** ticks instead of **10 × n**. 【指曲线左端】 One robot per turn uses only **10 ÷ 34 = 29 percent** of the door's top speed; 【指 n = 10】 ten per turn, **100 ÷ (34 + 90) = 81 percent**. {Serving until empty let about 9 robots through per turn.}",
+  "zh": "门什么时候换方向？我们试了三种规则：**按固定时间表**换，少了 **5.0% 和 6.4%**；**每轮最多放 80 步**，少了 **1.1%**；**一边走空再换**最好。为什么？我们给门 6 的 **1255 次过门**计时：同一个方向，下一台大约隔 **10 拍**；换方向后，第一台要隔大约 **34 拍**，因为门和缓冲区要先清空。所以每换一次方向多花 **34 − 10 = 24 拍**。【指公式】所以一轮放 **n** 台要 **34 + 10 × (n − 1)** 拍，而不换向只要 **10 × n** 拍。【指曲线左端】每轮只放 1 台，门只用到最快速度的 **10 ÷ 34 = 29%**；【指 n = 10】每轮放 10 台，用到 **100 ÷ (34 + 90) = 81%**。走空再换平均每轮放大约 **9 台**。",
   "foot": "−5.0% / −6.4%: two tests of a fixed timetable (802.1Qbv, slide 6); −1.1%: at most 80 steps vs until empty (round 46); statistics on paired runs. 10 and 34: measured medians of 1,255 timed crossings in 5 runs (backup slide 1). Formula: U(n) = 10n ÷ (34 + 10(n − 1)); 9.3 robots per turn measured.",
   "src": [
    [
@@ -1297,18 +1297,19 @@
   ],
   "hints": [
    "Global cap: jams at narrow doorways (circled); no cap: all 249 hold orders, 818 orders; cap 177: 1277 (seeds 11901 / 172)",
-   "Cap = 69.2 ÷ 500 × 2.23 × 255 ≈ 79 busy robots, × 1.76 (sweep: results stop rising) ≈ 138.5 → 138; 177 here",
+   "Cap: 69.2 ÷ 500 × 2.23 × 255 ≈ 78.7 busy robots; × 1.76 (sweep: results stop rising) ≈ 138.5 → 138 (rounded down); 177 here",
    "GenH 249, 10 paired runs: −16.9% without the cap",
    "Deadlock 1,114 → 700 → watchdog 300 ticks, relax the rule",
    "Watchdog: no measurable effect on these 8; earlier +2.30% on 15 generated room-map instances"
   ],
   "segs": [
    {
-    "en": "【指左图】 {First,} the **global cap**. {On this new map,} jams formed at **narrow doorways** {(circled)}. Without a cap, all **249** robots held orders and this run finished **818** orders; with at most **177**, the same run finished **1,277**. Over 10 runs, the cap was worth **16.9 percent**. 【指左下卡片】 {How big?} The cap is a quota for the whole map: {at most} **69.2 orders** per 500 ticks, times **2.23 × 255 ticks** per order, is about **79 busy robots**; {we swept the cap, and} results stopped rising at **1.76 times** that: **138** on the official map, **177** here.",
-    "zh": "【指左图】第一个是**全图上限**。在这张新图上，车堵在了**几个窄门口**（虚线圈）。没有上限时，**249 台**车全都接着单，这一局只完成 **818 单**；同时接单最多 **177 台**时，同一局完成 **1277 单**。跑 10 局平均，上限值 **16.9%**。【指左下卡片】上限多大？上限就是整张图的名额：每 500 拍最多完成 **69.2 单**，乘每单的实际时间 **2.23 × 255 拍**，大约是 **79 台**在忙的车；我们扫描了上限，到这个数的 **1.76 倍**结果就不再涨了：官方图上是 **138 台**，这张图上是 **177 台**。",
+    "en": "【指左图】 {First,} the **global cap**. {On this new map,} jams formed at **narrow doorways** {(circled)}. Without a cap, all **249** robots held orders and this run finished **818** orders; with at most **177**, the same run finished **1,277**. Over 10 runs, the cap was worth **16.9 percent**. 【指左下卡片】 {How big?} The cap is a quota for the whole map: **69.2 ÷ 500 × 2.23 × 255 ≈ 78.7** robots are busy at once; {we swept the cap, and} results stopped rising at **1.76 times** that: **1.76 × 78.7 ≈ 138.5**, so **138** on the official map, **177** here.",
+    "zh": "【指左图】第一个是**全图上限**。在这张新图上，车堵在了**几个窄门口**（虚线圈）。没有上限时，**249 台**车全都接着单，这一局只完成 **818 单**；同时接单最多 **177 台**时，同一局完成 **1277 单**。跑 10 局平均，上限值 **16.9%**。【指左下卡片】上限多大？上限就是整张图的名额：**69.2 ÷ 500 × 2.23 × 255 ≈ 78.7** 台车同时在忙；我们扫描了上限，到这个数的 **1.76 倍**结果就不再涨了：**1.76 × 78.7 ≈ 138.5**，所以官方图上是 **138 台**，这张图上是 **177 台**。",
     "key": [
      "**Global cap** = a **quota for the whole map**; jams at **narrow doorways**",
-     "No cap: all **249** robots hold orders · cap: at most **177** · 10 runs: **16.9%**"
+     "No cap: all **249** robots hold orders · cap: at most **177** · 10 runs: **16.9%**",
+     "Busy at once: **69.2 ÷ 500 × 2.23 × 255 ≈ 78.7** · × 1.76 (sweep) → **1.76 × 78.7 ≈ 138.5 → 138**"
     ]
    },
    {
@@ -1322,8 +1323,8 @@
     "key": "Here: no measurable effect · earlier, 15 room-map instances: **+2.30%**"
    }
   ],
-  "en": "【指左图】 {First,} the **global cap**. {On this new map,} jams formed at **narrow doorways** {(circled)}. Without a cap, all **249** robots held orders and this run finished **818** orders; with at most **177**, the same run finished **1,277**. Over 10 runs, the cap was worth **16.9 percent**. 【指左下卡片】 {How big?} The cap is a quota for the whole map: {at most} **69.2 orders** per 500 ticks, times **2.23 × 255 ticks** per order, is about **79 busy robots**; {we swept the cap, and} results stopped rising at **1.76 times** that: **138** on the official map, **177** here. 【指右下卡片】 {Second,} rare **deadlocks**: two doors one step apart locked each other, and one run fell from **1,114 to 700** orders. A **watchdog** lets a robot that has waited **300 ticks** at an idle door ignore the rule for one tick{; we never remove a robot}. No measurable effect here; **+2.30 percent** in an earlier test on 15 room-map instances.",
-  "zh": "【指左图】第一个是**全图上限**。在这张新图上，车堵在了**几个窄门口**（虚线圈）。没有上限时，**249 台**车全都接着单，这一局只完成 **818 单**；同时接单最多 **177 台**时，同一局完成 **1277 单**。跑 10 局平均，上限值 **16.9%**。【指左下卡片】上限多大？上限就是整张图的名额：每 500 拍最多完成 **69.2 单**，乘每单的实际时间 **2.23 × 255 拍**，大约是 **79 台**在忙的车；我们扫描了上限，到这个数的 **1.76 倍**结果就不再涨了：官方图上是 **138 台**，这张图上是 **177 台**。【指右下卡片】第二，少见的**死锁**：两道只隔一步的门互相锁住，有一局完成数从 **1114 单掉到 700 单**。**看门狗**让在没人进的门口等满 **300 拍**的车，这一拍可以不守门口规则；我们从不拿掉车。看门狗在这些图上测不出作用；更早一次 15 个房间图实例的测试里多了 **2.30%**。",
+  "en": "【指左图】 {First,} the **global cap**. {On this new map,} jams formed at **narrow doorways** {(circled)}. Without a cap, all **249** robots held orders and this run finished **818** orders; with at most **177**, the same run finished **1,277**. Over 10 runs, the cap was worth **16.9 percent**. 【指左下卡片】 {How big?} The cap is a quota for the whole map: **69.2 ÷ 500 × 2.23 × 255 ≈ 78.7** robots are busy at once; {we swept the cap, and} results stopped rising at **1.76 times** that: **1.76 × 78.7 ≈ 138.5**, so **138** on the official map, **177** here. 【指右下卡片】 {Second,} rare **deadlocks**: two doors one step apart locked each other, and one run fell from **1,114 to 700** orders. A **watchdog** lets a robot that has waited **300 ticks** at an idle door ignore the rule for one tick{; we never remove a robot}. No measurable effect here; **+2.30 percent** in an earlier test on 15 room-map instances.",
+  "zh": "【指左图】第一个是**全图上限**。在这张新图上，车堵在了**几个窄门口**（虚线圈）。没有上限时，**249 台**车全都接着单，这一局只完成 **818 单**；同时接单最多 **177 台**时，同一局完成 **1277 单**。跑 10 局平均，上限值 **16.9%**。【指左下卡片】上限多大？上限就是整张图的名额：**69.2 ÷ 500 × 2.23 × 255 ≈ 78.7** 台车同时在忙；我们扫描了上限，到这个数的 **1.76 倍**结果就不再涨了：**1.76 × 78.7 ≈ 138.5**，所以官方图上是 **138 台**，这张图上是 **177 台**。【指右下卡片】第二，少见的**死锁**：两道只隔一步的门互相锁住，有一局完成数从 **1114 单掉到 700 单**。**看门狗**让在没人进的门口等满 **300 拍**的车，这一拍可以不守门口规则；我们从不拿掉车。看门狗在这些图上测不出作用；更早一次 15 个房间图实例的测试里多了 **2.30%**。",
   "foot": "Measured, one run each (GenH, 249 robots, seeds 11901 / 172). 16.9%: statistics over 10 seed pairs (slide 19). Cap: 69.2 = ceiling (slide 8); 255 = 25 + 230 free ticks per order (map); 2.23 measured; 1.76 = median over maps of where results stopped rising ÷ prediction (sweep, round 46); rounded down. 1,114 → 700: one run. +2.30%: statistics, 15 room-map instances.",
   "src": [
    [
