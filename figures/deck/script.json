@@ -2,21 +2,15 @@
  {
   "n": 1,
   "speaker": 1,
-  "time": "0:15",
+  "time": "0:05",
   "title": "DoorFlow: Scheduling Robots Through Narrow Doors",
   "figs": [],
   "hints": [
-   "LoRR 2026: warehouse-like map",
    "Goal: finish as many orders as possible"
   ],
-  "en": "{Good afternoon, everyone.} Our project is based on the **League of Robot Runners 2026** competition, or **LoRR** for short. {On a warehouse-like map,} robots must finish **as many orders as possible**.",
-  "zh": "大家下午好。我们的项目基于 **2026 年机器人跑者联赛（LoRR）**。在一张类似仓库的地图上，机器人要完成**尽可能多的订单**。",
+  "en": "{On a warehouse-like map,} robots must finish **as many orders as possible**.",
+  "zh": "在一张类似仓库的地图上，机器人要完成**尽可能多的订单**。",
   "segs": [
-   {
-    "en": "{Good afternoon, everyone.} Our project is based on the **League of Robot Runners 2026** competition, or **LoRR** for short.",
-    "zh": "大家下午好。我们的项目基于 **2026 年机器人跑者联赛（LoRR）**。",
-    "key": []
-   },
    {
     "en": "{On a warehouse-like map,} robots must finish **as many orders as possible**.",
     "zh": "在一张类似仓库的地图上，机器人要完成**尽可能多的订单**。",
