@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v35.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v36.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -143,8 +143,9 @@ function code(slide, rows, x, y, w, h, size = 12) {
 }
 
 // ---------- read-along text: most of each slide's speech from script.json ----------
-// 【…】 = pointing cue, {…} = linking words the speaker says from memory; both are left off the slide.
-const cue = (t) => t.replace(/【[^】]*】\s*/g, "").replace(/\{[^}]*\}\s*/g, "").replace(/\s+([,.;:!?])/g, "$1").replace(/\s{2,}/g, " ").trim()
+// 【…】 = pointing cue, {…} = linking words and side remarks the speaker says from memory; both are left off the slide,
+// so the slide shows only the key parts of the speech.
+const cue = (t) => t.replace(/【[^】]*】\s*/g, "").replace(/\{[^}]*\}/g, " ").replace(/\s+([,.;:!?])/g, "$1").replace(/\s{2,}/g, " ").trim()
   .replace(/^(\**)([a-z])/, (m, a, b) => a + b.toUpperCase()).replace(/([.!?]\s+)(\**)([a-z])/g, (m, a, b, c) => a + b + c.toUpperCase());
 const say = (s, idx) => (idx || s.segs.map((_, i) => i)).map((i) => cue(s.segs[i].en)).filter((p) => p);
 const oneP = (a) => [a.join(" ")];
