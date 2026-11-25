@@ -526,7 +526,7 @@
   "hints": [
    "Robots on the way to a door: hold an order through it, not crossed yet (counted live)",
    "Door quota = the most robots allowed on the way at once → how many orders through the door at the same time",
-   "Quota full → the next robot gets an order that does not need the door",
+   "Door tickets: order through the door → take one; through → give back; none left → order without the door",
    "Door takes one robot every r ticks, trip T ticks → T ÷ r on the way → quota = door rate × trip time",
    "Metro: a train every 2 min, trip 20 min → 20 ÷ 2 = 10 trains running at once",
    "Fewer: door waits; more: queue, block the other side"
@@ -541,9 +541,9 @@
     ]
    },
    {
-    "en": "When a door's quota is full, the next robot gets **an order that does not need the door**.",
-    "zh": "某道门的名额满了，下一台车就派**一单不用过这道门的**。",
-    "key": "Quota full → the next robot gets **an order that does not need the door**"
+    "en": "{Think of door tickets:} a robot **takes a ticket** when it gets an order through the door and **gives it back once through**; when no ticket is left, the next robot gets **an order that does not need the door**.",
+    "zh": "可以想成**过门票**：车接到要过门的单就**拿一张票**，**过了门就还回去**；票发完了，下一台车就派**一单不用过这道门的**。",
+    "key": "Like **door tickets**: order through the door → **take one** · through → **give it back** · none left → **an order that does not need the door**"
    },
    {
     "en": "{How big should the quota be?} If the door takes one robot every **r** ticks and a trip takes **T** ticks, keeping the door busy needs everything sent in the last T ticks on the way: **T ÷ r** robots. {So} **quota = door rate × trip time**.",
@@ -565,8 +565,8 @@
     "key": "Fewer → the door **waits** · more → extras **queue** and **block the other side**"
    }
   ],
-  "en": "{So how do we keep a door from jamming? Step by step. How many robots should head for a narrow door at once?} We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. We put a limit on this number, the **door quota**: it decides **how many orders may cross the door at the same time**. When a door's quota is full, the next robot gets **an order that does not need the door**. {How big should the quota be?} If the door takes one robot every **r** ticks and a trip takes **T** ticks, keeping the door busy needs everything sent in the last T ticks on the way: **T ÷ r** robots. {So} **quota = door rate × trip time**. {An everyday example:} a metro line sends a train every **2 minutes**, and a trip takes **20 minutes**, so **20 ÷ 2 = 10 trains** are running on the line at once. 【指左图上半】 Fewer robots, and the door **waits**; 【指左图下半】 more, and the extras only **queue** and **block the other side**.",
-  "zh": "那如何避免一个门拥塞？我们一步步分析。同时该有多少车奔向窄门？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。我们给这个数设一个上限，叫**门的名额**，用它来决定**同时指派多少个要穿过这道门的任务**。某道门的名额满了，下一台车就派**一单不用过这道门的**。名额该多大？如果门每 **r** 拍放进一台，一趟路要 **T** 拍，要让门一直有车过，过去 T 拍里派出的车都得在路上，也就是 **T ÷ r** 台。所以**名额 = 过门速率 × 路程时间**。生活比方：地铁每 **2 分钟**发一班，一趟全程 **20 分钟**。线路上同时跑着的车就是 **20 ÷ 2 = 10 列**。【指左图上半】车少了，门就**等车**；【指左图下半】车多了，多出来的只会**排队**，还会**挡住对面**。",
+  "en": "{So how do we keep a door from jamming? Step by step. How many robots should head for a narrow door at once?} We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. We put a limit on this number, the **door quota**: it decides **how many orders may cross the door at the same time**. {Think of door tickets:} a robot **takes a ticket** when it gets an order through the door and **gives it back once through**; when no ticket is left, the next robot gets **an order that does not need the door**. {How big should the quota be?} If the door takes one robot every **r** ticks and a trip takes **T** ticks, keeping the door busy needs everything sent in the last T ticks on the way: **T ÷ r** robots. {So} **quota = door rate × trip time**. {An everyday example:} a metro line sends a train every **2 minutes**, and a trip takes **20 minutes**, so **20 ÷ 2 = 10 trains** are running on the line at once. 【指左图上半】 Fewer robots, and the door **waits**; 【指左图下半】 more, and the extras only **queue** and **block the other side**.",
+  "zh": "那如何避免一个门拥塞？我们一步步分析。同时该有多少车奔向窄门？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。我们给这个数设一个上限，叫**门的名额**，用它来决定**同时指派多少个要穿过这道门的任务**。可以想成**过门票**：车接到要过门的单就**拿一张票**，**过了门就还回去**；票发完了，下一台车就派**一单不用过这道门的**。名额该多大？如果门每 **r** 拍放进一台，一趟路要 **T** 拍，要让门一直有车过，过去 T 拍里派出的车都得在路上，也就是 **T ÷ r** 台。所以**名额 = 过门速率 × 路程时间**。生活比方：地铁每 **2 分钟**发一班，一趟全程 **20 分钟**。线路上同时跑着的车就是 **20 ÷ 2 = 10 列**。【指左图上半】车少了，门就**等车**；【指左图下半】车多了，多出来的只会**排队**，还会**挡住对面**。",
   "foot": "Theory sketch: the curves show shapes, not measurements. The door-6 numbers in the box are worked out on the next slide.",
   "src": [
    [
@@ -788,7 +788,7 @@
  {
   "n": 13,
   "speaker": 3,
-  "time": "0:47",
+  "time": "1:10",
   "title": "Scheduling 1: one quota per door, sized by formula",
   "figs": [
    "图 9 在途车与过门数"
@@ -797,6 +797,7 @@
    "Per door & direction: +29.1% (17 room-map instances)",
    "Size: hand 8 too tight, 32+ jams; formula 15 in / 10 out = as good as best by hand (+0.63%)",
    "Why: no control 211 head for the door, 3 cross; quota ≈ 25 head there, 26 cross (one run each)",
+   "Count which robots: within 550 ticks −0.1%; within 275 (quota 8) −1.8%; both directions share 25 −1.6% → from order to door, per direction",
    "Every other narrow door: same formula with its own rate and trip time → no hand-tuning"
   ],
   "segs": [
@@ -821,13 +822,21 @@
     "key": "Why: no control → robots **pile up**, few cross · quota → **the door keeps flowing**"
    },
    {
+    "en": "{Which robots should we count?} 60 paired runs each: only robots within one real trip of the door, **2.23 × 247 ≈ 550 ticks**: **−0.1 percent**, no difference; only within half a trip, **275 ticks**, quota **275 ÷ 38.5 ≈ 7.1 → 8**: **−1.8 percent**; one quota shared by both directions, **15 + 10 = 25**: **−1.6 percent**. {So} we count every robot **from its order until it crosses**, each direction on its own. {Why?} We can only say no **when giving out an order**; a robot already sent will come, however far away.",
+    "zh": "数哪些车？每种 60 局成对比较：只数一趟实际路程（**2.23 × 247 ≈ 550 拍**）内会到门口的车：**−0.1%**，没有差别；只数半趟（**275 拍**）内的，名额 **275 ÷ 38.5 ≈ 7.1 → 8**：**−1.8%**；两个方向合用一个名额 **15 + 10 = 25**：**−1.6%**。所以从**接单一直数到过门**，两个方向分开数。为什么：我们只能在**派单时**说不；已经派出去的车，再远也会来。",
+    "key": [
+     "Count which robots? Only within one trip **550 ticks**: **−0.1%** · half **275 ticks**, quota 275 ÷ 38.5 → **8**: **−1.8%** · both directions share **15 + 10 = 25**: **−1.6%**",
+     "→ **From order to door**, each direction apart: say no **only when giving orders**"
+    ]
+   },
+   {
     "en": "{And} every other narrow door gets its quota from **the same formula**, with its own door rate and trip time, so no door needs hand-tuning.",
     "zh": "其他每道窄门也用**同一个公式**算名额，代入它自己的过门速率和路程时间，所以不用一道道手调。",
     "key": "**Every other narrow door**: **the same formula**, with its own door rate and trip time → no hand-tuning"
    }
   ],
-  "en": "A quota **per door and per direction** gained **29.1 percent**. {For the size,} 8 by hand was too tight and 32 or more jammed; the formula, slowdown **2.23** × free trip **247** ÷ ticks per robot **38.5 ≈ 14.3 → 15** in, and **2.23 × 158 ÷ 38.5 ≈ 9.2 → 10** out, did as well as the best hand-tuned value. 【指上图】 {In one run each:} with no control, **211** robots head for door 6 and only **3** get through per 500 ticks; with the quota, about **25** head there and **26** get through. {And} every other narrow door gets its quota from **the same formula**, with its own door rate and trip time, so no door needs hand-tuning.",
-  "zh": "每道门、每个方向各一个名额，多了 **29.1%**。名额大小：手调 8 台太紧，32 台以上又会堵；公式：放慢倍数 **2.23** × 空路路程 **247** ÷ 每台间隔 **38.5 ≈ 14.3 → 进 15 台**，**2.23 × 158 ÷ 38.5 ≈ 9.2 → 出 10 台**，和手调的最好值一样好。【指上图】各测一局：不管门时，**211 台**车奔向门 6，每 500 拍只过 **3 台**；用名额后，大约 **25 台**奔向门 6，能过 **26 台**。其他每道窄门也用**同一个公式**算名额，代入它自己的过门速率和路程时间，所以不用一道道手调。",
+  "en": "A quota **per door and per direction** gained **29.1 percent**. {For the size,} 8 by hand was too tight and 32 or more jammed; the formula, slowdown **2.23** × free trip **247** ÷ ticks per robot **38.5 ≈ 14.3 → 15** in, and **2.23 × 158 ÷ 38.5 ≈ 9.2 → 10** out, did as well as the best hand-tuned value. 【指上图】 {In one run each:} with no control, **211** robots head for door 6 and only **3** get through per 500 ticks; with the quota, about **25** head there and **26** get through. {Which robots should we count?} 60 paired runs each: only robots within one real trip of the door, **2.23 × 247 ≈ 550 ticks**: **−0.1 percent**, no difference; only within half a trip, **275 ticks**, quota **275 ÷ 38.5 ≈ 7.1 → 8**: **−1.8 percent**; one quota shared by both directions, **15 + 10 = 25**: **−1.6 percent**. {So} we count every robot **from its order until it crosses**, each direction on its own. {Why?} We can only say no **when giving out an order**; a robot already sent will come, however far away. {And} every other narrow door gets its quota from **the same formula**, with its own door rate and trip time, so no door needs hand-tuning.",
+  "zh": "每道门、每个方向各一个名额，多了 **29.1%**。名额大小：手调 8 台太紧，32 台以上又会堵；公式：放慢倍数 **2.23** × 空路路程 **247** ÷ 每台间隔 **38.5 ≈ 14.3 → 进 15 台**，**2.23 × 158 ÷ 38.5 ≈ 9.2 → 出 10 台**，和手调的最好值一样好。【指上图】各测一局：不管门时，**211 台**车奔向门 6，每 500 拍只过 **3 台**；用名额后，大约 **25 台**奔向门 6，能过 **26 台**。数哪些车？每种 60 局成对比较：只数一趟实际路程（**2.23 × 247 ≈ 550 拍**）内会到门口的车：**−0.1%**，没有差别；只数半趟（**275 拍**）内的，名额 **275 ÷ 38.5 ≈ 7.1 → 8**：**−1.8%**；两个方向合用一个名额 **15 + 10 = 25**：**−1.6%**。所以从**接单一直数到过门**，两个方向分开数。为什么：我们只能在**派单时**说不；已经派出去的车，再远也会来。其他每道窄门也用**同一个公式**算名额，代入它自己的过门速率和路程时间，所以不用一道道手调。",
   "foot": "+0.53% (round 25) and +29.1% (rounds 28–29): statistics, paired runs on 17 room-map instances vs the champion's assignment. 8 / 32+: hand-tuning, early rounds. 15 / 10: formula quota = door rate × trip time (slide 12). Figure: measured, one replay each (250 robots), robots on the way and door-6 crossings per 500-tick period.",
   "src": [
    [
@@ -871,10 +880,23 @@
     "公式名额比手调最好值（提示卡）",
     "多局统计，区间 −0.25% 到 +1.58%",
     "第三部分源稿 R3"
+   ],
+   [
+    "−0.1%、−1.8%、−1.6%",
+    "只数一趟内 / 半趟内的车、两个方向合用名额，和 DoorFlow 比",
+    "多局统计（这次重跑）：官方房间图 200 / 250 / 300 台 × 第 52 轮 20 对种子，每种 60 局成对比较；95% 区间 −0.56%~+0.33%、−3.11%~−0.56%、−3.38%~+0.08%",
+    "`figures/deck/demo/eta_control.py`、`eta_control.json`"
+   ],
+   [
+    "550、275、8、25",
+    "一趟实际路程、半趟、半趟的名额、两方向名额之和",
+    "公式：2.23 × 247 ≈ 550；550 ÷ 2 = 275；275 ÷ 38.5 ≈ 7.1 → 8；15 + 10 = 25",
+    "第 12 页"
    ]
   ],
   "calc": [
-   "15 / 10"
+   "15 / 10",
+   "550、275、8、25"
   ]
  },
  {
