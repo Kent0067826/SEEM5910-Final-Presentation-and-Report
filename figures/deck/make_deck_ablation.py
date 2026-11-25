@@ -104,9 +104,9 @@ def results():
     ax.set_ylabel("orders finished per run (5,000 ticks)", fontsize=9.5, color=INK2)
     ax.set_ylim(0, 1420)
     ax.legend(fontsize=9.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.09), ncol=2)
-    fig.text(0.5, -0.06, "Each % label: mean of that size's 20 same-seed ratios (DoorFlow ÷ starter); the three labels average to the title's number.",
+    fig.text(0.5, -0.06, "Each % label: mean of that size's 20 same-seed ratios (DoorFlow ÷ starter); the three labels average to +140.5% (60 pairs).",
              ha="center", fontsize=8.6, color=INK2, style="italic")
-    ax.set_title(f"Official room map, 20 runs per bar: on average +{avg:.1f}% over {len(ratios)} paired runs", fontsize=11, color=INK)
+    ax.set_title("Official room map, 20 runs per bar, same seeds for both programs", fontsize=11, color=INK)   # the headline number is on the slide
     style(ax)
     fig.savefig(os.path.join(ROOT, "figures", "deck", "fig_results_deck.png"), dpi=220, bbox_inches="tight", facecolor=SURF)
     plt.close(fig)

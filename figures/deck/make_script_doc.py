@@ -18,7 +18,7 @@ parts = {1: "开场、比赛背景、越跑越慢", 2: "堵在门口（花一周
 L = ["# SEEM5910 演讲稿与幻灯片（四人，15 分钟）", "",
      f"这份 Word 是幻灯片 `SEEM5910_演讲PPT_{ver}.pptx` 的讲稿版。每页依次是：幻灯片图片；讲者、时长和配图；**提示卡**（几个要点，看一眼就能接着讲）；讲稿（**每一段英文下面紧跟它的中文**）；**数字来历**表（这一页每个数字是什么、怎么来的、出处）。",
      "**数字来历的分类：** 实测（跑仿真测的）、数出来的（数格子、数门、数记录）、公式（用别的数算出来的）、概率估算、多局统计（很多局同种子成对比较后取平均）、比赛设定。幻灯片底部的灰色小字是同一张表的英文简写。能从原始记录复算的数字，用 `python3 figures/deck/number_sources.py` 一次复算，结果写在 `figures/deck/number_sources.json`。",
-     "**怎么用：** 幻灯片上只印**关键词**（从讲稿里摘出来的短语、数字和公式，去掉“我们……了”这类主语、动词和修饰，例如 “we spent a week writing a monitoring program” 在幻灯片上只剩 “monitoring program”）；每段讲稿后面的“幻灯片：”一行就是这一段印在幻灯片上的关键词。整段英文要自己说出来，看着关键词讲；讲稿里[加下划线]{.underline}的是连接词、过渡和补充说明。*【……】* 是动作提示，告诉你这时指图上哪里；**加粗**的是要讲准的关键句和数字。幻灯片备注栏里还有提示卡和中英文讲稿。", "",
+     "**怎么用：** 幻灯片上只印**关键词**（从讲稿里摘出来的短语、数字和公式，去掉“我们……了”这类主语、动词和修饰，例如 “we spent a week writing a monitoring program” 在幻灯片上只剩 “monitoring program”）；每段讲稿后面的“幻灯片：”一行就是这一段印在幻灯片上的关键词；同一页的图、表、卡片或标题上已经有的内容不再重复印。整段英文要自己说出来，看着关键词讲；讲稿里[加下划线]{.underline}的是连接词、过渡和补充说明。*【……】* 是动作提示，告诉你这时指图上哪里；**加粗**的是要讲准的关键句和数字。幻灯片备注栏里还有提示卡和中英文讲稿。", "",
      "## 分工和时间", "", "| 讲者 | 负责的页 | 内容 | 时长 |", "|------|-------|----------------------------|----|"]
 for k in sorted(tot):
     pages = [str(s["n"]) for s in S if s["speaker"] == k]
@@ -37,8 +37,9 @@ for s in S:
     L += ["", "**讲稿**" if s["speaker"] else "**被问到时可以这样答**", ""]
     for g in s["segs"]:
         L += [cue(g["en"]), "", "> " + cue(g["zh"]), ""]
-        if g.get("key"):
-            L += ["幻灯片：" + "　｜　".join(g["key"] if isinstance(g["key"], list) else [g["key"]]), ""]
+        if "key" in g:
+            ks = g["key"] if isinstance(g["key"], list) else [g["key"]]
+            L += [("幻灯片：" + "　｜　".join(ks)) if ks else "幻灯片：这一段不另印（同一页的图、表、卡片或标题上已经有）", ""]
     # where every number on this page comes from (script.json "src"; the slide prints the English "foot" line)
     L += ["**数字来历**", ""]
     if s.get("foot"):

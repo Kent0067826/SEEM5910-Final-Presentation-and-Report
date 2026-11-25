@@ -60,8 +60,7 @@ def bdp_principle(path):
     a2.set_xticks([0, best]); a2.set_xticklabels(["0", "$C\\cdot T_0$"])
     a2.set_xlabel("robots on the way: hold an order through the door, not crossed yet, $N$")
     fig.text(0.1, 0.955, "How many robots should head for a door?", fontsize=12.5, fontweight="bold", color=INK)
-    fig.text(0.1, 0.918, "Counting rule:  robots on the way = crossing rate x trip time   ($N = X\\cdot T$)",
-             fontsize=10.5, color=INK)
+    # v38: the counting rule itself is printed on the slide next to the figure, so the figure no longer repeats it
     fig.text(0.1, 0.034, "$C$: door rate per direction    $T_0$: trip time while the door has no queue (door 6: 2.23 x free trip, measured)    theory sketch",
              fontsize=7.8, color=GREY, style="italic")
     fig.text(0.1, 0.008, "The counting rule $N = X\\cdot T$ is known in queueing theory as Little's law.",
