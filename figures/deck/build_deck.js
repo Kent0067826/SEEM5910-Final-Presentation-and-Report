@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v32.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v33.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -89,7 +89,13 @@ function notes(slide, s) {
   const clean = (t) => t.replace(/\*\*/g, "").replace(/[{}]/g, "");
   const hints = s.hints.map((h) => "- " + h).join("\n");
   const body = s.segs.map((g) => `${clean(g.en)}\n中：${clean(g.zh)}`).join("\n\n");
-  slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n提示 / Cues:\n${hints}\n\nScript（英文一段，下面跟中文）:\n\n${body}`);
+  const src = s.foot ? `\n\nWhere the numbers come from:\n${s.foot}` : "";
+  slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n提示 / Cues:\n${hints}\n\nScript（英文一段，下面跟中文）:\n\n${body}${src}`);
+}
+// grey origin line at the bottom: where this slide's numbers come from (script.json "foot")
+function foot(slide, s, color = C.accent4) {
+  if (!s.foot) return;
+  slide.addText(s.foot, { x: M, y: 6.99, w: 11.6, h: 0.44, fontSize: 8.5, color, margin: 0, isTextBox: true, valign: "top", objectName: "origin-line" });
 }
 function content(s) {
   section(s.speaker);
@@ -97,6 +103,7 @@ function content(s) {
   slide.addText(s.title, { placeholder: "title" });
   speakerChip(slide, s.speaker);
   notes(slide, s);
+  foot(slide, s);
   return slide;
 }
 const S = (n) => SCRIPT[n - 1];
@@ -190,7 +197,8 @@ section(1);
   slide.addText(s.title, { placeholder: "title" });
   slide.addText("SEEM5910 Final Presentation\nLeague of Robot Runners (LoRR) 2026 · official room map", { x: M, y: 4.0, w: 7.3, h: 0.9, fontSize: 18, color: C.accent5, margin: 0, isTextBox: true });
   readPanel(slide, s, say(s), M + 0.2, 5.0, 7.1, 1.45, { fill: null, color: C.background1, bold: C.accent1, max: 18 });
-  slide.addText("15 minutes", { x: M, y: 6.65, w: 6, h: 0.4, fontSize: 14, color: C.accent1, bold: true, margin: 0, isTextBox: true });
+  slide.addText("15 minutes", { x: M, y: 6.45, w: 6, h: 0.4, fontSize: 14, color: C.accent1, bold: true, margin: 0, isTextBox: true });
+  slide.addText(s.foot, { x: M, y: 6.92, w: 7.3, h: 0.45, fontSize: 9, color: "A9BCC6", margin: 0, isTextBox: true, valign: "top" });
   card(slide, 8.2, 0.75, 4.55, 6.0, C.background1);
   addImg(slide, "bg", 8.3, 0.85, 4.35, 5.8);
   notes(slide, s);
@@ -202,7 +210,7 @@ section(1);
   addImg(slide, "bg", M, 1.3, 5.6, 5.65, "left");
   readPanel(slide, s, say(s), 6.65, 1.3, 6.1, 4.0, { max: 20 });
   card(slide, 6.65, 5.5, 6.1, 1.4, C.accent6);
-  [["16", "rooms"], ["31", "doors, most 1 cell wide"], ["200–300", "robots"], ["5,000", "ticks per run"]].forEach(([b, l], i) => {
+  [["16", "rooms\n(counted)"], ["31", "doors, most 1 cell wide (counted)"], ["200–300", "robots\n(competition)"], ["5,000", "ticks per run\n(competition)"]].forEach(([b, l], i) => {
     const x = 6.85 + i * 1.48;
     slide.addText(b, { x, y: 5.58, w: 1.42, h: 0.55, fontSize: 22, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
     slide.addText(l, { x, y: 6.15, w: 1.38, h: 0.65, fontSize: 12, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
@@ -217,7 +225,7 @@ section(1);
   slide.addText("orders per 500 ticks at the start", { x: M + 0.3, y: 2.4, w: 2.9, h: 0.5, fontSize: 14, color: C.text1, margin: 0, isTextBox: true });
   slide.addText("37", { x: M + 0.3, y: 3.1, w: 2.8, h: 0.9, fontSize: 54, bold: true, color: C.accent3, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
   slide.addText("at the end of the run", { x: M + 0.3, y: 4.0, w: 2.9, h: 0.5, fontSize: 14, color: C.text1, margin: 0, isTextBox: true });
-  para(slide, "2024 champion's way of giving out orders, average of **60 runs**. **No errors, no collisions.**", M + 0.3, 4.8, 2.9, 1.6, 13);
+  para(slide, "Measured: 2024 champion's way of giving out orders, average of **60 runs** (3 sizes × 20). **No errors, no collisions.**", M + 0.3, 4.8, 2.9, 1.6, 13);
   addImg(slide, "collapse", 4.3, 1.25, 8.45, 3.6);
   caption(slide, "Official room map, 200 / 250 / 300 robots, 20 runs per program", 4.4, 4.88, 8.3);
   readPanel(slide, s, say(s), 4.3, 5.3, 8.45, 1.62, { max: 18, pad: 0.15 });
@@ -229,7 +237,7 @@ section(1);
   addImg(slide, "jam", M, 1.3, 5.6, 5.65, "left");
   readPanel(slide, s, say(s), 6.65, 1.3, 6.1, 3.1, { max: 20 });
   [["1 week", "to write the **monitoring program** that replays the run **tick by tick**", C.accent2],
-   ["97", "robots at tick 3,000 still heading through **door 6**", C.accent3]].forEach(([b, l, col], i) => {
+   ["97", "robots at tick 3,000 still heading through **door 6** (counted in one replay)", C.accent3]].forEach(([b, l, col], i) => {
     const x = 6.65 + i * 3.1;
     card(slide, x, 4.6, 3.0, 2.3, C.accent6);
     slide.addText(b, { x: x + 0.2, y: 4.72, w: 2.6, h: 0.75, fontSize: 32, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
@@ -290,14 +298,13 @@ section(1);
     slide.addText(runs, { x: x + 0.1, y: 1.8, w: cw - 0.18, h: 3.78, fontSize: 8.2, valign: "top", margin: 0, isTextBox: true });
   });
   readPanel(slide, s, oneP(say(s)), M, 5.72, 12.15, 1.22, { max: 18, pad: 0.12 });
-  slide.addText("Yellow = our early ideas; grey = existing mechanisms tried later; red = key attempts. Each result is vs the method at that time, on that round's test set (report, section 9). Skipped = stopped at a quick measurement.", { x: M, y: 7.0, w: 11.5, h: 0.3, fontSize: 9, italic: true, color: C.accent4, margin: 0, isTextBox: true });
 }
 
 // ---------- 7 congestion monitor ----------
 {
   const s = S(7); const slide = content(s);
   addImg(slide, "monitor", M, 1.25, 12.15, 3.95);
-  slide.addText("Congestion monitor at tick 3,000: same map, 250 robots, same seeds (9700 / 101), no door control; only the routing differs. Red dot = robot holding an order that has not moved for 12+ ticks. Door 6 jammed 91–94% of the run under all three; orders 609 / 435 / 612.", { x: M, y: 5.24, w: 12.15, h: 0.5, fontSize: 10.5, italic: true, color: C.accent4, margin: 0, isTextBox: true, valign: "top" });
+  slide.addText("Measured, one run per routing (official map, 250 robots, seeds 9700 / 101, no door control). Panels at tick 3,000: orders finished so far, robots stuck now (red: holding an order, not moved for 12+ ticks), door-6 crossings in the 500 ticks from tick 3,000. Final orders: 609 / 435 / 612. Bars: share of the run each door was jammed (8+ stuck robots within 5 steps); door 6: 91–94%.", { x: M, y: 5.24, w: 12.15, h: 0.5, fontSize: 10.5, italic: true, color: C.accent4, margin: 0, isTextBox: true, valign: "top" });
   readPanel(slide, s, oneP(say(s)), M, 5.82, 12.15, 1.12, { max: 18, pad: 0.12 });
 }
 
@@ -510,7 +517,6 @@ section(1);
     const x = M + col * 4.1 + (row ? 2.05 : 0), y = 1.88 + row * 2.5;
     readPanel(slide, s, [t[i + 1]], x, y, 3.95, 2.38, { max: 17, fill: C.background2, valign: "middle" });
   }
-  caption(slide, "From all versions on slide 6; numbers from report, section 9.", M, 6.9, 11);
 }
 
 // ---------- 25 conclusion ----------
@@ -526,7 +532,8 @@ section(1);
     slide.addText(md(p, C.background1, C.accent1), { x: M + 0.75, y, w: 11.4, h: 0.82, fontSize: sz, valign: "middle", margin: 0, isTextBox: true });
     FIT.push([s.n, sz]);
   });
-  slide.addText(t[4], { x: 5.6, y: 6.72, w: 7.1, h: 0.5, fontSize: 20, bold: true, color: C.accent1, align: "right", margin: 0, isTextBox: true });
+  slide.addText(t[4], { x: 5.6, y: 6.62, w: 7.1, h: 0.5, fontSize: 20, bold: true, color: C.accent1, align: "right", margin: 0, isTextBox: true });
+  slide.addText(s.foot, { x: M, y: 7.08, w: 8, h: 0.3, fontSize: 9, color: "A9BCC6", margin: 0, isTextBox: true, valign: "top" });
   notes(slide, s);
 }
 

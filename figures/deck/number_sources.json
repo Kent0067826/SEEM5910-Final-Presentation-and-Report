@@ -1,0 +1,236 @@
+{
+ "rooms / doors": {
+  "slide": "16 / 31",
+  "recomputed": "16 / 31",
+  "how": "counted on the map (region graph)",
+  "source": "archive/tools/replay_report/region_graph_room64.json"
+ },
+ "one-cell doors": {
+  "slide": "most one cell wide",
+  "recomputed": "30 of 31 (one door 2 cells)",
+  "how": "counted on the map",
+  "source": "same"
+ },
+ "free cells": {
+  "slide": "3,646",
+  "recomputed": "3646 = 3614 room cells + 32 door cells",
+  "how": "counted on the map",
+  "source": "same"
+ },
+ "lower-left room cells": {
+  "slide": "906 of 3,614",
+  "recomputed": "906 of 3614 = 0.2507",
+  "how": "counted on the map",
+  "source": "same"
+ },
+ "P(order crosses door 6)": {
+  "slide": "37.6%",
+  "recomputed": "2 x 0.2507 x 0.7493 = 0.3757",
+  "how": "probability (random ends)",
+  "source": "formula"
+ },
+ "task file": {
+  "slide": "38.5% (530 of 1,375)",
+  "recomputed": "1375 tasks in the file; 530 / 1375 = 0.385",
+  "how": "counted in the task file (530 = tasks whose two ends are on different sides of door 6, report section 2.2)",
+  "source": "harness/data/pkg/maps/room/room-example_250.tasks"
+ },
+ "task file recount": {
+  "slide": "530",
+  "recomputed": "529 of 1375 = 0.385 (16 tasks have an end outside the room cells, e.g. on a door cell)",
+  "how": "counted in the task file",
+  "source": "same"
+ },
+ "competition settings": {
+  "slide": "3 ticks per move; breakdowns",
+  "recomputed": "agentCounter=3, delayConfig={'seed': 0, 'minDelay': 10, 'maxDelay': 30, 'eventModel': 'poisson', 'pDelay': 0.01, 'durationModel': 'uniform', 'gaussMeanRatio': 0.5, 'gaussStdRatio': 0.22}, tasks revealed 1.5 x robots",
+  "how": "competition setting",
+  "source": "harness/data/pkg/maps/room/room250.json"
+ },
+ "slowing down (card)": {
+  "slide": "127 -> 37",
+  "recomputed": "126.6 -> 37.3 (60 runs)",
+  "how": "measured: orders per 500 ticks, champion assignment, mean of 60 runs (3 sizes x 20)",
+  "source": "archive/workspace/batches/r31-test/rows.jsonl"
+ },
+ "slowing down (curve)": {
+  "slide": "figure",
+  "recomputed": "128.2 -> 35 (60 runs)",
+  "how": "measured, same setting, round-52 runs drawn in the figure",
+  "source": "archive/workspace/batches/r52b-baseline/rows.jsonl"
+ },
+ "DoorFlow vs starter": {
+  "slide": "+140.5% (60 runs); +145 / +124 / +152",
+  "recomputed": "+140.5%; +145% (n=20, 423 -> 1032) / +124% (n=20, 494 -> 1106) / +152% (n=20, 473 -> 1169)",
+  "how": "statistics: mean of 60 same-seed ratios",
+  "source": "archive/workspace/batches/r52b-baseline/rows.jsonl (methods DEF, LCAP)"
+ },
+ "ablation runs": {
+  "slide": "600",
+  "recomputed": "600",
+  "how": "counted rows",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation noDoor vs FULL": {
+  "slide": "-25.6",
+  "recomputed": "-25.6% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation noQuota vs FULL": {
+  "slide": "-13.6",
+  "recomputed": "-13.6% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation noWD vs FULL": {
+  "slide": "-0.4",
+  "recomputed": "-0.4% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation noGlobal vs FULL": {
+  "slide": "+0.7",
+  "recomputed": "+0.7% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation onlyDoor vs NONE": {
+  "slide": "+29.7",
+  "recomputed": "+29.7% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation onlyQuota vs NONE": {
+  "slide": "+29.3",
+  "recomputed": "+29.3% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation onlyGlobal vs NONE": {
+  "slide": "+15.7",
+  "recomputed": "+15.7% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "ablation FULL vs NONE": {
+  "slide": "+76.4",
+  "recomputed": "+76.4% (n=60)",
+  "how": "statistics: mean of same-seed ratios, 3 sizes x 20",
+  "source": "figures/part3/rerun/ablation_room_4x4.jsonl"
+ },
+ "generalization runs": {
+  "slide": "640, 8 maps x 199/249",
+  "recomputed": "640 rows, 16 instances",
+  "how": "counted rows",
+  "source": "figures/part3/rerun/general_gen4x4.jsonl"
+ },
+ "generalization FULL vs NONE all": {
+  "slide": "+86.9",
+  "recomputed": "+86.9% (n=160)",
+  "how": "statistics: mean of same-seed ratios",
+  "source": "figures/part3/rerun/general_gen4x4.jsonl"
+ },
+ "generalization noGlobal vs FULL all": {
+  "slide": "-1.4",
+  "recomputed": "-1.4% (n=160)",
+  "how": "statistics: mean of same-seed ratios",
+  "source": "figures/part3/rerun/general_gen4x4.jsonl"
+ },
+ "generalization noWD vs FULL all": {
+  "slide": "+0.2",
+  "recomputed": "+0.2% (n=160)",
+  "how": "statistics: mean of same-seed ratios",
+  "source": "figures/part3/rerun/general_gen4x4.jsonl"
+ },
+ "generalization noGlobal vs FULL GenH_249": {
+  "slide": "-16.9",
+  "recomputed": "-16.9% (n=10)",
+  "how": "statistics: mean of same-seed ratios",
+  "source": "figures/part3/rerun/general_gen4x4.jsonl"
+ },
+ "knee: no door control": {
+  "slide": "59 at start -> 211, 3 cross",
+  "recomputed": "59.0 -> 210.9, last X=3",
+  "how": "measured: one replay, 250 robots, mean per 500-tick window",
+  "source": "archive/protocol_direction/readability/演讲结构报告/mfd.json"
+ },
+ "knee: quota": {
+  "slide": "about 25 on the way, 26 cross",
+  "recomputed": "L 24.2-25.8, mean X after first window 25.7",
+  "how": "measured, same replay pair",
+  "source": "same"
+ },
+ "door rate": {
+  "slide": "26 per 500; 620 in / 635 out",
+  "recomputed": "25.1 per 500 (1255 in 25000 ticks); 620 / 635",
+  "how": "measured: crossings counted in 5 runs; planner uses 26 (round 40)",
+  "source": "figures/deck/demo/door6_numbers.json"
+ },
+ "free trip": {
+  "slide": "247 / 158",
+  "recomputed": "planner {'inward': 247, 'outward': 158}; independent recompute 250.3 / 162.9",
+  "how": "computed from the map: 25 + mean shortest time over every cell",
+  "source": "same"
+ },
+ "slowdown": {
+  "slide": "2.23 / 1.33",
+  "recomputed": "2.23 (n=224) / 1.33 (n=54)",
+  "how": "measured (round 40): median of real / free time to the door",
+  "source": "archive/workspace/netmodel_r41/model_data/latency_pairs.json"
+ },
+ "window": {
+  "slide": "15 / 10",
+  "recomputed": "ceil(2.23*247/38.5)=15, ceil(2.23*158/38.5)=10",
+  "how": "formula",
+  "source": "-"
+ },
+ "door timing": {
+  "slide": "1,255; 10; 34; 9.3",
+  "recomputed": "1255; 10.0; 34.0; 9.3",
+  "how": "measured: 5 runs, seeds 9700-9704",
+  "source": "figures/deck/demo/door_timing.json"
+ },
+ "door speed": {
+  "slide": "29% / 81%",
+  "recomputed": "29% / 81%",
+  "how": "formula with measured medians",
+  "source": "-"
+ },
+ "ceiling": {
+  "slide": "69.2 orders per 500 ticks",
+  "recomputed": "69.2 (linear program, = 26 / 0.3757 = 69.2)",
+  "how": "formula / linear program",
+  "source": "archive/workspace/netmodel_r43/data/little_r47.json"
+ },
+ "global cap": {
+  "slide": "138",
+  "recomputed": "1.76 x 69.2/500 x 2.23 x (25 + 230.4) = 138.8 -> 138",
+  "how": "formula; 1.76 from a sweep (round 46)",
+  "source": "archive/workspace/scripts/r47_common.py"
+ },
+ "narrow doorways run": {
+  "slide": "818 / 1,277; 249 / 177",
+  "recomputed": "818 / 1277; max holding 249 / 177",
+  "how": "measured: one run each",
+  "source": "figures/deck/demo/narrow_spots.json"
+ },
+ "monitor runs": {
+  "slide": "609 / 435 / 612; door 6 jammed 91-94%",
+  "recomputed": "609 / 435 / 612; 91% / 94% / 91%",
+  "how": "measured: one run each",
+  "source": "figures/deck/demo/monitor_stats.json"
+ },
+ "demo run": {
+  "slide": "609 / 1,130",
+  "recomputed": "609 / 1130",
+  "how": "measured: one run each (seed 9700 / 101)",
+  "source": "figures/deck/demo/demo_stats.json"
+ },
+ "live control": {
+  "slide": "-1.1 / -1.0 / -3.3 / -7.5; window 8-41; 28 in",
+  "recomputed": "-1.11 / -1.02 / -3.27 / -7.48; [8, 41]; 28",
+  "how": "statistics: 300 runs, 60 pairs per idea",
+  "source": "figures/deck/demo/live_control.json"
+ }
+}
