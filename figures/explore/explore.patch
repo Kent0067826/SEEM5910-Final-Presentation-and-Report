@@ -1,6 +1,6 @@
 --- default_planner/window_control.cpp
 +++ default_planner/window_control.cpp
-@@ -383,6 +383,117 @@
+@@ -383,6 +383,128 @@
          for (size_t s = 0; s < br_load[0].size(); ++s) std::fprintf(stderr, " | side%zu L=%d K=%d", s, br_load[0][s], (0 < br_Ks.size() && s < br_Ks[0].size()) ? br_Ks[0][s] : -1);
          std::fprintf(stderr, "\n"); }
  }
@@ -96,6 +96,17 @@
 +        for (int i = 0; i < na; ++i) { const int loc = env->system_states[i].location; if (loc < 0) continue;
 +            for (auto& bs : br_counted[i]) if (bs.first == 0 && bs.second < 2) { if (ex_dd[loc] <= 6) ++nn[bs.second]; else ++nf[bs.second]; } }
 +        std::fprintf(stderr, "[exn] %d %d %d %d %d\n", t, nn[0], nf[0], nn[1], nf[1]); }
++    if (ex_log >= 3 && !br_side.empty() && !ex_dd.empty()) {   // broken-down robots near door 6 and robots waiting behind them
++        // "[exf] t d0 d12 w0 w12": broken-down robots on the door cells (d0) or 1-2 steps away (d12); w0 / w12 = 1 if some other
++        // robot counted on the way through door 6 (either direction) is within 6 steps of the door
++        int d0 = 0, d12 = 0, w0 = 0, w12 = 0;
++        for (int i = 0; i < na; ++i) { const auto& st = env->system_states[i]; if (st.location < 0 || !st.delay.inDelay) continue;
++            const int dd = ex_dd[st.location]; if (dd > 2) continue;
++            bool wait = false;   // any other robot counted on the way through door 6 (either direction) within 6 steps: an upper bound
++            for (int j = 0; j < na && !wait; ++j) { if (j == i) continue; const int lj = env->system_states[j].location; if (lj < 0 || ex_dd[lj] > 6) continue;
++                for (auto& bs : br_counted[j]) if (bs.first == 0) wait = true; }
++            if (dd == 0) { ++d0; w0 |= wait; } else { ++d12; w12 |= wait; } }
++        std::fprintf(stderr, "[exf] %d %d %d %d %d\n", t, d0, d12, int(w0), int(w12)); }
 +    static int last = -1; if (ex_log && t / 500 != last) { last = t / 500; std::fprintf(stderr, "[ex] t=%d denied=%lld admitted=%lld\n", t, ex_denied, ex_admitted); }
 +}
 +bool ex_ok(int agent, int task, SharedEnvironment* env) {
@@ -118,7 +129,7 @@
  void br_route(int start, const std::vector<int>& L, int from, std::vector<std::pair<int,int>>& out) {
      out.clear();
      for (int b = 0; b < int(br_side.size()); ++b) {
-@@ -893,6 +1004,7 @@
+@@ -893,6 +1015,7 @@
      if (br_K > 0 || br_K2 > 0 || br_trace || std::getenv("ROBOT_BMAC")) br_detect(env);
      c2_init(env);
      lv_init(env);
@@ -126,7 +137,7 @@
      LinkCredit::initialize(env);
      rg_cap = std::getenv("ROBOT_REGION_CAP") ? std::stod(std::getenv("ROBOT_REGION_CAP")) : 0.0;
      rg_of.clear(); rg_capv.clear(); rg_load.clear(); rg_counted.assign(env->num_of_agents, -1); rg_denied = 0;
-@@ -1234,6 +1346,7 @@
+@@ -1234,6 +1357,7 @@
                      std::fprintf(stderr, "\n"); } }
          }
          c2_step(env);
@@ -134,7 +145,7 @@
          lv_step(env);
          if (br_trace && env->system_timestep / 500 != br_last_trace) { br_last_trace = env->system_timestep / 500;
              std::fprintf(stderr, "[bridge] t=%d denied=%lld admitted=%lld load:", env->system_timestep, br_denied, br_admitted);
-@@ -1381,6 +1494,7 @@
+@@ -1381,6 +1505,7 @@
              if (tb_cbs > 0 && tb_cut(bs.first) && bs.first < int(tb_tok.size()) && !tb_paid.count(task) && tb_tok[bs.first][bs.second] < 1.0 - 1e-9) { ++tb_denied; ++denied; return false; }   // p05: no token
              if (cd_pct > 0 && bs.first < int(cd_q.size()) && bs.second < int(cd_q[bs.first].size()) && br_load[bs.first][bs.second] + 1 > int(cd_q[bs.first][bs.second].W)) { ++cd_denied; ++denied; return false; }   // p06: ECN window
              if (pf_xoff > 0 && bs.first < int(pf_paused.size()) && bs.second < int(pf_paused[bs.first].size()) && pf_paused[bs.first][bs.second]) { ++pf_denied; ++denied; return false; } }   // p10: PFC pause
@@ -142,7 +153,7 @@
      }
      if (multicut() && rp_off > 0 && !rp_of.empty()) {
          const auto& L = env->task_pool.at(task).locations;
-@@ -1425,6 +1539,7 @@
+@@ -1425,6 +1550,7 @@
  void release(int agent) {
      LinkCredit::release(agent);
      if ((br_K > 0 || br_K2 > 0) && !br_side.empty() && !LinkCredit::replaces_cuts()) br_uncount(agent);
@@ -150,7 +161,7 @@
      if (rg_cap > 0 && agent < int(rg_counted.size()) && rg_counted[agent] >= 0) { --rg_load[rg_counted[agent]]; rg_counted[agent] = -1; }
      if (multicut()) { auto& r = mcres[agent]; for (auto& pl : r.pending) mc_count(pl, -1); r = {}; return; }
      if (agent < int(reservations.size()) && reservations[agent].task >= 0) { ++cancelled_total; reservations[agent] = {}; }
-@@ -1435,7 +1550,7 @@
+@@ -1435,7 +1561,7 @@
      if ((br_K > 0 || br_K2 > 0) && !br_side.empty() && !LinkCredit::replaces_cuts()) {
          br_uncount(agent); const auto& T = env->task_pool.at(task);
          br_route(env->system_states.at(agent).location, T.locations, T.idx_next_loc, br_tmp);

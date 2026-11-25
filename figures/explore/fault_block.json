@@ -1,0 +1,101 @@
+{
+ "runs": [
+  {
+   "map": "room200",
+   "seed": 11700,
+   "completed": 1039,
+   "samples": 335,
+   "on_door": 86,
+   "on_door_and_waiting": 86,
+   "near_door": 144,
+   "near_door_and_waiting": 144
+  },
+  {
+   "map": "room200",
+   "seed": 11701,
+   "completed": 1036,
+   "samples": 335,
+   "on_door": 54,
+   "on_door_and_waiting": 54,
+   "near_door": 123,
+   "near_door_and_waiting": 122
+  },
+  {
+   "map": "room200",
+   "seed": 11702,
+   "completed": 1043,
+   "samples": 335,
+   "on_door": 59,
+   "on_door_and_waiting": 58,
+   "near_door": 132,
+   "near_door_and_waiting": 132
+  },
+  {
+   "map": "room250",
+   "seed": 11700,
+   "completed": 1113,
+   "samples": 335,
+   "on_door": 70,
+   "on_door_and_waiting": 70,
+   "near_door": 132,
+   "near_door_and_waiting": 132
+  },
+  {
+   "map": "room250",
+   "seed": 11701,
+   "completed": 1118,
+   "samples": 335,
+   "on_door": 55,
+   "on_door_and_waiting": 53,
+   "near_door": 143,
+   "near_door_and_waiting": 142
+  },
+  {
+   "map": "room250",
+   "seed": 11702,
+   "completed": 1068,
+   "samples": 335,
+   "on_door": 56,
+   "on_door_and_waiting": 56,
+   "near_door": 135,
+   "near_door_and_waiting": 133
+  },
+  {
+   "map": "room300",
+   "seed": 11700,
+   "completed": 1136,
+   "samples": 335,
+   "on_door": 64,
+   "on_door_and_waiting": 64,
+   "near_door": 129,
+   "near_door_and_waiting": 127
+  },
+  {
+   "map": "room300",
+   "seed": 11701,
+   "completed": 1223,
+   "samples": 335,
+   "on_door": 45,
+   "on_door_and_waiting": 44,
+   "near_door": 140,
+   "near_door_and_waiting": 139
+  },
+  {
+   "map": "room300",
+   "seed": 11702,
+   "completed": 1214,
+   "samples": 335,
+   "on_door": 68,
+   "on_door_and_waiting": 68,
+   "near_door": 144,
+   "near_door_and_waiting": 144
+  }
+ ],
+ "samples": 3015,
+ "share": {
+  "on_door": 0.185,
+  "on_door_and_waiting": 0.183,
+  "near_door": 0.405,
+  "near_door_and_waiting": 0.403
+ }
+}
