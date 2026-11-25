@@ -1,0 +1,110 @@
+--- default_planner/window_control.cpp	2026-11-24 02:47:10.701303383 +0000
++++ default_planner/window_control.cpp	2026-11-25 01:51:58.309469461 +0000
+@@ -310,6 +310,79 @@
+         c2_qsum[j] = 0; c2_x[j] = 0; c2_deny[j] = 0; }
+     c2_t0 = t; c2_samples = 0;
+ }
++
++// Live-window experiment for the deck (figures/deck/demo/live_window.patch; off unless ROBOT_LIVE_MODE is set).
++// ROBOT_LIVE_MODE=1: the window of a single-door cut applies only while that door is jammed: >= ROBOT_LIVE_ON (8) stuck robots
++//   (holding an order, same cell for >= 12 ticks) within 5 walking steps of the door, the congestion monitor's rule; released at
++//   <= ROBOT_LIVE_OFF (2) stuck robots, or never with ROBOT_LIVE_LATCH=1 (round-34 idea: limit only after a jam is seen).
++// ROBOT_LIVE_MODE=2: delay-based AIMD on the single-door windows, started at the formula values; the round-38 rule of
++//   ROBOT_CUT2_AIMD: every 250 ticks, delay = robot-ticks within 3 cells of the door per crossing (Little's law); above the
++//   target (250) K <- max(8, K / 2) in both directions, otherwise K <- min(48, K + 2) where the window refused an order.
++// ROBOT_LIVE_TRACE=1 prints, every 25 ticks, the robots on the way to cut 0 (door 6 on the official room map) and its windows.
++int lv_mode = 0, lv_on_th = 8, lv_off_th = 2, lv_latch = 0, lv_stuck = 12, lv_radius = 5, lv_trace = 0;
++int lv_win = 250, lv_t0 = -1, lv_samples = 0; double lv_target = 250, lv_kmin = 8, lv_kmax = 48, lv_inc = 2, lv_beta = 0.5;
++std::vector<char> lv_on; std::vector<std::vector<char>> lv_zone5, lv_zone3; std::vector<int> lv_lastloc, lv_lastmove, lv_stuckn;
++std::vector<std::vector<signed char>> lv_last; std::vector<long long> lv_q; std::vector<int> lv_x;
++std::vector<std::vector<int>> lv_deny; std::vector<std::vector<double>> lv_K; long long lv_switches = 0;
++static double lv_envd(const char* k, double d) { const char* e = std::getenv(k); return e ? std::atof(e) : d; }
++void lv_init(SharedEnvironment* env) {
++    lv_mode = int(lv_envd("ROBOT_LIVE_MODE", 0)); lv_trace = int(lv_envd("ROBOT_LIVE_TRACE", 0));
++    lv_on_th = int(lv_envd("ROBOT_LIVE_ON", 8)); lv_off_th = int(lv_envd("ROBOT_LIVE_OFF", 2)); lv_latch = int(lv_envd("ROBOT_LIVE_LATCH", 0));
++    lv_win = int(lv_envd("ROBOT_LIVE_WIN", 250)); lv_target = lv_envd("ROBOT_LIVE_TARGET", 250); lv_kmin = lv_envd("ROBOT_LIVE_KMIN", 8);
++    lv_kmax = lv_envd("ROBOT_LIVE_KMAX", 48); lv_inc = lv_envd("ROBOT_LIVE_INC", 2); lv_beta = lv_envd("ROBOT_LIVE_BETA", 0.5);
++    lv_on.clear(); lv_zone5.clear(); lv_zone3.clear(); lv_K.clear(); lv_deny.clear(); lv_switches = 0;
++    const int nb = std::min(br_n1, int(br_side.size()));
++    if ((!lv_mode && !lv_trace) || nb <= 0) { lv_mode = 0; lv_trace = 0; return; }
++    const int n = int(env->map.size()), C = env->cols, na = env->num_of_agents;
++    lv_on.assign(nb, 0); lv_zone5.assign(nb, std::vector<char>(n, 0)); lv_zone3.assign(nb, std::vector<char>(n, 0));
++    for (int b = 0; b < nb; ++b) {
++        std::vector<int> dist(n, -1), q; size_t h = 0;
++        for (int c : br_cells[b]) { dist[c] = 0; q.push_back(c); }
++        while (h < q.size()) { const int v = q[h++]; if (dist[v] >= lv_radius) continue;
++            const int r = v / C, c = v % C; const int nbv[4] = { c + 1 < C ? v + 1 : -1, c > 0 ? v - 1 : -1, r + 1 < n / C ? v + C : -1, r > 0 ? v - C : -1 };
++            for (int u : nbv) if (u >= 0 && !env->map[u] && dist[u] < 0) { dist[u] = dist[v] + 1; q.push_back(u); } }
++        for (int v = 0; v < n; ++v) if (dist[v] >= 0) lv_zone5[b][v] = 1;
++        for (int v = 0; v < n; ++v) if (!env->map[v]) for (int c : br_cells[b]) if (std::abs(v / C - c / C) + std::abs(v % C - c % C) <= 3) { lv_zone3[b][v] = 1; break; }
++    }
++    lv_lastloc.assign(na, -1); lv_lastmove.assign(na, 0); lv_stuckn.assign(nb, 0);
++    lv_last.assign(nb, std::vector<signed char>(na, -1)); lv_q.assign(nb, 0); lv_x.assign(nb, 0); lv_deny.assign(nb, {}); lv_K.assign(nb, {});
++    for (int b = 0; b < nb; ++b) { lv_deny[b].assign(br_nparts[b], 0);
++        for (int s = 0; s < br_nparts[b]; ++s) lv_K[b].push_back(b < int(br_Ks.size()) && s < int(br_Ks[b].size()) ? double(br_Ks[b][s]) : 0.0); }
++    lv_t0 = env->system_timestep; lv_samples = 0;
++}
++void lv_step(SharedEnvironment* env) {
++    if (lv_on.empty()) return;
++    const int t = env->system_timestep, na = std::min(int(env->system_states.size()), int(lv_lastloc.size())), nb = int(lv_on.size());
++    std::fill(lv_stuckn.begin(), lv_stuckn.end(), 0);
++    for (int i = 0; i < na; ++i) {
++        const int loc = env->system_states[i].location;
++        if (loc != lv_lastloc[i]) { lv_lastloc[i] = loc; lv_lastmove[i] = t; }
++        if (loc < 0) continue;
++        const bool has = i < int(env->curr_task_schedule.size()) && env->curr_task_schedule[i] >= 0;
++        if (has && t - lv_lastmove[i] >= lv_stuck) for (int b = 0; b < nb; ++b) lv_stuckn[b] += lv_zone5[b][loc];
++        if (lv_mode == 2) for (int b = 0; b < nb; ++b) { lv_q[b] += lv_zone3[b][loc]; const int s = br_side[b][loc];
++            if (s >= 0) { if (lv_last[b][i] >= 0 && lv_last[b][i] != s) ++lv_x[b]; lv_last[b][i] = (signed char)s; } }
++    }
++    if (lv_mode == 1) for (int b = 0; b < nb; ++b) { const char was = lv_on[b];
++        if (!lv_on[b] && lv_stuckn[b] >= lv_on_th) lv_on[b] = 1; else if (lv_on[b] && !lv_latch && lv_stuckn[b] <= lv_off_th) lv_on[b] = 0;
++        if (was != lv_on[b]) ++lv_switches; }
++    if (lv_mode == 2) { ++lv_samples;
++        if (t - lv_t0 >= lv_win) { const double dt = t - lv_t0;
++            for (int b = 0; b < nb; ++b) { const double qavg = double(lv_q[b]) / std::max(1, lv_samples);
++                const double delay = lv_x[b] > 0 ? qavg * dt / lv_x[b] : (qavg >= 1.0 ? 1e9 : 0.0);
++                for (int s = 0; s < int(lv_K[b].size()); ++s) {
++                    if (delay > lv_target) lv_K[b][s] = std::max(lv_kmin, lv_beta * lv_K[b][s]);
++                    else if (lv_deny[b][s] > 0) lv_K[b][s] = std::min(lv_kmax, lv_K[b][s] + lv_inc);
++                    if (b < int(br_Ks.size()) && s < int(br_Ks[b].size())) br_Ks[b][s] = int(lv_K[b][s] + 1e-9);
++                    lv_deny[b][s] = 0; }
++                lv_q[b] = 0; lv_x[b] = 0; }
++            lv_t0 = t; lv_samples = 0; } }
++    static int lv_bucket = -1;
++    if (lv_trace && t / 25 != lv_bucket && !br_load.empty()) { lv_bucket = t / 25;
++        std::fprintf(stderr, "[live] t=%d mode=%d on=%d stuck=%d", t, lv_mode, int(lv_mode == 1 ? lv_on[0] : 1), lv_stuckn[0]);
++        for (size_t s = 0; s < br_load[0].size(); ++s) std::fprintf(stderr, " | side%zu L=%d K=%d", s, br_load[0][s], (0 < br_Ks.size() && s < br_Ks[0].size()) ? br_Ks[0][s] : -1);
++        std::fprintf(stderr, "\n"); }
++}
+ void br_route(int start, const std::vector<int>& L, int from, std::vector<std::pair<int,int>>& out) {
+     out.clear();
+     for (int b = 0; b < int(br_side.size()); ++b) {
+@@ -819,6 +892,7 @@
+     br_side.clear(); br_load.clear(); br_counted.clear();
+     if (br_K > 0 || br_K2 > 0 || br_trace || std::getenv("ROBOT_BMAC")) br_detect(env);
+     c2_init(env);
++    lv_init(env);
+     LinkCredit::initialize(env);
+     rg_cap = std::getenv("ROBOT_REGION_CAP") ? std::stod(std::getenv("ROBOT_REGION_CAP")) : 0.0;
+     rg_of.clear(); rg_capv.clear(); rg_load.clear(); rg_counted.assign(env->num_of_agents, -1); rg_denied = 0;
+@@ -1160,6 +1234,7 @@
+                     std::fprintf(stderr, "\n"); } }
+         }
+         c2_step(env);
++        lv_step(env);
+         if (br_trace && env->system_timestep / 500 != br_last_trace) { br_last_trace = env->system_timestep / 500;
+             std::fprintf(stderr, "[bridge] t=%d denied=%lld admitted=%lld load:", env->system_timestep, br_denied, br_admitted);
+             for (auto& v : br_load) { std::fprintf(stderr, " |"); for (int x : v) std::fprintf(stderr, " %d", x); } std::fprintf(stderr, "\n"); }
+@@ -1298,9 +1373,10 @@
+                 const int j = bs.first - rg_first;
+                 if (j < int(bb_cap.size()) && bb_cap[j][bs.second] > 0 && br_load[bs.first][bs.second] + 1 > bb_cap[j][bs.second]) { ++bb_denied; ++br_denied; ++denied; return false; }
+                 continue; }
++            if (lv_mode == 1 && bs.first < int(lv_on.size()) && !lv_on[bs.first]) continue;   // live window: off until a jam is seen
+             const int K = ((net_on && bs.first < int(br_Ks.size())) ? br_Ks[bs.first][bs.second] : (bs.first < int(br_Kb.size()) ? br_Kb[bs.first] : br_K)) + ab_K(bs.first, bs.second); if (K > 0 && br_load[bs.first][bs.second] + 1 > K && pipe_d > 0 && bs.first < br_n1) { ++pipe_seen;   // p16: pipeline one more request into an idle pipe
+                 if (br_load[bs.first][bs.second] + 1 <= K + pipe_d && DefaultPlanner::NetMac::pipe_idle(bs.first, bs.second)) { ++pipe_used; goto pipe_ok; } }
+-            if (K > 0 && br_load[bs.first][bs.second] + 1 > K) { if (ab_on && bs.first < int(ab_deny.size()) && bs.second < int(ab_deny[bs.first].size())) ab_deny[bs.first][bs.second] = env->system_timestep; ++br_denied; ++denied; if (!c2_K.empty() && bs.first >= br_n1) ++c2_deny[bs.first - br_n1]; return false; }
++            if (K > 0 && br_load[bs.first][bs.second] + 1 > K) { if (ab_on && bs.first < int(ab_deny.size()) && bs.second < int(ab_deny[bs.first].size())) ab_deny[bs.first][bs.second] = env->system_timestep; ++br_denied; ++denied; if (!c2_K.empty() && bs.first >= br_n1) ++c2_deny[bs.first - br_n1]; if (lv_mode == 2 && bs.first < int(lv_deny.size()) && bs.second < int(lv_deny[bs.first].size())) ++lv_deny[bs.first][bs.second]; return false; }
+             pipe_ok:
+             if (tb_cbs > 0 && tb_cut(bs.first) && bs.first < int(tb_tok.size()) && !tb_paid.count(task) && tb_tok[bs.first][bs.second] < 1.0 - 1e-9) { ++tb_denied; ++denied; return false; }   // p05: no token
+             if (cd_pct > 0 && bs.first < int(cd_q.size()) && bs.second < int(cd_q[bs.first].size()) && br_load[bs.first][bs.second] + 1 > int(cd_q[bs.first][bs.second].W)) { ++cd_denied; ++denied; return false; }   // p06: ECN window

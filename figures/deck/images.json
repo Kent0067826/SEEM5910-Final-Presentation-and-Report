@@ -158,5 +158,10 @@
   "path": "figures/deck/fig_results_deck.png",
   "w": 1574,
   "h": 893
+ },
+ "live": {
+  "path": "figures/deck/fig_live_control.png",
+  "w": 1672,
+  "h": 1320
  }
 }

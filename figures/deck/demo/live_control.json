@@ -1,0 +1,144 @@
+{
+ "runs": 300,
+ "errors": 0,
+ "df_mean_vs_formal_evaluation": {
+  "room200": [
+   1036.5,
+   1032.2
+  ],
+  "room250": [
+   1104.5,
+   1106.5
+  ],
+  "room300": [
+   1175.3,
+   1168.6
+  ]
+ },
+ "seeds": "task 11700-11709 x planner 145, 146; room200/250/300",
+ "variants": {
+  "DF": {
+   "mean_orders": {
+    "room200": 1036.5,
+    "room250": 1104.5,
+    "room300": 1175.3
+   },
+   "change_vs_DF_pct": 0.0,
+   "ci95_pct": [
+    0.0,
+    0.0
+   ],
+   "per_size_pct": {
+    "room200": 0.0,
+    "room250": 0.0,
+    "room300": 0.0
+   },
+   "worse_runs": 0,
+   "better_runs": 0,
+   "worst_pct": 0.0,
+   "robots_on_the_way_door6_mean": 22.9,
+   "robots_on_the_way_door6_peak_median": 27,
+   "window_in": 15
+  },
+  "JAM": {
+   "mean_orders": {
+    "room200": 1017.9,
+    "room250": 1106.5,
+    "room300": 1151.6
+   },
+   "change_vs_DF_pct": -1.11,
+   "ci95_pct": [
+    -2.41,
+    0.19
+   ],
+   "per_size_pct": {
+    "room200": -1.8,
+    "room250": 0.23,
+    "room300": -1.74
+   },
+   "worse_runs": 39,
+   "better_runs": 20,
+   "worst_pct": -16.3,
+   "robots_on_the_way_door6_mean": 31.5,
+   "robots_on_the_way_door6_peak_median": 53,
+   "share_of_time_window_on": 0.57,
+   "first_switch_on_tick_median": 1027,
+   "window_in": 15
+  },
+  "LATCH": {
+   "mean_orders": {
+    "room200": 1006.4,
+    "room250": 1102.0,
+    "room300": 1172.7
+   },
+   "change_vs_DF_pct": -1.02,
+   "ci95_pct": [
+    -2.55,
+    0.4
+   ],
+   "per_size_pct": {
+    "room200": -2.92,
+    "room250": -0.16,
+    "room300": 0.0
+   },
+   "worse_runs": 37,
+   "better_runs": 22,
+   "worst_pct": -20.2,
+   "robots_on_the_way_door6_mean": 23.9,
+   "robots_on_the_way_door6_peak_median": 40,
+   "share_of_time_window_on": 0.787,
+   "first_switch_on_tick_median": 1005,
+   "window_in": 15
+  },
+  "AIMD": {
+   "mean_orders": {
+    "room200": 981.1,
+    "room250": 1075.8,
+    "room300": 1151.2
+   },
+   "change_vs_DF_pct": -3.27,
+   "ci95_pct": [
+    -4.5,
+    -2.07
+   ],
+   "per_size_pct": {
+    "room200": -5.33,
+    "room250": -2.55,
+    "room300": -1.93
+   },
+   "worse_runs": 48,
+   "better_runs": 12,
+   "worst_pct": -17.0,
+   "robots_on_the_way_door6_mean": 35.4,
+   "robots_on_the_way_door6_peak_median": 56,
+   "window_in": 27,
+   "window_in_range": [
+    8,
+    41
+   ]
+  },
+  "PHYS": {
+   "mean_orders": {
+    "room200": 956.7,
+    "room250": 1066.8,
+    "room300": 1038.4
+   },
+   "change_vs_DF_pct": -7.48,
+   "ci95_pct": [
+    -9.98,
+    -5.15
+   ],
+   "per_size_pct": {
+    "room200": -7.71,
+    "room250": -3.36,
+    "room300": -11.38
+   },
+   "worse_runs": 50,
+   "better_runs": 9,
+   "worst_pct": -37.0,
+   "robots_on_the_way_door6_mean": 34.8,
+   "robots_on_the_way_door6_peak_median": 48,
+   "window_in": 28
+  }
+ }
+}
