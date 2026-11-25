@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v36.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v37.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -147,8 +147,9 @@ function code(slide, rows, x, y, w, h, size = 12) {
 // so the slide shows only the key parts of the speech.
 const cue = (t) => t.replace(/【[^】]*】\s*/g, "").replace(/\{[^}]*\}/g, " ").replace(/\s+([,.;:!?])/g, "$1").replace(/\s{2,}/g, " ").trim()
   .replace(/^(\**)([a-z])/, (m, a, b) => a + b.toUpperCase()).replace(/([.!?]\s+)(\**)([a-z])/g, (m, a, b, c) => a + b + c.toUpperCase());
-const say = (s, idx) => (idx || s.segs.map((_, i) => i)).map((i) => cue(s.segs[i].en)).filter((p) => p);
-const oneP = (a) => [a.join(" ")];
+// slide text = each segment's "key" (keywords taken from its own words; a list = several lines); backup slides keep the full text
+const say = (s, idx) => (idx || s.segs.map((_, i) => i)).flatMap((i) => s.segs[i].key ? [].concat(s.segs[i].key) : [cue(s.segs[i].en)]).filter((p) => p);
+const oneP = (a) => a;   // keyword lines stay on their own lines
 function estLines(t, w, sz, em = 0.52) {   // greedy word wrap, ~0.52 em per character (conservative)
   const cpl = Math.max(8, Math.floor((w * 72 * 0.93) / (sz * em)));
   let lines = 1, cur = 0;
