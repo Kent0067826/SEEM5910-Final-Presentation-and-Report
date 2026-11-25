@@ -1,6 +1,6 @@
 {
  "set": "main",
- "runs": 480,
+ "runs": 600,
  "errors": 0,
  "variants": {
   "DF": {
@@ -417,6 +417,110 @@
     ],
     "new_rule_refused_per_run": 0.0,
     "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "END10": {
+   "n": 60,
+   "change_pct": -0.03,
+   "ci95_pct": [
+    -0.13,
+    0.08
+   ],
+   "better": 23,
+   "worse": 28,
+   "equal": 9,
+   "worst_pct": -1.34,
+   "best_pct": 1.4,
+   "per_map": {
+    "room200": {
+     "orders": 1035.9,
+     "doorflow": 1036.5,
+     "change_pct": -0.06,
+     "better": 9
+    },
+    "room250": {
+     "orders": 1104.5,
+     "doorflow": 1104.5,
+     "change_pct": -0.0,
+     "better": 7
+    },
+    "room300": {
+     "orders": 1175.1,
+     "doorflow": 1175.3,
+     "change_pct": -0.01,
+     "better": 7
+    }
+   },
+   "door6": {
+    "crossings_per_run": 247.3,
+    "stuck_near_door_mean": 3.836,
+    "share_of_time_8plus_stuck": 0.094,
+    "counted_on_the_way": [
+     9.286,
+     13.545
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.628,
+     0.573
+    ],
+    "new_rule_refused_per_run": 346.15,
+    "new_rule_admitted_per_run": 1506.25
+   }
+  },
+  "END15": {
+   "n": 60,
+   "change_pct": -1.07,
+   "ci95_pct": [
+    -1.23,
+    -0.92
+   ],
+   "better": 1,
+   "worse": 59,
+   "equal": 0,
+   "worst_pct": -3.05,
+   "best_pct": 0.37,
+   "per_map": {
+    "room200": {
+     "orders": 1026.0,
+     "doorflow": 1036.5,
+     "change_pct": -1.02,
+     "better": 0
+    },
+    "room250": {
+     "orders": 1091.0,
+     "doorflow": 1104.5,
+     "change_pct": -1.23,
+     "better": 0
+    },
+    "room300": {
+     "orders": 1163.8,
+     "doorflow": 1175.3,
+     "change_pct": -0.97,
+     "better": 1
+    }
+   },
+   "door6": {
+    "crossings_per_run": 246.233,
+    "stuck_near_door_mean": 3.793,
+    "share_of_time_8plus_stuck": 0.092,
+    "counted_on_the_way": [
+     9.256,
+     13.526
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.623,
+     0.569
+    ],
+    "new_rule_refused_per_run": 10297.033,
+    "new_rule_admitted_per_run": 1493.017
    }
   }
  }
