@@ -602,23 +602,45 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "0:38",
+  "time": "0:58",
   "title": "Why only about 26 robots per 500 ticks at door 6?",
   "figs": [
-   "门 6 每过一台的 18.7 拍分解（第 52 轮 669 次过门逐拍计时；原备用页 2 的图，fig_door_rule_C.png）"
+   "门 6 每过一台的 18.7 拍实测分解（第 52 轮 669 次过门逐拍计时；原备用页 2 的图，fig_door_rule_C.png），用来对照估算"
   ],
   "hints": [
-   "Why 26: 18.7 ticks per robot = 9.2 (step, turn, enter) + 4.8 breakdowns + 2.2 switching + 2.5 waiting → 500 ÷ 18.7 ≈ 26.7; counted 1,175 ÷ 45 ≈ 26 → 26 ÷ 0.376 ≈ 69"
+   "Estimate: cross 3 × 3 = 9; switch (4 + 4) × 3 = 24 ÷ 9.3 ≈ 2.6; breakdowns 1% × 20 = 20% → 0.8 × 0.8 = 0.64; (9 + 2.6) ÷ 0.64 ≈ 18.1 → 500 ÷ 18.1 ≈ 28; measured 1,175 ÷ 45 ≈ 26 (estimate leaves out waiting for the exit) → 26 ÷ 0.376 ≈ 69"
   ],
   "segs": [
    {
-    "en": "【指图】 {Next, we analysed the case} without jams: door 6 passes about **26 robots** per 500 ticks. {Why?} We timed **669 crossings**: one robot takes **18.7 ticks** on average: **9.2** to step up, turn and enter, about **3 moves × 3 ticks**; **4.8** for breakdowns; **2.2** for switching sides; **2.5** waiting; so **500 ticks ÷ 18.7 ticks per robot ≈ 26.7**. {Counting crossings in 5 runs agrees:} **1,175 crossings ÷ 45 periods ≈ 26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
-    "zh": "【指图】然后我们继续分析，在没有拥塞的情况下，门 6 每 500 拍大约过 **26 台**。为什么？我们给 **669 次过门**计时，平均每过一台要 **18.7 拍**：走到门前、转身、进门 **9.2 拍**（约 **3 步 × 每步 3 拍**）；故障 **4.8 拍**；换方向 **2.2 拍**；等出口等 **2.5 拍**；所以 **500 拍 ÷ 每台 18.7 拍 ≈ 26.7 台**。在 5 局仿真里数过门的车也一样：**1175 次过门 ÷ 45 段 ≈ 26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
+    "en": "【指图】 {Next, we analysed the case} without jams: door 6 passes about **26 robots** per 500 ticks. {Why? We can estimate it from the rules alone.} Crossing takes about **3 moves × 3 ticks = 9 ticks**.",
+    "zh": "【指图】然后我们继续分析，在没有拥塞的情况下，门 6 每 500 拍大约过 **26 台**。为什么？只用规则就能估出来。过一台门大约 **3 步 × 每步 3 拍 = 9 拍**。",
     "key": [
-     "Ticks per robot **18.7** (timed: 669 crossings) = step, turn, enter **9.2** (≈ **3 moves × 3 ticks**) + breakdowns **4.8** + switching **2.2** + waiting **2.5**",
-     "Door rate = **500 ticks ÷ 18.7 ticks per robot ≈ 26.7 ≈ 26** robots per 500 ticks · counted in 5 runs: **1,175 crossings ÷ 45 periods ≈ 26**",
-     "Most orders = door rate **26 ÷ crossing share 0.376 ≈ 69** per 500 ticks, **whatever the routes**"
+     "Estimate from the rules, ticks per robot:",
+     "Cross: **3 moves × 3 ticks = 9**"
     ]
+   },
+   {
+    "en": "Switching sides costs about **8 moves × 3 = 24 ticks**: this side's **4-cell buffer** empties, then the first robot from the other side walks **4 moves** through; shared by **9.3 robots** per turn, that is **24 ÷ 9.3 ≈ 2.6** ticks each.",
+    "zh": "换一次方向大约多花 **8 步 × 3 拍 = 24 拍**：先等这边 **4 格缓冲区**走空，对面第一台再走 **4 步**过门；每轮平均放 **9.3 台**，分到每台 **24 ÷ 9.3 ≈ 2.6 拍**。",
+    "key": "Switch sides: (buffer **4** + **4** moves) × 3 = **24** ÷ **9.3** robots per turn ≈ **2.6**"
+   },
+   {
+    "en": "Breakdowns: each robot breaks down with chance **1 percent** per tick for **20 ticks** on average, so **20 percent** are stopped at any time. The door moves only if the robot crossing and the next one are both moving: **0.8 × 0.8 = 0.64**.",
+    "zh": "故障：每台车每拍有 **1%** 的机会出故障，平均停 **20 拍**，所以任何时候约 **20%** 的车停着。门要动，正在过门的车和下一台都得能走：**0.8 × 0.8 = 0.64**。",
+    "key": "Breakdowns: **1%** per tick × **20** ticks = **20%** stopped → robot crossing & next one both moving **0.8 × 0.8 = 0.64**"
+   },
+   {
+    "en": "{So} one robot takes **(9 + 2.6) ÷ 0.64 ≈ 18.1 ticks**, and **500 ÷ 18.1 ≈ 28** per 500 ticks. {We measured} **1,175 crossings ÷ 45 periods ≈ 26**, a little lower, because the estimate leaves out **waiting for the exit**; the quota uses the measured **26**.",
+    "zh": "所以每台 **(9 + 2.6) ÷ 0.64 ≈ 18.1 拍**，**500 ÷ 18.1 ≈ 28 台**。实测 **1175 次过门 ÷ 45 段 ≈ 26**，略低，因为估算没算**等出口空出来**的时间；名额用实测的 **26**。",
+    "key": [
+     "Per robot **(9 + 2.6) ÷ 0.64 ≈ 18.1** ticks → **500 ÷ 18.1 ≈ 28** per 500 ticks",
+     "Measured **1,175 crossings ÷ 45 periods ≈ 26**: a bit lower, estimate leaves out **waiting for the exit** → quota uses **26**"
+    ]
+   },
+   {
+    "en": "{So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
+    "zh": "所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
+    "key": "Most orders = door rate **26 ÷ crossing share 0.376 ≈ 69** per 500 ticks, **whatever the routes**"
    }
   ],
   "src": [
@@ -627,6 +649,12 @@
     "门 6 的过门速率",
     "实测、数出来的：这次重新跑 5 局 DoorFlow 仿真（官方房间图 250 台，种子 9700–9704），数每 500 拍有几台车穿过门 6，去掉开局第一个 500 拍（开局车还没走到门口，只有 14–17 台），剩下 5 × 9 = 45 段共 1175 次过门：1175 ÷ 45 ≈ 26.1，中位数 26，最少 18、最多 33。程序里的 26 是第 40 轮实测后写进代码的（`window_control.cpp` 注释“round 40: 26 per 500 ticks”；第 40 轮的原始记录没有存档）；其他测法也接近：第 52 轮 669 次过门平均 18.7 拍一台，500 ÷ 18.7 ≈ 26.7；连开局一起平均是 25.1（这次 5 局）和 24.7（第 40 轮，较早版本）。",
     "`figures/deck/demo/door6_rate.json`（脚本 `demo/door6_rate.py`）；`window_control.cpp` 第 100 行；通读笔记 wait-v30、v42"
+   ],
+   [
+    "28 台 / 500 拍（估算）",
+    "只用规则估算的门 6 过门速率",
+    "公式估算：① 过门 3 步 × 3 拍 = 9（比赛设定一步 3 拍；实测同方向下一台中位数 10 拍）；② 换向多花 (4 格缓冲 + 对面 4 步) × 3 = 24 拍（实测换向后第一台中位数 34 拍 − 同方向 10 拍 = 24，吻合），÷ 每轮 9.3 台（实测，demo/door_timing.json）≈ 2.6；③ 故障：比赛设定每拍故障次数均值 0.01 × 车数、每次 10–30 拍（平均 20），停着的比例 f 满足 0.01 × 20 = f，即 20%；假设门要动需要正在过门的车和下一台都能走：0.8² = 0.64；(9 + 2.6) ÷ 0.64 ≈ 18.1 拍，500 ÷ 18.1 ≈ 27.6。只算一台车的故障（÷ 0.8）得 34；算三台（加出口前那台，÷ 0.512）得 22；实测 26 在 22–28 之间。“两台都要能走”是假设；9.3 台/轮是实测",
+    "`figures/deck/demo/door_timing.json`；报告全文第 29 行（故障设定）"
    ],
    [
     "18.7 = 9.2 + 4.8 + 2.2 + 2.5",
@@ -651,28 +679,15 @@
     "15 种换路办法里有 14 种变差",
     "数出来的：两个阶段的尝试记录里所有换路办法，和当时的方法比；唯一没变差的是路由阻尼 +0.20%",
     "报告全文图 20；报告全文第九节尝试表；`experiment-materials/网络协议方向/报告源/通读/第1-75轮_通读笔记.md`、`协议方向_通读笔记.md`"
-   ],
-   [
-    "26.7 台",
-    "每 500 拍过门数",
-    "公式：500 ÷ 18.7",
-    "—"
-   ],
-   [
-    "2.2 拍",
-    "换方向占的时间",
-    "实测（同一次计时）",
-    "通读笔记 wait-v42"
    ]
   ],
   "foot": "",
-  "en": "【指图】 {Next, we analysed the case} without jams: door 6 passes about **26 robots** per 500 ticks. {Why?} We timed **669 crossings**: one robot takes **18.7 ticks** on average: **9.2** to step up, turn and enter, about **3 moves × 3 ticks**; **4.8** for breakdowns; **2.2** for switching sides; **2.5** waiting; so **500 ticks ÷ 18.7 ticks per robot ≈ 26.7**. {Counting crossings in 5 runs agrees:} **1,175 crossings ÷ 45 periods ≈ 26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
-  "zh": "【指图】然后我们继续分析，在没有拥塞的情况下，门 6 每 500 拍大约过 **26 台**。为什么？我们给 **669 次过门**计时，平均每过一台要 **18.7 拍**：走到门前、转身、进门 **9.2 拍**（约 **3 步 × 每步 3 拍**）；故障 **4.8 拍**；换方向 **2.2 拍**；等出口等 **2.5 拍**；所以 **500 拍 ÷ 每台 18.7 拍 ≈ 26.7 台**。在 5 局仿真里数过门的车也一样：**1175 次过门 ÷ 45 段 ≈ 26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
+  "en": "【指图】 {Next, we analysed the case} without jams: door 6 passes about **26 robots** per 500 ticks. {Why? We can estimate it from the rules alone.} Crossing takes about **3 moves × 3 ticks = 9 ticks**. Switching sides costs about **8 moves × 3 = 24 ticks**: this side's **4-cell buffer** empties, then the first robot from the other side walks **4 moves** through; shared by **9.3 robots** per turn, that is **24 ÷ 9.3 ≈ 2.6** ticks each. Breakdowns: each robot breaks down with chance **1 percent** per tick for **20 ticks** on average, so **20 percent** are stopped at any time. The door moves only if the robot crossing and the next one are both moving: **0.8 × 0.8 = 0.64**. {So} one robot takes **(9 + 2.6) ÷ 0.64 ≈ 18.1 ticks**, and **500 ÷ 18.1 ≈ 28** per 500 ticks. {We measured} **1,175 crossings ÷ 45 periods ≈ 26**, a little lower, because the estimate leaves out **waiting for the exit**; the quota uses the measured **26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
+  "zh": "【指图】然后我们继续分析，在没有拥塞的情况下，门 6 每 500 拍大约过 **26 台**。为什么？只用规则就能估出来。过一台门大约 **3 步 × 每步 3 拍 = 9 拍**。换一次方向大约多花 **8 步 × 3 拍 = 24 拍**：先等这边 **4 格缓冲区**走空，对面第一台再走 **4 步**过门；每轮平均放 **9.3 台**，分到每台 **24 ÷ 9.3 ≈ 2.6 拍**。故障：每台车每拍有 **1%** 的机会出故障，平均停 **20 拍**，所以任何时候约 **20%** 的车停着。门要动，正在过门的车和下一台都得能走：**0.8 × 0.8 = 0.64**。所以每台 **(9 + 2.6) ÷ 0.64 ≈ 18.1 拍**，**500 ÷ 18.1 ≈ 28 台**。实测 **1175 次过门 ÷ 45 段 ≈ 26**，略低，因为估算没算**等出口空出来**的时间；名额用实测的 **26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
   "calc": [
    "26 台 / 500 拍",
-   "18.7 = 9.2 + 4.8 + 2.2 + 2.5",
-   "69 单",
-   "26.7 台"
+   "28 台 / 500 拍（估算）",
+   "69 单"
   ]
  },
  {
