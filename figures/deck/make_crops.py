@@ -10,3 +10,9 @@ w, h = src.size
 src.crop((0, 0, 1220, 945)).save("figures/deck/fig_door_rule_A.png")
 src.crop((1222, 0, w, 945)).save("figures/deck/fig_door_rule_BC.png")
 print("A", (1220, 945), "BC", (w - 1222, 945))
+# v34: panel B alone (buffer-size sweep, main talk) and panel C alone (time budget of one crossing, backup slide);
+# the blank band between them is rows 474-626 of fig_door_rule_BC.png
+bc = Image.open("figures/deck/fig_door_rule_BC.png")
+bc.crop((0, 60, bc.size[0], 476)).save("figures/deck/fig_door_rule_B.png")
+bc.crop((0, 622, bc.size[0], bc.size[1])).save("figures/deck/fig_door_rule_C.png")
+print("B", Image.open("figures/deck/fig_door_rule_B.png").size, "C", Image.open("figures/deck/fig_door_rule_C.png").size)

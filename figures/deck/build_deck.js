@@ -1,4 +1,4 @@
-// Build the 15-minute, 4-speaker deck (25 slides): DoorFlow. Every slide shows its own English speech (read-along panel).
+// Build the 15-minute, 4-speaker deck (23 slides + 3 backup slides): DoorFlow. Every slide shows its own English speech (read-along panel).
 // Run from the repo root:  NODE_PATH=<dir with pptxgenjs> node figures/deck/build_deck.js
 const path = require("path");
 const fs = require("fs");
@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v33.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v34.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -61,7 +61,7 @@ function addImg(slide, key, x, y, w, h, align) {
 }
 function speakerChip(slide, n) {
   slide.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 11.25, y: 0.5, w: 1.5, h: 0.45, rectRadius: 0.22, fill: { color: C.accent6 }, line: { color: C.accent1, width: 1 }, objectName: "speaker-chip" });
-  slide.addText("Speaker " + n, { x: 11.25, y: 0.5, w: 1.5, h: 0.45, fontSize: 13, bold: true, color: C.text2, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: "speaker-label" });
+  slide.addText(n ? "Speaker " + n : "Backup", { x: 11.25, y: 0.5, w: 1.5, h: 0.45, fontSize: 13, bold: true, color: C.text2, align: "center", valign: "middle", margin: 0, isTextBox: true, objectName: "speaker-label" });
 }
 function numCircle(slide, x, y, label, d = 0.5, fill = C.accent1) {
   slide.addShape(pres.shapes.OVAL, { x, y, w: d, h: d, fill: { color: fill }, line: { color: fill, width: 0.5 }, objectName: "num-" + label });
@@ -90,7 +90,7 @@ function notes(slide, s) {
   const hints = s.hints.map((h) => "- " + h).join("\n");
   const body = s.segs.map((g) => `${clean(g.en)}\n中：${clean(g.zh)}`).join("\n\n");
   const src = s.foot ? `\n\nWhere the numbers come from:\n${s.foot}` : "";
-  slide.addNotes(`[Speaker ${s.speaker} · ${s.time}]\n\n提示 / Cues:\n${hints}\n\nScript（英文一段，下面跟中文）:\n\n${body}${src}`);
+  slide.addNotes(`[${s.speaker ? "Speaker " + s.speaker + " · " + s.time : "Backup slide: not presented, use if asked"}]\n\n提示 / Cues:\n${hints}\n\nScript（英文一段，下面跟中文）:\n\n${body}${src}`);
 }
 // grey origin line at the bottom: where this slide's numbers come from (script.json "foot")
 function foot(slide, s, color = C.accent4) {
@@ -99,7 +99,7 @@ function foot(slide, s, color = C.accent4) {
 }
 function content(s) {
   section(s.speaker);
-  const slide = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Speaker " + s.speaker });
+  const slide = pres.addSlide({ masterName: "CONTENT", sectionTitle: s.speaker ? "Speaker " + s.speaker : "Backup (not presented)" });
   slide.addText(s.title, { placeholder: "title" });
   speakerChip(slide, s.speaker);
   notes(slide, s);
@@ -108,7 +108,7 @@ function content(s) {
 }
 const S = (n) => SCRIPT[n - 1];
 const sections = new Set();
-function section(n) { const t = "Speaker " + n; if (!sections.has(t)) { pres.addSection({ title: t }); sections.add(t); } }
+function section(n) { const t = n ? "Speaker " + n : "Backup (not presented)"; if (!sections.has(t)) { pres.addSection({ title: t }); sections.add(t); } }
 
 // rich text: **bold** -> bold run
 function md(t, color = C.text1, boldColor = C.text2) {
@@ -183,6 +183,17 @@ function readPanel(slide, s, paras, x, y, w, h, o = {}) {
   slide.addText(runs, { x: tx, y: y + pd, w: iw, h: ih, fontSize: sz, valign, margin: 0, isTextBox: true, objectName: "read-text" });
   FIT.push([s.n, sz]);
   return sz;
+}
+// "what we tried" table: rows [option, result, best?]; the best rows are shaded and their result in teal
+function tried(slide, rows, x, y, w, h, head = "What we tried", size = 12.5, split = 0.56) {
+  slide.addText(head, { x, y, w, h: 0.34, fontSize: 13, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" });
+  const rh = (h - 0.42) / rows.length;
+  rows.forEach(([a, b, best], i) => {
+    const yy = y + 0.42 + i * rh;
+    card(slide, x, yy, w, rh - 0.06, best ? C.accent6 : C.background2);
+    para(slide, a, x + 0.15, yy, w * split - 0.2, rh - 0.06, size, C.text1, C.text2, "middle");
+    para(slide, b, x + w * split, yy, w * (1 - split) - 0.15, rh - 0.06, size, best ? C.accent2 : C.text1, best ? C.accent2 : C.text2, "middle");
+  });
 }
 function bigStat(slide, x, y, w, big, label, col = C.accent2, size = 34) {
   slide.addText(big, { x, y, w, h: 0.7, fontSize: size, bold: true, color: col, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
@@ -350,28 +361,15 @@ section(1);
   readPanel(slide, s, say(s), 7.1, 1.3, 5.65, 5.65, { max: 18 });
 }
 
-// ---------- 11 door 6's window, number by number ----------
+// ---------- 11 one window per door, sized by formula: what we tried ----------
 {
   const s = S(11); const slide = content(s);
-  const X = [M, M + 3.35, M + 5.4], CW = [3.25, 1.95, 1.95], y0 = 1.3, rh = 0.72;
-  ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
-    slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
-  const rows = [
-    ["**Door rate**, each way\nmeasured: 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
-    ["**Free trip** to the door\naverage over every cell (map)", "**247** ticks", "**158** ticks"],
-    ["**Slowdown**\nmeasured (no breakdowns: × 1.33)", "× **2.23**", "× **2.23**"],
-    ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
-    ["**Window**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
-  ];
-  rows.forEach((row, i) => {
-    const y = y0 + 0.45 + i * (rh + 0.06);
-    row.forEach((txt, j) => {
-      card(slide, X[j], y, CW[j], rh, j === 0 ? C.background2 : C.accent6);
-      para(slide, txt, X[j] + 0.12, y, CW[j] - 0.2, rh, j === 0 ? 13 : 13.5, C.text1, j ? C.accent2 : C.text2, "middle");
-    });
-  });
-  caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, y0 + 0.45 + 5 * (rh + 0.06) + 0.05, 7.35);
-  readPanel(slide, s, say(s), 8.15, 1.3, 4.6, 5.62, { max: 18, em: 0.47 });   // the render left a quarter of the panel empty at 0.52
+  addImg(slide, "knee", M, 1.3, 7.3, 3.0, "left");
+  caption(slide, "Measured: red = no door control, blue = with the window. Each dot is one 500-tick window.", M, 4.32, 7.3);
+  tried(slide, [["One window for all robots", "+0.53%"], ["One window **per door and direction**", "**+29.1%** ✓", 1],
+                ["Size by hand: 8 / 32 or more", "too tight / jams"], ["Size by formula: **15 in, 10 out**", "**as good as the best by hand** ✓", 1]],
+        M, 4.62, 7.3, 2.3);
+  readPanel(slide, s, say(s), 8.1, 1.3, 4.65, 5.62, { max: 18 });
 }
 
 // ---------- 12 why a fixed window from averages: three live alternatives rerun ----------
@@ -381,19 +379,9 @@ section(1);
   readPanel(slide, s, say(s), 8.3, 1.3, 4.45, 5.62, { max: 18, em: 0.47 });
 }
 
-// ---------- 13 the quota for each door ----------
+// ---------- 13 one direction at a time (panel A) ----------
 {
   const s = S(13); const slide = content(s);
-  addImg(slide, "knee", M, 1.3, 7.3, 3.35, "left");
-  caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.3);
-  card(slide, M, 5.05, 7.3, 1.85, C.background1);
-  addImg(slide, "quota", M + 0.1, 5.1, 7.1, 1.75, "left");
-  readPanel(slide, s, say(s), 8.1, 1.3, 4.65, 5.65, { max: 18 });
-}
-
-// ---------- 14 one direction at a time (panel A) ----------
-{
-  const s = S(14); const slide = content(s);
   addImg(slide, "doorA", M, 1.3, 6.6, 4.95, "left");
   slide.addText("Rule: serve one side; when no robot of this side is within 8 cells and the other side waits, stop letting this side in; once the door and this side's 4-cell buffer are empty, switch. Robots held by the rule get the lowest priority.", { x: M, y: 6.3, w: 6.6, h: 0.62, fontSize: 10.5, italic: true, color: C.accent4, margin: 0, isTextBox: true, valign: "top" });
   readPanel(slide, s, say(s), 7.45, 1.3, 5.3, 3.3, { max: 20 });
@@ -402,35 +390,28 @@ section(1);
   para(slide, "this rule alone, on **17 room-map instances**", 7.7, 5.85, 4.8, 0.9, 15);
 }
 
-// ---------- 15 how long does the door take (measured) ----------
+// ---------- 14 when should the door switch sides (measured timing + what we tried) ----------
+{
+  const s = S(14); const slide = content(s);
+  addImg(slide, "timing", M, 1.3, 7.6, 3.2, "left");
+  tried(slide, [["Fixed timetable", "−5.0%, −6.4%"], ["At most 80 steps per turn", "−1.1%"], ["**Serve one side until it is empty**", "**best** ✓", 1]],
+        M, 4.7, 7.6, 2.2, "What we tried for switching", 13.5);
+  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 18 });
+}
+
+// ---------- 15 how big should the buffer be (panel B + what we tried) ----------
 {
   const s = S(15); const slide = content(s);
-  addImg(slide, "timing", M, 1.35, 7.6, 3.2, "left");
-  [["1,255", "crossings of door 6 timed\nin 5 runs, 250 robots"], ["10 ticks", "median gap, same direction\n(mostly 6 or 9 = 2 or 3 moves)"], ["34 ticks", "median gap when the door\nswitches direction"]].forEach(([b, l], i) => {
-    const x = M + i * 2.55;
-    card(slide, x, 4.85, 2.45, 2.05, C.accent6);
-    bigStat(slide, x + 0.18, 4.92, 2.15, b, l, i === 2 ? C.accent3 : C.accent2, 28);
-  });
-  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18 });
+  addImg(slide, "doorB", M, 1.3, 7.3, 2.6, "left");
+  tried(slide, [["1 or 2 cells", "−9.0%, −5.2%: no room to come out"], ["3 cells", "deadlocked runs 11 → 29"],
+                ["**4 cells**", "**best** ✓", 1], ["6 cells", "−4.2%: queue blocks other doors"]],
+        M, 4.1, 7.3, 2.8, "What we tried for the buffer", 13, 0.32);
+  readPanel(slide, s, say(s), 8.1, 1.3, 4.65, 5.62, { max: 18 });
 }
 
-// ---------- 16 serve one side until it is empty ----------
+// ---------- 16 pseudocode ----------
 {
   const s = S(16); const slide = content(s);
-  addImg(slide, "utilC", M, 1.3, 6.6, 5.65);
-  readPanel(slide, s, say(s), 7.4, 1.3, 5.35, 5.65, { max: 18 });
-}
-
-// ---------- 17 how big should the buffer be (panels B, C) ----------
-{
-  const s = S(17); const slide = content(s);
-  addImg(slide, "doorBC", M, 1.3, 7.1, 5.65, "left");
-  readPanel(slide, s, say(s), 7.95, 1.3, 4.8, 5.65, { max: 18 });
-}
-
-// ---------- 18 pseudocode ----------
-{
-  const s = S(18); const slide = content(s);
   card(slide, M, 1.35, 8.4, 5.55, "16212B");
   // "~" = safety-net line (grey); text after "#" = comment
   code(slide, [
@@ -458,17 +439,17 @@ section(1);
   readPanel(slide, s, say(s), 9.15, 1.35, 3.6, 5.55, { max: 17 });
 }
 
-// ---------- 19 the hardest part + demo ----------
+// ---------- 17 the hardest part + demo ----------
 {
-  const s = S(19); const slide = content(s);
+  const s = S(17); const slide = content(s);
   readPanel(slide, s, say(s), M, 1.3, 5.0, 5.65, { max: 18 });
   addImg(slide, "demo", 5.85, 1.3, 6.9, 4.07);
   para(slide, "**The same congestion monitor, on our own code.** Official room map, 250 robots, one run. Red dot = robot holding an order that has not moved for 12+ ticks; glowing door = jam. Left: no door control, **609** orders. Right: DoorFlow, **1,130** orders.", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
 }
 
-// ---------- 20 random-door maps ----------
+// ---------- 18 random-door maps ----------
 {
-  const s = S(20); const slide = content(s);
+  const s = S(18); const slide = content(s);
   addImg(slide, "gen", M, 1.3, 7.6, 3.6, "left");
   card(slide, M, 5.05, 7.6, 1.85, C.accent6);
   slide.addText("+86.9%", { x: M + 0.3, y: 5.2, w: 3.0, h: 0.9, fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
@@ -476,11 +457,11 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 19 });
 }
 
-// ---------- 21 two safety nets (narrow doorways) ----------
+// ---------- 19 two safety nets (narrow doorways) ----------
 {
-  const s = S(21); const slide = content(s);
+  const s = S(19); const slide = content(s);
   addImg(slide, "narrow", M, 1.3, 7.6, 4.05, "left");
-  [["Safety net 1 · Global cap", "Official map: **1.76 × 69.2 ÷ 500 × 2.23 × 255 ≈ 138.5 → 138**. This map: **177**.\n69.2: most orders per 500 ticks · 255: free ticks per order (25 + 230) · 1.76: from a sweep"],
+  [["Safety net 1 · Global cap", "Swept the cap: results stop rising at **≈ 1.76 ×** the robots we expect to be busy → **138** on the official map, **177** on this map."],
    ["Safety net 2 · Watchdog", "Waited **300 ticks** and nobody entered its door → skip the door rule for one tick. **Never drop a robot.**"]].forEach(([a, b], i) => {
     const x = M + i * 3.85;
     card(slide, x, 5.45, 3.75, 1.45, C.accent6);
@@ -490,26 +471,26 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18, em: 0.46 });   // the render left a quarter of the panel empty at 0.52
 }
 
-// ---------- 22 results ----------
+// ---------- 20 results ----------
 {
-  const s = S(22); const slide = content(s);
+  const s = S(20); const slide = content(s);
   bigStat(slide, M, 1.5, 3.4, "+140.5%", "more orders than the official starter program", C.accent3, 40);
   bigStat(slide, M, 3.1, 3.4, "60 runs", "official room map: 200 / 250 / 300 robots, 20 runs each", C.accent2, 34);
   addImg(slide, "results", 4.3, 1.3, 8.45, 4.2);
   readPanel(slide, s, oneP(say(s)), M, 5.65, 12.15, 1.28, { max: 20, pad: 0.15 });
 }
 
-// ---------- 23 what matters ----------
+// ---------- 21 what matters ----------
 {
-  const s = S(23); const slide = content(s);
+  const s = S(21); const slide = content(s);
   addImg(slide, "ablD", M, 1.3, 12.15, 3.85);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.18, 12);
   readPanel(slide, s, oneP(say(s)), M, 5.6, 12.15, 1.32, { max: 18, pad: 0.15 });
 }
 
-// ---------- 24 lessons ----------
+// ---------- 22 lessons ----------
 {
-  const s = S(24); const slide = content(s);
+  const s = S(22); const slide = content(s);
   const t = say(s);   // intro + one sentence per card
   para(slide, t[0], M, 1.3, 12.15, 0.45, 17);
   for (let i = 0; i < 5; i++) {
@@ -519,9 +500,9 @@ section(1);
   }
 }
 
-// ---------- 25 conclusion ----------
+// ---------- 23 conclusion ----------
 {
-  const s = S(25);
+  const s = S(23);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const t = say(s);   // four points, then thanks ("To conclude." is said, not shown)
@@ -535,6 +516,44 @@ section(1);
   slide.addText(t[4], { x: 5.6, y: 6.62, w: 7.1, h: 0.5, fontSize: 20, bold: true, color: C.accent1, align: "right", margin: 0, isTextBox: true });
   slide.addText(s.foot, { x: M, y: 7.08, w: 8, h: 0.3, fontSize: 9, color: "A9BCC6", margin: 0, isTextBox: true, valign: "top" });
   notes(slide, s);
+}
+
+// ---------- 24 door 6's window, number by number ----------
+{
+  const s = S(24); const slide = content(s);
+  const X = [M, M + 3.35, M + 5.4], CW = [3.25, 1.95, 1.95], y0 = 1.3, rh = 0.72;
+  ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
+    slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
+  const rows = [
+    ["**Door rate**, each way\nmeasured: 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
+    ["**Free trip** to the door\naverage over every cell (map)", "**247** ticks", "**158** ticks"],
+    ["**Slowdown**\nmeasured (no breakdowns: × 1.33)", "× **2.23**", "× **2.23**"],
+    ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
+    ["**Window**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
+  ];
+  rows.forEach((row, i) => {
+    const y = y0 + 0.45 + i * (rh + 0.06);
+    row.forEach((txt, j) => {
+      card(slide, X[j], y, CW[j], rh, j === 0 ? C.background2 : C.accent6);
+      para(slide, txt, X[j] + 0.12, y, CW[j] - 0.2, rh, j === 0 ? 13 : 13.5, C.text1, j ? C.accent2 : C.text2, "middle");
+    });
+  });
+  caption(slide, "Set in advance: only the limits 15 / 10. Counted live, every round: the robots on the way. The planner prints the same values (247 / 158, 15 / 10); recompute: figures/deck/demo/door6_numbers.py", M, y0 + 0.45 + 5 * (rh + 0.06) + 0.05, 7.35);
+  readPanel(slide, s, say(s), 8.15, 1.3, 4.6, 5.62, { max: 18, em: 0.47 });   // the render left a quarter of the panel empty at 0.52
+}
+
+// ---------- 25 serve one side until it is empty ----------
+{
+  const s = S(25); const slide = content(s);
+  addImg(slide, "utilC", M, 1.3, 6.6, 5.65);
+  readPanel(slide, s, say(s), 7.4, 1.3, 5.35, 5.65, { max: 18 });
+}
+
+// ---------- 26 backup: where one crossing's 18.7 ticks go (panel C) ----------
+{
+  const s = S(26); const slide = content(s);
+  addImg(slide, "doorC", M, 1.4, 7.6, 3.6, "left");
+  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 18 });
 }
 
 console.log("read-panel font sizes:", FIT.map(([n, z]) => n + ":" + z).join(" "));

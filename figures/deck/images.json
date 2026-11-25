@@ -163,5 +163,15 @@
   "path": "figures/deck/fig_live_control.png",
   "w": 1672,
   "h": 1320
+ },
+ "doorB": {
+  "path": "figures/deck/fig_door_rule_B.png",
+  "w": 1378,
+  "h": 416
+ },
+ "doorC": {
+  "path": "figures/deck/fig_door_rule_C.png",
+  "w": 1378,
+  "h": 323
  }
 }
