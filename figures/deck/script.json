@@ -560,7 +560,7 @@
  {
   "n": 10,
   "speaker": 3,
-  "time": "0:51",
+  "time": "1:04",
   "title": "Scheduling 1: a quota for each door",
   "figs": [
    "名额大小原理图（从“路上的车数 = 过门速率 × 路程时间”推出；这条计数规律在排队论里叫 Little 定律，讲稿不提名字，只写在图注里；理论示意）"
@@ -569,6 +569,7 @@
    "Robots on the way to a door: hold an order through it, not crossed yet (counted live)",
    "Door quota = the most robots allowed on the way at once → how many orders through the door at the same time",
    "Door takes one robot every r ticks, trip T ticks → T ÷ r on the way → quota = door rate × trip time",
+   "Metro: a train every 2 min, trip 20 min → 20 ÷ 2 = 10 trains running at once",
    "Fewer: door waits; more: queue, block the other side"
   ],
   "segs": [
@@ -590,13 +591,18 @@
     ]
    },
    {
+    "en": "{An everyday example:} a metro line sends a train every **2 minutes**, and a trip takes **20 minutes**, so **20 ÷ 2 = 10 trains** are running on the line at once.",
+    "zh": "生活比方：地铁每 **2 分钟**发一班，一趟全程 **20 分钟**。线路上同时跑着的车就是 **20 ÷ 2 = 10 列**。",
+    "key": "Everyday example: metro, a train every **2 min**, a trip **20 min** → **20 ÷ 2 = 10 trains** on the line at once"
+   },
+   {
     "en": "【指左图上半】 Fewer robots, and the door **waits**; 【指左图下半】 more, and the extras only **queue** and **block the other side**.",
     "zh": "【指左图上半】车少了，门就**等车**；【指左图下半】车多了，多出来的只会**排队**，还会**挡住对面**。",
     "key": "Fewer → the door **waits** · more → extras **queue** and **block the other side**"
    }
   ],
-  "en": "{How many robots should head for door 6 at once?} We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. We put a limit on this number, the **door quota**: it decides **how many orders may cross the door at the same time**. {How big should the quota be?} If the door takes one robot every **r** ticks and a trip takes **T** ticks, keeping the door busy needs everything sent in the last T ticks on the way: **T ÷ r** robots. {So} **quota = door rate × trip time**. 【指左图上半】 Fewer robots, and the door **waits**; 【指左图下半】 more, and the extras only **queue** and **block the other side**.",
-  "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。我们给这个数设一个上限，叫**门的名额**，用它来决定**同时指派多少个要穿过这道门的任务**。名额该多大？如果门每 **r** 拍放进一台，一趟路要 **T** 拍，要让门一直有车过，过去 T 拍里派出的车都得在路上，也就是 **T ÷ r** 台。所以**名额 = 过门速率 × 路程时间**。【指左图上半】车少了，门就**等车**；【指左图下半】车多了，多出来的只会**排队**，还会**挡住对面**。",
+  "en": "{How many robots should head for door 6 at once?} We came up with a way to **measure how many robots are on the way** to a door: robots that hold an order through it but have not crossed yet. We put a limit on this number, the **door quota**: it decides **how many orders may cross the door at the same time**. {How big should the quota be?} If the door takes one robot every **r** ticks and a trip takes **T** ticks, keeping the door busy needs everything sent in the last T ticks on the way: **T ÷ r** robots. {So} **quota = door rate × trip time**. {An everyday example:} a metro line sends a train every **2 minutes**, and a trip takes **20 minutes**, so **20 ÷ 2 = 10 trains** are running on the line at once. 【指左图上半】 Fewer robots, and the door **waits**; 【指左图下半】 more, and the extras only **queue** and **block the other side**.",
+  "zh": "同时该有多少车奔向门 6？我们想到一个办法：**衡量在途、会通过某个门口的车有多少**，也就是接了要过这道门的单、还没过门的车。我们给这个数设一个上限，叫**门的名额**，用它来决定**同时指派多少个要穿过这道门的任务**。名额该多大？如果门每 **r** 拍放进一台，一趟路要 **T** 拍，要让门一直有车过，过去 T 拍里派出的车都得在路上，也就是 **T ÷ r** 台。所以**名额 = 过门速率 × 路程时间**。生活比方：地铁每 **2 分钟**发一班，一趟全程 **20 分钟**。线路上同时跑着的车就是 **20 ÷ 2 = 10 列**。【指左图上半】车少了，门就**等车**；【指左图下半】车多了，多出来的只会**排队**，还会**挡住对面**。",
   "foot": "Theory sketch: the curves show shapes, not measurements. The door-6 numbers in the box are worked out on the next slide.",
   "src": [
    [
@@ -615,6 +621,12 @@
     "框里 13、2.23 × 247、14.3、15",
     "门 6 的例子",
     "见第 11 页 逐项推算",
+    "—"
+   ],
+   [
+    "2 分钟、20 分钟、10 列",
+    "生活比方：地铁发车间隔、全程时间、同时在线路上的车",
+    "举例用的数（不是实测）；10 = 20 ÷ 2，和名额公式 T ÷ r 同一个道理",
     "—"
    ]
   ]
