@@ -1,0 +1,47 @@
+{
+ "runs": [
+  {
+   "map": "room200",
+   "seed": 11700,
+   "completed": 1039,
+   "crossings": 247,
+   "tally": {
+    "near": 101,
+    "far": 11,
+    "none": 0
+   }
+  },
+  {
+   "map": "room250",
+   "seed": 11700,
+   "completed": 1113,
+   "crossings": 249,
+   "tally": {
+    "near": 95,
+    "far": 2,
+    "none": 0
+   }
+  },
+  {
+   "map": "room300",
+   "seed": 11700,
+   "completed": 1136,
+   "crossings": 256,
+   "tally": {
+    "near": 100,
+    "far": 5,
+    "none": 0
+   }
+  }
+ ],
+ "ticks": {
+  "near": 296,
+  "far": 18,
+  "none": 0
+ },
+ "share": {
+  "near": 0.943,
+  "far": 0.057,
+  "none": 0.0
+ }
+}
