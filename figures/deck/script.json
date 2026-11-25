@@ -620,8 +620,8 @@
     ]
    },
    {
-    "en": "Switching sides costs about **8 moves × 3 = 24 ticks**: this side's **4-cell buffer** empties, then the first robot from the other side walks **4 moves** through; shared by **9.3 robots** per turn, that is **24 ÷ 9.3 ≈ 2.6** ticks each.",
-    "zh": "换一次方向大约多花 **8 步 × 3 拍 = 24 拍**：先等这边 **4 格缓冲区**走空，对面第一台再走 **4 步**过门；每轮平均放 **9.3 台**，分到每台 **24 ÷ 9.3 ≈ 2.6 拍**。",
+    "en": "Switching sides costs about **8 moves × 3 = 24 ticks**: the **4-cell buffer** at the door, worked out later, empties, then the first robot from the other side walks **4 moves** through; shared by **9.3 robots** per turn, that is **24 ÷ 9.3 ≈ 2.6** ticks each.",
+    "zh": "换一次方向大约多花 **8 步 × 3 拍 = 24 拍**：先等门口这边的 **4 格缓冲区**走空（为什么是 4 格，后面再讲），对面第一台再走 **4 步**过门；每轮平均放 **9.3 台**，分到每台 **24 ÷ 9.3 ≈ 2.6 拍**。",
     "key": "Switch sides: (buffer **4** + **4** moves) × 3 = **24** ÷ **9.3** robots per turn ≈ **2.6**"
    },
    {
@@ -682,8 +682,8 @@
    ]
   ],
   "foot": "",
-  "en": "【指图】 {Next, we analysed the case} without jams: door 6 passes about **26 robots** per 500 ticks. {Why? We can estimate it from the rules alone.} Crossing takes about **3 moves × 3 ticks = 9 ticks**. Switching sides costs about **8 moves × 3 = 24 ticks**: this side's **4-cell buffer** empties, then the first robot from the other side walks **4 moves** through; shared by **9.3 robots** per turn, that is **24 ÷ 9.3 ≈ 2.6** ticks each. Breakdowns: each robot breaks down with chance **1 percent** per tick for **20 ticks** on average, so **20 percent** are stopped at any time. The door moves only if the robot crossing and the next one are both moving: **0.8 × 0.8 = 0.64**. {So} one robot takes **(9 + 2.6) ÷ 0.64 ≈ 18.1 ticks**, and **500 ÷ 18.1 ≈ 28** per 500 ticks. {We measured} **1,175 crossings ÷ 45 periods ≈ 26**, a little lower, because the estimate leaves out **waiting for the exit**; the quota uses the measured **26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
-  "zh": "【指图】然后我们继续分析，在没有拥塞的情况下，门 6 每 500 拍大约过 **26 台**。为什么？只用规则就能估出来。过一台门大约 **3 步 × 每步 3 拍 = 9 拍**。换一次方向大约多花 **8 步 × 3 拍 = 24 拍**：先等这边 **4 格缓冲区**走空，对面第一台再走 **4 步**过门；每轮平均放 **9.3 台**，分到每台 **24 ÷ 9.3 ≈ 2.6 拍**。故障：每台车每拍有 **1%** 的机会出故障，平均停 **20 拍**，所以任何时候约 **20%** 的车停着。门要动，正在过门的车和下一台都得能走：**0.8 × 0.8 = 0.64**。所以每台 **(9 + 2.6) ÷ 0.64 ≈ 18.1 拍**，**500 ÷ 18.1 ≈ 28 台**。实测 **1175 次过门 ÷ 45 段 ≈ 26**，略低，因为估算没算**等出口空出来**的时间；名额用实测的 **26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
+  "en": "【指图】 {Next, we analysed the case} without jams: door 6 passes about **26 robots** per 500 ticks. {Why? We can estimate it from the rules alone.} Crossing takes about **3 moves × 3 ticks = 9 ticks**. Switching sides costs about **8 moves × 3 = 24 ticks**: the **4-cell buffer** at the door, worked out later, empties, then the first robot from the other side walks **4 moves** through; shared by **9.3 robots** per turn, that is **24 ÷ 9.3 ≈ 2.6** ticks each. Breakdowns: each robot breaks down with chance **1 percent** per tick for **20 ticks** on average, so **20 percent** are stopped at any time. The door moves only if the robot crossing and the next one are both moving: **0.8 × 0.8 = 0.64**. {So} one robot takes **(9 + 2.6) ÷ 0.64 ≈ 18.1 ticks**, and **500 ÷ 18.1 ≈ 28** per 500 ticks. {We measured} **1,175 crossings ÷ 45 periods ≈ 26**, a little lower, because the estimate leaves out **waiting for the exit**; the quota uses the measured **26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
+  "zh": "【指图】然后我们继续分析，在没有拥塞的情况下，门 6 每 500 拍大约过 **26 台**。为什么？只用规则就能估出来。过一台门大约 **3 步 × 每步 3 拍 = 9 拍**。换一次方向大约多花 **8 步 × 3 拍 = 24 拍**：先等门口这边的 **4 格缓冲区**走空（为什么是 4 格，后面再讲），对面第一台再走 **4 步**过门；每轮平均放 **9.3 台**，分到每台 **24 ÷ 9.3 ≈ 2.6 拍**。故障：每台车每拍有 **1%** 的机会出故障，平均停 **20 拍**，所以任何时候约 **20%** 的车停着。门要动，正在过门的车和下一台都得能走：**0.8 × 0.8 = 0.64**。所以每台 **(9 + 2.6) ÷ 0.64 ≈ 18.1 拍**，**500 ÷ 18.1 ≈ 28 台**。实测 **1175 次过门 ÷ 45 段 ≈ 26**，略低，因为估算没算**等出口空出来**的时间；名额用实测的 **26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
   "calc": [
    "26 台 / 500 拍",
    "28 台 / 500 拍（估算）",
@@ -1162,7 +1162,7 @@
   "hints": [
    "Tried 1–6 cells on 12 dev instances",
    "1, 2 cells −9.0%, −5.2% (no room to come out); 3 cells: deadlocks 11 → 29 in confirmation; 6 cells −4.2% (blocks other doors) → 4 best",
-   "Why: 9–10 ticks ÷ 3 ticks per move ≈ 3 cells apart → minimum 3, +1 for random pauses",
+   "Why: gap 10 ticks ÷ 3 ticks per move ≈ 3.3 cells → round up → 4; 3 < 3.3 → blocked",
    "Hand over to Speaker 4"
   ],
   "segs": [
@@ -1177,23 +1177,23 @@
     "key": []
    },
    {
-    "en": "{Why?} Robots come out every **9 to 10 ticks** and a move takes **3 ticks**, so they are only gap **10 ticks ÷ 3 ticks per move ≈ 3 cells** apart: 3 is the minimum, and one more cell leaves room for **random pauses**. {Over to Speaker 4.}",
-    "zh": "为什么？门里每 **9 到 10 拍**出来一台，走一步要 **3 拍**，所以出门的车前后只隔 **间隔 10 拍 ÷ 每步 3 拍 ≈ 3 格**：3 格是下限，多留 1 格给**随机暂停**留出余地。下面交给讲者 4。",
+    "en": "{Why 4?} A robot comes out every **10 ticks** and a move takes **3 ticks**, so before the next one comes out, the one ahead has moved **10 ÷ 3 ≈ 3.3 cells**. Cells come whole, so we round up: **4 cells**. With 3, there is less room than 3.3 cells, and the robots coming out get blocked. {Over to Speaker 4.}",
+    "zh": "为什么是 4 格？门里每 **10 拍**出来一台，走一步要 **3 拍**，下一台出来前，前一台已经走出 **10 ÷ 3 ≈ 3.3 格**。格子只能是整数，所以向上取整：**4 格**。只留 3 格，比需要的 3.3 格少，出门的车就会被挡住。下面交给讲者 4。",
     "key": [
-     "Cells between robots coming out = gap **10 ticks ÷ 3 ticks per move ≈ 3 cells**",
-     "**3 = minimum**, one more cell for **random pauses**"
+     "Room needed = gap **10 ticks ÷ 3 ticks per move ≈ 3.3 cells** → round up: **4 cells**",
+     "3 cells < 3.3 → robots coming out get blocked"
     ]
    }
   ],
-  "en": "【指上图】 We tried **1 to 6 cells** on **12 development instances**. 【指下方表格】 1 and 2 cells lost **9.0 and 5.2 percent**{: robots coming out had no room}. 3 cells caused more **deadlocks** {in a confirmation test}, **11 to 29** runs. 6 cells lost **4.2 percent**{: the queue blocked other doors}. **4 cells was best**. {Why?} Robots come out every **9 to 10 ticks** and a move takes **3 ticks**, so they are only gap **10 ticks ÷ 3 ticks per move ≈ 3 cells** apart: 3 is the minimum, and one more cell leaves room for **random pauses**. {Over to Speaker 4.}",
-  "zh": "【指上图】我们在 **12 个开发实例**上试了 **1 到 6 格**。【指下方表格】1 格、2 格分别少 **9.0%、5.2%**：出门的车没地方走；3 格在确认测试里**堵死**的局从 **11 局增到 29 局**；6 格少 **4.2%**：排队的车挡住了别的门。**4 格最好**。为什么？门里每 **9 到 10 拍**出来一台，走一步要 **3 拍**，所以出门的车前后只隔 **间隔 10 拍 ÷ 每步 3 拍 ≈ 3 格**：3 格是下限，多留 1 格给**随机暂停**留出余地。下面交给讲者 4。",
+  "en": "【指上图】 We tried **1 to 6 cells** on **12 development instances**. 【指下方表格】 1 and 2 cells lost **9.0 and 5.2 percent**{: robots coming out had no room}. 3 cells caused more **deadlocks** {in a confirmation test}, **11 to 29** runs. 6 cells lost **4.2 percent**{: the queue blocked other doors}. **4 cells was best**. {Why 4?} A robot comes out every **10 ticks** and a move takes **3 ticks**, so before the next one comes out, the one ahead has moved **10 ÷ 3 ≈ 3.3 cells**. Cells come whole, so we round up: **4 cells**. With 3, there is less room than 3.3 cells, and the robots coming out get blocked. {Over to Speaker 4.}",
+  "zh": "【指上图】我们在 **12 个开发实例**上试了 **1 到 6 格**。【指下方表格】1 格、2 格分别少 **9.0%、5.2%**：出门的车没地方走；3 格在确认测试里**堵死**的局从 **11 局增到 29 局**；6 格少 **4.2%**：排队的车挡住了别的门。**4 格最好**。为什么是 4 格？门里每 **10 拍**出来一台，走一步要 **3 拍**，下一台出来前，前一台已经走出 **10 ÷ 3 ≈ 3.3 格**。格子只能是整数，所以向上取整：**4 格**。只留 3 格，比需要的 3.3 格少，出门的车就会被挡住。下面交给讲者 4。",
   "foot": "Statistics: 1–6 cells vs 4 cells on 12 development instances (95% intervals); 3-cell confirmation and deadlocked runs counted in rounds 54–57. Estimate: robots come out every 9–10 ticks ÷ 3 ticks per move ≈ 3 cells apart. Where one crossing's time goes: slide 11.",
   "src": [
    [
-    "9–10 拍、3 格",
-    "下一台出来前，前一台走出几格",
-    "估算：9–10 拍 ÷ 每步 3 拍 ≈ 3 格（代码注释里同一个公式，第 57 轮）",
-    "`netmac.cpp` 第 59–62 行注释；第 16 页实测"
+    "10 拍、3.3 格、4 格",
+    "下一台出来前，前一台走出几格；向上取整",
+    "公式估算：同方向出门间隔 10 拍（实测中位数，`demo/door_timing.json`，1120 次）÷ 每步 3 拍（比赛设定）≈ 3.3 格，向上取整 = 4。代码注释（第 57 轮）用的是当时测的 9 拍：⌈9 ÷ 3⌉ = 3；后来 3 格的确认测试 −2.64%、堵死局 11 → 29，所以 4 格是实验先选出来的；用现在实测的 10 拍，公式也给出 4",
+    "`netmac.cpp` 第 59–62 行注释；`demo/door_timing.json`；第 16 页实测"
    ],
    [
     "12 个开发实例",
@@ -1221,7 +1221,7 @@
    ]
   ],
   "calc": [
-   "9–10 拍、3 格"
+   "10 拍、3.3 格、4 格"
   ]
  },
  {
