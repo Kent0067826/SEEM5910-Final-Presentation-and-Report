@@ -1,6 +1,6 @@
 {
  "set": "main",
- "runs": 600,
+ "runs": 780,
  "errors": 0,
  "variants": {
   "DF": {
@@ -521,6 +521,162 @@
     ],
     "new_rule_refused_per_run": 10297.033,
     "new_rule_admitted_per_run": 1493.017
+   }
+  },
+  "NMSW1": {
+   "n": 60,
+   "change_pct": -0.85,
+   "ci95_pct": [
+    -2.08,
+    0.35
+   ],
+   "better": 24,
+   "worse": 36,
+   "equal": 0,
+   "worst_pct": -18.22,
+   "best_pct": 11.69,
+   "per_map": {
+    "room200": {
+     "orders": 1017.4,
+     "doorflow": 1036.5,
+     "change_pct": -1.84,
+     "better": 6
+    },
+    "room250": {
+     "orders": 1108.5,
+     "doorflow": 1104.5,
+     "change_pct": 0.44,
+     "better": 11
+    },
+    "room300": {
+     "orders": 1160.6,
+     "doorflow": 1175.3,
+     "change_pct": -1.15,
+     "better": 7
+    }
+   },
+   "door6": {
+    "crossings_per_run": 245.783,
+    "stuck_near_door_mean": 3.79,
+    "share_of_time_8plus_stuck": 0.086,
+    "counted_on_the_way": [
+     9.253,
+     13.337
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.621,
+     0.556
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "NMSW3": {
+   "n": 60,
+   "change_pct": -0.86,
+   "ci95_pct": [
+    -2.38,
+    0.67
+   ],
+   "better": 26,
+   "worse": 34,
+   "equal": 0,
+   "worst_pct": -23.27,
+   "best_pct": 14.03,
+   "per_map": {
+    "room200": {
+     "orders": 1034.0,
+     "doorflow": 1036.5,
+     "change_pct": -0.24,
+     "better": 9
+    },
+    "room250": {
+     "orders": 1082.7,
+     "doorflow": 1104.5,
+     "change_pct": -1.97,
+     "better": 8
+    },
+    "room300": {
+     "orders": 1168.6,
+     "doorflow": 1175.3,
+     "change_pct": -0.37,
+     "better": 9
+    }
+   },
+   "door6": {
+    "crossings_per_run": 243.417,
+    "stuck_near_door_mean": 4.143,
+    "share_of_time_8plus_stuck": 0.103,
+    "counted_on_the_way": [
+     9.25,
+     13.643
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.637,
+     0.574
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "NMSW5": {
+   "n": 60,
+   "change_pct": 0.15,
+   "ci95_pct": [
+    -1.47,
+    1.72
+   ],
+   "better": 28,
+   "worse": 31,
+   "equal": 1,
+   "worst_pct": -28.35,
+   "best_pct": 15.71,
+   "per_map": {
+    "room200": {
+     "orders": 1030.3,
+     "doorflow": 1036.5,
+     "change_pct": -0.58,
+     "better": 6
+    },
+    "room250": {
+     "orders": 1113.9,
+     "doorflow": 1104.5,
+     "change_pct": 0.93,
+     "better": 12
+    },
+    "room300": {
+     "orders": 1173.7,
+     "doorflow": 1175.3,
+     "change_pct": 0.1,
+     "better": 10
+    }
+   },
+   "door6": {
+    "crossings_per_run": 245.617,
+    "stuck_near_door_mean": 3.939,
+    "share_of_time_8plus_stuck": 0.094,
+    "counted_on_the_way": [
+     9.338,
+     13.631
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.639,
+     0.581
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
    }
   }
  }
