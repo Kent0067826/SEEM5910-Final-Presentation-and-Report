@@ -8,6 +8,8 @@
             (CNEAR) or the far (CFAR) ones at half of the direction's window
   END10/END15 (E, round 2) near the end of the run, start only orders whose estimated time (1.0 / 1.5 x 2.23 x 3 ticks x
             Manhattan steps through the remaining errands) ends by tick 5000
+  NMSW1/3/5 (round 6, other direction b) the dispatcher's weight on the walk to the pickup, W = 1 / 3 / 5 instead of the
+            formal 2 (W = 2 was picked at 1,200 ticks before the executor fix and never re-scanned; the champion's code uses 5)
   DALPHA    (D) every single-door cut gets its own measured slow-down (figures/explore/alpha_calib.json, from DoorFlow runs on
             calibration seeds 11720-11724 x planner seed 147) instead of the global 2.23
 Simulator: experiment-materials/网络协议方向/src/dev_src_p78 copied outside the repo + figures/deck/demo/live_window.patch +
@@ -33,7 +35,8 @@ VARIANTS = {'DF': {}, 'A100': {'ROBOT_EX_MODE': '1', 'ROBOT_EX_W': '100'}, 'A200
             'B150': {'ROBOT_EX_MODE': '2', 'ROBOT_EX_P': '150'}, 'B300': {'ROBOT_EX_MODE': '2', 'ROBOT_EX_P': '300'},
             'CNEAR': {'ROBOT_EX_MODE': '3', 'ROBOT_EX_LEGCAP': '0'}, 'CFAR': {'ROBOT_EX_MODE': '3', 'ROBOT_EX_LEGCAP': '1'},
             'DALPHA': 'alpha',
-            'END10': {'ROBOT_EX_MODE': '4', 'ROBOT_EX_ENDK': '1.0'}, 'END15': {'ROBOT_EX_MODE': '4', 'ROBOT_EX_ENDK': '1.5'}}
+            'END10': {'ROBOT_EX_MODE': '4', 'ROBOT_EX_ENDK': '1.0'}, 'END15': {'ROBOT_EX_MODE': '4', 'ROBOT_EX_ENDK': '1.5'},
+            'NMSW1': {'ROBOT_NMS_W': '1'}, 'NMSW3': {'ROBOT_NMS_W': '3'}, 'NMSW5': {'ROBOT_NMS_W': '5'}}
 TRACE_RE = re.compile(r'\[live\] t=(\d+) mode=\d on=(\d) stuck=(\d+) \| side0 L=(-?\d+) K=(-?\d+) \| side1 L=(-?\d+) K=(-?\d+)')
 EXA_RE = re.compile(r'\[exa\] (\d+) (\d+) (\d+)')
 EX_RE = re.compile(r'\[ex\] t=\d+ denied=(\d+) admitted=(\d+)')
