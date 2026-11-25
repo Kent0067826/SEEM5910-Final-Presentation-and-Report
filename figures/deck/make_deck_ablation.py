@@ -42,11 +42,10 @@ def main():
     rows = [json.loads(l) for l in open(ABL, encoding="utf-8") if l.strip()]
     by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
     left = [("Door rule: one direction at a\ntime, serve a side until empty", "noDoor"), ("Per-door quota\n(door rate x trip time)", "noQuota"),
-            ("Deadlock watchdog", "noWD"),
-            ("Global cap\n(whole-map quota)", "noGlobal")]
-    right = [("Door rule only", "onlyDoor"), ("Per-door quota only", "onlyQuota"), ("Global cap only", "onlyGlobal"),
+]   # v49: the two safety nets are not presented (on this map: -0.4% / +0.7%, no measurable effect)
+    right = [("Door rule only", "onlyDoor"), ("Per-door quota only", "onlyQuota"),
              ("Everything on\n(full DoorFlow)", "FULL")]
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 4.3))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 3.4))
     out = {}
     for ax, items, title, base, col in [
             (a1, left, "Remove one part from the full method", "FULL", ORANGE),

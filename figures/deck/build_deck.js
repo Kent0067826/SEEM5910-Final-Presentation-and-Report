@@ -1,4 +1,4 @@
-// Build the 15-minute, 4-speaker deck (24 slides + 2 backup slides): DoorFlow. Every slide shows its own English speech (read-along panel).
+// Build the 15-minute, 4-speaker deck (22 slides + 2 backup slides): DoorFlow. Every slide shows its own English speech (read-along panel).
 // Run from the repo root:  NODE_PATH=<dir with pptxgenjs> node figures/deck/build_deck.js
 const path = require("path");
 const fs = require("fs");
@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v48.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v49.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -439,11 +439,9 @@ section(1);
   code(slide, [
     ["every planning round:", "1 · who gets an order"],
     ["  L[d,s] ← robots holding an order that still crosses door d in direction s"],
-    ["~ free ← GLOBAL_CAP − robots holding orders", "safety net 1"],
     ["  for (robot r, order q) in order of increasing cost:"],
     ["      if L[d,s] < Q[d,s] for every door (d,s) that q crosses"],
-    ["~         and free > 0"],
-    ["      then give q to r;  L[d,s] += 1 for those doors;  free −= 1"],
+    ["      then give q to r;  L[d,s] += 1 for those doors"],
     ["      else try r's next-cheapest order"],
     ["  where Q[d,s] = ⌈ 2.23 × T[d,s] ÷ 500 × 13 ⌉", "slowdown × free trip × robots per tick"],
     [""],
@@ -455,9 +453,7 @@ section(1);
     ["  forbid moves into a door against its direction"],
     ["  crossers of the other side within 4 cells may only move away"],
     ["  robots held by these rules get the lowest priority"],
-    ["~ watchdog: stuck 300 ticks, and nobody entered its door for 300 ticks"],
-    ["~           → ignore the door rule this tick", "safety net 2"],
-  ], M + 0.3, 1.55, 11.6, 5.2, 11.5);
+  ], M + 0.3, 1.6, 11.6, 5.2, 13);
 }
 
 // ---------- 18 the hardest part + demo ----------
@@ -468,49 +464,25 @@ section(1);
   para(slide, "One run each: no door control **609** orders · DoorFlow **1,130** orders.", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
 }
 
-// ---------- 19 random-door maps ----------
+// ---------- 19 results ----------
 {
   const s = S(19); const slide = content(s);
-  addImg(slide, "gen", M, 1.3, 7.6, 3.6, "left");
-  card(slide, M, 5.05, 7.6, 1.85, C.accent6);
-  slide.addText("+86.9%", { x: M + 0.3, y: 5.2, w: 3.0, h: 0.9, fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
-  para(slide, "vs the same base on **8 new room maps** × 199 / 249 robots (**640 runs**): **wins on every map**.", M + 3.4, 5.2, 4.0, 1.55, 14, C.text1, C.text2, "middle");
-  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 20, center: true });
-}
-
-// ---------- 20 two safety nets (narrow doorways) ----------
-{
-  const s = S(20); const slide = content(s);
-  addImg(slide, "narrow", M, 1.3, 7.6, 4.05, "left");
-  [["Safety net 1 · Global cap", "**69.2**: most orders per 500 ticks (slide 8) · **2.23 × 255**: real ticks per order (25 + 230 free ticks, × 2.23) · **1.76**: where results stopped rising in a sweep"],
-   ["Safety net 2 · Watchdog", "Waited **300 ticks** and nobody entered its door → skip the door rule for one tick. **Never drop a robot.**"]].forEach(([a, b], i) => {
-    const x = M + i * 3.85;
-    card(slide, x, 5.45, 3.75, 1.45, C.accent6);
-    slide.addText(a, { x: x + 0.2, y: 5.5, w: 3.4, h: 0.38, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    para(slide, b, x + 0.2, 5.88, 3.4, 1.0, i ? 12.5 : 11);
-  });
-  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 19, center: true });
-}
-
-// ---------- 21 results ----------
-{
-  const s = S(21); const slide = content(s);
   slide.addText("+140.5%", { x: M, y: 2.2, w: 3.6, h: 1.0, fontSize: 48, bold: true, color: C.accent3, fontFace: THEME.headFontFace, margin: 0, isTextBox: true, valign: "bottom" });
   para(slide, "more orders than the official starter program", M, 3.3, 3.5, 0.8, 16);
   para(slide, "= mean of **(DoorFlow ÷ starter − 1)** over the **60** same-seed pairs", M, 4.2, 3.5, 0.9, 14);
   addImg(slide, "results", 4.3, 1.3, 8.45, 5.6);   // nothing else to read: the speech is said, the numbers are here
 }
 
-// ---------- 22 what matters ----------
+// ---------- 20 what matters ----------
 {
-  const s = S(22); const slide = content(s);
+  const s = S(20); const slide = content(s);
   addImg(slide, "ablD", M, 1.3, 12.15, 4.35);
   readPanel(slide, s, say(s), M + 1.5, 5.8, 9.15, 1.12, { max: 20, pad: 0.12, fill: C.accent6, center: true });
 }
 
-// ---------- 23 lessons ----------
+// ---------- 21 lessons ----------
 {
-  const s = S(23); const slide = content(s);
+  const s = S(21); const slide = content(s);
   for (let i = 0; i < 5; i++) {   // one card per lesson (the title already says what they are)
     const row = i < 3 ? 0 : 1, col = row ? i - 3 : i;
     const x = M + col * 4.1 + (row ? 2.05 : 0), y = 1.4 + row * 2.8;
@@ -518,9 +490,9 @@ section(1);
   }
 }
 
-// ---------- 24 conclusion ----------
+// ---------- 22 conclusion ----------
 {
-  const s = S(24);
+  const s = S(22);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const t = say(s);   // four points, then thanks ("To conclude." is said, not shown)
@@ -535,9 +507,9 @@ section(1);
   notes(slide, s);
 }
 
-// ---------- 25 backup: how long does the door take (measured) ----------
+// ---------- 23 backup: how long does the door take (measured) ----------
 {
-  const s = S(25); const slide = content(s);
+  const s = S(23); const slide = content(s);
   addImg(slide, "timing", M, 1.35, 7.6, 3.2, "left");
   [["1,255", "crossings of door 6 timed\nin 5 runs, 250 robots"], ["10 ticks", "median gap, same direction\n(mostly 6 or 9 = 2 or 3 moves)"], ["34 ticks", "median gap when the door\nswitches direction"]].forEach(([b, l], i) => {
     const x = M + i * 2.55;
@@ -547,9 +519,9 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
 }
 
-// ---------- 26 backup: where one crossing's 18.7 ticks go (panel C) ----------
+// ---------- 24 backup: where one crossing's 18.7 ticks go (panel C) ----------
 {
-  const s = S(26); const slide = content(s);
+  const s = S(24); const slide = content(s);
   addImg(slide, "doorC", M, 1.4, 7.6, 3.6, "left");
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.62, { max: 20, center: true });
 }
