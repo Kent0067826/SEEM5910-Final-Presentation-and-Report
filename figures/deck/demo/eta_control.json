@@ -1,0 +1,113 @@
+{
+ "runs": 240,
+ "errors": 0,
+ "df_mean_vs_formal_evaluation": {
+  "room200": [
+   1036.5,
+   1032.2
+  ],
+  "room250": [
+   1104.5,
+   1106.5
+  ],
+  "room300": [
+   1175.3,
+   1168.6
+  ]
+ },
+ "seeds": "task 11700-11709 x planner 145, 146; room200/250/300",
+ "variants": {
+  "DF": {
+   "mean_orders": {
+    "room200": 1036.5,
+    "room250": 1104.5,
+    "room300": 1175.3
+   },
+   "change_vs_DF_pct": 0.0,
+   "ci95_pct": [
+    0.0,
+    0.0
+   ],
+   "per_size_pct": {
+    "room200": 0.0,
+    "room250": 0.0,
+    "room300": 0.0
+   },
+   "worse_runs": 0,
+   "better_runs": 0,
+   "worst_pct": 0.0,
+   "robots_on_the_way_door6_mean": 22.9,
+   "robots_on_the_way_door6_peak_median": 27,
+   "window_in": 15
+  },
+  "NEAR550": {
+   "mean_orders": {
+    "room200": 1025.1,
+    "room250": 1109.1,
+    "room300": 1178.0
+   },
+   "change_vs_DF_pct": -0.14,
+   "ci95_pct": [
+    -0.56,
+    0.33
+   ],
+   "per_size_pct": {
+    "room200": -1.1,
+    "room250": 0.43,
+    "room300": 0.25
+   },
+   "worse_runs": 30,
+   "better_runs": 27,
+   "worst_pct": -3.5,
+   "robots_on_the_way_door6_mean": 23.0,
+   "robots_on_the_way_door6_peak_median": 28,
+   "window_in": 15
+  },
+  "NEAR275": {
+   "mean_orders": {
+    "room200": 1004.0,
+    "room250": 1091.8,
+    "room300": 1157.4
+   },
+   "change_vs_DF_pct": -1.84,
+   "ci95_pct": [
+    -3.11,
+    -0.56
+   ],
+   "per_size_pct": {
+    "room200": -3.1,
+    "room250": -1.08,
+    "room300": -1.34
+   },
+   "worse_runs": 42,
+   "better_runs": 18,
+   "worst_pct": -20.7,
+   "robots_on_the_way_door6_mean": 17.2,
+   "robots_on_the_way_door6_peak_median": 27,
+   "window_in": 15
+  },
+  "BOTH": {
+   "mean_orders": {
+    "room200": 1022.6,
+    "room250": 1077.2,
+    "room300": 1160.2
+   },
+   "change_vs_DF_pct": -1.62,
+   "ci95_pct": [
+    -3.38,
+    0.08
+   ],
+   "per_size_pct": {
+    "room200": -1.34,
+    "room250": -2.47,
+    "room300": -1.06
+   },
+   "worse_runs": 33,
+   "better_runs": 26,
+   "worst_pct": -28.2,
+   "robots_on_the_way_door6_mean": 22.9,
+   "robots_on_the_way_door6_peak_median": 27,
+   "window_in": 15
+  }
+ }
+}
