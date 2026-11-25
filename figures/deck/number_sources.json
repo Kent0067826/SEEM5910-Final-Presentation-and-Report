@@ -161,6 +161,12 @@
   "how": "measured, same replay pair",
   "source": "same"
  },
+ "door rate (steady)": {
+  "slide": "26 per 500 = 1,175 / 45",
+  "recomputed": "1175 / 45 = 26.11 (median 26.0)",
+  "how": "counted: crossings per 500-tick period after the first 500, 5 runs",
+  "source": "figures/deck/demo/door6_rate.json"
+ },
  "door rate": {
   "slide": "26 per 500; 620 in / 635 out",
   "recomputed": "25.1 per 500 (1255 in 25000 ticks); 620 / 635",

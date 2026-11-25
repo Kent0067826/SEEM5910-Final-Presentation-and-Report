@@ -96,6 +96,8 @@ check("knee: quota", "about 25 on the way, 26 cross", f"L {min(w['L'] for w in l
 
 # ---- slides 8, 11, 12, 15, 16, 19, 21: stored outputs of the demo scripts ---------------------------------------------
 D6 = json.loads((DEMO / "door6_numbers.json").read_text()); DT = json.loads((DEMO / "door_timing.json").read_text())
+R6 = json.loads((DEMO / "door6_rate.json").read_text())
+check("door rate (steady)", "26 per 500 = 1,175 / 45", f"{R6['formula']} (median {R6['median_period']})", "counted: crossings per 500-tick period after the first 500, 5 runs", "figures/deck/demo/door6_rate.json")
 check("door rate", "26 per 500; 620 in / 635 out", f"{D6['door_rate']['per_500']} per 500 ({D6['door_rate']['crossings']} in {D6['door_rate']['ticks']} ticks); {D6['door_rate']['into_lower_left']} / {D6['door_rate']['out_of_lower_left']}",
       "measured: crossings counted in 5 runs; planner uses 26 (round 40)", "figures/deck/demo/door6_numbers.json")
 check("free trip", "247 / 158", f"planner {D6['free_trip']['planner_uses']}; independent recompute {D6['free_trip']['T_inward']} / {D6['free_trip']['T_outward']}", "computed from the map: 25 + mean shortest time over every cell", "same")
