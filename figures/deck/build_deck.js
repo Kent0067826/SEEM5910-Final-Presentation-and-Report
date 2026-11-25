@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v47.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v48.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -369,7 +369,7 @@ section(1);
   ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
     slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
   const rows = [
-    ["**Ticks per robot**, each way\n26 robots ÷ 2 directions = 13 per 500 ticks", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
+    ["**Ticks per robot**, each way: door rate\n500 ÷ 18.7 ≈ 26 (slide 8) ÷ 2 = 13 per 500", "500 ticks ÷ 13 robots ≈ **38.5**", "500 ticks ÷ 13 robots ≈ **38.5**"],
     ["**Free trip** = 25 to the pickup\n+ average from every far-side cell", "to pickup 25 + to door 222 = **247**", "to pickup 25 + to door 133 = **158**"],
     ["**Slowdown** = real ÷ free trip\nmedian of 224 timed trips", "× **2.23**", "× **2.23**"],
     ["**Real trip** = slowdown × free trip", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],

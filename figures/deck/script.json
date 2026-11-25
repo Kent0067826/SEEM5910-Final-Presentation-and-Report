@@ -410,7 +410,7 @@
  {
   "n": 8,
   "speaker": 3,
-  "time": "1:24",
+  "time": "1:25",
   "title": "Why did changing routes not help?",
   "figs": [
    "图 4 地图压成网络（公式直接写在右边文字里）"
@@ -422,8 +422,8 @@
    "Why 26: 18.7 ticks per robot = 9.2 (step, turn, enter) + 4.8 breakdowns + 2.2 switching + 2.5 waiting → 500 ÷ 18.7 ≈ 26.7; counted 1,175 ÷ 45 ≈ 26 → 26 ÷ 0.376 ≈ 69",
    "14 of 15 rerouting methods lowered results → the question is scheduling"
   ],
-  "en": "{Thank you. So why did changing routes not help? First, we built a model.} 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**{: without it, the four lower-left rooms are cut off}. 【指右 1】 {Counted on the map,} the lower-left rooms hold **906 of the 3,614** room cells: **906 ÷ 3,614 ≈ 0.2507**{, a quarter}. 【指右 2】 {With random pickups and deliveries,} an order crosses door 6 when its two ends are on different sides: **2** possible orders **× 0.2507** lower-left **× 0.7493** the rest **≈ 37.6 percent**; {counting} the task file gives 38.5. 【指公式】 Door 6 passes about **26 robots** per 500 ticks. {Why?} One robot takes **18.7 ticks** on average: **9.2** to step up, turn and enter, about **3 moves × 3 ticks**; **4.8** for breakdowns; **2.2** for switching sides; **2.5** waiting; so **500 ticks ÷ 18.7 ticks per robot ≈ 26.7**. {Counting crossings in 5 runs agrees:} **1,175 crossings ÷ 45 periods ≈ 26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**. {That is why} **14 of 15** rerouting methods we tried lowered results. {The real question is} **how many robots to send, and which side goes first**: **scheduling**.",
-  "zh": "谢谢。那为什么改路线没有用？我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。【指右 1】在地图上数格子：左下房间占 3614 个房间格里的 **906 个**，**906 ÷ 3614 ≈ 0.2507**，约四分之一。【指右 2】取货点和送货点随机落下时，一单两头在门的两侧才要过门 6，概率是 **2**（两种先后）**× 0.2507**（左下）**× 0.7493**（其余）**≈ 37.6%**；数任务文件得到 38.5%。【指公式】门 6 每 500 拍大约过 **26 台**。为什么？平均每过一台要 **18.7 拍**：走到门前、转身、进门 **9.2 拍**（约 **3 步 × 每步 3 拍**）；故障 **4.8 拍**；换方向 **2.2 拍**；等出口等 **2.5 拍**；所以 **500 拍 ÷ 每台 18.7 拍 ≈ 26.7 台**。在 5 局仿真里数过门的车也一样：**1175 次过门 ÷ 45 段 ≈ 26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。所以我们试过的 15 种换路办法里有 **14 种**都变差。真正的问题是**派多少车、哪边先走**，也就是**调度**。",
+  "en": "{Thank you. So why did changing routes not help? First, we built a model.} 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**{: without it, the four lower-left rooms are cut off}. 【指右 1】 {Counted on the map,} the lower-left rooms hold **906 of the 3,614** room cells: **906 ÷ 3,614 ≈ 0.2507**{, a quarter}. 【指右 2】 {With random pickups and deliveries,} an order crosses door 6 when its two ends are on different sides: **2** possible orders **× 0.2507** lower-left **× 0.7493** the rest **≈ 37.6 percent**; {counting} the task file gives 38.5. 【指公式】 Door 6 passes about **26 robots** per 500 ticks. {Why?} We timed **669 crossings**: one robot takes **18.7 ticks** on average: **9.2** to step up, turn and enter, about **3 moves × 3 ticks**; **4.8** for breakdowns; **2.2** for switching sides; **2.5** waiting; so **500 ticks ÷ 18.7 ticks per robot ≈ 26.7**. {Counting crossings in 5 runs agrees:} **1,175 crossings ÷ 45 periods ≈ 26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**. {That is why} **14 of 15** rerouting methods we tried lowered results. {The real question is} **how many robots to send, and which side goes first**: **scheduling**.",
+  "zh": "谢谢。那为什么改路线没有用？我们先建了一个模型。【指左图】**16 个房间是点，31 道门是线**；【指红线门 6】**门 6 是一个割**：没有它，左下 4 个房间就断开了。【指右 1】在地图上数格子：左下房间占 3614 个房间格里的 **906 个**，**906 ÷ 3614 ≈ 0.2507**，约四分之一。【指右 2】取货点和送货点随机落下时，一单两头在门的两侧才要过门 6，概率是 **2**（两种先后）**× 0.2507**（左下）**× 0.7493**（其余）**≈ 37.6%**；数任务文件得到 38.5%。【指公式】门 6 每 500 拍大约过 **26 台**。为什么？我们给 **669 次过门**计时，平均每过一台要 **18.7 拍**：走到门前、转身、进门 **9.2 拍**（约 **3 步 × 每步 3 拍**）；故障 **4.8 拍**；换方向 **2.2 拍**；等出口等 **2.5 拍**；所以 **500 拍 ÷ 每台 18.7 拍 ≈ 26.7 台**。在 5 局仿真里数过门的车也一样：**1175 次过门 ÷ 45 段 ≈ 26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。所以我们试过的 15 种换路办法里有 **14 种**都变差。真正的问题是**派多少车、哪边先走**，也就是**调度**。",
   "segs": [
    {
     "en": "{Thank you. So why did changing routes not help? First, we built a model.} 【指左图】 The **16 rooms are nodes** and the **31 doors are edges**; 【指红线门 6】 **door 6 is a cut**{: without it, the four lower-left rooms are cut off}.",
@@ -441,11 +441,11 @@
     "key": "Crossing share = **2** possible orders **× 0.2507** lower-left **× 0.7493** the rest **≈ 37.6%** · task file: **38.5%**"
    },
    {
-    "en": "【指公式】 Door 6 passes about **26 robots** per 500 ticks. {Why?} One robot takes **18.7 ticks** on average: **9.2** to step up, turn and enter, about **3 moves × 3 ticks**; **4.8** for breakdowns; **2.2** for switching sides; **2.5** waiting; so **500 ticks ÷ 18.7 ticks per robot ≈ 26.7**. {Counting crossings in 5 runs agrees:} **1,175 crossings ÷ 45 periods ≈ 26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
-    "zh": "【指公式】门 6 每 500 拍大约过 **26 台**。为什么？平均每过一台要 **18.7 拍**：走到门前、转身、进门 **9.2 拍**（约 **3 步 × 每步 3 拍**）；故障 **4.8 拍**；换方向 **2.2 拍**；等出口等 **2.5 拍**；所以 **500 拍 ÷ 每台 18.7 拍 ≈ 26.7 台**。在 5 局仿真里数过门的车也一样：**1175 次过门 ÷ 45 段 ≈ 26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
+    "en": "【指公式】 Door 6 passes about **26 robots** per 500 ticks. {Why?} We timed **669 crossings**: one robot takes **18.7 ticks** on average: **9.2** to step up, turn and enter, about **3 moves × 3 ticks**; **4.8** for breakdowns; **2.2** for switching sides; **2.5** waiting; so **500 ticks ÷ 18.7 ticks per robot ≈ 26.7**. {Counting crossings in 5 runs agrees:} **1,175 crossings ÷ 45 periods ≈ 26**. {So} the map can finish at most door rate **26 ÷ crossing share 0.376 ≈ 69 orders** per 500 ticks, **whatever the routes**.",
+    "zh": "【指公式】门 6 每 500 拍大约过 **26 台**。为什么？我们给 **669 次过门**计时，平均每过一台要 **18.7 拍**：走到门前、转身、进门 **9.2 拍**（约 **3 步 × 每步 3 拍**）；故障 **4.8 拍**；换方向 **2.2 拍**；等出口等 **2.5 拍**；所以 **500 拍 ÷ 每台 18.7 拍 ≈ 26.7 台**。在 5 局仿真里数过门的车也一样：**1175 次过门 ÷ 45 段 ≈ 26**。所以**不管车怎么走**，整张图每 500 拍最多完成 **过门速率 26 ÷ 过门比例 0.376 ≈ 69 单**。",
     "key": [
-     "Ticks per robot **18.7** = step, turn, enter **9.2** (≈ **3 moves × 3 ticks**) + breakdowns **4.8** + switching **2.2** + waiting **2.5**",
-     "Door rate = **500 ticks ÷ 18.7 ticks per robot ≈ 26.7** · counted in 5 runs: **1,175 crossings ÷ 45 periods ≈ 26**",
+     "Ticks per robot **18.7** (timed: 669 crossings) = step, turn, enter **9.2** (≈ **3 moves × 3 ticks**) + breakdowns **4.8** + switching **2.2** + waiting **2.5**",
+     "Door rate = **500 ticks ÷ 18.7 ticks per robot ≈ 26.7 ≈ 26** robots per 500 ticks · counted in 5 runs: **1,175 crossings ÷ 45 periods ≈ 26**",
      "Most orders = door rate **26 ÷ crossing share 0.376 ≈ 69** per 500 ticks, **whatever the routes**"
     ]
    },
@@ -641,7 +641,7 @@
  {
   "n": 11,
   "speaker": 3,
-  "time": "0:44",
+  "time": "0:49",
   "title": "Scheduling 1: door 6's quota, number by number",
   "figs": [
    "门 6 名额的推算表（幻灯片上直接画的；复算脚本 figures/deck/demo/door6_numbers.py，结果在 door6_numbers.json）"
@@ -654,8 +654,8 @@
   ],
   "segs": [
    {
-    "en": "【指第一行】 {For door 6:} **26 robots ÷ 2 directions = 13** each way, so **500 ticks ÷ 13 robots ≈ 38.5 ticks** per robot.",
-    "zh": "【指第一行】门 6：**26 台 ÷ 2 个方向 = 13 台**，所以每个方向 **500 拍 ÷ 13 台 ≈ 38.5 拍**过一台。",
+    "en": "【指第一行】 {For door 6:} door rate **500 ÷ 18.7 ≈ 26 robots** per 500 ticks (slide 8) **÷ 2 directions = 13** each way, so **500 ticks ÷ 13 robots ≈ 38.5 ticks** per robot.",
+    "zh": "【指第一行】门 6：过门速率 **500 ÷ 18.7 ≈ 26 台** / 500 拍（第 8 页）**÷ 2 个方向 = 13 台**，所以每个方向 **500 拍 ÷ 13 台 ≈ 38.5 拍**过一台。",
     "key": "Quota = ⌈ slowdown **2.23** × free trip **247** ÷ ticks per robot **38.5** ⌉ = ⌈**14.3**⌉ = **15**"
    },
    {
@@ -674,8 +674,8 @@
     "key": []
    }
   ],
-  "en": "【指第一行】 {For door 6:} **26 robots ÷ 2 directions = 13** each way, so **500 ticks ÷ 13 robots ≈ 38.5 ticks** per robot. 【指第二行】 Free trip: **25 ticks** to the pickup plus the average from every far-side cell: **25 + 222 = 247 ticks** inward, **25 + 133 = 158** outward. 【指第三行】 Real trip ÷ free trip = **2.23**, the median of **224** timed trips{, mostly because of breakdowns}. 【指最后两行】 {So} real trip = slowdown × free trip = **2.23 × 247 ≈ 551 ticks**, and quota = real trip ÷ ticks per robot = **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **2.23 × 158 ÷ 38.5 ≈ 9.2**, so **10**.",
-  "zh": "【指第一行】门 6：**26 台 ÷ 2 个方向 = 13 台**，所以每个方向 **500 拍 ÷ 13 台 ≈ 38.5 拍**过一台。【指第二行】空地图上走到门口的时间 = 走到取货点的 **25 拍** + 门另一侧每一格到门口的平均时间：进左下 **25 + 222 = 247 拍**，出左下 **25 + 133 = 158 拍**。【指第三行】实际路程 ÷ 空路路程 = **2.23**，是 **224** 组计时的中位数，多出来的大部分是故障造成的。【指最后两行】所以实际路程 = 放慢倍数 × 空路路程 = **2.23 × 247 ≈ 551 拍**，名额 = 实际路程 ÷ 每台间隔 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **2.23 × 158 ÷ 38.5 ≈ 9.2**，得 **10**。",
+  "en": "【指第一行】 {For door 6:} door rate **500 ÷ 18.7 ≈ 26 robots** per 500 ticks (slide 8) **÷ 2 directions = 13** each way, so **500 ticks ÷ 13 robots ≈ 38.5 ticks** per robot. 【指第二行】 Free trip: **25 ticks** to the pickup plus the average from every far-side cell: **25 + 222 = 247 ticks** inward, **25 + 133 = 158** outward. 【指第三行】 Real trip ÷ free trip = **2.23**, the median of **224** timed trips{, mostly because of breakdowns}. 【指最后两行】 {So} real trip = slowdown × free trip = **2.23 × 247 ≈ 551 ticks**, and quota = real trip ÷ ticks per robot = **551 ÷ 38.5 ≈ 14.3**, rounded up to **15**; outward, **2.23 × 158 ÷ 38.5 ≈ 9.2**, so **10**.",
+  "zh": "【指第一行】门 6：过门速率 **500 ÷ 18.7 ≈ 26 台** / 500 拍（第 8 页）**÷ 2 个方向 = 13 台**，所以每个方向 **500 拍 ÷ 13 台 ≈ 38.5 拍**过一台。【指第二行】空地图上走到门口的时间 = 走到取货点的 **25 拍** + 门另一侧每一格到门口的平均时间：进左下 **25 + 222 = 247 拍**，出左下 **25 + 133 = 158 拍**。【指第三行】实际路程 ÷ 空路路程 = **2.23**，是 **224** 组计时的中位数，多出来的大部分是故障造成的。【指最后两行】所以实际路程 = 放慢倍数 × 空路路程 = **2.23 × 247 ≈ 551 拍**，名额 = 实际路程 ÷ 每台间隔 = **551 ÷ 38.5 ≈ 14.3**，向上取整得 **15**；出左下方向 **2.23 × 158 ÷ 38.5 ≈ 9.2**，得 **10**。",
   "foot": "Door rate 26: counted (slide 8: 1,175 ÷ 45); the two directions are about equal (620 in, 635 out in the same 5 runs); 2.23 = median of 224 timed cases with breakdowns, 1.33 = median of 54 without (round 40). Computed from the map: 247 / 158 = 25 ticks to the pickup (measured: median 21, mean 28) + average shortest time to the door. Formula: the last two rows.",
   "src": [
    [
