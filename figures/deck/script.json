@@ -169,13 +169,12 @@
   "time": "0:20",
   "title": "Robots jam at one narrow door",
   "figs": [
-   "图 3 第 3000 拍堵门截图"
+   "拥塞监测程序的画面（第 3000 拍；官方房间图 250 台，种子 9700 / 101，不控制门；和第 7、18 页是同一局；figures/deck/demo/monitor_style.py jam）"
   ],
   "hints": [
    "A week to write a monitoring program: replay tick by tick",
-   "Over time, many robots jam at one door (97 at tick 3,000 still heading through door 6)",
    "How did earlier work solve this?",
-   "For questions: 38% → 86% of orders left need door 6; 3.4–7.0 vs 26 crossings per 500 ticks"
+   "Monitor at tick 3,000: 144 robots stuck, jams at door 6 and doors 11, 16–18 (same run as slides 7, 18)"
   ],
   "en": "{To find out what was building up,} we spent **a week writing a monitoring program** to watch the replay **tick by tick**. {Watching the replays, we found that} as time goes on, **many robots jam at one door**. {So how did earlier work try to solve this?}",
   "zh": "为了找出在累积的是什么，我们**花了一周的时间写了一个监测程序**来**一拍一拍**地看回放。通过观看回放，我们发现随着时间的过去，**很多机器人会堵在一个门上**，那么前人是怎么优化这个问题的呢？",
@@ -191,7 +190,7 @@
     "key": "Over time: **many robots jam at one door**"
    }
   ],
-  "foot": "Counted in one replay (official map, 250 robots, no door control): at tick 3,000, 97 robots hold an order that must still cross door 6 into the lower-left. 1 week: from our work log.",
+  "foot": "Measured, one run (official map, 250 robots, seeds 9700 / 101, no door control), drawn by our congestion monitor at tick 3,000: 425 orders finished, 144 robots stuck; the same run as slides 7 and 18. 1 week: from our work log.",
   "src": [
    [
     "1 周",
@@ -200,16 +199,22 @@
     "项目日志"
    ],
    [
-    "97 台",
-    "第 3000 拍还拿着“要进左下、过门 6”的单的车",
-    "数出来的：一局回放（官方房间图 250 台，不控制门）的第 3000 拍",
-    "第三部分源稿 S9；`experiment-materials/网络协议方向/报告源/通读/数字核对表.md`（“第 3000 拍 420、778、97、13”）"
+    "425（图下）",
+    "这一局到第 3000 拍已完成的单数",
+    "实测：一局（官方房间图 250 台，种子 9700 / 101，不控制门），这次重新跑，结束时 609 单，和存档一致",
+    "`figures/deck/demo/jam_monitor.json`（脚本 `demo/monitor_style.py`，录像由 `demo/run_demo.py none` 生成）"
+   ],
+   [
+    "144（图下）",
+    "第 3000 拍卡住的车（接着单、12 拍以上没动）",
+    "数出来的（同一局、同一拍；和 demo_stats.json 的 stuck_at_3000 相同）",
+    "同上"
    ],
    [
     "第 3000 拍",
     "截图时刻",
-    "选定的时刻（一局 5000 拍的中段）",
-    "同上"
+    "选定的时刻（一局 5000 拍的中段），和第 7、18 页相同",
+    "—"
    ]
   ]
  },
@@ -1274,7 +1279,7 @@
   "time": "1:02",
   "title": "Two safety nets from the new maps",
   "figs": [
-   "窄门口拥堵图（演讲专用：随机门图 GenH，249 台，种子 11901 / 172，有无全图上限各跑一局；figures/deck/demo/narrow_spots.py）"
+   "窄门口拥堵图（拥塞监测程序的画法：随机门图 GenH，249 台，种子 11901 / 172，有无全图上限各跑一局，第 4471 拍；figures/deck/demo/monitor_style.py narrow）"
   ],
   "hints": [
    "Global cap: jams at narrow doorways (circled); no cap: all 249 hold orders, 818 orders; cap 177: 1277 (seeds 11901 / 172)",
@@ -1311,7 +1316,7 @@
     "818 / 1277",
     "没有 / 有全图上限时这一局的完成数",
     "实测，各一局（GenH，249 台，种子 11901 / 172）；和存档一致",
-    "`figures/deck/demo/narrow_spots.json`（脚本 `narrow_spots.py`）；`figures/part3/rerun/general_gen4x4.jsonl`"
+    "`figures/deck/demo/narrow_spots.json`（脚本 `narrow_spots.py`）；`figures/part3/rerun/general_gen4x4.jsonl`；画面 `figures/deck/demo/narrow_monitor.json`（脚本 `demo/monitor_style.py narrow`）"
    ],
    [
     "249 / 177 台",

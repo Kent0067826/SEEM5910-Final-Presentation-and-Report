@@ -1,0 +1,18 @@
+{
+ "tick": 4471,
+ "runs": {
+  "noGlobal": {
+   "orders": 818,
+   "stuck_now": 187,
+   "holding_orders_now": 249,
+   "jammed_doors": 4
+  },
+  "FULL": {
+   "orders": 1277,
+   "stuck_now": 97,
+   "holding_orders_now": 177,
+   "jammed_doors": 3
+  }
+ },
+ "doors_found": 28
+}

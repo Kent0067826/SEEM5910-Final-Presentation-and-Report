@@ -1,0 +1,15 @@
+{
+ "run": "official room map, 250 robots, seeds 9700 / 101, no door control (champion assignment + fixed executor)",
+ "tick": 3000,
+ "orders_finished": 425,
+ "stuck_robots": 144,
+ "stuck_within_5_steps_of_door6": 16,
+ "jammed_doors": [
+  6,
+  11,
+  16,
+  17,
+  18
+ ],
+ "final_orders": 609
+}

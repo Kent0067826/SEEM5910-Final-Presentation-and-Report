@@ -10,9 +10,9 @@
   "h": 863
  },
  "jam": {
-  "path": "figures/deck/b03_jam_v4.png",
-  "w": 974,
-  "h": 1010
+  "path": "figures/deck/fig_jam_monitor.png",
+  "w": 756,
+  "h": 886
  },
  "map": {
   "path": "figures/brief/e03_map_to_network.png",
@@ -151,8 +151,8 @@
  },
  "narrow": {
   "path": "figures/deck/fig_narrow_spots.png",
-  "w": 2040,
-  "h": 1080
+  "w": 1162,
+  "h": 678
  },
  "results": {
   "path": "figures/deck/fig_results_deck.png",
