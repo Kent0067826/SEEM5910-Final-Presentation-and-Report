@@ -1,6 +1,6 @@
 {
  "set": "main",
- "runs": 900,
+ "runs": 1020,
  "errors": 0,
  "variants": {
   "DF": {
@@ -365,6 +365,110 @@
     ],
     "new_rule_refused_per_run": 476.3,
     "new_rule_admitted_per_run": 295.117
+   }
+  },
+  "CUT1OFF": {
+   "n": 60,
+   "change_pct": -1.44,
+   "ci95_pct": [
+    -2.7,
+    -0.1
+   ],
+   "better": 17,
+   "worse": 41,
+   "equal": 2,
+   "worst_pct": -17.78,
+   "best_pct": 14.86,
+   "per_map": {
+    "room200": {
+     "orders": 1025.8,
+     "doorflow": 1036.5,
+     "change_pct": -1.03,
+     "better": 6
+    },
+    "room250": {
+     "orders": 1083.8,
+     "doorflow": 1104.5,
+     "change_pct": -1.78,
+     "better": 6
+    },
+    "room300": {
+     "orders": 1154.9,
+     "doorflow": 1175.3,
+     "change_pct": -1.52,
+     "better": 5
+    }
+   },
+   "door6": {
+    "crossings_per_run": 242.3,
+    "stuck_near_door_mean": 3.741,
+    "share_of_time_8plus_stuck": 0.088,
+    "counted_on_the_way": [
+     9.181,
+     13.344
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.618,
+     0.566
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
+   }
+  },
+  "CUT1X15": {
+   "n": 60,
+   "change_pct": -0.68,
+   "ci95_pct": [
+    -1.79,
+    0.43
+   ],
+   "better": 26,
+   "worse": 33,
+   "equal": 1,
+   "worst_pct": -17.79,
+   "best_pct": 13.56,
+   "per_map": {
+    "room200": {
+     "orders": 1026.6,
+     "doorflow": 1036.5,
+     "change_pct": -0.95,
+     "better": 8
+    },
+    "room250": {
+     "orders": 1100.9,
+     "doorflow": 1104.5,
+     "change_pct": -0.22,
+     "better": 10
+    },
+    "room300": {
+     "orders": 1163.0,
+     "doorflow": 1175.3,
+     "change_pct": -0.88,
+     "better": 8
+    }
+   },
+   "door6": {
+    "crossings_per_run": 244.167,
+    "stuck_near_door_mean": 3.785,
+    "share_of_time_8plus_stuck": 0.088,
+    "counted_on_the_way": [
+     9.231,
+     13.426
+    ],
+    "window": [
+     10,
+     15
+    ],
+    "share_of_time_window_full": [
+     0.617,
+     0.573
+    ],
+    "new_rule_refused_per_run": 0.0,
+    "new_rule_admitted_per_run": 0.0
    }
   },
   "DALPHA": {
