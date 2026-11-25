@@ -43,7 +43,7 @@ def main():
     by = {(r["map"], r["method"], r["seed"], r["pseed"]): r["completed"] for r in rows if "completed" in r}
     left = [("Door rule: one direction at a\ntime, serve a side until empty", "noDoor"), ("Per-door quota\n(door rate x trip time)", "noQuota"),
             ("Deadlock watchdog", "noWD"),
-            ("Global cap\n(rate x trip time)", "noGlobal")]
+            ("Global cap\n(whole-map window)", "noGlobal")]
     right = [("Door rule only", "onlyDoor"), ("Per-door quota only", "onlyQuota"), ("Global cap only", "onlyGlobal"),
              ("Everything on\n(full DoorFlow)", "FULL")]
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 4.3))
@@ -80,7 +80,8 @@ def main():
 def results():
     """Results slide: official starter program vs DoorFlow on the official room map, from the formal evaluation
     (r52b-baseline rows: DEF = official starter, LCAP = DoorFlow; 20 runs per robot count, paired by seed).
-    The average gain is the mean of the 60 paired run ratios (the report's +140.5%)."""
+    The average gain is the mean of the 60 paired run ratios (the report's +140.5%); the label over each pair of bars is the mean
+    of that robot count's 20 paired ratios, so the three labels average to the title's number."""
     rows = [json.loads(l) for l in open(R52B, encoding="utf-8") if l.strip()]
     acc, pair = {}, {}
     for r in rows:
@@ -97,11 +98,14 @@ def results():
         ax.bar(i + w / 2, b, width=w * 0.95, color=ORANGE, label="DoorFlow (ours)" if i == 0 else None)
         ax.text(i - w / 2, a + 15, f"{a:.0f}", ha="center", fontsize=10, color=INK)
         ax.text(i + w / 2, b + 15, f"{b:.0f}", ha="center", fontsize=10, color=INK, fontweight="bold")
-        ax.text(i, b + 105, f"+{(b / a - 1) * 100:.0f}%", ha="center", fontsize=11.5, color=ORANGE, fontweight="bold")
+        g = (st.mean(v["LCAP"] / v["DEF"] for k, v in pair.items() if k[0] == mp and len(v) == 2) - 1) * 100   # mean of this size's 20 paired ratios
+        ax.text(i, b + 105, f"+{g:.0f}%", ha="center", fontsize=11.5, color=ORANGE, fontweight="bold")
     ax.set_xticks(range(3)); ax.set_xticklabels([f"{m[4:]} robots" for m in OFFICIAL], fontsize=10.5)
     ax.set_ylabel("orders finished per run (5,000 ticks)", fontsize=9.5, color=INK2)
     ax.set_ylim(0, 1420)
     ax.legend(fontsize=9.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.09), ncol=2)
+    fig.text(0.5, -0.06, "Each % label: mean of that size's 20 same-seed ratios (DoorFlow ÷ starter); the three labels average to the title's number.",
+             ha="center", fontsize=8.6, color=INK2, style="italic")
     ax.set_title(f"Official room map, 20 runs per bar: on average +{avg:.1f}% over {len(ratios)} paired runs", fontsize=11, color=INK)
     style(ax)
     fig.savefig(os.path.join(ROOT, "figures", "deck", "fig_results_deck.png"), dpi=220, bbox_inches="tight", facecolor=SURF)

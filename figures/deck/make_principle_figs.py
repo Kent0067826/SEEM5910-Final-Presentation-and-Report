@@ -62,7 +62,7 @@ def bdp_principle(path):
     fig.text(0.1, 0.955, "How many robots should head for a door?", fontsize=12.5, fontweight="bold", color=INK)
     fig.text(0.1, 0.918, "Counting rule:  robots on the way = crossing rate x trip time   ($N = X\\cdot T$)",
              fontsize=10.5, color=INK)
-    fig.text(0.1, 0.034, "$C$: door rate per direction    $T_0$: trip time with no queue (breakdowns included)    theory sketch",
+    fig.text(0.1, 0.034, "$C$: door rate per direction    $T_0$: trip time while the door has no queue (door 6: 2.23 x free trip, measured)    theory sketch",
              fontsize=7.8, color=GREY, style="italic")
     fig.text(0.1, 0.008, "The counting rule $N = X\\cdot T$ is known in queueing theory as Little's law.",
              fontsize=7.8, color=GREY, style="italic")
@@ -78,7 +78,7 @@ def quota_fig(path):
         fig.text(0.05, 0.52, r"$K = \lceil\, \alpha \, T \, \dfrac{C}{2} \,\rceil = \lceil\, 2.23 \times \dfrac{247}{500} \times 13 \,\rceil = \lceil 14.3 \rceil = 15$",
                  fontsize=15, color="#111827", va="center")
         for i, line in enumerate(["inbound T = 247 ticks -> 15 robots;  outbound T = 158 ticks -> 10 robots",
-                                  "T = travel time to the door;  C/2 = 13 robots per 500 ticks per direction;  alpha = 2.23 slowdown from breakdowns"]):
+                                  "T = free trip to the door;  C/2 = 13 robots per 500 ticks per direction;  alpha = 2.23 measured slowdown"]):
             fig.text(0.05, 0.20 - i * 0.12, line, fontsize=9.5, color="#4b5563")
         fig.savefig(path, facecolor="white", bbox_inches="tight", pad_inches=0.15)
         plt.close(fig)

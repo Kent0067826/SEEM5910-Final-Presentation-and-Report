@@ -1,0 +1,43 @@
+{
+ "free_trip": {
+  "model": "reverse Dijkstra over (cell, heading), move or 90-degree turn = 3 ticks, mean over all free cells of a side",
+  "inward_from_far_side": 225.3,
+  "outward_from_lower_left": 137.9,
+  "leg1": 25,
+  "T_inward": 250.3,
+  "T_outward": 162.9,
+  "cells_far": 2733,
+  "cells_lower_left": 912,
+  "planner_uses": {
+   "inward": 247,
+   "outward": 158
+  }
+ },
+ "breakdowns": {
+  "config": {
+   "seed": 9700,
+   "minDelay": 10,
+   "maxDelay": 30,
+   "eventModel": "poisson",
+   "pDelay": 0.01,
+   "durationModel": "uniform",
+   "gaussMeanRatio": 0.5,
+   "gaussStdRatio": 0.22
+  },
+  "robots": 250,
+  "new_per_tick": 2.5,
+  "mean_duration": 20.0,
+  "share_stopped": 0.2,
+  "slowdown_alone": 1.25,
+  "measured_alpha": 2.23
+ },
+ "door_rate": {
+  "runs": 5,
+  "ticks": 25000,
+  "crossings": 1255,
+  "per_500": 25.1,
+  "into_lower_left": 620,
+  "out_of_lower_left": 635,
+  "planner_uses_per_500": 26
+ }
+}

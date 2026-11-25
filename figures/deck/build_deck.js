@@ -1,4 +1,4 @@
-// Build the 15-minute, 4-speaker deck (23 slides): DoorFlow. Every slide shows its own English speech (read-along panel).
+// Build the 15-minute, 4-speaker deck (24 slides): DoorFlow. Every slide shows its own English speech (read-along panel).
 // Run from the repo root:  NODE_PATH=<dir with pptxgenjs> node figures/deck/build_deck.js
 const path = require("path");
 const fs = require("fs");
@@ -6,7 +6,7 @@ const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
 
 const ROOT = path.resolve(__dirname, "../..");
-const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v29.pptx");
+const OUT = path.join(ROOT, process.env.DECK_OUT || "SEEM5910_演讲PPT_v30.pptx");
 const IMG = JSON.parse(fs.readFileSync(path.join(__dirname, "images.json"), "utf8"));
 const SCRIPT = JSON.parse(fs.readFileSync(path.join(__dirname, "script.json"), "utf8"));
 
@@ -141,8 +141,8 @@ const cue = (t) => t.replace(/【[^】]*】\s*/g, "").replace(/\{[^}]*\}\s*/g, "
   .replace(/^(\**)([a-z])/, (m, a, b) => a + b.toUpperCase()).replace(/([.!?]\s+)(\**)([a-z])/g, (m, a, b, c) => a + b + c.toUpperCase());
 const say = (s, idx) => (idx || s.segs.map((_, i) => i)).map((i) => cue(s.segs[i].en)).filter((p) => p);
 const oneP = (a) => [a.join(" ")];
-function estLines(t, w, sz) {   // greedy word wrap, Calibri ~0.52 em per character (conservative)
-  const cpl = Math.max(8, Math.floor((w * 72 * 0.93) / (sz * 0.52)));
+function estLines(t, w, sz, em = 0.52) {   // greedy word wrap, ~0.52 em per character (conservative)
+  const cpl = Math.max(8, Math.floor((w * 72 * 0.93) / (sz * em)));
   let lines = 1, cur = 0;
   t.replace(/\*\*/g, "").split(/\s+/).forEach((wd) => {
     const L = wd.length + (cur ? 1 : 0);
@@ -150,9 +150,9 @@ function estLines(t, w, sz) {   // greedy word wrap, Calibri ~0.52 em per charac
   });
   return lines;
 }
-function fitSize(paras, w, h, max = 18, min = 11, gap = 6) {
+function fitSize(paras, w, h, max = 18, min = 11, gap = 6, em = 0.52) {
   for (let sz = max; sz >= min; sz -= 0.5) {
-    const n = paras.reduce((a, p) => a + estLines(p, w, sz), 0);
+    const n = paras.reduce((a, p) => a + estLines(p, w, sz, em), 0);
     if ((n * sz * 1.2 + (paras.length - 1) * gap) / 72 <= h) return sz;
   }
   return min;
@@ -160,12 +160,12 @@ function fitSize(paras, w, h, max = 18, min = 11, gap = 6) {
 const FIT = [];   // [slide no., font size] of every read panel, printed at the end
 // panel with the speech text; a thin orange bar on the left marks "read this"
 function readPanel(slide, s, paras, x, y, w, h, o = {}) {
-  const { max = 18, min = 11, fill = "F4F7F8", color = C.text1, bold = C.text2, valign = "top", pad = 0.2 } = o;
+  const { max = 18, min = 11, fill = "F4F7F8", color = C.text1, bold = C.text2, valign = "top", pad = 0.2, em = 0.52 } = o;   // em: lower it only where the render shows slack
   const pd = fill ? pad : 0;
   if (fill) card(slide, x, y, w, h, fill);
   slide.addShape(pres.shapes.RECTANGLE, { x: x + (fill ? 0 : -0.2), y: y + 0.12, w: 0.06, h: h - 0.24, fill: { color: C.accent1 }, line: { color: C.accent1, width: 0 }, objectName: "read-bar" });
   const tx = x + pd + 0.1, iw = w - 2 * pd - 0.1, ih = h - 2 * pd;
-  const sz = fitSize(paras, iw, ih, max, min);
+  const sz = fitSize(paras, iw, ih, max, min, 6, em);
   const runs = [];
   paras.forEach((p, i) => {
     const r = md(p, color, bold);
@@ -343,9 +343,33 @@ section(1);
   readPanel(slide, s, say(s), 7.1, 1.3, 5.65, 5.65, { max: 18 });
 }
 
-// ---------- 11 the quota for each door ----------
+// ---------- 11 door 6's window, number by number ----------
 {
   const s = S(11); const slide = content(s);
+  const X = [M, M + 3.35, M + 5.4], CW = [3.25, 1.95, 1.95], y0 = 1.3, rh = 0.72;
+  ["", "Into the lower-left", "Out of it"].forEach((h, j) =>
+    slide.addText(h, { x: X[j] + 0.1, y: y0, w: CW[j] - 0.15, h: 0.36, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true, valign: "bottom" }));
+  const rows = [
+    ["**Door rate**, each way\nmeasured: 13 per 500 ticks", "500 ÷ 13 ≈ **38.5**\nticks per robot", "500 ÷ 13 ≈ **38.5**\nticks per robot"],
+    ["**Free trip** to the door\ncomputed from the map", "**247** ticks", "**158** ticks"],
+    ["**Slowdown**\nmeasured (breakdowns alone × 1.25)", "× **2.23**", "× **2.23**"],
+    ["**Real trip**", "2.23 × 247 ≈ **551**", "2.23 × 158 ≈ **352**"],
+    ["**Window**, rounded up", "551 ÷ 38.5 ≈ 14.3 → **15**", "352 ÷ 38.5 ≈ 9.2 → **10**"],
+  ];
+  rows.forEach((row, i) => {
+    const y = y0 + 0.45 + i * (rh + 0.06);
+    row.forEach((txt, j) => {
+      card(slide, X[j], y, CW[j], rh, j === 0 ? C.background2 : C.accent6);
+      para(slide, txt, X[j] + 0.12, y, CW[j] - 0.2, rh, j === 0 ? 13 : 13.5, C.text1, j ? C.accent2 : C.text2, "middle");
+    });
+  });
+  caption(slide, "The planner prints the same values for door 6 (free trip 247 / 158, window 15 / 10). Recompute: figures/deck/demo/door6_numbers.py", M, y0 + 0.45 + 5 * (rh + 0.06) + 0.05, 7.35);
+  readPanel(slide, s, say(s), 8.15, 1.3, 4.6, 5.62, { max: 18 });
+}
+
+// ---------- 12 the quota for each door ----------
+{
+  const s = S(12); const slide = content(s);
   addImg(slide, "knee", M, 1.3, 7.3, 3.35, "left");
   caption(slide, "Measured: red = no door control, blue = with the quota. Each dot is one 500-tick window.", M, 4.68, 7.3);
   card(slide, M, 5.05, 7.3, 1.85, C.background1);
@@ -353,9 +377,9 @@ section(1);
   readPanel(slide, s, say(s), 8.1, 1.3, 4.65, 5.65, { max: 18 });
 }
 
-// ---------- 12 one direction at a time (panel A) ----------
+// ---------- 13 one direction at a time (panel A) ----------
 {
-  const s = S(12); const slide = content(s);
+  const s = S(13); const slide = content(s);
   addImg(slide, "doorA", M, 1.3, 6.6, 4.95, "left");
   slide.addText("Rule: serve one side; when no robot of this side is within 8 cells and the other side waits, stop letting this side in; once the door and this side's 4-cell buffer are empty, switch. Robots held by the rule get the lowest priority.", { x: M, y: 6.3, w: 6.6, h: 0.62, fontSize: 10.5, italic: true, color: C.accent4, margin: 0, isTextBox: true, valign: "top" });
   readPanel(slide, s, say(s), 7.45, 1.3, 5.3, 3.3, { max: 20 });
@@ -364,9 +388,9 @@ section(1);
   para(slide, "this rule alone, on **17 room-map instances**", 7.7, 5.85, 4.8, 0.9, 15);
 }
 
-// ---------- 13 how long does the door take (measured) ----------
+// ---------- 14 how long does the door take (measured) ----------
 {
-  const s = S(13); const slide = content(s);
+  const s = S(14); const slide = content(s);
   addImg(slide, "timing", M, 1.35, 7.6, 3.2, "left");
   [["1,255", "crossings of door 6 timed\nin 5 runs, 250 robots"], ["10 ticks", "median gap, same direction\n(mostly 6 or 9 = 2 or 3 moves)"], ["34 ticks", "median gap when the door\nswitches direction"]].forEach(([b, l], i) => {
     const x = M + i * 2.55;
@@ -376,23 +400,23 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18 });
 }
 
-// ---------- 14 serve one side until it is empty ----------
+// ---------- 15 serve one side until it is empty ----------
 {
-  const s = S(14); const slide = content(s);
+  const s = S(15); const slide = content(s);
   addImg(slide, "utilC", M, 1.3, 6.6, 5.65);
   readPanel(slide, s, say(s), 7.4, 1.3, 5.35, 5.65, { max: 18 });
 }
 
-// ---------- 15 how big should the buffer be (panels B, C) ----------
+// ---------- 16 how big should the buffer be (panels B, C) ----------
 {
-  const s = S(15); const slide = content(s);
+  const s = S(16); const slide = content(s);
   addImg(slide, "doorBC", M, 1.3, 7.1, 5.65, "left");
   readPanel(slide, s, say(s), 7.95, 1.3, 4.8, 5.65, { max: 18 });
 }
 
-// ---------- 16 pseudocode ----------
+// ---------- 17 pseudocode ----------
 {
-  const s = S(16); const slide = content(s);
+  const s = S(17); const slide = content(s);
   card(slide, M, 1.35, 8.4, 5.55, "16212B");
   // "~" = safety-net line (grey); text after "#" = comment
   code(slide, [
@@ -420,17 +444,17 @@ section(1);
   readPanel(slide, s, say(s), 9.15, 1.35, 3.6, 5.55, { max: 17 });
 }
 
-// ---------- 17 the hardest part + demo ----------
+// ---------- 18 the hardest part + demo ----------
 {
-  const s = S(17); const slide = content(s);
+  const s = S(18); const slide = content(s);
   readPanel(slide, s, say(s), M, 1.3, 5.0, 5.65, { max: 18 });
   addImg(slide, "demo", 5.85, 1.3, 6.9, 4.07);
   para(slide, "**The same congestion monitor, on our own code.** Official room map, 250 robots, one run. Red dot = robot holding an order that has not moved for 12+ ticks; glowing door = jam. Left: no door control, **609** orders. Right: DoorFlow, **1,130** orders.", 5.85, 5.5, 6.9, 1.3, 12, C.accent4, C.text2);
 }
 
-// ---------- 18 random-door maps ----------
+// ---------- 19 random-door maps ----------
 {
-  const s = S(18); const slide = content(s);
+  const s = S(19); const slide = content(s);
   addImg(slide, "gen", M, 1.3, 7.6, 3.6, "left");
   card(slide, M, 5.05, 7.6, 1.85, C.accent6);
   slide.addText("+86.9%", { x: M + 0.3, y: 5.2, w: 3.0, h: 0.9, fontSize: 40, bold: true, color: C.accent2, fontFace: THEME.headFontFace, margin: 0, isTextBox: true });
@@ -438,40 +462,40 @@ section(1);
   readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 19 });
 }
 
-// ---------- 19 two safety nets (narrow doorways) ----------
+// ---------- 20 two safety nets (narrow doorways) ----------
 {
-  const s = S(19); const slide = content(s);
+  const s = S(20); const slide = content(s);
   addImg(slide, "narrow", M, 1.3, 7.6, 4.05, "left");
-  [["Safety net 1 · Global cap", "Robots holding orders ≤ **rate × trip time**: **138** on the official map, **177** on this map."],
+  [["Safety net 1 · Global cap", "Official map: **1.76 × 69.2 ÷ 500 × 2.23 × 255 ≈ 138.5 → 138**. This map: **177**.\n69.2: most orders per 500 ticks · 255: free ticks per order (25 + 230) · 1.76: from a sweep"],
    ["Safety net 2 · Watchdog", "Waited **300 ticks** and nobody entered its door → skip the door rule for one tick. **Never drop a robot.**"]].forEach(([a, b], i) => {
     const x = M + i * 3.85;
     card(slide, x, 5.45, 3.75, 1.45, C.accent6);
     slide.addText(a, { x: x + 0.2, y: 5.5, w: 3.4, h: 0.38, fontSize: 14, bold: true, color: C.text2, margin: 0, isTextBox: true });
-    para(slide, b, x + 0.2, 5.9, 3.4, 0.95, 12.5);
+    para(slide, b, x + 0.2, 5.88, 3.4, 1.0, i ? 12.5 : 11);
   });
-  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18 });
+  readPanel(slide, s, say(s), 8.45, 1.3, 4.3, 5.6, { max: 18, em: 0.46 });   // the render left a quarter of the panel empty at 0.52
 }
 
-// ---------- 20 results ----------
+// ---------- 21 results ----------
 {
-  const s = S(20); const slide = content(s);
+  const s = S(21); const slide = content(s);
   bigStat(slide, M, 1.5, 3.4, "+140.5%", "more orders than the official starter program", C.accent3, 40);
   bigStat(slide, M, 3.1, 3.4, "60 runs", "official room map: 200 / 250 / 300 robots, 20 runs each", C.accent2, 34);
   addImg(slide, "results", 4.3, 1.3, 8.45, 4.2);
   readPanel(slide, s, oneP(say(s)), M, 5.65, 12.15, 1.28, { max: 20, pad: 0.15 });
 }
 
-// ---------- 21 what matters ----------
+// ---------- 22 what matters ----------
 {
-  const s = S(21); const slide = content(s);
+  const s = S(22); const slide = content(s);
   addImg(slide, "ablD", M, 1.3, 12.15, 3.85);
   caption(slide, "Re-test on the official room map: 600 runs, one part removed or added at a time", M, 5.18, 12);
   readPanel(slide, s, oneP(say(s)), M, 5.6, 12.15, 1.32, { max: 18, pad: 0.15 });
 }
 
-// ---------- 22 lessons ----------
+// ---------- 23 lessons ----------
 {
-  const s = S(22); const slide = content(s);
+  const s = S(23); const slide = content(s);
   const t = say(s);   // intro + one sentence per card
   para(slide, t[0], M, 1.3, 12.15, 0.45, 17);
   for (let i = 0; i < 5; i++) {
@@ -482,9 +506,9 @@ section(1);
   caption(slide, "From all versions on slide 6; numbers from report, section 9.", M, 6.9, 11);
 }
 
-// ---------- 23 conclusion ----------
+// ---------- 24 conclusion ----------
 {
-  const s = S(23);
+  const s = S(24);
   const slide = pres.addSlide({ masterName: "DARK", sectionTitle: "Speaker 4" });
   slide.addText(s.title, { placeholder: "title" });
   const t = say(s);   // four points, then thanks ("To conclude." is said, not shown)
